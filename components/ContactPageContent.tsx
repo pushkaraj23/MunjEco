@@ -59,13 +59,12 @@ export function ContactPageContent() {
         <div className="grid gap-10 lg:grid-cols-2 lg:gap-16">
           {/* Left - Contact info glass card */}
           <motion.div
-            style={{ y: leftY }}
+            style={{ y: leftY, boxShadow: "0 0 60px -15px rgba(162,183,154,0.2)" }}
             initial={{ opacity: 0, y: 28 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
             className="relative overflow-hidden rounded-3xl border border-white/20 bg-black/30 px-6 py-10 backdrop-blur-2xl md:rounded-[2rem] md:px-10 md:py-12"
-            style={{ boxShadow: "0 0 60px -15px rgba(162,183,154,0.2)" }}
           >
             <div className="absolute left-0 top-0 h-1 w-24 rounded-r-full bg-pistache/50" />
             <div className="absolute right-0 bottom-0 h-1 w-28 rounded-l-full bg-chai/40" />
