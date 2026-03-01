@@ -3,6 +3,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
+import { adminLogout } from "@/app/actions/adminAuth";
+import { LogOut } from "lucide-react";
 
 const navItems = [
   { href: "/admin", label: "Dashboard" },
@@ -48,6 +50,17 @@ export function AdminNav() {
             </Link>
           );
         })}
+        <div className="mt-6 border-t border-almond pt-4">
+          <form action={adminLogout}>
+            <button
+              type="submit"
+              className="flex w-full items-center gap-2 rounded-2xl px-4 py-3 text-sm font-medium text-foreground-muted transition-all hover:bg-chai/10 hover:text-carob"
+            >
+              <LogOut className="h-4 w-4" />
+              Log Out
+            </button>
+          </form>
+        </div>
       </nav>
     </aside>
   );

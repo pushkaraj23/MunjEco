@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -19,6 +20,11 @@ export function ProductGallery({ name, images }: Props) {
 
   const [index, setIndex] = useState(0);
   const [fullscreen, setFullscreen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     if (safeImages.length <= 1) return;
@@ -75,7 +81,8 @@ export function ProductGallery({ name, images }: Props) {
 
   return (
     <div className="space-y-4">
-      <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-almond bg-surface shadow-card">
+      <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-white/20 bg-black/30 shadow-[0_0_50px_-15px_rgba(200,107,59,0.15)] backdrop-blur-sm md:rounded-[2rem]">
+        <div className="absolute left-0 top-0 z-10 h-1 w-16 rounded-r-full bg-terracotta/50" />
         <AnimatePresence mode="wait">
           <motion.div
             key={current}
@@ -111,7 +118,7 @@ export function ProductGallery({ name, images }: Props) {
                 e.stopPropagation();
                 prev();
               }}
-              className="absolute left-3 top-1/2 z-10 -translate-y-1/2 rounded-full bg-carob/70 px-2 py-1 text-xs text-white shadow-md hover:bg-carob"
+              className="absolute left-3 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/20 bg-black/50 px-2.5 py-1.5 text-xs text-white shadow-lg backdrop-blur-sm transition-all hover:border-terracotta/50 hover:bg-terracotta/40"
               aria-label="Previous image"
             >
               ‹
@@ -122,7 +129,7 @@ export function ProductGallery({ name, images }: Props) {
                 e.stopPropagation();
                 next();
               }}
-              className="absolute right-3 top-1/2 z-10 -translate-y-1/2 rounded-full bg-carob/70 px-2 py-1 text-xs text-white shadow-md hover:bg-carob"
+              className="absolute right-3 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/20 bg-black/50 px-2.5 py-1.5 text-xs text-white shadow-lg backdrop-blur-sm transition-all hover:border-terracotta/50 hover:bg-terracotta/40"
               aria-label="Next image"
             >
               ›
@@ -142,8 +149,8 @@ export function ProductGallery({ name, images }: Props) {
                 }}
                 className={`h-1.5 w-5 rounded-full transition-all ${
                   i === index
-                    ? "bg-matcha shadow-[0_0_10px_rgba(128,150,113,0.7)]"
-                    : "bg-white/60 hover:bg-white"
+                    ? "bg-terracotta shadow-[0_0_10px_rgba(200,107,59,0.6)]"
+                    : "bg-white/50 hover:bg-white/80"
                 }`}
                 aria-label={`Go to image ${i + 1}`}
               />
@@ -159,8 +166,8 @@ export function ProductGallery({ name, images }: Props) {
               key={img + i}
               type="button"
               onClick={() => openFullscreen(i)}
-              className={`relative h-20 w-28 shrink-0 overflow-hidden rounded-2xl border cursor-zoom-in ${
-                i === index ? "border-matcha shadow-card" : "border-almond"
+              className={`relative h-20 w-28 shrink-0 overflow-hidden rounded-2xl border cursor-zoom-in transition-all ${
+                i === index ? "border-terracotta ring-2 ring-terracotta/30 shadow-[0_0_20px_rgba(200,107,59,0.2)]" : "border-white/20 hover:border-white/40"
               }`}
             >
               <Image
@@ -175,19 +182,21 @@ export function ProductGallery({ name, images }: Props) {
         </div>
       )}
 
-      <AnimatePresence>
-        {fullscreen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-carob/95 backdrop-blur-sm"
-            onClick={() => setFullscreen(false)}
-          >
+      {mounted &&
+        createPortal(
+          <AnimatePresence>
+            {fullscreen && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/95 backdrop-blur-xl"
+                onClick={() => setFullscreen(false)}
+              >
             <button
               type="button"
               onClick={() => setFullscreen(false)}
-              className="absolute right-4 top-4 z-10 rounded-full bg-white/20 p-2 text-white hover:bg-white/30"
+              className="absolute right-4 top-4 z-10 rounded-full border border-white/20 bg-black/50 p-2.5 text-white backdrop-blur-sm transition-all hover:border-terracotta/50 hover:bg-terracotta/30"
               aria-label="Close"
             >
               <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -203,7 +212,7 @@ export function ProductGallery({ name, images }: Props) {
                     e.stopPropagation();
                     prev();
                   }}
-                  className="absolute left-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/20 p-3 text-white hover:bg-white/30"
+                  className="absolute left-4 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/20 bg-black/50 p-3 text-white backdrop-blur-sm transition-all hover:border-terracotta/50 hover:bg-terracotta/30"
                   aria-label="Previous"
                 >
                   <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -216,7 +225,7 @@ export function ProductGallery({ name, images }: Props) {
                     e.stopPropagation();
                     next();
                   }}
-                  className="absolute right-4 top-1/2 z-10 -translate-y-1/2 rounded-full bg-white/20 p-3 text-white hover:bg-white/30"
+                  className="absolute right-4 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/20 bg-black/50 p-3 text-white backdrop-blur-sm transition-all hover:border-terracotta/50 hover:bg-terracotta/30"
                   aria-label="Next"
                 >
                   <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -256,9 +265,11 @@ export function ProductGallery({ name, images }: Props) {
                 </div>
               )}
             </div>
-          </motion.div>
+              </motion.div>
+            )}
+          </AnimatePresence>,
+          document.body
         )}
-      </AnimatePresence>
     </div>
   );
 }

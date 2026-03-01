@@ -6,7 +6,7 @@ html {
 }
 
 :root {
-  /* Studio Fleur palette */
+  /* Studio Fleur + Indian art palette */
   --color-matcha: #809671;
   --color-almond: #E5E0D8;
   --color-pistache: #A2B79A;
@@ -19,6 +19,14 @@ html {
   --color-sage-dark: #8D9C86;
   --color-cream: #F8F7F0;
   --color-cream-warm: #F5F5ED;
+
+  /* Indian art accents */
+  --color-terracotta: #C86B3B;
+  --color-indigo: #4A5568;
+  --color-turmeric: #D4A037;
+  --color-saffron: #FF9933;
+  --color-madhubani: #8B4513;
+  --color-blockprint: #5C4033;
 }
 
 @theme inline {
@@ -55,6 +63,8 @@ html {
   --color-accent: #D2AB80;
   --color-mint: #A2B79A;
   --color-white: #FFFFFF;
+  --color-terracotta: #C86B3B;
+  --color-turmeric: #D4A037;
 }
 
 /* Bokeh / soft orbs background */
@@ -87,19 +97,35 @@ html {
   pointer-events: none;
 }
 
-/* Glassmorphism - light */
-.glass {
-  background: rgba(255, 255, 255, 0.6);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(229, 224, 216, 0.8);
+/* Text contrast on hero / dark backgrounds - crisp legibility */
+.text-contrast-light {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.4), 0 0 1px rgba(0, 0, 0, 0.8);
 }
 
-.glass-warm {
-  background: rgba(245, 245, 237, 0.7);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(210, 171, 128, 0.2);
+.text-contrast-strong {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6), 0 4px 12px rgba(0, 0, 0, 0.5), 0 0 1px rgba(0, 0, 0, 1);
+}
+
+.text-contrast-subtle {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5), 0 0 1px rgba(0, 0, 0, 0.9);
+}
+
+/* Green gradient backgrounds */
+/* Green gradient backgrounds for glass to show through */
+.bg-green-canvas {
+  background: linear-gradient(160deg, #5a6b4f 0%, #4a5a3f 25%, #3d4d35 50%, #2d3d28 100%);
+}
+
+.bg-green-soft {
+  background: linear-gradient(180deg, #7a8a6e 0%, #5a6b4f 40%, #4a5a3f 100%);
+}
+
+.bg-green-page {
+  background: linear-gradient(180deg, #6b7c60 0%, #5a6b4f 20%, #4d5d42 50%, #3f4f36 80%, #354530 100%);
+}
+
+.bg-green-muted {
+  background: linear-gradient(180deg, #809671 0%, #6b7c60 50%, #5a6b4f 100%);
 }
 
 /* Soft glows */
@@ -109,6 +135,34 @@ html {
 
 .glow-soft {
   box-shadow: 0 8px 40px rgba(114, 92, 58, 0.08);
+}
+
+/* Hero glows - luminous, premium */
+.glow-hero {
+  box-shadow: 0 0 80px rgba(128, 150, 113, 0.25), 0 0 120px rgba(128, 150, 113, 0.1);
+}
+
+.glow-card {
+  box-shadow: 0 0 40px rgba(255, 255, 255, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+/* Gradient overlays for hero background image - darker for text contrast */
+.gradient-hero-overlay {
+  background: linear-gradient(
+    135deg,
+    rgba(25, 38, 28, 0.92) 0%,
+    rgba(35, 50, 38, 0.8) 35%,
+    rgba(30, 45, 32, 0.75) 60%,
+    rgba(20, 32, 24, 0.9) 100%
+  );
+}
+
+.gradient-hero-vignette {
+  background: radial-gradient(
+    ellipse 90% 60% at 50% 50%,
+    transparent 0%,
+    rgba(0, 0, 0, 0.4) 100%
+  );
 }
 
 /* Soft shadows - warm, diffused */
@@ -137,4 +191,110 @@ body {
 
 .font-display {
   font-family: var(--font-fredoka), system-ui, sans-serif;
+}
+
+.font-heading {
+  font-family: var(--font-playfair), Georgia, serif;
+}
+
+/* Indian art patterns - block print / rangoli inspired */
+.pattern-indian-border {
+  background-image: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 8px,
+    rgba(114, 92, 58, 0.08) 8px,
+    rgba(114, 92, 58, 0.08) 10px
+  );
+}
+
+.pattern-dot-rangoli {
+  background-image: radial-gradient(
+    circle at 2px 2px,
+    rgba(128, 150, 113, 0.15) 1px,
+    transparent 0
+  );
+  background-size: 12px 12px;
+}
+
+.pattern-dot-terracotta {
+  background-image: radial-gradient(
+    circle at 2px 2px,
+    rgba(200, 107, 59, 0.12) 1px,
+    transparent 0
+  );
+  background-size: 12px 12px;
+}
+
+.pattern-paisley-subtle {
+  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 2c2 4 6 6 10 6s8-2 10-6' fill='none' stroke='%23809671' stroke-width='0.3' stroke-opacity='0.15'/%3E%3Cpath d='M20 38c-2-4-6-6-10-6s-8 2-10 6' fill='none' stroke='%23809671' stroke-width='0.3' stroke-opacity='0.15'/%3E%3C/svg%3E");
+}
+
+.pattern-jali {
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 4h4v4H4zm8 0h4v4h-4zm0 8h4v4h-4zm-8 0h4v4H4z' fill='%23809671' fill-opacity='0.04'/%3E%3C/svg%3E");
+}
+
+/* Decorative border - Warli / Madhubani inspired */
+.border-indian {
+  position: relative;
+}
+.border-indian::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 2px solid transparent;
+  border-image: linear-gradient(
+    135deg,
+    rgba(128, 150, 113, 0.4),
+    rgba(210, 171, 128, 0.3),
+    rgba(128, 150, 113, 0.4)
+  ) 1;
+  border-radius: inherit;
+  pointer-events: none;
+}
+
+/* Indian art section accents - rotate colors per section */
+.accent-matcha { --accent: var(--color-matcha); --accent-glow: rgba(128, 150, 113, 0.25); }
+.accent-pistache { --accent: var(--color-pistache); --accent-glow: rgba(162, 183, 154, 0.25); }
+.accent-terracotta { --accent: var(--color-terracotta); --accent-glow: rgba(200, 107, 59, 0.3); }
+.accent-chai { --accent: var(--color-chai); --accent-glow: rgba(210, 171, 128, 0.25); }
+.accent-turmeric { --accent: var(--color-turmeric); --accent-glow: rgba(212, 160, 55, 0.3); }
+
+/* Rangoli-style divider - dotted line */
+.divider-rangoli {
+  height: 1px;
+  background-image: radial-gradient(circle, currentColor 1px, transparent 1px);
+  background-size: 8px 1px;
+  background-repeat: repeat-x;
+}
+
+/* Block print accent line */
+.accent-line-left {
+  position: relative;
+}
+.accent-line-left::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 4px;
+  width: 48px;
+  border-radius: 0 4px 4px 0;
+  background: linear-gradient(90deg, var(--accent, var(--color-matcha)), transparent);
+  opacity: 0.7;
+}
+
+/* Paisley corner flourish */
+.corner-flourish {
+  position: relative;
+}
+.corner-flourish::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle at top right, rgba(128, 150, 113, 0.12) 0%, transparent 70%);
+  pointer-events: none;
 }

@@ -41,7 +41,7 @@ export function ProductsClient({ categories }: ProductsClientProps) {
           className={`rounded-xl px-4 py-2.5 text-sm font-medium transition-all duration-300 ${
             !current
               ? "border border-pistache/50 bg-pistache/30 text-white shadow-[0_0_20px_rgba(162,183,154,0.2)]"
-              : "border border-white/25 bg-white/10 text-white hover:border-pistache/40 hover:bg-pistache/20 hover:text-white"
+              : "border border-white/20 bg-white/5 text-white/85 hover:border-pistache/40 hover:bg-pistache/15 hover:text-white"
           }`}
         >
           All
@@ -54,7 +54,7 @@ export function ProductsClient({ categories }: ProductsClientProps) {
             className={`rounded-xl px-4 py-2.5 text-sm font-medium transition-all duration-300 ${
               current === cat
                 ? "border border-pistache/50 bg-pistache/30 text-white shadow-[0_0_20px_rgba(162,183,154,0.2)]"
-                : "border border-white/25 bg-white/10 text-white hover:border-pistache/40 hover:bg-pistache/20 hover:text-white"
+                : "border border-white/20 bg-white/5 text-white/85 hover:border-pistache/40 hover:bg-pistache/15 hover:text-white"
             }`}
           >
             {cat}
@@ -62,13 +62,13 @@ export function ProductsClient({ categories }: ProductsClientProps) {
         ))}
       </div>
       <div className="relative">
-        <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-white/70" strokeWidth={1.5} />
+        <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-white/50" strokeWidth={1.5} />
         <input
           type="search"
           placeholder="Search products..."
           value={q}
           onChange={(e) => setSearch(e.target.value)}
-          className="w-full rounded-xl border border-white/25 bg-white/10 py-2.5 pl-10 pr-4 text-white placeholder-white/60 outline-none backdrop-blur-sm transition-all duration-300 focus:border-pistache/50 focus:ring-2 focus:ring-pistache/25 focus:ring-offset-0 focus:ring-offset-transparent sm:w-64"
+          className="w-full rounded-xl border border-white/20 bg-white/5 py-2.5 pl-10 pr-4 text-white placeholder-white/40 outline-none backdrop-blur-sm transition-all duration-300 focus:border-pistache/50 focus:ring-2 focus:ring-pistache/25 focus:ring-offset-0 focus:ring-offset-transparent sm:w-64"
         />
       </div>
     </div>

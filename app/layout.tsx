@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import { Fredoka, Nunito } from "next/font/google";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
+import { Fredoka, Nunito, Playfair_Display } from "next/font/google";
+import { LayoutShell } from "@/components/LayoutShell";
 import "./globals.css";
 
 const fredoka = Fredoka({
@@ -12,6 +11,12 @@ const fredoka = Fredoka({
 
 const nunito = Nunito({
   variable: "--font-nunito",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+});
+
+const playfair = Playfair_Display({
+  variable: "--font-playfair",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
@@ -30,11 +35,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${fredoka.variable} ${nunito.variable} antialiased`}
+        className={`${fredoka.variable} ${nunito.variable} ${playfair.variable} antialiased`}
       >
-        <Navbar />
-        {children}
-        <Footer />
+        <LayoutShell>{children}</LayoutShell>
       </body>
     </html>
   );
