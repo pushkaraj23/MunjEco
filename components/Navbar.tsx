@@ -178,8 +178,8 @@ export function Navbar() {
         transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
         className={`fixed left-4 right-4 top-4 z-50 mx-auto max-w-6xl transition-all duration-300 md:left-8 md:right-8 md:top-6 ${
           scrolled
-            ? "rounded-2xl md:rounded-full border border-emerald-500/30 bg-emerald-950/80 shadow-2xl shadow-emerald-900/30"
-            : "rounded-2xl md:rounded-full border border-emerald-500/20 bg-emerald-950/60"
+            ? "rounded-2xl md:rounded-full border border-emerald-500/30 bg-gradient-to-bl from-[#d1f996] via-[#bfedcf] to-[#ffffff] shadow-2xl shadow-emerald-900/30"
+            : "rounded-2xl md:rounded-full border border-emerald-500/20 bg-gradient-to-bl from-[#d1f996] via-[#bfedcf] to-[#ffffff]"
         } backdrop-blur-xl`}
       >
         <nav className="relative flex items-center justify-between px-5 py-4 md:px-8 md:py-3.5">
@@ -205,8 +205,8 @@ export function Navbar() {
                   href={link.href}
                   className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 ${
                     isActive
-                      ? "text-emerald-300"
-                      : "text-emerald-100/70 hover:text-emerald-200"
+                      ? "text-black"
+                      : "text-emerald-950 hover:text-emerald-450"
                   }`}
                 >
                   {link.label}
