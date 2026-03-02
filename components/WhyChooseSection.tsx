@@ -39,7 +39,8 @@ const benefits = [
   },
 ];
 
-const CENTER_IMAGE = "/why-choose-us.png";
+const CENTER_IMAGE =
+  "https://images.unsplash.com/photo-1593617761943-9099951a0769?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D";
 
 export function WhyChooseSection() {
   const ref = useRef<HTMLElement>(null);
@@ -59,126 +60,67 @@ export function WhyChooseSection() {
   const cardTransforms = [card0Y, card1Y, card2Y, card3Y, card4Y];
 
   return (
-    <section ref={ref} className="relative overflow-hidden px-6 py-16 md:py-24">
-      {/* Rich ambient glows - matcha section accent */}
-      <motion.div
-        style={{ opacity: glow1Opacity }}
-        className="pointer-events-none absolute left-1/4 top-1/2 h-[32rem] w-[32rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-matcha/28 blur-[150px]"
-      />
-      <motion.div
-        style={{ opacity: glow2Opacity }}
-        className="pointer-events-none absolute bottom-1/4 right-1/6 h-80 w-80 rounded-full bg-pistache/22 blur-[120px]"
-      />
-      <div className="pointer-events-none absolute right-1/4 top-1/3 h-64 w-64 rounded-full bg-matcha/15 blur-[100px]" />
+    <section
+      ref={ref}
+      className="relative border-t border-border/70 bg-background px-6 py-24 md:py-32"
+    >
+      {/* Right-half background image for a gallery feel */}
+      <div className="pointer-events-none absolute inset-y-8 right-0 hidden w-1/2 lg:block">
+        <div className="relative h-full w-full">
+          <Image
+            src={CENTER_IMAGE}
+            alt="Calm studio-style product arrangement"
+            fill
+            className="object-cover opacity-30"
+            sizes="50vw"
+          />
+        </div>
+      </div>
 
-      <div className="relative mx-auto max-w-6xl">
-        {/* Header */}
-        <motion.div
+      <div className="relative mx-auto flex max-w-6xl flex-col gap-14 lg:flex-row">
+        {/* Left: statement + tagline */}
+        <motion.header
           style={{ y: headerY }}
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-10 text-center"
+          className="w-full max-w-sm"
         >
-          <p className="font-display text-xs font-semibold uppercase tracking-[0.2em] text-white/80">
-            Why Choose MunjEco Global
+          <p className="font-display text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-foreground-muted/90">
+            Why choose MunjEco Global
           </p>
-          <h2 className="mt-2 font-heading text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl">
-            Why Global Buyers Work With Us
+          <h2 className="mt-4 font-heading text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
+            Why global buyers work with us.
           </h2>
-          <div className="divider-rangoli mx-auto mt-6 w-16 text-matcha/50" />
-        </motion.div>
+          <p className="mt-6 text-sm leading-relaxed text-foreground-muted">
+            We don&apos;t just ship products — we build long-term, trust-based
+            trade relationships with our buyers and partners.
+          </p>
+        </motion.header>
 
-        {/* Center image with cards surrounding it */}
-        <div className="relative min-h-[520px] md:min-h-[600px]">
-          {/* Absolute background image - faded, enlarged, pure, no crop */}
-          <div className="pointer-events-none absolute inset-0 z-0 flex items-center justify-center">
-            <Image
-              src={CENTER_IMAGE}
-              alt=""
-              width={800}
-              height={600}
-              className="h-auto w-[140%] max-w-none object-contain opacity-25 md:w-[120%]"
-              sizes="800px"
-              unoptimized
-              aria-hidden
-            />
-          </div>
-
-          <div className="relative z-10 grid grid-cols-1 gap-6 md:grid-cols-3 md:grid-rows-3 md:gap-8">
-            {/* Row 1 - top cards */}
-            <motion.div
-              style={{ y: cardTransforms[0] }}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              className="md:col-span-1 md:row-span-1 md:flex md:items-end md:justify-end"
-            >
-              <BenefitCard benefit={benefits[0]} />
-            </motion.div>
-            <div className="hidden md:block md:col-span-1 md:row-span-1" />
-            <motion.div
-              style={{ y: cardTransforms[1] }}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.15, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              className="md:col-span-1 md:row-span-1 md:flex md:items-end md:justify-start"
-            >
-              <BenefitCard benefit={benefits[1]} />
-            </motion.div>
-
-            {/* Row 2 - left card | center image | right card */}
-            <motion.div
-              style={{ y: cardTransforms[2] }}
-              initial={{ opacity: 0, x: -24 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              className="md:col-span-1 md:row-span-1 md:flex md:items-center md:justify-end"
-            >
-              <BenefitCard benefit={benefits[2]} />
-            </motion.div>
-            <div className="md:col-span-1 md:row-span-1" />
-            <motion.div
-              style={{ y: cardTransforms[3] }}
-              initial={{ opacity: 0, x: 24 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.25, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              className="md:col-span-1 md:row-span-1 md:flex md:items-center md:justify-start"
-            >
-              <BenefitCard benefit={benefits[3]} />
-            </motion.div>
-
-            {/* Row 3 - bottom card */}
-            <div className="hidden md:block md:col-span-1 md:row-span-1" />
-            <motion.div
-              style={{ y: cardTransforms[4] }}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.3, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              className="md:col-span-1 md:row-span-1 md:flex md:items-start md:justify-center"
-            >
-              <BenefitCard benefit={benefits[4]} />
-            </motion.div>
-            <div className="hidden md:block md:col-span-1 md:row-span-1" />
+        {/* Right: asymmetrical grid of reasons */}
+        <div className="flex-1">
+          <div className="grid gap-6 md:grid-cols-2">
+            {benefits.map((benefit, index) => (
+              <motion.div
+                key={benefit.title}
+                style={{ y: cardTransforms[index] }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  delay: 0.1 + index * 0.06,
+                  duration: 0.5,
+                  ease: [0.22, 1, 0.36, 1],
+                }}
+                className={index === 0 || index === 3 ? "md:-mt-4" : ""}
+              >
+                <BenefitCard benefit={benefit} />
+              </motion.div>
+            ))}
           </div>
         </div>
-
-        {/* Tagline */}
-        <motion.p
-          initial={{ opacity: 0, y: 12 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-10 text-center font-heading text-lg italic text-white/90 md:text-xl"
-        >
-          We don&apos;t just ship products — we build long-term, trust-based
-          trade relationships.
-        </motion.p>
       </div>
     </section>
   );
@@ -188,18 +130,17 @@ function BenefitCard({ benefit }: { benefit: (typeof benefits)[number] }) {
   const Icon = benefit.icon;
   return (
     <motion.div
-      whileHover={{ y: -6, transition: { duration: 0.2 } }}
-      className="group relative overflow-hidden rounded-2xl border border-white/25 bg-black/40 p-6 backdrop-blur-xl transition-all duration-300 hover:border-white/40 hover:bg-black/50 hover:shadow-[0_0_40px_-15px_rgba(128,150,113,0.25)]"
+      whileHover={{ y: -4, transition: { duration: 0.2 } }}
+      className="group border border-border/70 bg-background-alt px-6 py-6 transition-colors duration-300 hover:border-matcha/80"
     >
-      <div className="pointer-events-none absolute inset-0 rounded-2xl bg-gradient-to-b from-white/[0.06] to-transparent" />
-      <div className="relative flex flex-col">
-        <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-xl border border-white/25 bg-white/15 transition-colors group-hover:border-matcha/50 group-hover:bg-matcha/25 group-hover:shadow-[0_0_24px_rgba(128,150,113,0.2)]">
-          <Icon className="h-6 w-6 text-white" strokeWidth={1.5} />
+      <div className="flex flex-col">
+        <div className="mb-3 flex h-10 w-10 items-center justify-center border border-matcha/50 text-matcha">
+          <Icon className="h-5 w-5" strokeWidth={1.5} />
         </div>
-        <h3 className="font-heading text-base font-semibold text-white md:text-lg">
+        <h3 className="font-heading text-base font-semibold text-foreground md:text-lg">
           {benefit.title}
         </h3>
-        <p className="mt-2 text-sm leading-relaxed text-white/95">
+        <p className="mt-2 text-sm leading-relaxed text-foreground-muted">
           {benefit.desc}
         </p>
       </div>

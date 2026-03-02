@@ -1,8 +1,9 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 
 type HeroProps = {
   title?: string;
@@ -12,8 +13,11 @@ type HeroProps = {
   showSecondary?: boolean;
 };
 
-const HERO_BG_IMAGE =
-  "https://images.unsplash.com/photo-1759523131742-af817477bcd9";
+const HERO_IMAGES = [
+  "https://images.unsplash.com/photo-1759523131742-af817477bcd9",
+  "https://images.unsplash.com/photo-1545239351-1141bd82e8a6",
+  "https://images.unsplash.com/photo-1519710164239-da123dc03ef4",
+];
 
 export function Hero({
   title = "Sustainable Indian Products for Global Markets",
@@ -22,91 +26,102 @@ export function Hero({
   primaryHref = "/products",
   showSecondary = true,
 }: HeroProps) {
-  const { scrollY } = useScroll();
-  const backgroundY = useTransform(scrollY, [0, 600], [0, 150]);
-  const contentOpacity = useTransform(scrollY, [0, 300], [1, 0.3]);
-  const contentY = useTransform(scrollY, [0, 400], [0, 80]);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  useEffect(() => {
+    const id = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % HERO_IMAGES.length);
+    }, 7000);
+    return () => clearInterval(id);
+  }, []);
 
   return (
-    <section className="relative min-h-screen overflow-hidden">
-      {/* Parallax background image */}
-      <motion.div
-        style={{ y: backgroundY }}
-        className="absolute inset-0 -inset-y-16"
-      >
-        <Image
-          src={HERO_BG_IMAGE}
-          alt="Eco-friendly bamboo and wooden products"
-          fill
-          className="object-cover"
-          priority
-          sizes="100vw"
-        />
-      </motion.div>
+    <section className="relative min-h-[100dvh] bg-background">
+      {/* FULL WIDTH TOP IMAGE */}
+      <div className="relative h-[52vh] max-h-[640px] w-full overflow-hidden">
+        <motion.div
+          className="flex h-full w-full"
+          animate={{ x: `-${activeIndex * 100}%` }}
+          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+        >
+          {HERO_IMAGES.map((src, index) => (
+            <div key={src} className="relative h-full w-full flex-shrink-0">
+              <Image
+                src={src}
+                alt="Sustainable Indian lifestyle products"
+                fill
+                priority={index === 0}
+                className="object-cover"
+                sizes="100vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-black/10 to-transparent" />
+            </div>
+          ))}
+        </motion.div>
 
-      {/* Gradient overlay - depth and contrast */}
-      <div className="gradient-hero-overlay absolute inset-0" />
-      <div className="gradient-hero-vignette absolute inset-0" />
+        {/* Minimal slide indicator */}
+        <div className="absolute bottom-6 right-8 flex gap-2">
+          {HERO_IMAGES.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setActiveIndex(i)}
+              className={`h-1.5 w-8 transition-all duration-300 ${
+                activeIndex === i
+                  ? "bg-white"
+                  : "bg-white/40 hover:bg-white/70"
+              }`}
+              aria-label={`Slide ${i + 1}`}
+            />
+          ))}
+        </div>
+      </div>
 
-      {/* Soft glow orbs - premium depth, matcha accent */}
-      <div className="pointer-events-none absolute left-1/4 top-1/3 h-96 w-96 rounded-full bg-matcha/25 blur-[100px]" />
-      <div className="pointer-events-none absolute bottom-1/4 right-1/4 h-80 w-80 rounded-full bg-pistache/18 blur-[80px]" />
+      {/* BOTTOM CONTENT SECTION */}
+      <div className="flex flex-1 items-center py-12 md:py-10">
+        <div className="mx-auto w-full max-w-6xl px-6 lg:px-10">
+          <div className="grid grid-cols-1 gap-7 md:gap-0">
+            {/* Text */}
+            <div className="md:flex">
+              <motion.h1
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="font-heading text-4xl font-semibold leading-tight tracking-tight text-foreground md:text-5xl lg:text-6xl"
+              >
+                {title}
+              </motion.h1>
 
-      {/* Rangoli-style decorative dots along bottom */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/40 to-transparent" />
-      <div className="pattern-dot-rangoli pointer-events-none absolute inset-x-0 bottom-0 h-24 opacity-30" />
+              <motion.p
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="mt-6 max-w-xl text-base leading-relaxed text-foreground-muted md:text-lg"
+              >
+                {subtitle}
+              </motion.p>
+            </div>
 
-      {/* Content - with parallax fade */}
-      <motion.div
-        style={{ opacity: contentOpacity, y: contentY }}
-        className="relative z-10 flex min-h-screen flex-col items-center justify-center px-6 pt-28 pb-20 md:pt-32"
-      >
-        <div className="mx-auto max-w-4xl text-center">
-          <motion.h1
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="text-contrast-strong font-heading text-4xl font-bold leading-[1.15] text-white md:text-5xl lg:text-6xl xl:text-7xl"
-          >
-            {title}
-          </motion.h1>
-
-          <motion.p
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="text-contrast-light mx-auto mt-6 max-w-2xl text-base leading-relaxed text-white md:text-lg"
-          >
-            {subtitle}
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 24 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="mt-10 flex flex-col gap-4 sm:flex-row sm:justify-center"
-          >
-            <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
+            {/* CTA */}
+            <div className="flex items-start justify-start gap-3 lg:justify-end lg:self-end">
               <Link
                 href={primaryHref}
-                className="inline-flex items-center justify-center rounded-2xl bg-white px-8 py-4 font-semibold text-carob shadow-lg ring-1 ring-white/20 transition-all duration-300 hover:bg-white/95 hover:shadow-xl hover:shadow-matcha/20"
+                className="inline-flex items-center justify-center border border-primary px-7 py-3 text-xs font-medium uppercase tracking-[0.22em] text-primary transition-colors duration-200 hover:bg-primary hover:text-background"
               >
                 {primaryCta}
               </Link>
-            </motion.div>
-            {showSecondary && (
-              <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
+
+              {showSecondary && (
                 <Link
                   href="/contact"
-                  className="text-contrast-subtle inline-flex items-center justify-center rounded-2xl border border-white/50 bg-black/50 px-8 py-4 font-semibold text-white backdrop-blur-xl transition-all duration-300 hover:bg-white/20 hover:border-white/70"
+                  className="inline-flex items-center justify-center border border-border px-7 py-3 text-xs font-medium uppercase tracking-[0.22em] text-foreground transition-colors duration-200 hover:border-primary hover:text-primary"
                 >
                   Request a Bulk Quote
                 </Link>
-              </motion.div>
-            )}
-          </motion.div>
+              )}
+            </div>
+          </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }

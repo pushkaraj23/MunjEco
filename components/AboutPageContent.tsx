@@ -1,15 +1,10 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { CTASection } from "@/components/CTASection";
-import {
-  Sprout,
-  Factory,
-  Award,
-  Leaf,
-  CheckCircle2,
-} from "lucide-react";
+import { Sprout, Factory, Award, Leaf, CheckCircle2 } from "lucide-react";
 
 const manufacturingItems = [
   "Responsible bamboo sourcing",
@@ -18,42 +13,6 @@ const manufacturingItems = [
   "Eco-friendly, reusable, biodegradable",
 ];
 
-const ACCENT_SHADOWS: Record<string, string> = {
-  matcha: "0 0 60px -15px rgba(128,150,113,0.2)",
-  terracotta: "0 0 60px -15px rgba(200,107,59,0.2)",
-  pistache: "0 0 60px -15px rgba(162,183,154,0.2)",
-  turmeric: "0 0 60px -15px rgba(212,160,55,0.2)",
-  chai: "0 0 60px -15px rgba(210,171,128,0.18)",
-};
-
-function SectionCard({
-  children,
-  accent,
-  barClass,
-  pattern,
-}: {
-  children: React.ReactNode;
-  accent: keyof typeof ACCENT_SHADOWS;
-  barClass: string;
-  pattern?: string;
-}) {
-  return (
-    <div
-      className="relative overflow-hidden rounded-3xl border border-white/20 bg-black/30 px-6 py-10 backdrop-blur-2xl md:rounded-[2rem] md:px-10 md:py-12"
-      style={{ boxShadow: ACCENT_SHADOWS[accent] }}
-    >
-      <div className={`absolute left-0 top-0 h-1 w-20 rounded-r-full ${barClass}`} />
-      <div className={`absolute right-0 bottom-0 h-1 w-24 rounded-l-full opacity-60 ${barClass}`} />
-      <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/10 md:rounded-[2rem]" />
-      <div className="pointer-events-none absolute inset-0 rounded-3xl bg-gradient-to-b from-white/5 via-transparent to-transparent md:rounded-[2rem]" />
-      {pattern && (
-        <div className={`pointer-events-none absolute inset-0 rounded-3xl opacity-30 md:rounded-[2rem] ${pattern}`} />
-      )}
-      <div className="relative">{children}</div>
-    </div>
-  );
-}
-
 export function AboutPageContent() {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
@@ -61,70 +20,62 @@ export function AboutPageContent() {
     offset: ["start end", "end start"],
   });
 
-  const glow1Opacity = useTransform(scrollYProgress, [0, 0.25], [0, 1]);
-  const glow2Opacity = useTransform(scrollYProgress, [0.15, 0.45], [0, 0.85]);
   const headerY = useTransform(scrollYProgress, [0.05, 0.3], [40, -20]);
-  const card1Y = useTransform(scrollYProgress, [0.1, 0.35], [45, -15]);
-  const card2Y = useTransform(scrollYProgress, [0.18, 0.42], [50, -18]);
-  const card3Y = useTransform(scrollYProgress, [0.26, 0.5], [48, -20]);
-  const card4Y = useTransform(scrollYProgress, [0.34, 0.58], [45, -15]);
-  const card5Y = useTransform(scrollYProgress, [0.42, 0.66], [50, -18]);
+  const storyY = useTransform(scrollYProgress, [0.1, 0.35], [45, -15]);
+  const mfgY = useTransform(scrollYProgress, [0.18, 0.42], [50, -18]);
+  const certY = useTransform(scrollYProgress, [0.26, 0.5], [48, -20]);
+  const sustainY = useTransform(scrollYProgress, [0.34, 0.58], [45, -15]);
+  const ctaY = useTransform(scrollYProgress, [0.42, 0.66], [50, -18]);
 
   return (
-    <main ref={ref} className="relative overflow-hidden pt-24 pb-12 md:pb-14">
-      {/* Page-level ambient glows */}
-      <motion.div
-        style={{ opacity: glow1Opacity }}
-        className="pointer-events-none absolute left-1/4 top-1/3 h-[28rem] w-[28rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-matcha/22 blur-[130px]"
-      />
-      <motion.div
-        style={{ opacity: glow2Opacity }}
-        className="pointer-events-none absolute bottom-1/3 right-1/4 h-80 w-80 rounded-full bg-chai/18 blur-[100px]"
-      />
-
-      <div className="relative mx-auto px-6">
-        {/* Hero header - matcha accent */}
-        <motion.div
+    <main ref={ref} className="relative bg-background pt-28 pb-20 md:pt-32 md:pb-24">
+      <div className="mx-auto max-w-6xl px-6">
+        {/* Header + hero image split */}
+        <motion.section
           style={{ y: headerY }}
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-10 text-center"
+          className="mb-16 grid gap-10 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] md:items-end"
         >
-          <div className="mb-6 inline-flex items-center gap-2 rounded-2xl border border-matcha/30 bg-matcha/15 px-4 py-2 backdrop-blur-sm">
-            <Sprout className="h-5 w-5 text-matcha" strokeWidth={1.5} />
-            <span className="font-display text-xs font-semibold uppercase tracking-[0.15em] text-white/90">
-              Our Purpose
-            </span>
+          <div>
+            <div className="mb-4 inline-flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.3em] text-foreground-muted">
+              <Sprout className="h-4 w-4 text-foreground-muted" strokeWidth={1.5} />
+              <span>Our purpose</span>
+            </div>
+            <h1 className="font-heading text-3xl font-semibold tracking-tight text-foreground md:text-4xl lg:text-5xl">
+              About MunjEco Global
+            </h1>
+            <p className="mt-4 max-w-xl text-base leading-relaxed text-foreground-muted md:text-lg">
+              Natural • Responsible • Daily Use Products. Eco-friendly gifting.
+            </p>
           </div>
-          <h1 className="font-heading text-4xl font-bold tracking-tight text-white md:text-5xl lg:text-6xl">
-            About MunjEco Global
-          </h1>
-          <p className="mx-auto mt-6 max-w-2xl text-lg text-white/85">
-            Natural • Responsible • Daily Use Products. Eco-friendly gifting.
-          </p>
-          <div className="divider-rangoli mx-auto mt-6 w-24 text-matcha/50" />
-        </motion.div>
+          <div className="relative aspect-[5/3] overflow-hidden">
+            <Image
+              src="https://images.unsplash.com/photo-1758487424832-a53ae6cdefdb?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Studio view of eco-friendly materials and tools"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 40vw"
+            />
+          </div>
+        </motion.section>
 
-        {/* Our Story - terracotta accent */}
-        <motion.div
-          style={{ y: card1Y }}
+        {/* Our Story - text + image split (dark band) */}
+        <motion.section
+          style={{ y: storyY }}
           initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-10"
+          className="mb-16 grid gap-10 rounded-none bg-primary-dark px-6 py-12 text-white md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] md:items-start md:px-8 md:py-16"
         >
-          <SectionCard
-            accent="terracotta"
-            barClass="bg-terracotta/50"
-            pattern="pattern-dot-terracotta"
-          >
+          <div>
             <h2 className="font-heading text-2xl font-semibold tracking-tight text-white md:text-3xl">
-              Our Story
+              Our story
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-white/85 md:text-lg">
+            <p className="mt-4 text-base leading-relaxed text-white/80 md:text-lg">
               MunjEco Global was founded on the belief that premium manufacturing and
               sustainability can go hand in hand. We specialize in bamboo daily-use
               products—pens, stationery, bottles, and cups—crafted for durability and
@@ -132,35 +83,49 @@ export function AboutPageContent() {
               gifting partners, and retail brands who demand quality and responsible
               sourcing.
             </p>
-          </SectionCard>
-        </motion.div>
+          </div>
+          <div className="relative aspect-[4/5] overflow-hidden">
+            <Image
+              src="https://images.unsplash.com/photo-1659644569209-1c397e64f7c6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Close-up of crafted natural products"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 32vw"
+            />
+          </div>
+        </motion.section>
 
-        {/* Manufacturing Process - pistache accent */}
-        <motion.div
-          style={{ y: card2Y }}
+        {/* Manufacturing process - image + list */}
+        <motion.section
+          style={{ y: mfgY }}
           id="manufacturing"
           initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-10"
+          className="mb-16 grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] md:items-start"
         >
-          <SectionCard
-            accent="pistache"
-            barClass="bg-pistache/50"
-            pattern="pattern-jali"
-          >
+          <div className="relative aspect-[4/5] overflow-hidden">
+            <Image
+              src="https://images.unsplash.com/photo-1584473457406-6240486418e9?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Manufacturing workspace with tools and sketches"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 32vw"
+            />
+          </div>
+          <div>
             <div className="mb-4 flex items-center gap-2">
-              <Factory className="h-6 w-6 text-pistache" strokeWidth={1.5} />
-              <h2 className="font-heading text-2xl font-semibold tracking-tight text-white md:text-3xl">
-                Manufacturing Process
+              <Factory className="h-5 w-5 text-primary" strokeWidth={1.5} />
+              <h2 className="font-heading text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
+                Manufacturing process
               </h2>
             </div>
-            <p className="mt-4 text-base leading-relaxed text-white/85 md:text-lg">
+            <p className="text-base leading-relaxed text-foreground-muted md:text-lg">
               Every product passes through stringent quality checks. From raw bamboo
               selection to finishing, we use eco-friendly treatments and precision
-              machinery. Our facility is equipped for bulk production while
-              maintaining consistency across batches.
+              machinery. Our facility is equipped for bulk production while maintaining
+              consistency across batches.
             </p>
             <ul className="mt-6 space-y-3">
               {manufacturingItems.map((item, i) => (
@@ -170,79 +135,97 @@ export function AboutPageContent() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: i * 0.08 }}
-                  className="flex items-center gap-3 text-white/85"
+                  className="flex items-center gap-3 text-foreground"
                 >
                   <CheckCircle2
-                    className="h-5 w-5 shrink-0 text-pistache"
+                    className="h-5 w-5 shrink-0 text-primary"
                     strokeWidth={1.5}
                   />
-                  {item}
+                  <span className="text-sm text-foreground-muted">{item}</span>
                 </motion.li>
               ))}
             </ul>
-          </SectionCard>
-        </motion.div>
+          </div>
+        </motion.section>
 
-        {/* Certifications - turmeric accent */}
-        <motion.div
-          style={{ y: card3Y }}
+        {/* Certifications - narrow text section with image strip (primary band) */}
+        <motion.section
+          style={{ y: certY }}
           initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-10"
+          className="mb-16 grid gap-10 rounded-none bg-primary px-6 py-12 text-white md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] md:items-center md:px-8 md:py-16"
         >
-          <SectionCard
-            accent="turmeric"
-            barClass="bg-turmeric/50"
-            pattern="pattern-dot-rangoli"
-          >
-            <div className="mb-4 flex items-center gap-2">
-              <Award className="h-6 w-6 text-turmeric" strokeWidth={1.5} />
+          <div>
+            <div className="mb-3 flex items-center gap-2">
+              <Award className="h-5 w-5 text-white" strokeWidth={1.5} />
               <h2 className="font-heading text-2xl font-semibold tracking-tight text-white md:text-3xl">
                 Certifications
               </h2>
             </div>
             <p className="text-base leading-relaxed text-white/85 md:text-lg">
-              We hold certifications for sustainable sourcing, manufacturing
-              standards, and export compliance. Our products meet international
-              benchmarks for durability and environmental impact.
+              We hold certifications for sustainable sourcing, manufacturing standards,
+              and export compliance. Our products meet international benchmarks for
+              durability and environmental impact.
             </p>
-          </SectionCard>
-        </motion.div>
+          </div>
+          <div className="relative aspect-[5/3] overflow-hidden">
+            <Image
+              src="https://images.unsplash.com/photo-1593617761943-9099951a0769?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Neatly arranged certificates and documents"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 32vw"
+            />
+          </div>
+        </motion.section>
 
-        {/* Sustainability Commitment - chai accent */}
-        <motion.div
-          style={{ y: card4Y }}
+        {/* Sustainability - full-width image band with overlay text */}
+        <motion.section
+          style={{ y: sustainY }}
           id="sustainability"
           initial={{ opacity: 0, y: 28 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-10"
+          className="mb-16"
         >
-          <SectionCard
-            accent="chai"
-            barClass="bg-chai/50"
-            pattern="pattern-paisley-subtle"
-          >
-            <div className="mb-4 flex items-center gap-2">
-              <Leaf className="h-6 w-6 text-chai" strokeWidth={1.5} />
-              <h2 className="font-heading text-2xl font-semibold tracking-tight text-white md:text-3xl">
-                Sustainability Commitment
-              </h2>
+          <div className="relative overflow-hidden">
+            <div className="relative h-80 md:h-96">
+              <Image
+                src="https://images.unsplash.com/photo-1759607236409-1df137ecb3b6?q=80&w=688&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Lush natural textures and materials"
+                fill
+                className="object-cover"
+                sizes="100vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-black/55 via-black/35 to-black/10" />
             </div>
-            <p className="text-base leading-relaxed text-white/85 md:text-lg">
-              Bamboo regenerates rapidly. We partner with certified growers,
-              minimize waste in production, and ensure our supply chain is
-              transparent. Manufacturing without compromise—for people and planet.
-            </p>
-          </SectionCard>
-        </motion.div>
+            <div className="absolute inset-0 flex items-center">
+              <div className="px-6 md:px-10 lg:px-12">
+                <div className="max-w-xl">
+                  <div className="mb-3 flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.3em] text-white/80">
+                    <Leaf className="h-4 w-4 text-white" strokeWidth={1.5} />
+                    <span>Sustainability commitment</span>
+                  </div>
+                  <h2 className="font-heading text-2xl font-semibold tracking-tight text-white md:text-3xl">
+                    Sustainability commitment
+                  </h2>
+                  <p className="mt-4 text-base leading-relaxed text-white/85 md:text-lg">
+                    Bamboo regenerates rapidly. We partner with certified growers,
+                    minimize waste in production, and ensure our supply chain is
+                    transparent. Manufacturing without compromise—for people and planet.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </motion.section>
 
         {/* CTA Section */}
-        <motion.div
-          style={{ y: card5Y }}
+        <motion.section
+          style={{ y: ctaY }}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -253,7 +236,7 @@ export function AboutPageContent() {
             primaryLabel="Get in Touch"
             primaryHref="/contact"
           />
-        </motion.div>
+        </motion.section>
       </div>
     </main>
   );

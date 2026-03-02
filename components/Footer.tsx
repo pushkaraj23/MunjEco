@@ -7,9 +7,9 @@ import { Mail, Phone, ArrowRight } from "lucide-react";
 
 const footerLinks = {
   Products: [
-    { href: "/products?category=pens", label: "Bamboo Pens" },
-    { href: "/products?category=stationery", label: "Stationery" },
-    { href: "/products?category=drinkware", label: "Drinkware" },
+    { href: "/products?q=bamboo%20pen", label: "Bamboo Pens" },
+    { href: "/products?q=stationery", label: "Stationery" },
+    { href: "/products?q=drinkware", label: "Drinkware" },
   ],
   Company: [
     { href: "/about", label: "About Us" },
@@ -29,19 +29,8 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-[#1a2e1a]">
-      {/* Dark gradient overlay - depth */}
-      <div
-        className="pointer-events-none absolute inset-0"
-        style={{
-          background:
-            "linear-gradient(180deg, #1e3520 0%, #1a2e1a 50%, #152018 100%)",
-        }}
-      />
-      {/* Subtle matcha glow at top edge */}
-      <div className="pointer-events-none absolute left-1/2 top-0 h-px w-full max-w-3xl -translate-x-1/2 bg-gradient-to-r from-transparent via-matcha/40 to-transparent" />
-
-      <div className="relative mx-auto max-w-7xl px-6 pt-20 md:pt-24 pb-5 md:pb-8">
+    <footer className="border-t border-border/80 bg-primary-dark text-white">
+      <div className="mx-auto max-w-7xl px-6 pt-16 md:pt-20 pb-6 md:pb-8">
         {/* Main footer content */}
         <div className="grid gap-16 lg:grid-cols-12 lg:gap-12">
           {/* Logo & tagline - wider column */}
@@ -64,14 +53,14 @@ export function Footer() {
                 className="h-11 w-auto object-contain object-left brightness-0 invert opacity-95"
               />
             </Link>
-            <p className="max-w-sm text-base leading-relaxed text-[#E8E6E1]">
+            <p className="max-w-sm text-sm leading-relaxed text-white/80 md:text-base">
               Made in India. Delivered Globally. Eco‑friendly products, ethical
               sourcing, and conscious trade.
             </p>
             {/* CTA link */}
             <Link
               href="/contact"
-              className="group mt-6 inline-flex items-center gap-2 text-sm font-semibold text-matcha transition-colors hover:text-pistache"
+              className="group mt-6 inline-flex items-center gap-2 text-[0.72rem] font-semibold uppercase tracking-[0.26em] text-matcha transition-colors hover:text-pistache"
             >
               Request a Quote
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" strokeWidth={2} />
@@ -79,7 +68,7 @@ export function Footer() {
           </motion.div>
 
           {/* Link columns */}
-          <div className="grid gap-12 sm:grid-cols-3 lg:col-span-8 lg:gap-8">
+          <div className="grid gap-12 sm:grid-cols-3 lg:col-span-8 lg:gap-10">
             {Object.entries(footerLinks).map(([title, links], groupIndex) => (
               <motion.div
                 key={title}
@@ -92,7 +81,7 @@ export function Footer() {
                   ease: [0.22, 1, 0.36, 1],
                 }}
               >
-                <h4 className="mb-6 font-display text-xs font-semibold uppercase tracking-[0.2em] text-white">
+                <h4 className="mb-4 font-display text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-white/80">
                   {title}
                 </h4>
                 <ul className="space-y-4">
@@ -102,7 +91,7 @@ export function Footer() {
                       <li key={link.href}>
                         <Link
                           href={link.href}
-                          className="group inline-flex items-center gap-2.5 text-[#D4D2CC] transition-colors hover:text-white"
+                          className="group inline-flex items-center gap-2.5 text-white/70 transition-colors hover:text-white"
                         >
                           {Icon && (
                             <Icon
@@ -124,14 +113,14 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-16 flex flex-col items-center justify-between gap-6 border-t border-white/10 pt-8 md:flex-row md:gap-4">
-          <div className="flex flex-col items-center gap-2 text-center md:flex-row md:items-center md:gap-4 md:text-left">
-            <p className="text-sm text-[#B5B8B2]">
+        <div className="mt-16 flex flex-col gap-4 border-t border-white/10 pt-6 md:flex-row md:items-center md:justify-between">
+          <div className="flex flex-col gap-1 text-left">
+            <p className="text-xs text-white/60 md:text-sm">
               © {new Date().getFullYear()} MunjEco Global. All rights reserved.
             </p>
           </div>
-          <div className="flex items-center gap-6 text-sm">
-            <p className="text-sm text-[#B5B8B2]">
+          <div className="flex flex-col items-start gap-2 text-xs md:flex-row md:items-center md:gap-4 md:text-sm">
+            <p className="text-white/60">
               Designed and Developed by{" "}
               <Link
                 href="https://fibonce.com"
@@ -142,11 +131,6 @@ export function Footer() {
                 Fibonce Tech Solutions
               </Link>
             </p>
-            <div className="flex gap-1">
-              <span className="h-2 w-2 rounded-full bg-matcha/60" />
-              <span className="h-2 w-2 rounded-full bg-pistache/50" />
-              <span className="h-2 w-2 rounded-full bg-chai/40" />
-            </div>
           </div>
         </div>
       </div>

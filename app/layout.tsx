@@ -1,22 +1,18 @@
 import type { Metadata } from "next";
-import { Fredoka, Nunito, Playfair_Display } from "next/font/google";
+import { DM_Sans, Playfair_Display } from "next/font/google";
 import { LayoutShell } from "@/components/LayoutShell";
 import "./globals.css";
 
-const fredoka = Fredoka({
+// Heading / display font (serif, premium)
+const playfairDisplay = Playfair_Display({
   variable: "--font-fredoka",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["500", "600", "700"],
 });
 
-const nunito = Nunito({
+// Body / UI font (clean, modern sans)
+const dmSans = DM_Sans({
   variable: "--font-nunito",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-});
-
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
 });
@@ -34,9 +30,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${fredoka.variable} ${nunito.variable} ${playfair.variable} antialiased`}
-      >
+      <body className={`${playfairDisplay.variable} ${dmSans.variable} antialiased`}>
         <LayoutShell>{children}</LayoutShell>
       </body>
     </html>

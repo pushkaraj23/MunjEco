@@ -1,277 +1,170 @@
 @import "tailwindcss";
 
-/* Light theme - Studio Fleur palette + earthy wellness aesthetic */
+/* Light theme - Fresh Blue + Eco Green palette */
 html {
   color-scheme: light;
 }
 
 :root {
-  /* Studio Fleur + Indian art palette */
-  --color-matcha: #809671;
-  --color-almond: #E5E0D8;
-  --color-pistache: #A2B79A;
-  --color-chai: #D2AB80;
-  --color-carob: #725C3A;
-  --color-vanilla: #E5D2B8;
+  /* Core Brand Colors (Aquamarine / Pine Blue / Coral / Graphite) */
+  --color-brand-blue: #297373; /* Pine Blue */
+  --color-brand-blue-dark: #39393A; /* Graphite */
+  --color-brand-blue-light: #85FFC7; /* Aquamarine tint */
 
-  /* Extended palette */
-  --color-sage: #C9D5C3;
-  --color-sage-dark: #8D9C86;
-  --color-cream: #F8F7F0;
-  --color-cream-warm: #F5F5ED;
+  --color-brand-green: #85FFC7; /* Aquamarine */
+  --color-brand-green-dark: #297373; /* Pine Blue */
+  --color-brand-green-light: #bfffe4; /* Soft Aquamarine */
 
-  /* Indian art accents */
-  --color-terracotta: #C86B3B;
-  --color-indigo: #4A5568;
-  --color-turmeric: #D4A037;
-  --color-saffron: #FF9933;
-  --color-madhubani: #8B4513;
-  --color-blockprint: #5C4033;
+  /* Neutrals (Alabaster + Graphite scale) */
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+  --color-gray-900: #39393A; /* Graphite */
+  --color-gray-700: #525357;
+  --color-gray-500: #7D7E83;
+  --color-gray-300: #E6E6E6; /* Alabaster Grey */
+  --color-gray-100: #F5F5F5;
+
+  /* Semantic */
+  --color-background: #FFFFFF;
+  --color-background-alt: #F7F7F7;
+  --color-foreground: #39393A;
+  --color-foreground-muted: #297373;
+  --color-border: #E6E6E6;
+
+  --color-primary: #297373; /* Pine Blue */
+  --color-primary-dark: #39393A; /* Graphite */
+  --color-accent: #FF8552; /* Coral Glow */
 }
 
+/* Tailwind theme mapping */
 @theme inline {
   --font-sans: var(--font-nunito);
   --font-display: var(--font-fredoka);
   --font-mono: ui-monospace, monospace;
 
-  /* Primary palette */
-  --color-matcha: #809671;
-  --color-almond: #E5E0D8;
-  --color-pistache: #A2B79A;
-  --color-chai: #D2AB80;
-  --color-carob: #725C3A;
-  --color-vanilla: #E5D2B8;
-  --color-sage: #C9D5C3;
-  --color-sage-dark: #8D9C86;
-  --color-cream: #F8F7F0;
-  --color-cream-warm: #F5F5ED;
+  --color-background: #FFFFFF;
+  --color-background-alt: #F7F7F7;
+  --color-foreground: #39393A;
+  --color-foreground-muted: #297373;
+  --color-border: #E6E6E6;
 
-  /* Semantic - light theme */
-  --color-background: #F8F7F0;
-  --color-background-alt: #F5F5ED;
-  --color-background-warm: #E5E0D8;
-  --color-foreground: #4A3F35;
-  --color-foreground-muted: #6B5D52;
-  --color-foreground-light: #725C3A;
-  --color-surface: #FFFFFF;
-  --color-surface-warm: #E5D2B8;
-  --color-border: #E5E0D8;
-  --color-border-warm: #D2AB80;
-  --color-primary: #809671;
-  --color-primary-dark: #6B7D5C;
-  --color-primary-light: #A2B79A;
-  --color-accent: #D2AB80;
-  --color-mint: #A2B79A;
+  --color-primary: #297373;
+  --color-primary-dark: #39393A;
+  --color-primary-light: #85FFC7;
+
+  --color-accent: #FF8552;
+  --color-accent-dark: #e56f3c;
+  --color-accent-light: #ffab84;
+
   --color-white: #FFFFFF;
-  --color-terracotta: #C86B3B;
-  --color-turmeric: #D4A037;
+  --color-black: #0F1720;
 }
 
-/* Bokeh / soft orbs background */
-.bokeh-bg {
-  position: relative;
-  overflow: hidden;
-}
-
-.bokeh-bg::before {
-  content: "";
-  position: absolute;
-  top: -20%;
-  left: -10%;
-  width: 60%;
-  height: 60%;
-  background: radial-gradient(circle, rgba(128, 150, 113, 0.15) 0%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
-}
-
-.bokeh-bg::after {
-  content: "";
-  position: absolute;
-  bottom: -20%;
-  right: -10%;
-  width: 50%;
-  height: 50%;
-  background: radial-gradient(circle, rgba(210, 171, 128, 0.12) 0%, transparent 70%);
-  border-radius: 50%;
-  pointer-events: none;
-}
-
-/* Text contrast on hero / dark backgrounds - crisp legibility */
-.text-contrast-light {
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5), 0 2px 8px rgba(0, 0, 0, 0.4), 0 0 1px rgba(0, 0, 0, 0.8);
-}
-
-.text-contrast-strong {
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.6), 0 4px 12px rgba(0, 0, 0, 0.5), 0 0 1px rgba(0, 0, 0, 1);
-}
-
-.text-contrast-subtle {
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5), 0 0 1px rgba(0, 0, 0, 0.9);
-}
-
-/* Green gradient backgrounds */
-/* Green gradient backgrounds for glass to show through */
-.bg-green-canvas {
-  background: linear-gradient(160deg, #5a6b4f 0%, #4a5a3f 25%, #3d4d35 50%, #2d3d28 100%);
-}
-
-.bg-green-soft {
-  background: linear-gradient(180deg, #7a8a6e 0%, #5a6b4f 40%, #4a5a3f 100%);
-}
-
-.bg-green-page {
-  background: linear-gradient(180deg, #6b7c60 0%, #5a6b4f 20%, #4d5d42 50%, #3f4f36 80%, #354530 100%);
-}
-
-.bg-green-muted {
-  background: linear-gradient(180deg, #809671 0%, #6b7c60 50%, #5a6b4f 100%);
-}
-
-/* Soft glows */
-.glow-matcha {
-  box-shadow: 0 0 60px rgba(128, 150, 113, 0.2);
-}
-
-.glow-soft {
-  box-shadow: 0 8px 40px rgba(114, 92, 58, 0.08);
-}
-
-/* Hero glows - luminous, premium */
-.glow-hero {
-  box-shadow: 0 0 80px rgba(128, 150, 113, 0.25), 0 0 120px rgba(128, 150, 113, 0.1);
-}
-
-.glow-card {
-  box-shadow: 0 0 40px rgba(255, 255, 255, 0.08), inset 0 1px 0 rgba(255, 255, 255, 0.3);
-}
-
-/* Gradient overlays for hero background image - darker for text contrast */
-.gradient-hero-overlay {
-  background: linear-gradient(
-    135deg,
-    rgba(25, 38, 28, 0.92) 0%,
-    rgba(35, 50, 38, 0.8) 35%,
-    rgba(30, 45, 32, 0.75) 60%,
-    rgba(20, 32, 24, 0.9) 100%
-  );
-}
-
-.gradient-hero-vignette {
-  background: radial-gradient(
-    ellipse 90% 60% at 50% 50%,
-    transparent 0%,
-    rgba(0, 0, 0, 0.4) 100%
-  );
-}
-
-/* Soft shadows - warm, diffused */
-.shadow-card {
-  box-shadow: 0 4px 24px rgba(114, 92, 58, 0.06), 0 2px 8px rgba(0, 0, 0, 0.04);
-}
-
-.shadow-elevated {
-  box-shadow: 0 12px 48px rgba(114, 92, 58, 0.1), 0 4px 16px rgba(0, 0, 0, 0.05);
-}
-
-/* Gradients */
-.gradient-warm {
-  background: linear-gradient(135deg, #F8F7F0 0%, #E5D2B8 50%, #E5E0D8 100%);
-}
-
-.gradient-subtle {
-  background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(229,224,216,0.5) 100%);
-}
-
+/* Body */
 body {
   background: var(--color-background);
   color: var(--color-foreground);
   font-family: var(--font-nunito), system-ui, sans-serif;
 }
 
-.font-display {
-  font-family: var(--font-fredoka), system-ui, sans-serif;
+/* ---------------------------------- */
+/* Clean Modern Background Utilities */
+/* ---------------------------------- */
+
+.bg-brand-gradient {
+  background: linear-gradient(135deg,
+      #85FFC7 0%,
+      #297373 50%,
+      #FF8552 100%);
 }
 
-.font-heading {
-  font-family: var(--font-playfair), Georgia, serif;
+.bg-soft-blue {
+  background: linear-gradient(180deg, #297373 0%, #39393A 100%);
 }
 
-/* Indian art patterns - block print / rangoli inspired */
-.pattern-indian-border {
-  background-image: repeating-linear-gradient(
-    90deg,
-    transparent,
-    transparent 8px,
-    rgba(114, 92, 58, 0.08) 8px,
-    rgba(114, 92, 58, 0.08) 10px
-  );
+.bg-soft-green {
+  background: linear-gradient(180deg, #85FFC7 0%, #297373 100%);
 }
 
-.pattern-dot-rangoli {
-  background-image: radial-gradient(
-    circle at 2px 2px,
-    rgba(128, 150, 113, 0.15) 1px,
-    transparent 0
-  );
-  background-size: 12px 12px;
+.bg-subtle-light {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F7F7F7 100%);
 }
 
-.pattern-dot-terracotta {
-  background-image: radial-gradient(
-    circle at 2px 2px,
-    rgba(200, 107, 59, 0.12) 1px,
-    transparent 0
-  );
-  background-size: 12px 12px;
+/* ---------------------------------- */
+/* Glow Effects (Fresh & Premium) */
+/* ---------------------------------- */
+
+.glow-blue {
+  box-shadow: 0 0 60px rgba(41, 115, 115, 0.25);
 }
 
-.pattern-paisley-subtle {
-  background-image: url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M20 2c2 4 6 6 10 6s8-2 10-6' fill='none' stroke='%23809671' stroke-width='0.3' stroke-opacity='0.15'/%3E%3Cpath d='M20 38c-2-4-6-6-10-6s-8 2-10 6' fill='none' stroke='%23809671' stroke-width='0.3' stroke-opacity='0.15'/%3E%3C/svg%3E");
+.glow-green {
+  box-shadow: 0 0 60px rgba(133, 255, 199, 0.25);
 }
 
-.pattern-jali {
-  background-image: url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4 4h4v4H4zm8 0h4v4h-4zm0 8h4v4h-4zm-8 0h4v4H4z' fill='%23809671' fill-opacity='0.04'/%3E%3C/svg%3E");
+.glow-soft {
+  box-shadow: 0 8px 40px rgba(57, 57, 58, 0.08);
 }
 
-/* Decorative border - Warli / Madhubani inspired */
-.border-indian {
-  position: relative;
-}
-.border-indian::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border: 2px solid transparent;
-  border-image: linear-gradient(
-    135deg,
-    rgba(128, 150, 113, 0.4),
-    rgba(210, 171, 128, 0.3),
-    rgba(128, 150, 113, 0.4)
-  ) 1;
-  border-radius: inherit;
-  pointer-events: none;
+/* ---------------------------------- */
+/* Card Shadows */
+/* ---------------------------------- */
+
+.shadow-card {
+  box-shadow: 0 4px 20px rgba(15, 23, 32, 0.05);
 }
 
-/* Indian art section accents - rotate colors per section */
-.accent-matcha { --accent: var(--color-matcha); --accent-glow: rgba(128, 150, 113, 0.25); }
-.accent-pistache { --accent: var(--color-pistache); --accent-glow: rgba(162, 183, 154, 0.25); }
-.accent-terracotta { --accent: var(--color-terracotta); --accent-glow: rgba(200, 107, 59, 0.3); }
-.accent-chai { --accent: var(--color-chai); --accent-glow: rgba(210, 171, 128, 0.25); }
-.accent-turmeric { --accent: var(--color-turmeric); --accent-glow: rgba(212, 160, 55, 0.3); }
+.shadow-elevated {
+  box-shadow: 0 15px 50px rgba(15, 23, 32, 0.08);
+}
 
-/* Rangoli-style divider - dotted line */
-.divider-rangoli {
+/* ---------------------------------- */
+/* Hero Overlay for Text Contrast */
+/* ---------------------------------- */
+
+.gradient-hero-overlay {
+  background: linear-gradient(135deg,
+      rgba(57, 57, 58, 0.85) 0%,
+      rgba(41, 115, 115, 0.75) 50%,
+      rgba(255, 133, 82, 0.6) 100%);
+}
+
+.text-contrast-light {
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
+}
+
+.text-contrast-strong {
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.75);
+}
+
+/* ---------------------------------- */
+/* Clean Divider */
+/* ---------------------------------- */
+
+.divider-modern {
   height: 1px;
-  background-image: radial-gradient(circle, currentColor 1px, transparent 1px);
-  background-size: 8px 1px;
-  background-repeat: repeat-x;
+  background: linear-gradient(90deg,
+      transparent,
+      var(--color-gray-300),
+      transparent);
 }
 
-/* Block print accent line */
+/* ---------------------------------- */
+/* Accent Utilities */
+/* ---------------------------------- */
+
+.accent-blue {
+  --accent: var(--color-brand-blue);
+}
+
+.accent-green {
+  --accent: var(--color-brand-green);
+}
+
 .accent-line-left {
   position: relative;
 }
+
 .accent-line-left::before {
   content: "";
   position: absolute;
@@ -280,21 +173,21 @@ body {
   height: 4px;
   width: 48px;
   border-radius: 0 4px 4px 0;
-  background: linear-gradient(90deg, var(--accent, var(--color-matcha)), transparent);
-  opacity: 0.7;
+  background: linear-gradient(90deg,
+      var(--accent, var(--color-brand-blue)),
+      transparent);
+  opacity: 0.8;
 }
 
-/* Paisley corner flourish */
-.corner-flourish {
-  position: relative;
-}
-.corner-flourish::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 60px;
-  height: 60px;
-  background: radial-gradient(circle at top right, rgba(128, 150, 113, 0.12) 0%, transparent 70%);
-  pointer-events: none;
+/* ---------------------------------- */
+/* Modern Pattern (Very Subtle Grid) */
+/* ---------------------------------- */
+
+.pattern-subtle-grid {
+  background-image: linear-gradient(rgba(203, 213, 225, 0.15) 1px,
+      transparent 1px),
+    linear-gradient(90deg,
+      rgba(203, 213, 225, 0.15) 1px,
+      transparent 1px);
+  background-size: 40px 40px;
 }

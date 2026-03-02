@@ -10,7 +10,7 @@ export default async function ProductPage({ params }: Props) {
   if (!product) notFound();
 
   return (
-    <div className="min-h-screen bg-green-page">
+    <div className="min-h-screen bg-background">
       <ProductDetailContent product={product} />
     </div>
   );
