@@ -38,7 +38,7 @@ export function CTASection({
   const featureOpacity = useTransform(scrollYProgress, [0.1, 0.4], [0, 1]);
 
   return (
-    <section ref={ref} className="relative overflow-hidden px-4 py-16 md:px-6 md:py-24 lg:py-28">
+    <section ref={ref} className="relative overflow-hidden px-4 py-16 md:px-6 md:py-24 lg:py-28 bg-gradient-to-b from-green-200 via-green-100 to-white">
       {/* Rich ambient glows - terracotta section accent */}
       <motion.div
         style={{ opacity: glow1Opacity }}

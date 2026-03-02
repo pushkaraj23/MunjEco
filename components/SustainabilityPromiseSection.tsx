@@ -17,7 +17,7 @@ export function SustainabilityPromiseSection() {
   const containerY = useTransform(scrollYProgress, [0.15, 0.5], [50, -25]);
 
   return (
-    <section ref={ref} className="relative overflow-hidden px-6 py-14 md:py-20">
+    <section ref={ref} className="relative overflow-hidden px-6 py-14 md:py-20 bg-emerald-950">
       {/* Parallax ambient glows - pistache section accent */}
       <motion.div
         style={{ opacity: glow1Opacity }}

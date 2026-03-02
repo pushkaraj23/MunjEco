@@ -59,7 +59,7 @@ export function WhyChooseSection() {
   const cardTransforms = [card0Y, card1Y, card2Y, card3Y, card4Y];
 
   return (
-    <section ref={ref} className="relative overflow-hidden px-6 py-16 md:py-24">
+    <section ref={ref} className="relative overflow-hidden px-6 py-16 md:py-24 bg-emerald-950">
       {/* Rich ambient glows - matcha section accent */}
       <motion.div
         style={{ opacity: glow1Opacity }}

@@ -46,7 +46,7 @@ export function FeaturedProductsSection({ products }: FeaturedProductsSectionPro
   const gridY = useTransform(scrollYProgress, [0.3, 0.65], [60, -30]);
 
   return (
-    <section ref={ref} className="relative overflow-hidden px-6 py-14 md:py-18">
+    <section ref={ref} className="relative overflow-hidden px-6 py-14 md:py-18 bg-gradient-to-b from-green-200 via-green-100 to-white">
       {/* Parallax ambient glows - turmeric section accent */}
       <motion.div
         style={{ opacity: glow1Opacity }}
@@ -71,10 +71,10 @@ export function FeaturedProductsSection({ products }: FeaturedProductsSectionPro
           <p className="font-display text-xs font-semibold uppercase tracking-[0.2em] text-turmeric/90">
             Featured Products
           </p>
-          <h2 className="mt-2 font-heading text-3xl font-bold tracking-tight text-white md:text-4xl lg:text-5xl">
+          <h2 className="mt-2 font-heading text-3xl font-bold tracking-tight text-black md:text-4xl lg:text-5xl">
             Thoughtfully Crafted Essentials
           </h2>
-          <p className="mx-auto mt-4 max-w-xl text-base text-white/85">
+          <p className="mx-auto mt-4 max-w-xl text-base text-black/85">
             Eco-friendly, plastic‑free essentials crafted in India for conscious global buyers.
           </p>
           <div className="divider-rangoli mx-auto mt-6 w-20 text-turmeric/50" />
@@ -102,10 +102,10 @@ export function FeaturedProductsSection({ products }: FeaturedProductsSectionPro
                 <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl border border-white/20 bg-white/10 transition-colors group-hover:border-turmeric/50 group-hover:bg-turmeric/25 group-hover:shadow-[0_0_20px_rgba(212,160,55,0.2)]">
                   <item.icon className="h-7 w-7 text-turmeric/90" strokeWidth={1.5} />
                 </div>
-                <h3 className="font-heading text-lg font-semibold text-white md:text-xl">
+                <h3 className="font-heading text-lg font-semibold text-black md:text-xl">
                   {item.title}
                 </h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/75">
+                <p className="mt-2 text-sm leading-relaxed text-black/75">
                   {item.desc}
                 </p>
               </div>
