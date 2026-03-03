@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Sprout, Heart, ArrowRight } from "lucide-react";
+import { DecoGraphic } from "@/components/DecoGraphic";
 
 export function AboutSection() {
   const ref = useRef<HTMLElement>(null);
@@ -19,8 +20,10 @@ export function AboutSection() {
   return (
     <section
       ref={ref}
-      className="relative border-t border-border/60 bg-background px-8 py-24 sm:px-10 md:px-12 md:py-28 lg:px-16 xl:px-20"
+      className="relative overflow-visible border-t border-border/60 bg-background px-8 py-24 sm:px-10 md:px-12 md:py-28 lg:px-16 xl:px-20"
     >
+      <DecoGraphic src="/graphics/img1.png" alt="" placement="bottom-left" size="md" />
+      <DecoGraphic src="/graphics/img5.png" alt="" placement="top-right" size="md" />
       <motion.div
         style={{ opacity: glowOpacity, y: containerY }}
         className="relative mx-auto flex max-w-6xl flex-col gap-12 lg:grid lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]"

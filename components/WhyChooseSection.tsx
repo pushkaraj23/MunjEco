@@ -10,6 +10,7 @@ import {
   Tags,
   Handshake,
 } from "lucide-react";
+import { DecoGraphic } from "@/components/DecoGraphic";
 
 const benefits = [
   {
@@ -62,8 +63,9 @@ export function WhyChooseSection() {
   return (
     <section
       ref={ref}
-      className="relative border-t border-border/70 bg-background px-8 py-24 sm:px-10 md:px-12 md:py-32 lg:px-16 xl:px-20"
+      className="relative overflow-visible border-t border-border/70 bg-background px-8 py-24 sm:px-10 md:px-12 md:py-32 lg:px-16 xl:px-20"
     >
+      <DecoGraphic src="/graphics/img2.png" alt="" placement="bottom-left" size="lg" />
       {/* Right-half background image for a gallery feel */}
       <div className="pointer-events-none absolute inset-y-8 right-0 hidden w-1/2 lg:block">
         <div className="relative h-full w-full">

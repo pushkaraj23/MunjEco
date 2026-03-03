@@ -4,6 +4,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Quote, Star } from "lucide-react";
+import { DecoGraphic } from "@/components/DecoGraphic";
 
 const testimonials = [
   {
@@ -41,8 +42,9 @@ export function TestimonialsSection() {
   return (
     <section
       ref={ref}
-      className="relative border-t border-border/70 bg-primary px-8 py-20 text-white sm:px-10 md:px-12 md:py-24 lg:px-16 xl:px-20"
+      className="relative overflow-visible border-t border-border/70 bg-primary px-8 py-20 text-white sm:px-10 md:px-12 md:py-24 lg:px-16 xl:px-20"
     >
+      <DecoGraphic src="/graphics/img5.png" alt="" placement="top-right" size="md" className="opacity-25" />
       {/* Soft photographic background under the testimonial grid */}
       <div className="absolute inset-0 -z-10">
         <Image

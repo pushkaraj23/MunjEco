@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Mail, Phone, ArrowRight } from "lucide-react";
+import { DecoGraphic } from "@/components/DecoGraphic";
 
 const footerLinks = {
   Products: [
@@ -29,8 +30,9 @@ const footerLinks = {
 
 export function Footer() {
   return (
-    <footer className="border-t border-border/80 bg-primary-dark text-white">
-      <div className="mx-auto max-w-6xl px-8 pb-6 pt-16 sm:px-10 md:px-12 md:pb-8 md:pt-20 lg:px-16 xl:px-20">
+    <footer className="relative overflow-visible border-t border-border/80 bg-primary-dark text-white">
+      <DecoGraphic src="/graphics/img3.png" alt="" placement="bottom-left" size="md" className="opacity-20" />
+      <div className="relative z-10 mx-auto max-w-6xl px-8 pb-6 pt-16 sm:px-10 md:px-12 md:pb-8 md:pt-20 lg:px-16 xl:px-20">
         {/* Main footer content */}
         <div className="grid gap-16 lg:grid-cols-12 lg:gap-12">
           {/* Logo & tagline - wider column */}

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowLeft, ClipboardList, FileText, ShieldCheck, BadgeDollarSign, Truck } from "lucide-react";
 import { Badge } from "@/components/Badge";
+import { DecoGraphic } from "@/components/DecoGraphic";
 import { ProductGallery } from "@/components/ProductGallery";
 import { EnquiryForm } from "@/components/EnquiryForm";
 import type { Product } from "@/lib/types";
@@ -23,7 +24,8 @@ export function ProductDetailContent({ product }: ProductDetailContentProps) {
   const hasSpecs = product.specifications && Object.keys(product.specifications).length > 0;
 
   return (
-    <main ref={ref} className="relative bg-background pt-28 pb-24 md:pt-36 md:pb-32">
+    <main ref={ref} className="relative overflow-visible bg-background pt-28 pb-24 md:pt-36 md:pb-32">
+      <DecoGraphic src="/graphics/img1.png" alt="" placement="bottom-left" size="md" />
       <div className="mx-auto max-w-6xl px-8 sm:px-10 md:px-12 lg:px-16 xl:px-20">
         {/* Back link - minimal, lots of space */}
         <motion.div

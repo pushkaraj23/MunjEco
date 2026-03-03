@@ -2,6 +2,7 @@
 
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import { DecoGraphic } from "@/components/DecoGraphic";
 import { ProductGrid } from "@/components/ProductGrid";
 import { ProductsClient } from "./ProductsClient";
 import type { Product } from "@/lib/types";
@@ -21,7 +22,9 @@ export function ProductsPageContent({ products }: ProductsPageContentProps) {
   const gridY = useTransform(scrollYProgress, [0.15, 0.45], [45, -20]);
 
   return (
-    <main ref={ref} className="relative overflow-hidden pt-28 pb-12 md:pb-16">
+    <main ref={ref} className="relative overflow-visible pt-28 pb-12 md:pb-16">
+      <DecoGraphic src="/graphics/img2.png" alt="" placement="top-left" size="md" />
+      <DecoGraphic src="/graphics/img4.png" alt="" placement="bottom-right" size="md" />
       <div className="relative mx-auto max-w-6xl px-8 sm:px-10 md:px-12 lg:px-16 xl:px-20">
         {/* Header + search */}
         <motion.div

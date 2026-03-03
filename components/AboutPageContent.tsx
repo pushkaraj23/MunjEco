@@ -4,6 +4,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { CTASection } from "@/components/CTASection";
+import { DecoGraphic } from "@/components/DecoGraphic";
 import { Sprout, Factory, Award, Leaf, CheckCircle2 } from "lucide-react";
 
 const manufacturingItems = [
@@ -28,7 +29,9 @@ export function AboutPageContent() {
   const ctaY = useTransform(scrollYProgress, [0.42, 0.66], [50, -18]);
 
   return (
-    <main ref={ref} className="relative bg-background pt-28 pb-20 md:pt-32 md:pb-24">
+    <main ref={ref} className="relative overflow-visible bg-background pt-28 pb-20 md:pt-32 md:pb-24">
+      <DecoGraphic src="/graphics/img1.png" alt="" placement="top-left" size="md" />
+      <DecoGraphic src="/graphics/img4.png" alt="" placement="top-right" size="md" />
       <div className="mx-auto max-w-6xl px-8 sm:px-10 md:px-12 lg:px-16 xl:px-20">
         {/* Header + hero image split */}
         <motion.section

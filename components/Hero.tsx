@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, Leaf } from "lucide-react";
+import { DecoGraphic } from "@/components/DecoGraphic";
 
 type HeroProps = {
   title?: string;
@@ -99,7 +100,9 @@ export function Hero({
       </div>
 
       {/* BOTTOM CONTENT SECTION - compact to fit viewport */}
-      <div className="relative flex min-h-0 flex-1 flex-col items-center justify-center border-t border-border/60 bg-background py-6 md:py-8 lg:py-10">
+      <div className="relative flex min-h-0 flex-1 flex-col items-center justify-center overflow-visible border-t border-border/60 bg-background py-6 md:py-8 lg:py-10">
+        <DecoGraphic src="/graphics/img1.png" alt="" placement="bottom-right" size="md" className="opacity-25" />
+        <DecoGraphic src="/graphics/img3.png" alt="" placement="bottom-left" size="sm" className="opacity-25" />
         <div className="mx-auto w-full max-w-6xl px-8 sm:px-10 md:px-12 lg:px-16 xl:px-20">
           <div className="grid grid-cols-1 gap-5 lg:grid-cols-[1fr_auto] lg:items-end lg:gap-8">
             {/* Text column with accent line */}

@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { TreeDeciduous, Leaf, Gift, ArrowRight } from "lucide-react";
 import { ProductGrid } from "@/components/ProductGrid";
+import { DecoGraphic } from "@/components/DecoGraphic";
 import type { Product } from "@/lib/types";
 
 const productHighlights = [
@@ -48,8 +49,10 @@ export function FeaturedProductsSection({ products }: FeaturedProductsSectionPro
   return (
     <section
       ref={ref}
-      className="relative border-t border-border/60 bg-primary px-8 py-20 text-white sm:px-10 md:px-12 md:py-28 lg:px-16 xl:px-20"
+      className="relative overflow-visible border-t border-border/60 bg-primary px-8 py-20 text-white sm:px-10 md:px-12 md:py-28 lg:px-16 xl:px-20"
     >
+      <DecoGraphic src="/graphics/img4.png" alt="" placement="bottom-right" size="md" className="opacity-20" />
+      <DecoGraphic src="/graphics/img5.png" alt="" placement="top-right" size="md" className="opacity-20" />
       {/* Subtle horizontal glow fields */}
       <motion.div
         style={{ opacity: glow1Opacity }}

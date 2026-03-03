@@ -4,6 +4,7 @@ import { useRef } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ShieldCheck, BadgeDollarSign, Truck, Sparkles } from "lucide-react";
+import { DecoGraphic } from "@/components/DecoGraphic";
 import { EnquiryForm } from "./EnquiryForm";
 
 const features = [
@@ -40,8 +41,9 @@ export function CTASection({
   return (
     <section
       ref={ref}
-      className="relative border-t border-border/70 bg-background px-8 py-24 sm:px-10 md:px-12 md:py-28 lg:px-16 xl:px-20"
+      className="relative overflow-visible border-t border-border/70 bg-background px-8 py-24 sm:px-10 md:px-12 md:py-28 lg:px-16 xl:px-20"
     >
+      <DecoGraphic src="/graphics/img2.png" alt="" placement="bottom-left" size="lg" />
       <motion.div
         style={{ opacity: glow1Opacity }}
         className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-terracotta/18 to-transparent"
