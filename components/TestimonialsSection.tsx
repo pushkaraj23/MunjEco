@@ -41,7 +41,7 @@ export function TestimonialsSection() {
   return (
     <section
       ref={ref}
-      className="relative border-t border-border/70 bg-primary px-6 py-20 text-white md:py-24"
+      className="relative border-t border-border/70 bg-primary px-8 py-20 text-white sm:px-10 md:px-12 md:py-24 lg:px-16 xl:px-20"
     >
       {/* Soft photographic background under the testimonial grid */}
       <div className="absolute inset-0 -z-10">
@@ -63,7 +63,7 @@ export function TestimonialsSection() {
         className="pointer-events-none absolute inset-x-16 bottom-0 h-24 bg-gradient-to-t from-turmeric/18 to-transparent"
       />
 
-      <div className="relative mx-auto max-w-7xl">
+      <div className="relative mx-auto max-w-6xl">
         {/* Section header with parallax */}
         <motion.header
           style={{ y: headerY }}

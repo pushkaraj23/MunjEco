@@ -36,7 +36,7 @@ export function Navbar() {
       transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
       className="fixed inset-x-0 top-0 z-40 border-b border-border/70 bg-background/90 backdrop-blur-sm"
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-10">
+      <nav className="mx-auto flex max-w-6xl items-center justify-between px-8 py-3 sm:px-10 md:px-12 lg:px-16 xl:px-20">
         <Link href="/" className="relative block">
           <img
             src="/full-logo.png"
@@ -87,9 +87,9 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="border-t border-border/70 bg-background px-4 pb-5 pt-3 md:hidden"
+            className="border-t border-border/70 bg-background px-8 pb-5 pt-3 sm:px-10 md:hidden"
           >
-            <div className="mx-auto flex max-w-7xl flex-col gap-3">
+            <div className="mx-auto flex max-w-6xl flex-col gap-3">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}

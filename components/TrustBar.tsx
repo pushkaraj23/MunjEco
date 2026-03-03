@@ -29,7 +29,7 @@ const items = [
 export function TrustBar() {
   return (
     <section className="border-y border-border/70 bg-primary-dark">
-      <div className="mx-auto flex max-w-6xl flex-col gap-8 px-6 py-8 md:flex-row md:items-center md:justify-between lg:px-10">
+      <div className="mx-auto flex max-w-6xl flex-col gap-8 px-8 py-8 sm:px-10 md:flex-row md:items-center md:justify-between md:px-12 lg:px-16 xl:px-20">
         {/* Left: narrow editorial text block */}
         <div className="max-w-sm">
           <p className="text-[0.68rem] font-medium uppercase tracking-[0.32em] text-white/70">

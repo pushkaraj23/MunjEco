@@ -22,7 +22,7 @@ export function ProductsPageContent({ products }: ProductsPageContentProps) {
 
   return (
     <main ref={ref} className="relative overflow-hidden pt-28 pb-12 md:pb-16">
-      <div className="relative mx-auto max-w-7xl px-6">
+      <div className="relative mx-auto max-w-6xl px-8 sm:px-10 md:px-12 lg:px-16 xl:px-20">
         {/* Header + search */}
         <motion.div
           style={{ y: headerY }}

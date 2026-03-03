@@ -21,17 +21,17 @@ const enquirySchema = z.object({
 type EnquiryFormData = z.infer<typeof enquirySchema>;
 
 const inputLight =
-  "w-full rounded-lg border border-sage-muted/20 bg-surface/80 px-4 py-3 text-foreground backdrop-blur-sm outline-none transition-all duration-300 focus:border-matcha focus:ring-2 focus:ring-matcha/30 focus:shadow-[0_0_20px_rgba(128,150,113,0.15)]";
+  "w-full rounded-lg border border-border bg-background px-4 py-3 text-foreground outline-none transition-all duration-200 focus:border-primary focus:ring-2 focus:ring-primary/20";
 const inputDark =
-  "w-full rounded-lg border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-white/50 backdrop-blur-sm outline-none transition-all duration-300 focus:border-matcha focus:ring-2 focus:ring-matcha/30 focus:shadow-[0_0_20px_rgba(128,150,113,0.25)]";
-const labelLight = "mb-1 block text-sm text-foreground-muted";
-const labelDark = "mb-1 block text-sm text-white/85";
-const errorLight = "mt-1 text-xs text-chai";
-const errorDark = "mt-1 text-xs text-chai/90";
+  "w-full rounded-lg border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-white/50 outline-none transition-all duration-200 focus:border-primary focus:ring-2 focus:ring-primary/30";
+const labelLight = "mb-1.5 block text-sm font-medium text-foreground-muted";
+const labelDark = "mb-1.5 block text-sm font-medium text-white/85";
+const errorLight = "mt-1 text-xs text-accent";
+const errorDark = "mt-1 text-xs text-accent-light";
 const textareaLight =
-  "w-full resize-none rounded-2xl border border-almond bg-white/80 px-4 py-3 text-foreground backdrop-blur-sm outline-none transition-all duration-300 focus:border-matcha focus:ring-2 focus:ring-matcha/30 focus:shadow-[0_0_20px_rgba(128,150,113,0.15)]";
+  "w-full resize-none rounded-lg border border-border bg-background px-4 py-3 text-foreground outline-none transition-all duration-200 focus:border-primary focus:ring-2 focus:ring-primary/20";
 const textareaDark =
-  "w-full resize-none rounded-2xl border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-white/50 backdrop-blur-sm outline-none transition-all duration-300 focus:border-matcha focus:ring-2 focus:ring-matcha/30 focus:shadow-[0_0_20px_rgba(128,150,113,0.25)]";
+  "w-full resize-none rounded-lg border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-white/50 outline-none transition-all duration-200 focus:border-primary focus:ring-2 focus:ring-primary/30";
 
 type EnquiryFormProps = {
   defaultProduct?: string;
@@ -199,7 +199,7 @@ export function EnquiryForm({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="rounded-xl bg-matcha px-4 py-3 text-center text-sm font-medium text-white shadow-[0_0_20px_rgba(128,150,113,0.25)]"
+            className="rounded-lg bg-primary px-4 py-3 text-center text-sm font-medium text-white"
           >
             {toast}
           </motion.div>
@@ -209,7 +209,7 @@ export function EnquiryForm({
           type="submit"
           variant="primary"
           disabled={isSubmitting}
-          className={isDark ? "w-full bg-terracotta hover:bg-[#b55a2f] hover:shadow-[0_8px_30px_rgba(200,107,59,0.3)]" : ""}
+          className="w-full bg-primary hover:bg-primary-dark"
         >
           {isSubmitting ? "Submitting..." : "Submit Enquiry"}
         </Button>

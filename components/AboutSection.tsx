@@ -19,7 +19,7 @@ export function AboutSection() {
   return (
     <section
       ref={ref}
-      className="relative border-t border-border/60 bg-background px-6 py-24 md:py-28"
+      className="relative border-t border-border/60 bg-background px-8 py-24 sm:px-10 md:px-12 md:py-28 lg:px-16 xl:px-20"
     >
       <motion.div
         style={{ opacity: glowOpacity, y: containerY }}

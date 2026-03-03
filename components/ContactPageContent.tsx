@@ -19,7 +19,7 @@ export function ContactPageContent() {
 
   return (
     <main ref={ref} className="relative bg-background pt-28 pb-16 md:pt-32 md:pb-20">
-      <div className="relative mx-auto max-w-7xl px-6">
+      <div className="relative mx-auto max-w-6xl px-8 sm:px-10 md:px-12 lg:px-16 xl:px-20">
         {/* Top: small label + headline + copy */}
         <motion.header
           style={{ y: headerY }}

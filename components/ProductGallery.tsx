@@ -4,6 +4,7 @@ import { useEffect, useState, useCallback } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 
 type Props = {
   name: string;
@@ -16,7 +17,7 @@ export function ProductGallery({ name, images }: Props) {
   const safeImages =
     images.length > 0
       ? images
-      : ["https://placehold.co/800x600/E5E0D8/809671?text=Product"];
+      : ["https://placehold.co/800x600/F7F7F7/297373?text=Product"];
 
   const [index, setIndex] = useState(0);
   const [fullscreen, setFullscreen] = useState(false);
@@ -80,9 +81,9 @@ export function ProductGallery({ name, images }: Props) {
   }
 
   return (
-    <div className="space-y-4">
-      <div className="relative aspect-[4/3] overflow-hidden rounded-3xl border border-white/20 bg-black/30 shadow-[0_0_50px_-15px_rgba(200,107,59,0.15)] backdrop-blur-sm md:rounded-[2rem]">
-        <div className="absolute left-0 top-0 z-10 h-1 w-16 rounded-r-full bg-terracotta/50" />
+    <div className="space-y-6">
+      {/* Main image - accent bar, clean borders */}
+      <div className="accent-line-left relative aspect-[4/3] overflow-hidden rounded-2xl border border-border bg-background-alt/60 shadow-card md:rounded-3xl">
         <AnimatePresence mode="wait">
           <motion.div
             key={current}
@@ -118,10 +119,10 @@ export function ProductGallery({ name, images }: Props) {
                 e.stopPropagation();
                 prev();
               }}
-              className="absolute left-3 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/20 bg-black/50 px-2.5 py-1.5 text-xs text-white shadow-lg backdrop-blur-sm transition-all hover:border-terracotta/50 hover:bg-terracotta/40"
+              className="absolute left-4 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background/95 text-foreground shadow-elevated backdrop-blur-sm transition-all hover:border-primary hover:bg-primary hover:text-white"
               aria-label="Previous image"
             >
-              ‹
+              <ChevronLeft className="h-5 w-5" strokeWidth={2} />
             </button>
             <button
               type="button"
@@ -129,16 +130,16 @@ export function ProductGallery({ name, images }: Props) {
                 e.stopPropagation();
                 next();
               }}
-              className="absolute right-3 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/20 bg-black/50 px-2.5 py-1.5 text-xs text-white shadow-lg backdrop-blur-sm transition-all hover:border-terracotta/50 hover:bg-terracotta/40"
+              className="absolute right-4 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background/95 text-foreground shadow-elevated backdrop-blur-sm transition-all hover:border-primary hover:bg-primary hover:text-white"
               aria-label="Next image"
             >
-              ›
+              <ChevronRight className="h-5 w-5" strokeWidth={2} />
             </button>
           </>
         )}
 
         {safeImages.length > 1 && (
-          <div className="absolute inset-x-0 bottom-3 z-10 flex justify-center gap-1">
+          <div className="absolute inset-x-0 bottom-4 z-10 flex justify-center gap-2">
             {safeImages.map((img, i) => (
               <button
                 key={img + i}
@@ -147,10 +148,10 @@ export function ProductGallery({ name, images }: Props) {
                   e.stopPropagation();
                   goTo(i);
                 }}
-                className={`h-1.5 w-5 rounded-full transition-all ${
+                className={`h-2 w-8 rounded-full transition-all ${
                   i === index
-                    ? "bg-terracotta shadow-[0_0_10px_rgba(200,107,59,0.6)]"
-                    : "bg-white/50 hover:bg-white/80"
+                    ? "bg-primary"
+                    : "bg-foreground/20 hover:bg-foreground/40"
                 }`}
                 aria-label={`Go to image ${i + 1}`}
               />
@@ -160,14 +161,16 @@ export function ProductGallery({ name, images }: Props) {
       </div>
 
       {safeImages.length > 1 && (
-        <div className="flex gap-3 overflow-x-auto pb-1">
+        <div className="flex gap-4 overflow-x-auto pb-2">
           {safeImages.map((img, i) => (
             <button
               key={img + i}
               type="button"
               onClick={() => openFullscreen(i)}
-              className={`relative h-20 w-28 shrink-0 overflow-hidden rounded-2xl border cursor-zoom-in transition-all ${
-                i === index ? "border-terracotta ring-2 ring-terracotta/30 shadow-[0_0_20px_rgba(200,107,59,0.2)]" : "border-white/20 hover:border-white/40"
+              className={`relative h-24 w-32 shrink-0 overflow-hidden rounded-xl border-2 cursor-zoom-in transition-all ${
+                i === index
+                  ? "border-primary ring-2 ring-primary/30 shadow-card"
+                  : "border-border hover:border-primary/60"
               }`}
             >
               <Image
@@ -196,12 +199,10 @@ export function ProductGallery({ name, images }: Props) {
             <button
               type="button"
               onClick={() => setFullscreen(false)}
-              className="absolute right-4 top-4 z-10 rounded-full border border-white/20 bg-black/50 p-2.5 text-white backdrop-blur-sm transition-all hover:border-terracotta/50 hover:bg-terracotta/30"
+              className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full border border-white/20 bg-primary-dark/90 text-white backdrop-blur-sm transition-all hover:bg-primary"
               aria-label="Close"
             >
-              <svg className="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-              </svg>
+              <X className="h-5 w-5" strokeWidth={2} />
             </button>
 
             {safeImages.length > 1 && (
@@ -212,12 +213,10 @@ export function ProductGallery({ name, images }: Props) {
                     e.stopPropagation();
                     prev();
                   }}
-                  className="absolute left-4 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/20 bg-black/50 p-3 text-white backdrop-blur-sm transition-all hover:border-terracotta/50 hover:bg-terracotta/30"
+                  className="absolute left-4 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-primary-dark/90 text-white backdrop-blur-sm transition-all hover:bg-primary"
                   aria-label="Previous"
                 >
-                  <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                  </svg>
+                  <ChevronLeft className="h-6 w-6" strokeWidth={2} />
                 </button>
                 <button
                   type="button"
@@ -225,12 +224,10 @@ export function ProductGallery({ name, images }: Props) {
                     e.stopPropagation();
                     next();
                   }}
-                  className="absolute right-4 top-1/2 z-10 -translate-y-1/2 rounded-full border border-white/20 bg-black/50 p-3 text-white backdrop-blur-sm transition-all hover:border-terracotta/50 hover:bg-terracotta/30"
+                  className="absolute right-4 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-primary-dark/90 text-white backdrop-blur-sm transition-all hover:bg-primary"
                   aria-label="Next"
                 >
-                  <svg className="h-8 w-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
+                  <ChevronRight className="h-6 w-6" strokeWidth={2} />
                 </button>
               </>
             )}
@@ -257,8 +254,8 @@ export function ProductGallery({ name, images }: Props) {
                         e.stopPropagation();
                         goTo(i);
                       }}
-                      className={`h-2 w-6 rounded-full transition-all ${
-                        i === index ? "bg-white" : "bg-white/50 hover:bg-white/80"
+                      className={`h-2 w-8 rounded-full transition-all ${
+                        i === index ? "bg-primary-light" : "bg-white/50 hover:bg-white/80"
                       }`}
                     />
                   ))}

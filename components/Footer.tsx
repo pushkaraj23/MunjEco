@@ -30,7 +30,7 @@ const footerLinks = {
 export function Footer() {
   return (
     <footer className="border-t border-border/80 bg-primary-dark text-white">
-      <div className="mx-auto max-w-7xl px-6 pt-16 md:pt-20 pb-6 md:pb-8">
+      <div className="mx-auto max-w-6xl px-8 pb-6 pt-16 sm:px-10 md:px-12 md:pb-8 md:pt-20 lg:px-16 xl:px-20">
         {/* Main footer content */}
         <div className="grid gap-16 lg:grid-cols-12 lg:gap-12">
           {/* Logo & tagline - wider column */}

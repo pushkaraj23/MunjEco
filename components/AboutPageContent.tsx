@@ -29,7 +29,7 @@ export function AboutPageContent() {
 
   return (
     <main ref={ref} className="relative bg-background pt-28 pb-20 md:pt-32 md:pb-24">
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto max-w-6xl px-8 sm:px-10 md:px-12 lg:px-16 xl:px-20">
         {/* Header + hero image split */}
         <motion.section
           style={{ y: headerY }}

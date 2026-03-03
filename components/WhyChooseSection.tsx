@@ -62,7 +62,7 @@ export function WhyChooseSection() {
   return (
     <section
       ref={ref}
-      className="relative border-t border-border/70 bg-background px-6 py-24 md:py-32"
+      className="relative border-t border-border/70 bg-background px-8 py-24 sm:px-10 md:px-12 md:py-32 lg:px-16 xl:px-20"
     >
       {/* Right-half background image for a gallery feel */}
       <div className="pointer-events-none absolute inset-y-8 right-0 hidden w-1/2 lg:block">

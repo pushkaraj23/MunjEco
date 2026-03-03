@@ -40,7 +40,7 @@ export function CTASection({
   return (
     <section
       ref={ref}
-      className="relative border-t border-border/70 bg-background px-4 py-24 md:px-6 md:py-28"
+      className="relative border-t border-border/70 bg-background px-8 py-24 sm:px-10 md:px-12 md:py-28 lg:px-16 xl:px-20"
     >
       <motion.div
         style={{ opacity: glow1Opacity }}
@@ -51,7 +51,7 @@ export function CTASection({
         className="pointer-events-none absolute inset-x-16 bottom-0 h-24 bg-gradient-to-t from-chai/14 to-transparent"
       />
 
-      <div className="relative mx-auto max-w-7xl">
+      <div className="relative mx-auto max-w-6xl">
         <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]">
           {/* Left: editorial text column */}
           <div>

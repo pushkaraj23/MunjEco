@@ -20,7 +20,7 @@ export function SustainabilityPromiseSection() {
   return (
     <section
       ref={ref}
-      className="relative border-t border-border/70 bg-primary-dark px-6 py-24 text-white md:py-28"
+      className="relative border-t border-border/70 bg-primary-dark px-8 py-24 text-white sm:px-10 md:px-12 md:py-28 lg:px-16 xl:px-20"
     >
       {/* Cinematic background image with subtle overlay */}
       <div className="absolute inset-0 -z-10">
@@ -45,7 +45,7 @@ export function SustainabilityPromiseSection() {
 
       <motion.div
         style={{ y: containerY }}
-        className="relative mx-auto max-w-5xl"
+        className="relative mx-auto max-w-6xl"
       >
         <div className="flex flex-col gap-10 md:flex-row md:items-start">
           {/* Left: label + heading */}
