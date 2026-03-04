@@ -237,11 +237,12 @@ export function WhyChoosePageContent() {
         </motion.section>
 
         {/* Page CTA */}
-        <CTASection
-          title="Ready to partner with an ethical Indian export house?"
-          subtitle="Tell us what you&apos;re looking for — bulk products, private label, or custom gifting — and we&apos;ll help you build a reliable, sustainable supply line from India."
-        />
       </div>
+
+      <CTASection
+        title="Ready to partner with an ethical Indian export house?"
+        subtitle="Tell us what you&apos;re looking for — bulk products, private label, or custom gifting — and we&apos;ll help you build a reliable, sustainable supply line from India."
+      />
 
       {/* Testimonials strip */}
       <TestimonialsSection />
