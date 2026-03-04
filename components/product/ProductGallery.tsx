@@ -80,110 +80,50 @@ export function ProductGallery({ name, images }: Props) {
     setFullscreen(true);
   }
 
+  // Boxed grid: use first 4 images (or pad by repeating)
+  const gridImages = Array.from({ length: 4 }, (_, i) => safeImages[i % safeImages.length]);
+
   return (
-    <div className="space-y-6">
-      {/* Main image - accent bar, clean borders */}
-      <div className="accent-line-left relative aspect-[4/3] overflow-hidden rounded-2xl border border-border bg-background-alt/60 shadow-card md:rounded-3xl">
-        <AnimatePresence mode="wait">
-          <motion.div
-            key={current}
-            initial={{ opacity: 0, scale: 1.02 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 0.98 }}
-            transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
-            className="absolute inset-0"
+    <div className="space-y-4">
+      {/* Boxed 2x2 grid: two larger on top, two smaller below */}
+      <div className="grid grid-cols-2 gap-2 sm:gap-3">
+        {gridImages.slice(0, 2).map((img, i) => (
+          <button
+            key={img + i}
+            type="button"
+            onClick={() => openFullscreen(i)}
+            className="accent-line-left relative aspect-square overflow-hidden rounded-none border border-border bg-background-alt/60 shadow-card transition-all hover:border-primary hover:shadow-elevated cursor-zoom-in"
+            aria-label={`View image ${i + 1}`}
           >
-            <button
-              type="button"
-              onClick={() => openFullscreen()}
-              className="relative block h-full w-full cursor-zoom-in"
-              aria-label="Open fullscreen"
-            >
-              <Image
-                src={current}
-                alt={name}
-                fill
-                className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 60vw"
-                unoptimized={current.startsWith("http")}
-              />
-            </button>
-          </motion.div>
-        </AnimatePresence>
-
-        {safeImages.length > 1 && (
-          <>
-            <button
-              type="button"
-              onClick={(e) => {
-                e.stopPropagation();
-                prev();
-              }}
-              className="absolute left-4 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background/95 text-foreground shadow-elevated backdrop-blur-sm transition-all hover:border-primary hover:bg-primary hover:text-white"
-              aria-label="Previous image"
-            >
-              <ChevronLeft className="h-5 w-5" strokeWidth={2} />
-            </button>
-            <button
-              type="button"
-              onClick={(e) => {
-                e.stopPropagation();
-                next();
-              }}
-              className="absolute right-4 top-1/2 z-10 flex h-10 w-10 -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background/95 text-foreground shadow-elevated backdrop-blur-sm transition-all hover:border-primary hover:bg-primary hover:text-white"
-              aria-label="Next image"
-            >
-              <ChevronRight className="h-5 w-5" strokeWidth={2} />
-            </button>
-          </>
-        )}
-
-        {safeImages.length > 1 && (
-          <div className="absolute inset-x-0 bottom-4 z-10 flex justify-center gap-2">
-            {safeImages.map((img, i) => (
-              <button
-                key={img + i}
-                type="button"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  goTo(i);
-                }}
-                className={`h-2 w-8 rounded-full transition-all ${
-                  i === index
-                    ? "bg-primary"
-                    : "bg-foreground/20 hover:bg-foreground/40"
-                }`}
-                aria-label={`Go to image ${i + 1}`}
-              />
-            ))}
-          </div>
-        )}
+            <Image
+              src={img}
+              alt={`${name} ${i + 1}`}
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 50vw, 35vw"
+              unoptimized={img.startsWith("http")}
+            />
+          </button>
+        ))}
+        {gridImages.slice(2, 4).map((img, i) => (
+          <button
+            key={img + (i + 2)}
+            type="button"
+            onClick={() => openFullscreen(i + 2)}
+            className="relative aspect-square overflow-hidden rounded-none border border-border bg-background-alt/60 shadow-card transition-all hover:border-primary hover:shadow-elevated cursor-zoom-in"
+            aria-label={`View image ${i + 3}`}
+          >
+            <Image
+              src={img}
+              alt={`${name} ${i + 3}`}
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 50vw, 35vw"
+              unoptimized={img.startsWith("http")}
+            />
+          </button>
+        ))}
       </div>
-
-      {safeImages.length > 1 && (
-        <div className="flex gap-4 overflow-x-auto pb-2">
-          {safeImages.map((img, i) => (
-            <button
-              key={img + i}
-              type="button"
-              onClick={() => openFullscreen(i)}
-              className={`relative h-24 w-32 shrink-0 overflow-hidden rounded-xl border-2 cursor-zoom-in transition-all ${
-                i === index
-                  ? "border-primary ring-2 ring-primary/30 shadow-card"
-                  : "border-border hover:border-primary/60"
-              }`}
-            >
-              <Image
-                src={img}
-                alt={`${name} ${i + 1}`}
-                fill
-                className="object-cover"
-                unoptimized={img.startsWith("http")}
-              />
-            </button>
-          ))}
-        </div>
-      )}
 
       {mounted &&
         createPortal(

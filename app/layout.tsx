@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { DM_Sans, Playfair_Display } from "next/font/google";
-import { LayoutShell } from "@/components/LayoutShell";
+import { LayoutShell } from "@/components/layout/LayoutShell";
 import "./globals.css";
 
 // Heading / display font (serif, premium)
@@ -18,9 +18,36 @@ const dmSans = DM_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "MunjEco Global | Natural • Responsible • Daily Use Products",
+  title: {
+    default: "MunjEco Global | Indian Eco‑Friendly Exports",
+    template: "%s | MunjEco Global",
+  },
   description:
-    "Premium bamboo pens, stationery, bottles & cups. Eco-friendly gifting. Custom logo engraving. Better habits for better nature.",
+    "Indian export company for eco‑friendly handmade combs, brushes, travel kits and handicrafts. We partner with trusted manufacturers and artisan communities across India to supply sustainable, plastic‑free products to global buyers.",
+  keywords: [
+    "MunjEco Global",
+    "Indian handicrafts exporter",
+    "eco friendly exports from India",
+    "neem wood comb exporter",
+    "bamboo toothbrush manufacturer India",
+    "eco friendly travel kits India",
+    "handmade Indian gifts wholesale",
+    "sustainable lifestyle products export",
+  ],
+  openGraph: {
+    type: "website",
+    title: "MunjEco Global | Indian Eco‑Friendly Exports",
+    description:
+      "Indian export company for eco‑friendly handmade combs, brushes, travel kits and handicrafts, supplying global buyers.",
+    url: "/",
+    siteName: "MunjEco Global",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "MunjEco Global | Indian Eco‑Friendly Exports",
+    description:
+      "Eco‑friendly Indian combs, brushes, travel kits and handicrafts for global buyers.",
+  },
 };
 
 export default function RootLayout({

@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { ArrowRight, Leaf } from "lucide-react";
-import { DecoGraphic } from "@/components/DecoGraphic";
+import { DecoGraphic } from "@/components/shared/DecoGraphic";
 
 type HeroProps = {
   title?: string;
@@ -40,7 +40,7 @@ export function Hero({
   return (
     <section className="relative flex h-[100dvh] flex-col overflow-hidden bg-background">
       {/* FULL WIDTH TOP IMAGE with branded overlay - compact for viewport fit */}
-      <div className="relative h-[38vh] min-h-[200px] max-h-[380px] shrink-0 w-full overflow-hidden sm:h-[40vh] sm:max-h-[420px] md:h-[44vh] md:max-h-[480px]">
+      <div className="relative h-[55vh] shrink-0 w-full overflow-hidden md:h-[47vh]">
         <motion.div
           className="flex h-full w-full"
           animate={{ x: `-${activeIndex * 100}%` }}

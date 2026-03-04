@@ -3,8 +3,9 @@
 import { useRef } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
-import { CTASection } from "@/components/CTASection";
-import { DecoGraphic } from "@/components/DecoGraphic";
+import { CTASection } from "@/components/home/CTASection";
+import { DecoGraphic } from "@/components/shared/DecoGraphic";
+import { TestimonialsSection } from "@/components/shared/TestimonialsSection";
 import { Sprout, Factory, Award, Leaf, CheckCircle2 } from "lucide-react";
 
 const manufacturingItems = [
@@ -31,7 +32,7 @@ export function AboutPageContent() {
   return (
     <main ref={ref} className="relative overflow-visible bg-background pt-28 pb-20 md:pt-32 md:pb-24">
       <DecoGraphic src="/graphics/img1.png" alt="" placement="top-left" size="md" />
-      <DecoGraphic src="/graphics/img4.png" alt="" placement="top-right" size="md" />
+      <DecoGraphic src="/graphics/img4.png" alt="" placement="bottom-right" size="md" />
       <div className="mx-auto max-w-6xl px-8 sm:px-10 md:px-12 lg:px-16 xl:px-20">
         {/* Header + hero image split */}
         <motion.section
@@ -97,6 +98,81 @@ export function AboutPageContent() {
             />
           </div>
         </motion.section>
+
+        {/* About MunjEco Global - narrative section */}
+        <section className="mb-16 grid gap-10 border-t border-border/70 pt-10 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] md:items-start">
+          <div>
+            <h2 className="font-heading text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
+              About MunjEco Global
+            </h2>
+            <p className="mt-4 text-sm leading-relaxed text-foreground-muted md:text-base">
+              MunjEco Global is an Indian export company focused on eco-friendly lifestyle
+              essentials and conscious handicrafts. We work closely with trusted
+              manufacturers, artisans, and craft communities to bring high-quality,
+              sustainable products to global markets.
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-foreground-muted md:text-base">
+              Our offerings include plastic-free daily-use essentials such as neem wood
+              combs, bamboo toothbrushes, eco-friendly gift solutions, and thoughtfully
+              crafted Indian handicrafts. Each product reflects careful material
+              selection, traditional skills, and responsible production practices.
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-foreground-muted md:text-base">
+              Our approach is simple — conscious materials, ethical sourcing, consistent
+              quality, and reliable delivery. Every product we export supports
+              responsible livelihoods, reduced plastic use, and purposeful trade that
+              respects both people and the planet. We believe global trade can be both
+              sustainable and soulful, rooted in craftsmanship and mindful consumption.
+            </p>
+          </div>
+          <div className="relative aspect-[4/5] overflow-hidden border border-border bg-background-alt">
+            <Image
+              src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="MunjEco products and handicrafts arranged for export"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 32vw"
+            />
+          </div>
+        </section>
+
+        {/* Founder’s Note */}
+        <section className="mb-16 grid gap-8 rounded-none border border-border/70 bg-background-alt px-6 py-8 md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] md:px-10 md:py-10">
+          <div>
+            <p className="font-display text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-foreground-muted">
+              Founder&apos;s Note
+            </p>
+            <h2 className="mt-3 font-heading text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
+              A business rooted in people and planet.
+            </h2>
+            <p className="mt-4 text-sm leading-relaxed text-foreground-muted md:text-base">
+              MunjEco Global was born from a simple belief — that business can grow
+              without harming the earth, and trade can uplift lives rather than exploit
+              them. As a mother and a trekker, I have seen the impact of plastic on our
+              mountains, forests, and everyday life. I started this journey to create a
+              more conscious future for my child and for the planet we share.
+            </p>
+            <p className="mt-3 text-sm leading-relaxed text-foreground-muted md:text-base">
+              This is not just a business — it is a commitment to people, planet, and
+              mindful global trade.
+            </p>
+            <div className="mt-5 border-l-2 border-primary pl-4">
+              <p className="text-sm font-semibold text-foreground">Namrata Munj</p>
+              <p className="text-xs uppercase tracking-[0.18em] text-foreground-muted">
+                Founder, MunjEco Global
+              </p>
+            </div>
+          </div>
+          <div className="relative hidden aspect-[4/5] overflow-hidden border border-border bg-background sm:block">
+            <Image
+              src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="Thoughtful founder looking over natural landscapes"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 32vw"
+            />
+          </div>
+        </section>
 
         {/* Manufacturing process - image + list */}
         <motion.section
@@ -225,8 +301,13 @@ export function AboutPageContent() {
             </div>
           </div>
         </motion.section>
+      </div>
 
-        {/* CTA Section */}
+      {/* Testimonials strip */}
+      <TestimonialsSection />
+
+      {/* CTA Section */}
+      <div className="mt-0">
         <motion.section
           style={{ y: ctaY }}
           initial={{ opacity: 0 }}

@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Mail, Phone, ArrowRight } from "lucide-react";
-import { DecoGraphic } from "@/components/DecoGraphic";
+import { DecoGraphic } from "@/components/shared/DecoGraphic";
 
 const footerLinks = {
   Products: [

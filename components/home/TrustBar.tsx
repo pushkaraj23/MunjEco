@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Leaf, Package, Globe, ShieldCheck } from "lucide-react";
-import { DecoGraphic } from "@/components/DecoGraphic";
+import { DecoGraphic } from "@/components/shared/DecoGraphic";
 
 const items = [
   {

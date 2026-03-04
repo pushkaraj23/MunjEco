@@ -1,5 +1,13 @@
+import type { Metadata } from "next";
 import { getProducts } from "@/lib/getProducts";
-import { ProductsPageContent } from "@/components/ProductsPageContent";
+import { ProductsPageContent } from "@/components/products/ProductsPageContent";
+
+export const metadata: Metadata = {
+  title:
+    "Products | Eco‑Friendly Indian Combs, Brushes, Travel Kits & Handicrafts",
+  description:
+    "Browse MunjEco Global’s export catalogue of eco‑friendly Indian combs, brushes, travel kits and handcrafted gifts for wholesale and private label buyers.",
+};
 
 type Props = { searchParams: Promise<{ category?: string; q?: string }> };
 

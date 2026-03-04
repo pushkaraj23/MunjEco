@@ -6,7 +6,6 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { motion } from "framer-motion";
 import { submitEnquiry } from "@/lib/submitEnquiry";
-import { Button } from "./Button";
 
 const enquirySchema = z.object({
   name: z.string().min(2, "Name is required"),
@@ -19,19 +18,6 @@ const enquirySchema = z.object({
 });
 
 type EnquiryFormData = z.infer<typeof enquirySchema>;
-
-const inputLight =
-  "w-full rounded-lg border border-border bg-background px-4 py-3 text-foreground outline-none transition-all duration-200 focus:border-primary focus:ring-2 focus:ring-primary/20";
-const inputDark =
-  "w-full rounded-lg border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-white/50 outline-none transition-all duration-200 focus:border-primary focus:ring-2 focus:ring-primary/30";
-const labelLight = "mb-1.5 block text-sm font-medium text-foreground-muted";
-const labelDark = "mb-1.5 block text-sm font-medium text-white/85";
-const errorLight = "mt-1 text-xs text-accent";
-const errorDark = "mt-1 text-xs text-accent-light";
-const textareaLight =
-  "w-full resize-none rounded-lg border border-border bg-background px-4 py-3 text-foreground outline-none transition-all duration-200 focus:border-primary focus:ring-2 focus:ring-primary/20";
-const textareaDark =
-  "w-full resize-none rounded-lg border border-white/20 bg-white/10 px-4 py-3 text-white placeholder-white/50 outline-none transition-all duration-200 focus:border-primary focus:ring-2 focus:ring-primary/30";
 
 type EnquiryFormProps = {
   defaultProduct?: string;
@@ -47,11 +33,6 @@ export function EnquiryForm({
   theme = "light",
 }: EnquiryFormProps) {
   const isDark = theme === "dark";
-  const inputCls = isDark ? inputDark : inputLight;
-  const labelCls = isDark ? labelDark : labelLight;
-  const errorCls = isDark ? errorDark : errorLight;
-  const textareaCls = isDark ? textareaDark : textareaLight;
-  const [success, setSuccess] = useState(false);
   const [toast, setToast] = useState<string | null>(null);
 
   const {
@@ -67,7 +48,6 @@ export function EnquiryForm({
   async function onSubmit(data: EnquiryFormData) {
     try {
       await submitEnquiry(data);
-      setSuccess(true);
       setToast("Enquiry submitted successfully. We'll be in touch soon.");
       reset();
       onSuccess?.();
@@ -83,114 +63,126 @@ export function EnquiryForm({
     }
   }, [toast]);
 
+  const inputBase =
+    "w-full rounded-none border bg-transparent px-3 py-2.5 text-sm outline-none transition-all duration-200 focus:ring-2";
+  const inputLight = `${inputBase} border-border bg-background text-foreground placeholder:text-foreground-muted/50 focus:border-primary focus:ring-primary/20`;
+  const inputDark = `${inputBase} border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:border-primary focus:ring-primary/30`;
+
+  const labelBase = "mb-1.5 block text-[0.7rem] font-semibold uppercase tracking-[0.15em]";
+  const labelLight = `${labelBase} text-foreground-muted`;
+  const labelDark = `${labelBase} text-white/85`;
+
+  const errorCls = isDark ? "mt-1 text-[0.65rem] text-primary-light" : "mt-1 text-[0.65rem] text-accent";
+
+  const textareaBase = "w-full resize-none rounded-none border px-3 py-2.5 text-sm outline-none transition-all duration-200 focus:ring-2";
+  const textareaLight = `${textareaBase} border-border bg-background text-foreground placeholder:text-foreground-muted/50 focus:border-primary focus:ring-primary/20`;
+  const textareaDark = `${textareaBase} border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:border-primary focus:ring-primary/30`;
+
+  const inputCls = isDark ? inputDark : inputLight;
+  const labelCls = isDark ? labelDark : labelLight;
+  const textareaCls = isDark ? textareaDark : textareaLight;
+
+  const gap = compact ? "gap-3" : "gap-4";
+  const rowGap = compact ? "gap-3" : "gap-4";
+
   return (
     <div className="relative">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className={`space-y-4 ${compact ? "space-y-3" : "space-y-5"}`}
+        className={`flex flex-col ${gap}`}
       >
-        <div className={compact ? "grid gap-3 sm:grid-cols-2" : "grid gap-4 sm:grid-cols-2"}>
+        <div className={`grid ${rowGap} sm:grid-cols-2`}>
           <div>
-            <label htmlFor="name" className={labelCls}>
+            <label htmlFor="enq-name" className={labelCls}>
               Full Name *
             </label>
             <input
-              id="name"
+              id="enq-name"
               {...register("name")}
               className={inputCls}
               placeholder="John Doe"
             />
-            {errors.name && (
-              <p className={errorCls}>{errors.name.message}</p>
-            )}
+            {errors.name && <p className={errorCls}>{errors.name.message}</p>}
           </div>
           <div>
-            <label htmlFor="company" className={labelCls}>
+            <label htmlFor="enq-company" className={labelCls}>
               Company Name *
             </label>
             <input
-              id="company"
+              id="enq-company"
               {...register("company")}
               className={inputCls}
               placeholder="Your Company"
             />
-            {errors.company && (
-              <p className={errorCls}>{errors.company.message}</p>
-            )}
+            {errors.company && <p className={errorCls}>{errors.company.message}</p>}
           </div>
         </div>
 
-        <div className={compact ? "grid gap-3 sm:grid-cols-2" : "grid gap-4 sm:grid-cols-2"}>
+        <div className={`grid ${rowGap} sm:grid-cols-2`}>
           <div>
-            <label htmlFor="email" className={labelCls}>
+            <label htmlFor="enq-email" className={labelCls}>
               Email *
             </label>
             <input
-              id="email"
+              id="enq-email"
               type="email"
               {...register("email")}
               className={inputCls}
               placeholder="john@company.com"
             />
-            {errors.email && (
-              <p className={errorCls}>{errors.email.message}</p>
-            )}
+            {errors.email && <p className={errorCls}>{errors.email.message}</p>}
           </div>
           <div>
-            <label htmlFor="phone" className={labelCls}>
+            <label htmlFor="enq-phone" className={labelCls}>
               Phone *
             </label>
             <input
-              id="phone"
+              id="enq-phone"
               {...register("phone")}
               className={inputCls}
               placeholder="+91 98765 43210"
             />
-            {errors.phone && (
-              <p className={errorCls}>{errors.phone.message}</p>
-            )}
+            {errors.phone && <p className={errorCls}>{errors.phone.message}</p>}
           </div>
         </div>
 
-        <div className={compact ? "grid gap-3 sm:grid-cols-2" : "grid gap-4 sm:grid-cols-2"}>
+        <div className={`grid ${rowGap} sm:grid-cols-2`}>
           <div>
-            <label htmlFor="product" className={labelCls}>
+            <label htmlFor="enq-product" className={labelCls}>
               Product of Interest
             </label>
             <input
-              id="product"
+              id="enq-product"
               {...register("product")}
               className={inputCls}
-              placeholder="e.g. Bamboo Flooring"
+              placeholder="e.g. Bamboo Pens"
             />
           </div>
           <div>
-            <label htmlFor="quantity" className={labelCls}>
+            <label htmlFor="enq-quantity" className={labelCls}>
               Quantity
             </label>
             <input
-              id="quantity"
+              id="enq-quantity"
               {...register("quantity")}
               className={inputCls}
-              placeholder="e.g. 500 sq ft"
+              placeholder="e.g. 500 units"
             />
           </div>
         </div>
 
         <div>
-          <label htmlFor="message" className={labelCls}>
+          <label htmlFor="enq-message" className={labelCls}>
             Message *
           </label>
           <textarea
-            id="message"
-            rows={compact ? 3 : 5}
+            id="enq-message"
+            rows={compact ? 3 : 4}
             {...register("message")}
             className={textareaCls}
             placeholder="Tell us about your requirements..."
           />
-          {errors.message && (
-            <p className={errorCls}>{errors.message.message}</p>
-          )}
+          {errors.message && <p className={errorCls}>{errors.message.message}</p>}
         </div>
 
         {toast && (
@@ -199,20 +191,19 @@ export function EnquiryForm({
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="rounded-lg bg-primary px-4 py-3 text-center text-sm font-medium text-white"
+            className="rounded-none bg-primary px-4 py-3 text-center text-sm font-medium text-white"
           >
             {toast}
           </motion.div>
         )}
 
-        <Button
+        <button
           type="submit"
-          variant="primary"
           disabled={isSubmitting}
-          className="w-full bg-primary hover:bg-primary-dark"
+          className="w-full rounded-none bg-primary px-5 py-3 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-dark disabled:opacity-60 disabled:cursor-not-allowed"
         >
           {isSubmitting ? "Submitting..." : "Submit Enquiry"}
-        </Button>
+        </button>
       </form>
     </div>
   );

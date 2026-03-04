@@ -4,8 +4,8 @@ import { useRef } from "react";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { TreeDeciduous, Leaf, Gift, ArrowRight } from "lucide-react";
-import { ProductGrid } from "@/components/ProductGrid";
-import { DecoGraphic } from "@/components/DecoGraphic";
+import { ProductGrid } from "@/components/products/ProductGrid";
+import { DecoGraphic } from "@/components/shared/DecoGraphic";
 import type { Product } from "@/lib/types";
 
 const productHighlights = [

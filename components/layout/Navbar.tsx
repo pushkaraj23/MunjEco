@@ -7,7 +7,8 @@ import { motion, AnimatePresence } from "framer-motion";
 const navLinks = [
   { href: "/", label: "Home" },
   { href: "/products", label: "Products" },
-  { href: "/about", label: "About" }
+  { href: "/why-choose-us", label: "Why Choose Us" },
+  { href: "/about", label: "About" },
 ];
 
 export function Navbar() {
@@ -87,26 +88,30 @@ export function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="border-t border-border/70 bg-background px-8 pb-5 pt-3 sm:px-10 md:hidden"
+            className="border-t border-border/70 bg-background-alt px-6 pb-5 pt-3 sm:px-8 md:hidden"
           >
-            <div className="mx-auto flex max-w-6xl flex-col gap-3">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  className="text-sm font-medium text-foreground-muted transition-colors hover:text-foreground"
-                >
-                  {link.label}
-                </Link>
-              ))}
-              <Link
-                href="/contact"
-                onClick={() => setMobileOpen(false)}
-                className="mt-2 inline-flex items-center justify-center border border-foreground px-4 py-2 text-xs font-medium uppercase tracking-[0.22em] text-foreground transition-colors duration-200 hover:bg-foreground hover:text-background"
-              >
-                Contact Us
-              </Link>
+            <div className="mx-auto max-w-6xl">
+              <div className="border border-border bg-background px-4 py-4 shadow-card">
+                <nav className="flex flex-col">
+                  {navLinks.map((link) => (
+                    <Link
+                      key={link.href}
+                      href={link.href}
+                      onClick={() => setMobileOpen(false)}
+                      className="flex items-center justify-between border-b border-border/60 py-2 text-[0.7rem] font-medium uppercase tracking-[0.18em] text-foreground-muted last:border-b-0 hover:text-foreground"
+                    >
+                      <span>{link.label}</span>
+                    </Link>
+                  ))}
+                  <Link
+                    href="/contact"
+                    onClick={() => setMobileOpen(false)}
+                    className="mt-3 inline-flex items-center justify-center border border-foreground px-4 py-2 text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-foreground transition-colors duration-200 hover:bg-foreground hover:text-background"
+                  >
+                    Contact Us
+                  </Link>
+                </nav>
+              </div>
             </div>
           </motion.div>
         )}

@@ -4,23 +4,26 @@ import { useRef } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { Quote, Star } from "lucide-react";
-import { DecoGraphic } from "@/components/DecoGraphic";
+import { DecoGraphic } from "@/components/shared/DecoGraphic";
 
 const testimonials = [
   {
     quote:
       "Premium bamboo pens for our corporate gifting. Clients love the eco-friendly touch.",
     author: "Corporate Solutions Ltd",
+    role: "Corporate Gifting Buyer",
   },
   {
     quote:
       "Reliable bulk supplier. On-time delivery, excellent communication.",
     author: "Green Retail Co",
+    role: "Retail Partner",
   },
   {
     quote:
       "Sustainable sourcing with manufacturing-grade quality. Highly recommend.",
     author: "Eco Gifting Partners",
+    role: "Export Client",
   },
 ];
 
@@ -89,8 +92,8 @@ export function TestimonialsSection() {
           </p>
         </motion.header>
 
-        {/* Testimonial cards - restrained, linear grid */}
-        <div className="grid gap-10 md:grid-cols-3">
+        {/* Testimonial cards - elevated editorial grid */}
+        <div className="grid gap-8 md:grid-cols-3">
           {testimonials.map((t, i) => (
             <motion.div
               key={t.author}
@@ -105,29 +108,36 @@ export function TestimonialsSection() {
               }}
               whileHover={{ y: -4, transition: { duration: 0.2 } }}
             >
-              <blockquote className="group border-t border-white/20 pt-5">
-                <Quote
-                  className="mb-4 h-8 w-8 text-chai/70"
-                  strokeWidth={1}
-                />
-                <p className="text-base leading-relaxed text-white/90 md:text-lg">
+              <article className="flex h-full flex-col border border-white/20 bg-white/5 px-5 py-5 shadow-card">
+                <Quote className="mb-3 h-6 w-6 text-accent-light" strokeWidth={1.2} />
+                <p className="text-sm leading-relaxed text-white/90 md:text-base">
                   &ldquo;{t.quote}&rdquo;
                 </p>
-                <div className="mt-4 flex items-center gap-2">
-                  <div className="flex gap-0.5 text-turmeric">
-                    {[...Array(5)].map((_, j) => (
-                      <Star
-                        key={j}
-                        className="h-4 w-4 fill-current"
-                        strokeWidth={1.5}
-                      />
-                    ))}
+                <div className="mt-5 border-t border-white/20 pt-3">
+                  <div className="flex items-center justify-between gap-2">
+                    <div>
+                      <p className="text-sm font-semibold text-white">{t.author}</p>
+                      {t.role && (
+                        <p className="text-[0.7rem] uppercase tracking-[0.18em] text-white/70">
+                          {t.role}
+                        </p>
+                      )}
+                    </div>
+                    <div className="flex items-center gap-1 text-accent-light">
+                      <span className="text-[0.7rem] font-semibold">5.0</span>
+                      <div className="flex gap-0.5">
+                        {[...Array(5)].map((_, j) => (
+                          <Star
+                            key={j}
+                            className="h-3.5 w-3.5 fill-current"
+                            strokeWidth={1.3}
+                          />
+                        ))}
+                      </div>
+                    </div>
                   </div>
-                  <footer className="text-sm font-semibold text-chai">
-                    {t.author}
-                  </footer>
                 </div>
-              </blockquote>
+              </article>
             </motion.div>
           ))}
         </div>

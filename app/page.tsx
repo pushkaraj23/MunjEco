@@ -1,12 +1,12 @@
 import { getFeaturedProducts } from "@/lib/getProducts";
-import { Hero } from "@/components/Hero";
-import { TrustBar } from "@/components/TrustBar";
-import { FeaturedProductsSection } from "@/components/FeaturedProductsSection";
-import { WhyChooseSection } from "@/components/WhyChooseSection";
-import { SustainabilityPromiseSection } from "@/components/SustainabilityPromiseSection";
-import { CTASection } from "@/components/CTASection";
-import { TestimonialsSection } from "@/components/TestimonialsSection";
-import { AboutSection } from "@/components/AboutSection";
+import { Hero } from "@/components/home/Hero";
+import { TrustBar } from "@/components/home/TrustBar";
+import { FeaturedProductsSection } from "@/components/home/FeaturedProductsSection";
+import { WhyChooseSection } from "@/components/home/WhyChooseSection";
+import { SustainabilityPromiseSection } from "@/components/home/SustainabilityPromiseSection";
+import { CTASection } from "@/components/home/CTASection";
+import { TestimonialsSection } from "@/components/shared/TestimonialsSection";
+import { AboutSection } from "@/components/home/AboutSection";
 
 export default async function Home() {
   const featuredProducts = await getFeaturedProducts();

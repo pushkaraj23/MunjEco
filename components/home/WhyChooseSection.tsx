@@ -10,7 +10,7 @@ import {
   Tags,
   Handshake,
 } from "lucide-react";
-import { DecoGraphic } from "@/components/DecoGraphic";
+import { DecoGraphic } from "@/components/shared/DecoGraphic";
 
 const benefits = [
   {

@@ -169,10 +169,9 @@ body {
   content: "";
   position: absolute;
   left: 0;
-  top: 0;
+  top: -5;
   height: 4px;
   width: 48px;
-  border-radius: 0 4px 4px 0;
   background: linear-gradient(90deg,
       var(--accent, var(--color-brand-blue)),
       transparent);
