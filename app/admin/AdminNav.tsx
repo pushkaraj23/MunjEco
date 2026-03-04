@@ -17,8 +17,8 @@ export function AdminNav() {
   const pathname = usePathname();
 
   return (
-    <aside className="hidden w-64 flex-col border-r border-almond bg-surface md:flex">
-      <div className="flex h-16 items-center border-b border-almond px-4">
+    <aside className="hidden w-64 flex-col border-r border-border bg-background-alt md:flex">
+      <div className="flex h-16 items-center border-b border-border px-4">
         <Link href="/admin" className="flex items-center gap-2">
           <Image
             src="/full-logo.png"
@@ -27,7 +27,9 @@ export function AdminNav() {
             height={28}
             className="h-7 w-auto object-contain"
           />
-          <span className="text-xs font-medium text-foreground-muted">Admin</span>
+          <span className="text-[0.7rem] font-medium uppercase tracking-[0.25em] text-foreground-muted">
+            Admin
+          </span>
         </Link>
       </div>
       <nav className="flex-1 space-y-1 p-4">
@@ -40,21 +42,21 @@ export function AdminNav() {
             <Link
               key={item.href}
               href={item.href}
-              className={`block rounded-2xl px-4 py-3 text-sm font-medium transition-all ${
+              className={`block px-4 py-2 text-xs font-semibold uppercase tracking-[0.26em] transition-all ${
                 isActive
-                  ? "bg-matcha text-white"
-                  : "text-foreground-muted hover:bg-matcha/10 hover:text-carob"
+                  ? "bg-primary text-white"
+                  : "text-foreground-muted hover:bg-primary/5 hover:text-foreground"
               }`}
             >
               {item.label}
             </Link>
           );
         })}
-        <div className="mt-6 border-t border-almond pt-4">
+        <div className="mt-6 border-t border-border pt-4">
           <form action={adminLogout}>
             <button
               type="submit"
-              className="flex w-full items-center gap-2 rounded-2xl px-4 py-3 text-sm font-medium text-foreground-muted transition-all hover:bg-chai/10 hover:text-carob"
+              className="flex w-full items-center gap-2 px-4 py-2 text-xs font-semibold uppercase tracking-[0.26em] text-foreground-muted transition-all hover:bg-accent/5 hover:text-foreground"
             >
               <LogOut className="h-4 w-4" />
               Log Out

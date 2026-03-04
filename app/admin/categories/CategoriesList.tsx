@@ -16,7 +16,7 @@ export function CategoriesList({ categories }: Props) {
 
   if (categories.length === 0) {
     return (
-      <div className="rounded-3xl border border-almond bg-surface p-12 text-center shadow-card">
+      <div className="border border-border bg-background-alt p-12 text-center shadow-card">
         <p className="text-foreground-muted">No categories yet.</p>
         <p className="mt-2 text-sm text-foreground-muted">
           Add your first category using the form on the left. Categories will
@@ -53,19 +53,19 @@ export function CategoriesList({ categories }: Props) {
   }
 
   return (
-    <div className="rounded-3xl border border-almond bg-surface shadow-card">
-      <div className="border-b border-almond px-6 py-4">
-        <h2 className="font-display text-lg font-semibold text-carob">
+    <div className="border border-border bg-background-alt shadow-card">
+      <div className="border-b border-border px-6 py-4">
+        <h2 className="font-heading text-lg font-semibold tracking-tight text-foreground">
           Existing Categories
         </h2>
       </div>
-      <ul className="divide-y divide-almond/50">
+      <ul className="divide-y divide-border/70">
         {categories.map((cat) => {
           const isEditing = editingId === cat.id;
           return (
             <li
               key={cat.id}
-              className="flex flex-col gap-4 px-6 py-4 transition-colors hover:bg-matcha/5 sm:flex-row sm:items-center"
+              className="flex flex-col gap-4 px-6 py-4 transition-colors hover:bg-primary/5 sm:flex-row sm:items-center"
             >
               <div className="relative h-16 w-24 shrink-0 overflow-hidden rounded-xl bg-background-alt">
                 <Image
@@ -90,34 +90,34 @@ export function CategoriesList({ categories }: Props) {
                         name="name"
                         defaultValue={cat.name}
                         placeholder="Name"
-                        className="w-full rounded-2xl border border-almond bg-white px-3 py-2 text-sm text-foreground outline-none focus:border-matcha"
+                        className="w-full border border-border bg-background px-3 py-2 text-sm text-foreground outline-none focus:border-primary"
                       />
                       <input
                         name="slug"
                         defaultValue={cat.slug}
                         placeholder="Slug"
-                        className="w-full rounded-2xl border border-almond bg-white px-3 py-2 text-sm text-foreground outline-none focus:border-matcha"
+                        className="w-full border border-border bg-background px-3 py-2 text-sm text-foreground outline-none focus:border-primary"
                       />
                     </div>
                     <input
                       name="imageUrl"
                       defaultValue={cat.imageUrl}
                       placeholder="Cover image URL"
-                      className="w-full rounded-2xl border border-almond bg-white px-3 py-2 text-sm text-foreground outline-none focus:border-matcha"
+                      className="w-full border border-border bg-background px-3 py-2 text-sm text-foreground outline-none focus:border-primary"
                     />
                   </div>
                   <div className="flex flex-col gap-2 sm:items-end">
                     <button
                       type="submit"
                       disabled={savingId === cat.id}
-                      className="rounded-2xl bg-matcha px-3 py-2 text-sm font-semibold text-white shadow-card disabled:opacity-50"
+                      className="bg-primary px-3 py-2 text-xs font-semibold uppercase tracking-[0.24em] text-white disabled:opacity-50"
                     >
                       {savingId === cat.id ? "Saving…" : "Save"}
                     </button>
                     <button
                       type="button"
                       onClick={() => setEditingId(null)}
-                      className="text-xs text-foreground-muted hover:text-carob"
+                      className="text-xs text-foreground-muted hover:text-foreground"
                     >
                       Cancel
                     </button>
@@ -126,14 +126,16 @@ export function CategoriesList({ categories }: Props) {
               ) : (
                 <>
                   <div className="flex-1">
-                    <p className="font-medium text-carob">{cat.name}</p>
+                    <p className="text-sm font-medium text-foreground">
+                      {cat.name}
+                    </p>
                     <p className="text-sm text-foreground-muted">{cat.slug}</p>
                   </div>
                   <div className="flex shrink-0 gap-2">
                     <button
                       type="button"
                       onClick={() => setEditingId(cat.id)}
-                      className="rounded-2xl border border-almond bg-white px-3 py-1.5 text-xs font-semibold text-carob hover:border-matcha hover:text-matcha"
+                      className="border border-border bg-background px-3 py-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-foreground hover:border-primary hover:text-primary"
                     >
                       Edit
                     </button>

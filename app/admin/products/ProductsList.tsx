@@ -12,7 +12,7 @@ type Props = { products: Product[] };
 export function ProductsList({ products }: Props) {
   if (products.length === 0) {
     return (
-      <div className="rounded-3xl border border-almond bg-surface p-12 text-center shadow-card">
+      <div className="border border-border bg-background-alt p-12 text-center shadow-card">
         <p className="text-foreground-muted">No products yet.</p>
         <p className="mt-2 text-sm text-foreground-muted">
           Add your first product using the form on the left.
@@ -89,13 +89,13 @@ export function ProductsList({ products }: Props) {
   }
 
   return (
-    <div className="rounded-3xl border border-almond bg-surface shadow-card">
-      <div className="border-b border-almond px-6 py-4">
-        <h2 className="font-display text-lg font-semibold text-carob">
+    <div className="border border-border bg-background-alt shadow-card">
+      <div className="border-b border-border px-6 py-4">
+        <h2 className="font-heading text-lg font-semibold tracking-tight text-foreground">
           Existing Products
         </h2>
       </div>
-      <ul className="divide-y divide-almond/50">
+      <ul className="divide-y divide-border/70">
         {products.map((product) => {
           const imageUrl =
             product.images[0] ?? "https://placehold.co/80x60/E5E0D8/809671?text=—";
@@ -103,7 +103,7 @@ export function ProductsList({ products }: Props) {
           return (
             <li
               key={product.id}
-              className="flex flex-col gap-4 px-6 py-4 transition-colors hover:bg-matcha/5 sm:flex-row sm:items-start"
+              className="flex flex-col gap-4 px-6 py-4 transition-colors hover:bg-primary/5 sm:flex-row sm:items-start"
             >
               <div className="relative h-16 w-20 shrink-0 overflow-hidden rounded-xl bg-background-alt">
                 <Image
@@ -127,39 +127,39 @@ export function ProductsList({ products }: Props) {
                       name="name"
                       defaultValue={product.name}
                       placeholder="Name"
-                      className="w-full rounded-2xl border border-almond bg-white px-3 py-2 text-sm text-foreground outline-none focus:border-matcha"
+                      className="w-full border border-border bg-background px-3 py-2 text-sm text-foreground outline-none focus:border-primary"
                     />
                     <input
                       name="slug"
                       defaultValue={product.slug}
                       placeholder="Slug"
-                      className="w-full rounded-2xl border border-almond bg-white px-3 py-2 text-sm text-foreground outline-none focus:border-matcha"
+                      className="w-full border border-border bg-background px-3 py-2 text-sm text-foreground outline-none focus:border-primary"
                     />
                   </div>
                   <input
                     name="category"
                     defaultValue={product.category}
                     placeholder="Category slug"
-                    className="w-full rounded-2xl border border-almond bg-white px-3 py-2 text-sm text-foreground outline-none focus:border-matcha"
+                    className="w-full border border-border bg-background px-3 py-2 text-sm text-foreground outline-none focus:border-primary"
                   />
                   <textarea
                     name="description"
                     defaultValue={product.description}
                     rows={2}
-                    className="w-full rounded-2xl border border-almond bg-white px-3 py-2 text-sm text-foreground outline-none focus:border-matcha"
+                    className="w-full border border-border bg-background px-3 py-2 text-sm text-foreground outline-none focus:border-primary"
                   />
                   <textarea
                     name="images"
                     defaultValue={product.images.join("\n")}
                     rows={3}
-                    className="w-full rounded-2xl border border-almond bg-white px-3 py-2 text-xs font-mono text-foreground outline-none focus:border-matcha"
+                    className="w-full border border-border bg-background px-3 py-2 text-xs font-mono text-foreground outline-none focus:border-primary"
                     placeholder="Image URLs, one per line"
                   />
                   <textarea
                     name="specifications"
                     defaultValue={specsToTextarea(product.specifications)}
                     rows={3}
-                    className="w-full rounded-2xl border border-almond bg-white px-3 py-2 text-xs font-mono text-foreground outline-none focus:border-matcha"
+                    className="w-full border border-border bg-background px-3 py-2 text-xs font-mono text-foreground outline-none focus:border-primary"
                     placeholder="Specifications: key: value, one per line"
                   />
                   <label className="flex items-center gap-2 text-sm">
@@ -167,7 +167,7 @@ export function ProductsList({ products }: Props) {
                       type="checkbox"
                       name="featured"
                       defaultChecked={product.featured}
-                      className="rounded border-almond text-matcha focus:ring-matcha"
+                      className="border-border text-primary focus:ring-primary"
                     />
                     <span className="text-foreground-muted">Featured product</span>
                   </label>
@@ -175,14 +175,14 @@ export function ProductsList({ products }: Props) {
                     <button
                       type="submit"
                       disabled={savingId === product.id}
-                      className="rounded-2xl bg-matcha px-3 py-2 text-xs font-semibold text-white shadow-card disabled:opacity-50"
+                      className="bg-primary px-3 py-2 text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-white disabled:opacity-50"
                     >
                       {savingId === product.id ? "Saving…" : "Save"}
                     </button>
                     <button
                       type="button"
                       onClick={() => setEditingId(null)}
-                      className="text-xs text-foreground-muted hover:text-carob"
+                      className="text-xs text-foreground-muted hover:text-foreground"
                     >
                       Cancel
                     </button>
@@ -193,7 +193,7 @@ export function ProductsList({ products }: Props) {
                   <div className="min-w-0 flex-1">
                     <Link
                       href={`/products/${product.slug}`}
-                      className="font-medium text-carob hover:text-matcha"
+                      className="text-sm font-medium text-foreground hover:text-primary"
                     >
                       {product.name}
                     </Link>
@@ -203,7 +203,7 @@ export function ProductsList({ products }: Props) {
                   </div>
                   <div className="flex shrink-0 flex-col items-end gap-2">
                     {product.featured && (
-                      <span className="rounded-full bg-matcha/20 px-2 py-0.5 text-xs font-medium text-matcha">
+                      <span className="border border-primary/40 bg-primary/5 px-2 py-0.5 text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-primary">
                         Featured
                       </span>
                     )}
@@ -211,7 +211,7 @@ export function ProductsList({ products }: Props) {
                       <button
                         type="button"
                         onClick={() => setEditingId(product.id)}
-                        className="rounded-2xl border border-almond bg-white px-3 py-1.5 text-xs font-semibold text-carob hover:border-matcha hover:text-matcha"
+                        className="border border-border bg-background px-3 py-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-foreground hover:border-primary hover:text-primary"
                       >
                         Edit
                       </button>
@@ -219,7 +219,7 @@ export function ProductsList({ products }: Props) {
                         type="button"
                         onClick={() => void handleDelete(product.id, product.name)}
                         disabled={deletingId === product.id}
-                        className="rounded-2xl border border-border bg-white px-3 py-1.5 text-xs font-semibold text-chai hover:border-chai disabled:opacity-50"
+                        className="border border-border bg-background px-3 py-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-accent-dark hover:border-accent-dark disabled:opacity-50"
                       >
                         {deletingId === product.id ? "Deleting…" : "Delete"}
                       </button>

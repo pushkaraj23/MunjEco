@@ -34,11 +34,14 @@ export default async function AdminDashboardPage() {
   ];
 
   return (
-    <div>
-      <h1 className="font-display mb-6 text-2xl font-semibold text-carob">
+    <div className="pt-2">
+      <p className="mb-2 text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-foreground-muted">
+        Admin Overview
+      </p>
+      <h1 className="font-heading mb-2 text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
         Dashboard
       </h1>
-      <p className="mb-8 text-foreground-muted">
+      <p className="mb-8 max-w-xl text-sm leading-relaxed text-foreground-muted">
         Overview of your MunjEco admin data. Click a card to manage each
         section.
       </p>
@@ -48,17 +51,20 @@ export default async function AdminDashboardPage() {
           <Link
             key={stat.href}
             href={stat.href}
-            className="group block rounded-3xl border border-almond bg-surface p-6 shadow-card transition-all hover:border-matcha/30 hover:shadow-elevated"
+            className="group block border border-border bg-background-alt px-6 py-5 shadow-card transition-all hover:border-primary/40 hover:shadow-elevated"
           >
-            <p className="text-sm font-medium text-foreground-muted">
+            <p className="text-[0.7rem] font-semibold uppercase tracking-[0.26em] text-foreground-muted">
               {stat.label}
             </p>
-            <p className="mt-2 font-display text-3xl font-semibold text-carob">
+            <p className="mt-3 font-heading text-3xl font-semibold tracking-tight text-foreground">
               {stat.count}
             </p>
-            <p className="mt-1 text-xs text-foreground-muted">{stat.description}</p>
-            <span className="mt-3 inline-block text-sm font-medium text-matcha group-hover:underline">
-              View →
+            <p className="mt-1 text-xs text-foreground-muted">
+              {stat.description}
+            </p>
+            <span className="mt-4 inline-flex items-center text-[0.7rem] font-semibold uppercase tracking-[0.26em] text-primary group-hover:text-accent">
+              <span>View</span>
+              <span className="ml-1">→</span>
             </span>
           </Link>
         ))}
@@ -66,23 +72,27 @@ export default async function AdminDashboardPage() {
 
       {enquiries.length > 0 && (
         <div className="mt-10">
-          <h2 className="font-display mb-4 text-lg font-semibold text-carob">
+          <h2 className="font-heading mb-2 text-lg font-semibold tracking-tight text-foreground">
             Recent Enquiries
           </h2>
-          <div className="rounded-3xl border border-almond bg-surface shadow-card">
-            <div className="divide-y divide-almond/50">
+          <div className="border border-border bg-background-alt shadow-card">
+            <div className="divide-y divide-border/70">
               {enquiries.slice(0, 5).map((e) => (
                 <Link
                   key={e.id}
                   href="/admin/enquiries"
-                  className="flex items-center justify-between px-6 py-4 transition-colors hover:bg-matcha/5"
+                  className="flex items-center justify-between px-6 py-4 transition-colors hover:bg-primary/5"
                 >
                   <div>
-                    <p className="font-medium text-carob">{e.name}</p>
+                    <p className="text-sm font-medium text-foreground">
+                      {e.name}
+                    </p>
                     <p className="text-sm text-foreground-muted">{e.company}</p>
                   </div>
                   <div className="text-right">
-                    <p className="text-sm font-medium text-carob">{e.product}</p>
+                    <p className="text-sm font-medium text-foreground">
+                      {e.product}
+                    </p>
                     <p className="text-xs text-foreground-muted">
                       {e.createdAt
                         ? new Date(e.createdAt.seconds * 1000).toLocaleDateString()
@@ -94,7 +104,7 @@ export default async function AdminDashboardPage() {
             </div>
             <Link
               href="/admin/enquiries"
-              className="block border-t border-almond px-6 py-3 text-center text-sm font-medium text-matcha hover:bg-matcha/5"
+              className="block border-t border-border px-6 py-3 text-center text-xs font-semibold uppercase tracking-[0.26em] text-primary hover:bg-primary/5"
             >
               View all enquiries →
             </Link>

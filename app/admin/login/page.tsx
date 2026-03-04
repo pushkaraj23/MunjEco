@@ -31,13 +31,13 @@ export default function AdminLoginPage() {
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-center bg-background px-6">
-      <div className="w-full max-w-md rounded-3xl border border-almond bg-white/80 p-8 shadow-elevated backdrop-blur-xl">
-        <div className="mb-8 flex justify-center">
-          <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-matcha/20">
-            <Lock className="h-7 w-7 text-matcha" strokeWidth={1.5} />
+      <div className="w-full max-w-md border border-border bg-background-alt p-8 shadow-elevated">
+        <div className="mb-6 flex justify-center">
+          <div className="flex h-12 w-12 items-center justify-center border border-primary/40 bg-primary/5">
+            <Lock className="h-6 w-6 text-primary" strokeWidth={1.5} />
           </div>
         </div>
-        <h1 className="text-center font-heading text-2xl font-semibold text-foreground">
+        <h1 className="text-center font-heading text-2xl font-semibold tracking-tight text-foreground">
           Admin Login
         </h1>
         <p className="mt-2 text-center text-sm text-foreground-muted">
@@ -48,7 +48,7 @@ export default function AdminLoginPage() {
           <div>
             <label
               htmlFor="password"
-              className="mb-1 block text-sm font-medium text-foreground-muted"
+              className="mb-1 block text-[0.7rem] font-semibold uppercase tracking-[0.26em] text-foreground-muted"
             >
               Password
             </label>
@@ -59,12 +59,12 @@ export default function AdminLoginPage() {
               required
               autoFocus
               placeholder="Enter password"
-              className="w-full rounded-xl border border-almond bg-white px-4 py-3 text-foreground placeholder:text-foreground-muted/60 outline-none transition-all focus:border-matcha focus:ring-2 focus:ring-matcha/30"
+              className="w-full border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-foreground-muted/60 outline-none transition-all focus:border-primary focus:ring-2 focus:ring-primary/20"
             />
           </div>
 
           {error && (
-            <p className="rounded-lg bg-chai/20 px-4 py-2 text-sm text-carob">
+            <p className="border border-accent/40 bg-accent/5 px-4 py-2 text-sm text-foreground">
               {error}
             </p>
           )}
@@ -72,7 +72,7 @@ export default function AdminLoginPage() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full rounded-xl bg-matcha px-4 py-3 font-semibold text-white transition-all hover:bg-matcha/90 disabled:opacity-60"
+            className="w-full bg-primary px-4 py-3 text-[0.75rem] font-semibold uppercase tracking-[0.26em] text-white transition-all hover:bg-primary-dark disabled:opacity-60"
           >
             {isSubmitting ? "Signing in..." : "Sign In"}
           </button>

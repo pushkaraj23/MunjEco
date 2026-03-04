@@ -67,42 +67,54 @@ export function AddProductForm({ categories }: Props) {
   }
 
   return (
-    <div className="rounded-3xl border border-almond bg-surface p-6 shadow-card">
-      <h2 className="mb-6 font-display text-lg font-semibold text-carob">
+    <div className="border border-border bg-background-alt p-6 shadow-card">
+      <h2 className="mb-2 font-heading text-lg font-semibold tracking-tight text-foreground">
         Add Product
       </h2>
+      <p className="mb-6 text-xs text-foreground-muted">
+        Create new products that appear on the public catalogue.
+      </p>
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label htmlFor="name" className="mb-1 block text-sm font-medium text-carob">
+          <label
+            htmlFor="name"
+            className="mb-1 block text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-foreground-muted"
+          >
             Name *
           </label>
           <input
             id="name"
             name="name"
             required
-            className="w-full rounded-2xl border border-almond bg-white px-4 py-2.5 text-foreground outline-none focus:border-matcha"
+            className="w-full border border-border bg-background px-4 py-2.5 text-sm text-foreground outline-none focus:border-primary"
           />
         </div>
         <div>
-          <label htmlFor="slug" className="mb-1 block text-sm font-medium text-carob">
+          <label
+            htmlFor="slug"
+            className="mb-1 block text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-foreground-muted"
+          >
             Slug (leave blank to auto-generate)
           </label>
           <input
             id="slug"
             name="slug"
             placeholder="bamboo-pen"
-            className="w-full rounded-2xl border border-almond bg-white px-4 py-2.5 text-foreground outline-none focus:border-matcha"
+            className="w-full border border-border bg-background px-4 py-2.5 text-sm text-foreground outline-none focus:border-primary"
           />
         </div>
         <div>
-          <label htmlFor="category" className="mb-1 block text-sm font-medium text-carob">
+          <label
+            htmlFor="category"
+            className="mb-1 block text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-foreground-muted"
+          >
             Category *
           </label>
           <select
             id="category"
             name="category"
             required
-            className="w-full rounded-2xl border border-almond bg-white px-4 py-2.5 text-foreground outline-none focus:border-matcha"
+            className="w-full border border-border bg-background px-4 py-2.5 text-sm text-foreground outline-none focus:border-primary"
           >
             <option value="">Select category</option>
             {categories.map((cat) => (
@@ -118,7 +130,10 @@ export function AddProductForm({ categories }: Props) {
           )}
         </div>
         <div>
-          <label htmlFor="description" className="mb-1 block text-sm font-medium text-carob">
+          <label
+            htmlFor="description"
+            className="mb-1 block text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-foreground-muted"
+          >
             Description *
           </label>
           <textarea
@@ -126,11 +141,14 @@ export function AddProductForm({ categories }: Props) {
             name="description"
             required
             rows={3}
-            className="w-full rounded-2xl border border-almond bg-white px-4 py-2.5 text-foreground outline-none focus:border-matcha"
+            className="w-full border border-border bg-background px-4 py-2.5 text-sm text-foreground outline-none focus:border-primary"
           />
         </div>
         <div>
-          <label htmlFor="images" className="mb-1 block text-sm font-medium text-carob">
+          <label
+            htmlFor="images"
+            className="mb-1 block text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-foreground-muted"
+          >
             Image URLs (one per line) *
           </label>
           <textarea
@@ -139,11 +157,14 @@ export function AddProductForm({ categories }: Props) {
             required
             rows={4}
             placeholder="https://example.com/image1.jpg&#10;https://example.com/image2.jpg"
-            className="w-full rounded-2xl border border-almond bg-white px-4 py-2.5 font-mono text-sm text-foreground outline-none focus:border-matcha"
+            className="w-full border border-border bg-background px-4 py-2.5 font-mono text-sm text-foreground outline-none focus:border-primary"
           />
         </div>
         <div>
-          <label htmlFor="specifications" className="mb-1 block text-sm font-medium text-carob">
+          <label
+            htmlFor="specifications"
+            className="mb-1 block text-[0.7rem] font-semibold uppercase tracking-[0.24em] text-foreground-muted"
+          >
             Specifications (key: value, one per line)
           </label>
           <textarea
@@ -151,27 +172,27 @@ export function AddProductForm({ categories }: Props) {
             name="specifications"
             rows={4}
             placeholder="Capacity: 300ml&#10;Material: Bamboo"
-            className="w-full rounded-2xl border border-almond bg-white px-4 py-2.5 font-mono text-sm text-foreground outline-none focus:border-matcha"
+            className="w-full border border-border bg-background px-4 py-2.5 font-mono text-sm text-foreground outline-none focus:border-primary"
           />
         </div>
         <label className="flex cursor-pointer items-center gap-2">
           <input
             type="checkbox"
             name="featured"
-            className="rounded border-almond text-matcha focus:ring-matcha"
+            className="border-border text-primary focus:ring-primary"
           />
           <span className="text-sm text-foreground-muted">Featured product</span>
         </label>
         {status === "success" && (
-          <p className="text-sm text-matcha">Product added successfully.</p>
+          <p className="text-xs text-primary">Product added successfully.</p>
         )}
         {status === "error" && error && (
-          <p className="text-sm text-chai">{error}</p>
+          <p className="text-xs text-accent-dark">{error}</p>
         )}
         <button
           type="submit"
           disabled={status === "loading"}
-          className="w-full rounded-2xl bg-matcha px-4 py-3 font-semibold text-white shadow-card transition-all hover:shadow-elevated disabled:opacity-50"
+          className="w-full bg-primary px-4 py-3 text-[0.75rem] font-semibold uppercase tracking-[0.26em] text-white transition-all hover:bg-primary-dark disabled:opacity-50"
         >
           {status === "loading" ? "Adding…" : "Add Product"}
         </button>

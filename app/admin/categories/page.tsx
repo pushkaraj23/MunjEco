@@ -6,11 +6,14 @@ export default async function CategoriesPage() {
   const categories = await getCategories();
 
   return (
-    <div>
-      <h1 className="font-display mb-6 text-2xl font-semibold text-carob">
+    <div className="pt-2">
+      <p className="mb-2 text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-foreground-muted">
+        Admin
+      </p>
+      <h1 className="font-heading mb-2 text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
         Categories
       </h1>
-      <p className="mb-8 text-foreground-muted">
+      <p className="mb-8 max-w-xl text-sm leading-relaxed text-foreground-muted">
         Create and manage product categories. Each category can have a cover
         photo. Categories appear in the Products dropdown when adding products.
       </p>

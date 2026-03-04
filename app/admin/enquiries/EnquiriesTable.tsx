@@ -17,8 +17,8 @@ const statusStyles: Record<
   { card: string; badge: string; label: string }
 > = {
   new: {
-    card: "border-l-4 border-l-matcha bg-matcha/5",
-    badge: "bg-matcha text-white",
+    card: "border-l-4 border-l-primary bg-primary/5",
+    badge: "bg-primary text-white",
     label: "New",
   },
   ongoing: {
@@ -27,8 +27,8 @@ const statusStyles: Record<
     label: "Ongoing",
   },
   done: {
-    card: "border-l-4 border-l-foreground-muted/40 bg-background-alt/50",
-    badge: "bg-foreground-muted/30 text-foreground-muted",
+    card: "border-l-4 border-l-foreground-muted/40 bg-background-alt/60",
+    badge: "bg-foreground-muted/20 text-foreground-muted",
     label: "Done",
   },
 };
@@ -43,7 +43,7 @@ export function EnquiriesTable({ enquiries }: Props) {
 
   if (enquiries.length === 0) {
     return (
-      <div className="rounded-3xl border border-almond bg-surface p-12 text-center shadow-card">
+      <div className="border border-border bg-background-alt p-12 text-center shadow-card">
         <p className="text-foreground-muted">No enquiries yet.</p>
         <p className="mt-2 text-sm text-foreground-muted">
           Enquiries will appear here when users submit the contact form.
@@ -58,14 +58,14 @@ export function EnquiriesTable({ enquiries }: Props) {
         const status = enquiry.status ?? "new";
         const style = statusStyles[status];
         return (
-          <div
+            <div
             key={enquiry.id}
-            className={`rounded-3xl border border-almond bg-surface p-5 shadow-card sm:p-6 ${style.card}`}
+              className={`border border-border bg-background-alt p-5 shadow-card sm:p-6 ${style.card}`}
           >
             <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
               <div className="min-w-0 flex-1 space-y-3">
                 <div className="flex flex-wrap items-center gap-2 gap-y-1">
-                  <span className="font-display text-lg font-semibold text-carob">
+                  <span className="font-heading text-base font-semibold tracking-tight text-foreground">
                     {enquiry.name}
                   </span>
                   <span className="text-sm text-foreground-muted">
@@ -89,13 +89,13 @@ export function EnquiriesTable({ enquiries }: Props) {
                 <div className="flex flex-wrap gap-x-4 gap-y-1 text-sm">
                   <a
                     href={`mailto:${enquiry.email}`}
-                    className="text-matcha hover:underline"
+                    className="text-primary hover:underline"
                   >
                     {enquiry.email}
                   </a>
                   <a
                     href={`tel:${enquiry.phone}`}
-                    className="text-matcha hover:underline"
+                    className="text-primary hover:underline"
                   >
                     {enquiry.phone}
                   </a>
@@ -118,7 +118,7 @@ export function EnquiriesTable({ enquiries }: Props) {
                   onChange={(e) =>
                     onStatusChange(enquiry.id, e.target.value as EnquiryStatus)
                   }
-                  className="rounded-xl border border-almond bg-white px-3 py-2 text-sm font-medium text-foreground shadow-sm outline-none focus:border-matcha"
+                  className="border border-border bg-background px-3 py-2 text-sm font-medium text-foreground shadow-sm outline-none focus:border-primary"
                   aria-label="Change status"
                 >
                   <option value="new">New</option>
