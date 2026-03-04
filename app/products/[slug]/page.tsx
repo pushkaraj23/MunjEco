@@ -31,7 +31,7 @@ export async function generateMetadata(
     title: `${product.name} | Eco‑Friendly Indian Export`,
     description,
     openGraph: {
-      type: "product",
+      type: "website",
       title: `${product.name} | Eco‑Friendly Indian Export`,
       description,
       url: `/products/${product.slug}`,
