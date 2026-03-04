@@ -8,9 +8,17 @@ import { DecoGraphic } from "@/components/shared/DecoGraphic";
 
 const footerLinks = {
   Products: [
-    { href: "/products?q=bamboo%20pen", label: "Bamboo Pens" },
-    { href: "/products?q=stationery", label: "Stationery" },
-    { href: "/products?q=drinkware", label: "Drinkware" },
+    { href: "/products?q=neem%20comb", label: "Neem Wood Combs" },
+    { href: "/products?q=toothbrush", label: "Bamboo Toothbrushes" },
+    { href: "/products?q=travel%20kit", label: "Eco Travel Kits" },
+    { href: "/products?q=handicraft", label: "Indian Handicrafts" },
+  ],
+  Pages: [
+    { href: "/", label: "Home" },
+    { href: "/products", label: "All Products" },
+    { href: "/about", label: "About" },
+    { href: "/why-choose-us", label: "Why Choose Us" },
+    { href: "/contact", label: "Contact" },
   ],
   Company: [
     { href: "/about", label: "About Us" },
@@ -62,7 +70,7 @@ export function Footer() {
             {/* CTA link */}
             <Link
               href="/contact"
-              className="group mt-6 inline-flex items-center gap-2 text-[0.72rem] font-semibold uppercase tracking-[0.26em] text-matcha transition-colors hover:text-pistache"
+              className="group mt-6 inline-flex items-center gap-2 text-[0.72rem] font-semibold uppercase tracking-[0.26em] text-primary-light transition-colors hover:text-accent"
             >
               Request a Quote
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" strokeWidth={2} />
@@ -97,11 +105,11 @@ export function Footer() {
                         >
                           {Icon && (
                             <Icon
-                              className="h-4 w-4 shrink-0 text-matcha/80 transition-colors group-hover:text-matcha"
+                              className="h-4 w-4 shrink-0 text-primary-light transition-colors group-hover:text-accent"
                               strokeWidth={1.5}
                             />
                           )}
-                          <span className="border-b border-transparent transition-colors group-hover:border-matcha/50">
+                          <span className="border-b border-transparent transition-colors group-hover:border-accent/60">
                             {link.label}
                           </span>
                         </Link>
@@ -128,7 +136,7 @@ export function Footer() {
                 href="https://fibonce.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-matcha transition-colors hover:text-pistache hover:underline"
+                className="text-primary-light transition-colors hover:text-accent hover:underline"
               >
                 Fibonce Tech Solutions
               </Link>
