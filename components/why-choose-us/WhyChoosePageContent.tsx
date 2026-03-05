@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { motion, useScroll, useTransform } from "framer-motion";
 import {
@@ -12,6 +12,8 @@ import {
   Handshake,
   Sparkles,
   CheckCircle2,
+  ChevronLeft,
+  ChevronRight,
 } from "lucide-react";
 import { DecoGraphic } from "@/components/shared/DecoGraphic";
 import { CTASection } from "@/components/home/CTASection";
@@ -76,10 +78,56 @@ export function WhyChoosePageContent() {
   const promiseY = useTransform(scrollYProgress, [0.2, 0.5], [40, -10]);
   const complianceY = useTransform(scrollYProgress, [0.3, 0.6], [45, -15]);
 
+  const [slidesPerView, setSlidesPerView] = useState(3);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
+  useEffect(() => {
+    const updateSlides = () => {
+      if (window.innerWidth < 768) {
+        setSlidesPerView(1);
+      } else if (window.innerWidth < 1024) {
+        setSlidesPerView(2);
+      } else {
+        setSlidesPerView(3);
+      }
+      setCurrentIndex(0);
+    };
+    updateSlides();
+    window.addEventListener("resize", updateSlides);
+    return () => window.removeEventListener("resize", updateSlides);
+  }, []);
+
+  const maxIndex = Math.max(0, reasons.length - slidesPerView);
+  const canPrev = currentIndex > 0;
+  const canNext = currentIndex < maxIndex;
+
+  useEffect(() => {
+    if (maxIndex === 0) return;
+
+    const id = setInterval(() => {
+      setCurrentIndex((prev) => {
+        if (prev >= maxIndex) {
+          return 0;
+        }
+        return prev + 1;
+      });
+    }, 6000);
+
+    return () => clearInterval(id);
+  }, [maxIndex]);
+
+  const handlePrev = () => {
+    if (canPrev) setCurrentIndex((prev) => Math.max(0, prev - 1));
+  };
+
+  const handleNext = () => {
+    if (canNext) setCurrentIndex((prev) => Math.min(maxIndex, prev + 1));
+  };
+
   return (
     <main
       ref={ref}
-      className="relative overflow-visible bg-background pt-28 pb-20 md:pt-32 md:pb-24"
+      className="relative overflow-visible pt-28 pb-20 md:pt-32 md:pb-24"
     >
       <DecoGraphic src="/graphics/img1.png" alt="" placement="top-left" size="lg" />
       <DecoGraphic src="/graphics/img5.png" alt="" placement="top-right" size="md" />
@@ -116,7 +164,7 @@ export function WhyChoosePageContent() {
           </div>
         </motion.section>
 
-        {/* Reasons grid */}
+        {/* Reasons horizontal carousel */}
         <motion.section
           style={{ y: gridY }}
           initial={{ opacity: 0, y: 24 }}
@@ -125,36 +173,73 @@ export function WhyChoosePageContent() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="mb-16"
         >
-          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {reasons.map((item, idx) => {
-              const Icon = item.icon;
-              return (
-                <motion.article
-                  key={item.title}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{
-                    delay: idx * 0.04,
-                    duration: 0.45,
-                    ease: [0.22, 1, 0.36, 1],
-                  }}
-                  className="flex h-full flex-col border border-border/70 bg-background-alt/70 px-5 py-5 shadow-card transition-colors hover:border-primary/70"
-                >
-                  <div className="mb-3 flex items-center gap-3">
-                    <div className="flex h-9 w-9 items-center justify-center border border-primary/20 bg-primary/5 text-primary">
-                      <Icon className="h-4 w-4" strokeWidth={1.6} />
+          <div className="relative">
+            <button
+              type="button"
+              onClick={handlePrev}
+              disabled={!canPrev}
+              aria-label="Previous reason"
+              className="absolute left-[-2.25rem] top-1/2 z-10 hidden -translate-y-1/2 items-center justify-center rounded-full border border-border p-2 text-foreground shadow-sm transition-colors hover:bg-background-alt disabled:cursor-default disabled:opacity-40 md:inline-flex"
+            >
+              <ChevronLeft className="h-4 w-4" strokeWidth={1.7} />
+            </button>
+            <button
+              type="button"
+              onClick={handleNext}
+              disabled={!canNext}
+              aria-label="Next reason"
+              className="absolute right-[-2.25rem] top-1/2 z-10 hidden -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background p-2 text-foreground shadow-sm transition-colors hover:bg-background-alt disabled:cursor-default disabled:opacity-40 md:inline-flex"
+            >
+              <ChevronRight className="h-4 w-4" strokeWidth={1.7} />
+            </button>
+
+            <div className="overflow-hidden">
+              <div
+                className="flex transition-transform duration-500 ease-[0.22,1,0.36,1]"
+                style={{
+                  transform: `translateX(-${
+                    (currentIndex * 100) / slidesPerView
+                  }%)`,
+                }}
+              >
+                {reasons.map((item, idx) => {
+                  const Icon = item.icon;
+                  return (
+                    <div
+                      key={item.title}
+                      className="flex-shrink-0 px-2"
+                      style={{
+                        width: `${100 / slidesPerView}%`,
+                      }}
+                    >
+                      <motion.article
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true, margin: "-40px" }}
+                        transition={{
+                          delay: idx * 0.04,
+                          duration: 0.45,
+                          ease: [0.22, 1, 0.36, 1],
+                        }}
+                        className="flex h-full flex-col border border-border/70 bg-background-alt/70 px-5 py-5 transition-colors hover:border-primary/70"
+                      >
+                        <div className="mb-3 flex items-center gap-3">
+                          <div className="flex h-9 w-9 items-center justify-center border border-primary/20 bg-primary/5 text-primary">
+                            <Icon className="h-4 w-4" strokeWidth={1.6} />
+                          </div>
+                          <h2 className="font-heading text-sm font-semibold text-foreground">
+                            {item.title}
+                          </h2>
+                        </div>
+                        <p className="text-sm leading-relaxed text-foreground-muted">
+                          {item.body}
+                        </p>
+                      </motion.article>
                     </div>
-                    <h2 className="font-heading text-sm font-semibold text-foreground">
-                      {item.title}
-                    </h2>
-                  </div>
-                  <p className="text-sm leading-relaxed text-foreground-muted">
-                    {item.body}
-                  </p>
-                </motion.article>
-              );
-            })}
+                  );
+                })}
+              </div>
+            </div>
           </div>
         </motion.section>
 
@@ -249,4 +334,3 @@ export function WhyChoosePageContent() {
     </main>
   );
 }
-

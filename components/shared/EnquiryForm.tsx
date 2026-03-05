@@ -24,6 +24,7 @@ type EnquiryFormProps = {
   onSuccess?: () => void;
   compact?: boolean;
   theme?: "light" | "dark";
+  layout?: "horizontal" | "vertical";
 };
 
 export function EnquiryForm({
@@ -31,6 +32,7 @@ export function EnquiryForm({
   onSuccess,
   compact = false,
   theme = "light",
+  layout = "horizontal",
 }: EnquiryFormProps) {
   const isDark = theme === "dark";
   const [toast, setToast] = useState<string | null>(null);
@@ -84,12 +86,13 @@ export function EnquiryForm({
 
   const gap = compact ? "gap-3" : "gap-4";
   const rowGap = compact ? "gap-3" : "gap-4";
+  const isHorizontal = layout === "horizontal";
 
   return (
     <div className="relative">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className={`flex flex-col md:flex-row ${gap} md:gap-8`}
+        className={`flex flex-col ${gap} ${isHorizontal ? "md:flex-row md:gap-8" : ""}`}
       >
         {/* Left column: contact & product details */}
         <div className={`flex-1 flex flex-col ${gap}`}>

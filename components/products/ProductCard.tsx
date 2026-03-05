@@ -20,7 +20,7 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
       viewport={{ once: true }}
       transition={{ delay: index * 0.08, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
       whileHover={{ y: -6, transition: { duration: 0.25 } }}
-      className="group border border-border bg-background transition-transform duration-300"
+      className="group border border-border bg-background/40 backdrop-blur-sm transition-transform duration-300"
     >
       <Link href={`/products/${product.slug}`} className="block">
         <div className="relative aspect-[4/3] overflow-hidden">
@@ -48,12 +48,14 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
             {product.description}
           </p>
         </div>
-        <Link
-          href={`/products/${product.slug}#enquiry`}
-          className="mt-4 inline-flex items-center text-[0.72rem] font-semibold uppercase tracking-[0.26em] text-foreground transition-colors duration-200 hover:text-primary"
-        >
-          Request quote
-        </Link>
+        <div className="mt-4 flex items-center justify-between gap-3">
+          <Link
+            href={`/products/${product.slug}#enquiry`}
+            className="inline-flex items-center justify-center rounded-full border border-primary/30 bg-primary/8 px-4 py-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.26em] text-primary transition-colors duration-200 hover:bg-primary hover:text-white"
+          >
+            Request quote
+          </Link>
+        </div>
       </div>
     </motion.article>
   );

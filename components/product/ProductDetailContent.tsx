@@ -149,7 +149,23 @@ export function ProductDetailContent({ product }: ProductDetailContentProps) {
               <span className="uppercase tracking-wider">Share</span>
               <button
                 type="button"
-                onClick={() => navigator.clipboard?.writeText(typeof window !== "undefined" ? window.location.href : "")}
+                onClick={async () => {
+                  if (typeof window === "undefined") return;
+                  const url = window.location.href;
+                  try {
+                    if (navigator.share) {
+                      await navigator.share({ title: product.name, url });
+                    } else if (navigator.clipboard?.writeText) {
+                      await navigator.clipboard.writeText(url);
+                      alert("Link copied to clipboard.");
+                    } else {
+                      // Fallback prompt for older browsers
+                      window.prompt("Copy this product link:", url);
+                    }
+                  } catch {
+                    // Ignore if user cancels share
+                  }
+                }}
                 className="inline-flex items-center gap-1 hover:text-primary"
                 aria-label="Copy link"
               >
@@ -207,7 +223,7 @@ export function ProductDetailContent({ product }: ProductDetailContentProps) {
                     </div>
                   ))}
                 </div>
-                <EnquiryForm defaultProduct={product.name} compact theme="light" />
+                <EnquiryForm defaultProduct={product.name} compact theme="light" layout="vertical" />
               </div>
             </motion.section>
           </div>

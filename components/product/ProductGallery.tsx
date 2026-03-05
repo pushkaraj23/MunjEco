@@ -80,50 +80,64 @@ export function ProductGallery({ name, images }: Props) {
     setFullscreen(true);
   }
 
-  // Boxed grid: use first 4 images (or pad by repeating)
-  const gridImages = Array.from({ length: 4 }, (_, i) => safeImages[i % safeImages.length]);
-
   return (
-    <div className="space-y-4">
-      {/* Boxed 2x2 grid: two larger on top, two smaller below */}
-      <div className="grid grid-cols-2 gap-2 sm:gap-3">
-        {gridImages.slice(0, 2).map((img, i) => (
-          <button
-            key={img + i}
-            type="button"
-            onClick={() => openFullscreen(i)}
-            className="accent-line-left relative aspect-square overflow-hidden rounded-none border border-border bg-background-alt/60 shadow-card transition-all hover:border-primary hover:shadow-elevated cursor-zoom-in"
-            aria-label={`View image ${i + 1}`}
-          >
-            <Image
-              src={img}
-              alt={`${name} ${i + 1}`}
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 50vw, 35vw"
-              unoptimized={img.startsWith("http")}
-            />
-          </button>
-        ))}
-        {gridImages.slice(2, 4).map((img, i) => (
-          <button
-            key={img + (i + 2)}
-            type="button"
-            onClick={() => openFullscreen(i + 2)}
-            className="relative aspect-square overflow-hidden rounded-none border border-border bg-background-alt/60 shadow-card transition-all hover:border-primary hover:shadow-elevated cursor-zoom-in"
-            aria-label={`View image ${i + 3}`}
-          >
-            <Image
-              src={img}
-              alt={`${name} ${i + 3}`}
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 50vw, 35vw"
-              unoptimized={img.startsWith("http")}
-            />
-          </button>
-        ))}
+    <div className="space-y-3">
+      {/* Main carousel image */}
+      <div className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden rounded-none border border-border bg-background-alt/60 shadow-card">
+        <button
+          type="button"
+          onClick={() => openFullscreen(index)}
+          className="group relative block h-full w-full cursor-zoom-in"
+          aria-label="Open fullscreen image"
+        >
+          <Image
+            src={current}
+            alt={name}
+            fill
+            className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+            sizes="(max-width: 1024px) 100vw, 35vw"
+            unoptimized={current.startsWith("http")}
+          />
+        </button>
+
+        {safeImages.length > 1 && (
+          <>
+            <button
+              type="button"
+              onClick={prev}
+              className="absolute left-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center border border-border bg-background/80 text-foreground backdrop-blur-sm transition-colors hover:bg-background"
+              aria-label="Previous image"
+            >
+              <ChevronLeft className="h-5 w-5" strokeWidth={2} />
+            </button>
+            <button
+              type="button"
+              onClick={next}
+              className="absolute right-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center border border-border bg-background/80 text-foreground backdrop-blur-sm transition-colors hover:bg-background"
+              aria-label="Next image"
+            >
+              <ChevronRight className="h-5 w-5" strokeWidth={2} />
+            </button>
+          </>
+        )}
       </div>
+
+      {/* Dots / mini carousel controls */}
+      {safeImages.length > 1 && (
+        <div className="flex justify-center gap-2">
+          {safeImages.map((img, i) => (
+            <button
+              key={img + i}
+              type="button"
+              onClick={() => goTo(i)}
+              aria-label={`Go to image ${i + 1}`}
+              className={`h-1.5 w-8 rounded-full transition-all ${
+                i === index ? "bg-primary" : "bg-border hover:bg-primary/60"
+              }`}
+            />
+          ))}
+        </div>
+      )}
 
       {mounted &&
         createPortal(

@@ -7,11 +7,23 @@ import { ProductGrid } from "@/components/products/ProductGrid";
 import { ProductsClient } from "./ProductsClient";
 import type { Product } from "@/lib/types";
 
-type ProductsPageContentProps = {
+type CategoryGroup = {
+  key: string;
+  label: string;
   products: Product[];
 };
 
-export function ProductsPageContent({ products }: ProductsPageContentProps) {
+type ProductsPageContentProps = {
+  groups: CategoryGroup[];
+  categories: { slug: string; name: string }[];
+  selectedCategory: string;
+};
+
+export function ProductsPageContent({
+  groups,
+  categories,
+  selectedCategory,
+}: ProductsPageContentProps) {
   const ref = useRef<HTMLElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -20,6 +32,11 @@ export function ProductsPageContent({ products }: ProductsPageContentProps) {
 
   const headerY = useTransform(scrollYProgress, [0.05, 0.28], [40, -20]);
   const gridY = useTransform(scrollYProgress, [0.15, 0.45], [45, -20]);
+
+  const totalProducts = groups.reduce(
+    (sum, group) => sum + group.products.length,
+    0
+  );
 
   return (
     <main ref={ref} className="relative overflow-visible pt-28 pb-12 md:pb-16">
@@ -33,7 +50,7 @@ export function ProductsPageContent({ products }: ProductsPageContentProps) {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between"
+          className="mb-10 flex flex-col gap-6 md:flex-row md:items-center md:justify-between md:gap-10"
         >
           <div>
             <p className="font-display text-xs font-semibold uppercase tracking-[0.3em] text-foreground-muted sm:text-sm">
@@ -44,19 +61,43 @@ export function ProductsPageContent({ products }: ProductsPageContentProps) {
             </h1>
           </div>
           <div>
-            <ProductsClient />
+            <ProductsClient
+              categories={categories}
+              selectedCategory={selectedCategory}
+            />
           </div>
         </motion.div>
 
-        {/* Product grid */}
+        {/* Product groups */}
         <motion.div
           style={{ y: gridY }}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true, margin: "-40px" }}
-          className="relative"
+          className="relative space-y-10 md:space-y-12"
         >
-          <ProductGrid products={products} />
+          {totalProducts === 0 ? (
+            <div className="border border-border bg-background-alt px-8 py-16 text-center">
+              <p className="text-sm text-foreground-muted md:text-base">
+                No products found. Try adjusting your search.
+              </p>
+            </div>
+          ) : (
+            groups.map((group) => (
+              <section key={group.key} className="space-y-4">
+                <div className="flex items-baseline justify-between gap-2">
+                  <h2 className="font-heading text-lg font-semibold tracking-tight text-foreground md:text-xl">
+                    {group.label}
+                  </h2>
+                  <span className="text-xs text-foreground-muted">
+                    {group.products.length} item
+                    {group.products.length === 1 ? "" : "s"}
+                  </span>
+                </div>
+                <ProductGrid products={group.products} />
+              </section>
+            ))
+          )}
         </motion.div>
       </div>
     </main>

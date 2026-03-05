@@ -1,8 +1,6 @@
 "use client";
 
-import { useRef } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "framer-motion";
 import { Quote, Star } from "lucide-react";
 import { DecoGraphic } from "@/components/shared/DecoGraphic";
 
@@ -28,23 +26,8 @@ const testimonials = [
 ];
 
 export function TestimonialsSection() {
-  const ref = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-
-  const glow1Opacity = useTransform(scrollYProgress, [0.05, 0.3], [0, 1]);
-  const glow2Opacity = useTransform(scrollYProgress, [0.1, 0.38], [0, 0.85]);
-  const headerY = useTransform(scrollYProgress, [0.08, 0.35], [45, -25]);
-  const card0Y = useTransform(scrollYProgress, [0.12, 0.42], [45, -18]);
-  const card1Y = useTransform(scrollYProgress, [0.18, 0.48], [50, -15]);
-  const card2Y = useTransform(scrollYProgress, [0.24, 0.54], [45, -22]);
-  const cardTransforms = [card0Y, card1Y, card2Y];
-
   return (
     <section
-      ref={ref}
       className="relative overflow-visible border-t border-border/70 bg-primary px-8 py-20 text-white sm:px-10 md:px-12 md:py-24 lg:px-16 xl:px-20"
     >
       <DecoGraphic src="/graphics/img5.png" alt="" placement="top-right" size="md" className="opacity-25" />
@@ -59,25 +42,12 @@ export function TestimonialsSection() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-primary-dark via-primary-dark/90 to-primary-dark" />
       </div>
-      <motion.div
-        style={{ opacity: glow1Opacity }}
-        className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-chai/22 to-transparent"
-      />
-      <motion.div
-        style={{ opacity: glow2Opacity }}
-        className="pointer-events-none absolute inset-x-16 bottom-0 h-24 bg-gradient-to-t from-turmeric/18 to-transparent"
-      />
+      <div className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-chai/22 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-16 bottom-0 h-24 bg-gradient-to-t from-turmeric/18 to-transparent" />
 
       <div className="relative mx-auto max-w-6xl 2xl:max-w-7xl">
-        {/* Section header with parallax */}
-        <motion.header
-          style={{ y: headerY }}
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-12 flex flex-col gap-3 md:flex-row md:items-end md:justify-between"
-        >
+        {/* Section header */}
+        <header className="mb-12 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="font-display text-xs font-semibold uppercase tracking-[0.3em] text-white/80 sm:text-sm">
               Client reviews
@@ -90,25 +60,13 @@ export function TestimonialsSection() {
             A selection of feedback from buyers who trust MunjEco Global with
             their sustainable sourcing.
           </p>
-        </motion.header>
+        </header>
 
         {/* Testimonial cards - elevated editorial grid */}
         <div className="grid gap-8 md:grid-cols-3">
           {testimonials.map((t, i) => (
-            <motion.div
-              key={t.author}
-              style={{ y: cardTransforms[i] }}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{
-                delay: i * 0.1,
-                duration: 0.5,
-                ease: [0.22, 1, 0.36, 1],
-              }}
-              whileHover={{ y: -4, transition: { duration: 0.2 } }}
-            >
-              <article className="flex h-full flex-col border border-white/20 bg-white/5 px-5 py-5 shadow-card">
+            <div key={t.author}>
+              <article className="flex h-full flex-col border border-white/20 bg-white/5 backdrop-blur-sm px-5 py-5 shadow-card">
                 <Quote className="mb-3 h-6 w-6 text-accent-light" strokeWidth={1.2} />
                 <p className="text-sm leading-relaxed text-white/90 md:text-base">
                   &ldquo;{t.quote}&rdquo;
@@ -138,7 +96,7 @@ export function TestimonialsSection() {
                   </div>
                 </div>
               </article>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>
