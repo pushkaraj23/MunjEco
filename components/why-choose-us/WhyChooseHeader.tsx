@@ -16,13 +16,6 @@ export function WhyChooseHeader({
 }: WhyChooseHeaderProps) {
   return (
     <div className="relative mb-10 md:mb-14">
-      <DecoGraphic
-        src="/graphics/img5.png"
-        alt=""
-        placement="top-right"
-        size="sm"
-        className="opacity-40"
-      />
 
       <motion.header
         initial={{ opacity: 0, y: 20 }}

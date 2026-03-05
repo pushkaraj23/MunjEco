@@ -25,13 +25,6 @@ export function WhyChooseBenefitsColumn({
 
   return (
     <div className="relative space-y-6">
-      <DecoGraphic
-        src={isLeft ? "/graphics/img3.png" : "/graphics/img2.png"}
-        alt=""
-        placement={isLeft ? "bottom-left" : "bottom-right"}
-        size="sm"
-        className="pointer-events-none opacity-30"
-      />
       {items.map((benefit, index) => (
         <WhyItem
           key={benefit.title}

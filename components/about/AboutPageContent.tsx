@@ -31,8 +31,8 @@ export function AboutPageContent() {
 
   return (
     <main ref={ref} className="relative overflow-visible bg-background pt-28 pb-20 md:pt-32 md:pb-24">
-      <DecoGraphic src="/graphics/img1.png" alt="" placement="top-left" size="md" />
-      <DecoGraphic src="/graphics/img4.png" alt="" placement="bottom-right" size="md" />
+      <DecoGraphic src="/graphics/img1-v1.png" alt="" placement="top-left" size="md" />
+      <DecoGraphic src="/graphics/img4-v1.png" alt="" placement="bottom-right" size="md" />
       <div className="mx-auto max-w-6xl 2xl:max-w-7xl px-8 sm:px-10 md:px-12 lg:px-16 xl:px-20">
         {/* Header + hero image split */}
         <motion.section

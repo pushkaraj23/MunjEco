@@ -23,7 +23,7 @@ export function SustainabilityPromiseSection() {
       ref={ref}
       className="relative overflow-visible border-t border-border/70 bg-primary-dark px-8 py-24 text-white sm:px-10 md:px-12 md:py-28 lg:px-16 xl:px-20"
     >
-      <DecoGraphic src="/graphics/img1.png" alt="" placement="top-right" size="md" className="opacity-25" />
+      <DecoGraphic src="/graphics/img1-v1.png" alt="" placement="top-right" size="md" className="opacity-25" />
       {/* Cinematic background image with subtle overlay */}
       <div className="absolute inset-0 -z-10">
         <Image

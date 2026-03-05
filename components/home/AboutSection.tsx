@@ -22,8 +22,8 @@ export function AboutSection() {
       ref={ref}
       className="relative overflow-visible border-t border-border/60 bg-primary/10 px-8 py-24 sm:px-10 md:px-12 md:py-28 lg:px-16 xl:px-20"
     >
-      <DecoGraphic src="/graphics/img1.png" alt="" placement="bottom-left" size="md" />
-      <DecoGraphic src="/graphics/img5.png" alt="" placement="top-right" size="md" />
+      <DecoGraphic src="/graphics/img1-v1.png" alt="" placement="bottom-left" size="md" />
+      <DecoGraphic src="/graphics/img5-v1.png" alt="" placement="top-right" size="md" />
       <motion.div
         style={{ opacity: glowOpacity, y: containerY }}
         className="relative mx-auto flex max-w-6xl 2xl:max-w-7xl flex-col gap-12 lg:grid lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]"

@@ -56,10 +56,17 @@ export function WhyChooseSection() {
   return (
     <section className="relative overflow-visible border-t border-border/70 bg-gradient-to-b from-background via-background to-background-alt px-8 py-24 sm:px-10 md:px-12 md:py-32 lg:px-16 xl:px-20">
       <DecoGraphic
-        src="/graphics/img2.png"
+        src="/graphics/img2-v1.png"
         alt=""
         placement="bottom-left"
         size="lg"
+      />
+      <DecoGraphic
+        src="/graphics/img5-v1.png"
+        alt=""
+        placement="top-right"
+        size="sm"
+        className="opacity-40"
       />
 
       <div className="relative mx-auto max-w-6xl 2xl:max-w-7xl">

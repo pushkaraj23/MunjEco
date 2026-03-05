@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowRight } from "lucide-react";
@@ -34,14 +35,7 @@ export function FeaturedProductsSection({
       className="relative overflow-visible border-t border-border/60 bg-primary px-8 py-20 text-white sm:px-10 md:px-12 md:py-28 lg:px-16 xl:px-20"
     >
       <DecoGraphic
-        src="/graphics/img4.png"
-        alt=""
-        placement="bottom-right"
-        size="md"
-        className="opacity-20"
-      />
-      <DecoGraphic
-        src="/graphics/img5.png"
+        src="/graphics/img5-v1.png"
         alt=""
         placement="top-right"
         size="md"

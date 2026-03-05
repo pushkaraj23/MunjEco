@@ -30,7 +30,7 @@ export function TestimonialsSection() {
     <section
       className="relative overflow-visible border-t border-border/70 bg-primary px-8 py-20 text-white sm:px-10 md:px-12 md:py-24 lg:px-16 xl:px-20"
     >
-      <DecoGraphic src="/graphics/img5.png" alt="" placement="top-right" size="md" className="opacity-25" />
+      <DecoGraphic src="/graphics/img5-v1.png" alt="" placement="top-right" size="md" className="opacity-25" />
       {/* Soft photographic background under the testimonial grid */}
       <div className="absolute inset-0 -z-10">
         <Image

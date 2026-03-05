@@ -20,8 +20,8 @@ export function ContactPageContent() {
 
   return (
     <main ref={ref} className="relative overflow-visible bg-background pt-28 pb-16 md:pt-32 md:pb-20">
-      <DecoGraphic src="/graphics/img3.png" alt="" placement="bottom-left" size="md" />
-      <DecoGraphic src="/graphics/img5.png" alt="" placement="top-right" size="md" />
+      <DecoGraphic src="/graphics/img3-v1.png" alt="" placement="bottom-left" size="md" />
+      <DecoGraphic src="/graphics/img5-v1.png" alt="" placement="top-right" size="md" />
       <div className="relative mx-auto max-w-6xl 2xl:max-w-7xl px-8 sm:px-10 md:px-12 lg:px-16 xl:px-20">
         {/* Top: small label + headline + copy */}
         <motion.header

@@ -129,8 +129,8 @@ export function WhyChoosePageContent() {
       ref={ref}
       className="relative overflow-visible pt-28 pb-20 md:pt-32 md:pb-24"
     >
-      <DecoGraphic src="/graphics/img1.png" alt="" placement="top-left" size="lg" />
-      <DecoGraphic src="/graphics/img5.png" alt="" placement="top-right" size="md" />
+      <DecoGraphic src="/graphics/img1-v1.png" alt="" placement="top-left" size="lg" />
+      <DecoGraphic src="/graphics/img5-v1.png" alt="" placement="top-right" size="md" />
       <div className="mx-auto max-w-6xl 2xl:max-w-7xl px-8 sm:px-10 md:px-12 lg:px-16 xl:px-20">
         {/* Header row */}
         <motion.section
@@ -254,7 +254,7 @@ export function WhyChoosePageContent() {
         >
           <div className="relative px-6 py-10 sm:px-8 md:px-10 md:py-12">
             <DecoGraphic
-              src="/graphics/img1.png"
+              src="/graphics/img1-v1.png"
               alt=""
               placement="bottom-right"
               size="md"

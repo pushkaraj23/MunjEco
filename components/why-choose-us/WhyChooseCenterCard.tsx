@@ -22,7 +22,7 @@ export function WhyChooseCenterCard({
       className="relative mx-auto w-full max-w-md overflow-hidden border border-border bg-background-alt/90 shadow-card"
     >
       <DecoGraphic
-        src="/graphics/img4.png"
+        src="/graphics/img4-v1.png"
         alt=""
         placement="bottom-right"
         size="sm"
