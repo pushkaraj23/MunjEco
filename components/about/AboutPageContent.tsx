@@ -33,7 +33,7 @@ export function AboutPageContent() {
     <main ref={ref} className="relative overflow-visible bg-background pt-28 pb-20 md:pt-32 md:pb-24">
       <DecoGraphic src="/graphics/img1.png" alt="" placement="top-left" size="md" />
       <DecoGraphic src="/graphics/img4.png" alt="" placement="bottom-right" size="md" />
-      <div className="mx-auto max-w-6xl px-8 sm:px-10 md:px-12 lg:px-16 xl:px-20">
+      <div className="mx-auto max-w-6xl 2xl:max-w-7xl px-8 sm:px-10 md:px-12 lg:px-16 xl:px-20">
         {/* Header + hero image split */}
         <motion.section
           style={{ y: headerY }}
@@ -44,7 +44,7 @@ export function AboutPageContent() {
           className="mb-16 grid gap-10 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] md:items-end"
         >
           <div>
-            <div className="mb-4 inline-flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.3em] text-foreground-muted">
+            <div className="mb-4 inline-flex items-center gap-2 font-display text-xs uppercase tracking-[0.3em] text-foreground-muted sm:text-sm">
               <Sprout className="h-4 w-4 text-foreground-muted" strokeWidth={1.5} />
               <span>Our purpose</span>
             </div>
@@ -139,7 +139,7 @@ export function AboutPageContent() {
         {/* Founder’s Note */}
         <section className="mb-16 grid gap-8 rounded-none border border-border/70 bg-background-alt px-6 py-8 md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] md:px-10 md:py-10">
           <div>
-            <p className="font-display text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-foreground-muted">
+            <p className="font-display text-xs font-semibold uppercase tracking-[0.3em] text-foreground-muted sm:text-sm">
               Founder&apos;s Note
             </p>
             <h2 className="mt-3 font-heading text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
@@ -284,7 +284,7 @@ export function AboutPageContent() {
             <div className="absolute inset-0 flex items-center">
               <div className="px-6 md:px-10 lg:px-12">
                 <div className="max-w-xl">
-                  <div className="mb-3 flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.3em] text-white/80">
+                  <div className="mb-3 flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-white/80 sm:text-sm">
                     <Leaf className="h-4 w-4 text-white" strokeWidth={1.5} />
                     <span>Sustainability commitment</span>
                   </div>

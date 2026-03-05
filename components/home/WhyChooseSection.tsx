@@ -79,7 +79,7 @@ export function WhyChooseSection() {
         </div>
       </div>
 
-      <div className="relative mx-auto flex max-w-6xl flex-col gap-14 lg:flex-row">
+      <div className="relative mx-auto flex max-w-6xl 2xl:max-w-7xl flex-col gap-14 lg:flex-row">
         {/* Left: statement + tagline */}
         <motion.header
           style={{ y: headerY }}
@@ -89,7 +89,7 @@ export function WhyChooseSection() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="w-full max-w-sm"
         >
-          <p className="font-display text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-foreground-muted/90">
+          <p className="font-display text-xs font-semibold uppercase tracking-[0.3em] text-foreground-muted/90 sm:text-sm">
             Why choose MunjEco Global
           </p>
           <h2 className="mt-4 font-heading text-3xl font-semibold tracking-tight text-foreground md:text-4xl">

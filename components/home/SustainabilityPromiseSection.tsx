@@ -47,7 +47,7 @@ export function SustainabilityPromiseSection() {
 
       <motion.div
         style={{ y: containerY }}
-        className="relative mx-auto max-w-6xl"
+        className="relative mx-auto max-w-6xl 2xl:max-w-7xl"
       >
         <div className="flex flex-col gap-10 md:flex-row md:items-start">
           {/* Left: label + heading */}
@@ -56,7 +56,7 @@ export function SustainabilityPromiseSection() {
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="inline-flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.3em] text-pistache/90"
+              className="inline-flex items-center gap-2 font-display text-xs uppercase tracking-[0.3em] text-pistache/90 sm:text-sm"
             >
               <Leaf className="h-4 w-4 text-pistache" strokeWidth={1.5} />
               <span>Sustainability promise</span>

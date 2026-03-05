@@ -58,7 +58,7 @@ export function CategorySection({ categories }: Props) {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="w-full max-w-sm lg:pt-4"
         >
-          <p className="font-display text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-terracotta/90">
+          <p className="font-display text-xs font-semibold uppercase tracking-[0.3em] text-terracotta/90 sm:text-sm">
             Browse our range
           </p>
           <h2 className="mt-4 font-heading text-3xl font-semibold tracking-tight text-foreground md:text-4xl">

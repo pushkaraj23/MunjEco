@@ -22,7 +22,7 @@ export default async function Home() {
         <Hero />
 
         {/* 2. Narrow trust strip on dark background */}
-        <TrustBar />
+        {/* <TrustBar /> */}
 
         {/* 3. Narrow text / story section */}
         <AboutSection />

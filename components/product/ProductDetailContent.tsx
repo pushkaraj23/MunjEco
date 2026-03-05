@@ -27,7 +27,7 @@ export function ProductDetailContent({ product }: ProductDetailContentProps) {
   return (
     <main ref={ref} className="relative overflow-visible bg-background pt-20 md:pt-24 pb-24 md:pb-32">
       <DecoGraphic src="/graphics/img1.png" alt="" placement="bottom-left" size="md" />
-      <div className="mx-auto max-w-6xl px-8 sm:px-10 md:px-12 lg:px-16 xl:px-20">
+      <div className="mx-auto max-w-6xl 2xl:max-w-7xl px-8 sm:px-10 md:px-12 lg:px-16 xl:px-20">
         <motion.div
           style={{ y: headerY }}
           initial={{ opacity: 0, y: 16 }}
@@ -145,7 +145,7 @@ export function ProductDetailContent({ product }: ProductDetailContentProps) {
               </section>
             )}
 
-            <div className="flex items-center gap-4 border-t border-border/70 pt-4 text-[0.7rem] text-foreground-muted">
+          <div className="flex items-center gap-4 border-t border-border/70 pt-4 text-xs text-foreground-muted sm:text-sm">
               <span className="uppercase tracking-wider">Share</span>
               <button
                 type="button"

@@ -53,15 +53,15 @@ export function CTASection({
         className="pointer-events-none absolute inset-x-16 bottom-0 h-24 bg-gradient-to-t from-chai/14 to-transparent"
       />
 
-      <div className="relative mx-auto max-w-6xl">
-        <div className="grid items-start gap-12 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]">
-          {/* Left: editorial text column */}
+      <div className="relative mx-auto max-w-6xl 2xl:max-w-7xl">
+        <div className="flex flex-col gap-10 lg:gap-12">
+          {/* Top: editorial text block */}
           <div>
             <motion.div
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="mb-6 inline-flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.3em] text-foreground-muted"
+              className="mb-6 inline-flex items-center gap-2 font-display text-xs uppercase tracking-[0.3em] text-foreground-muted sm:text-sm"
             >
               <Sparkles className="h-4 w-4 text-foreground-muted" strokeWidth={1.5} />
               <span>Partner with us</span>
@@ -100,25 +100,12 @@ export function CTASection({
             </motion.div>
           </div>
 
-          {/* Right: enquiry form, minimalist card */}
+          {/* Bottom: enquiry form, full-width card */}
           <motion.div
             style={{ scale: formScale, y: imageParallax }}
             className="relative"
           >
-            {/* Background image behind the form for a pictorial feel */}
-            <div className="pointer-events-none absolute inset-0 -z-10 overflow-hidden rounded-none md:rounded-none">
-              <Image
-                src="https://images.unsplash.com/photo-1584473457406-6240486418e9?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt="Workspace with natural materials"
-                fill
-                className="object-cover opacity-25"
-                sizes="(max-width: 1024px) 100vw, 32vw"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/70 to-transparent" />
-            </div>
-
-            <div className="relative w-full max-w-md border border-border/70 bg-background-alt/95 px-8 py-9">
-
+            <div className="relative w-full border mt-4 border-border/70 bg-background-alt/55 backdrop-blur-sm px-6 py-8 sm:px-8 sm:py-9">
               <div className="mb-6">
                 <h3 className="font-heading text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
                   Request a quote

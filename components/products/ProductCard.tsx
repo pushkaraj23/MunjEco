@@ -36,7 +36,7 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
       </Link>
       <div className="flex flex-col justify-between px-5 py-5">
         <div>
-          <p className="text-[0.7rem] uppercase tracking-[0.26em] text-foreground-muted/80">
+          <p className="text-xs uppercase tracking-[0.26em] text-foreground-muted/80 sm:text-sm">
             {product.category}
           </p>
           <Link href={`/products/${product.slug}`}>

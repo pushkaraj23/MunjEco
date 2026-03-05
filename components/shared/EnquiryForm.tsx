@@ -89,121 +89,127 @@ export function EnquiryForm({
     <div className="relative">
       <form
         onSubmit={handleSubmit(onSubmit)}
-        className={`flex flex-col ${gap}`}
+        className={`flex flex-col md:flex-row ${gap} md:gap-8`}
       >
-        <div className={`grid ${rowGap} sm:grid-cols-2`}>
-          <div>
-            <label htmlFor="enq-name" className={labelCls}>
-              Full Name *
-            </label>
-            <input
-              id="enq-name"
-              {...register("name")}
-              className={inputCls}
-              placeholder="John Doe"
-            />
-            {errors.name && <p className={errorCls}>{errors.name.message}</p>}
+        {/* Left column: contact & product details */}
+        <div className={`flex-1 flex flex-col ${gap}`}>
+          <div className={`grid ${rowGap} sm:grid-cols-2`}>
+            <div>
+              <label htmlFor="enq-name" className={labelCls}>
+                Full Name *
+              </label>
+              <input
+                id="enq-name"
+                {...register("name")}
+                className={inputCls}
+                placeholder="John Doe"
+              />
+              {errors.name && <p className={errorCls}>{errors.name.message}</p>}
+            </div>
+            <div>
+              <label htmlFor="enq-company" className={labelCls}>
+                Company Name *
+              </label>
+              <input
+                id="enq-company"
+                {...register("company")}
+                className={inputCls}
+                placeholder="Your Company"
+              />
+              {errors.company && <p className={errorCls}>{errors.company.message}</p>}
+            </div>
           </div>
-          <div>
-            <label htmlFor="enq-company" className={labelCls}>
-              Company Name *
-            </label>
-            <input
-              id="enq-company"
-              {...register("company")}
-              className={inputCls}
-              placeholder="Your Company"
-            />
-            {errors.company && <p className={errorCls}>{errors.company.message}</p>}
+
+          <div className={`grid ${rowGap} sm:grid-cols-2`}>
+            <div>
+              <label htmlFor="enq-email" className={labelCls}>
+                Email *
+              </label>
+              <input
+                id="enq-email"
+                type="email"
+                {...register("email")}
+                className={inputCls}
+                placeholder="john@company.com"
+              />
+              {errors.email && <p className={errorCls}>{errors.email.message}</p>}
+            </div>
+            <div>
+              <label htmlFor="enq-phone" className={labelCls}>
+                Phone *
+              </label>
+              <input
+                id="enq-phone"
+                {...register("phone")}
+                className={inputCls}
+                placeholder="+91 98765 43210"
+              />
+              {errors.phone && <p className={errorCls}>{errors.phone.message}</p>}
+            </div>
+          </div>
+
+          <div className={`grid ${rowGap} sm:grid-cols-2`}>
+            <div>
+              <label htmlFor="enq-product" className={labelCls}>
+                Product of Interest
+              </label>
+              <input
+                id="enq-product"
+                {...register("product")}
+                className={inputCls}
+                placeholder="e.g. Bamboo Pens"
+              />
+            </div>
+            <div>
+              <label htmlFor="enq-quantity" className={labelCls}>
+                Quantity
+              </label>
+              <input
+                id="enq-quantity"
+                {...register("quantity")}
+                className={inputCls}
+                placeholder="e.g. 500 units"
+              />
+            </div>
           </div>
         </div>
 
-        <div className={`grid ${rowGap} sm:grid-cols-2`}>
-          <div>
-            <label htmlFor="enq-email" className={labelCls}>
-              Email *
+        {/* Right column: message + submit */}
+        <div className={`flex-1 flex flex-col ${gap}`}>
+          <div className="h-full">
+            <label htmlFor="enq-message" className={labelCls}>
+              Message *
             </label>
-            <input
-              id="enq-email"
-              type="email"
-              {...register("email")}
-              className={inputCls}
-              placeholder="john@company.com"
+            <textarea
+              id="enq-message"
+              rows={compact ? 5 : 7}
+              {...register("message")}
+              className={textareaCls}
+              placeholder="Tell us about your requirements..."
             />
-            {errors.email && <p className={errorCls}>{errors.email.message}</p>}
+            {errors.message && <p className={errorCls}>{errors.message.message}</p>}
           </div>
-          <div>
-            <label htmlFor="enq-phone" className={labelCls}>
-              Phone *
-            </label>
-            <input
-              id="enq-phone"
-              {...register("phone")}
-              className={inputCls}
-              placeholder="+91 98765 43210"
-            />
-            {errors.phone && <p className={errorCls}>{errors.phone.message}</p>}
-          </div>
-        </div>
 
-        <div className={`grid ${rowGap} sm:grid-cols-2`}>
-          <div>
-            <label htmlFor="enq-product" className={labelCls}>
-              Product of Interest
-            </label>
-            <input
-              id="enq-product"
-              {...register("product")}
-              className={inputCls}
-              placeholder="e.g. Bamboo Pens"
-            />
-          </div>
-          <div>
-            <label htmlFor="enq-quantity" className={labelCls}>
-              Quantity
-            </label>
-            <input
-              id="enq-quantity"
-              {...register("quantity")}
-              className={inputCls}
-              placeholder="e.g. 500 units"
-            />
-          </div>
-        </div>
+          {toast && (
+            <motion.div
+              initial={{ opacity: 0, y: 4 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.3 }}
+              className="rounded-none bg-primary px-4 py-3 text-center text-sm font-medium text-white"
+            >
+              {toast}
+            </motion.div>
+          )}
 
-        <div>
-          <label htmlFor="enq-message" className={labelCls}>
-            Message *
-          </label>
-          <textarea
-            id="enq-message"
-            rows={compact ? 3 : 4}
-            {...register("message")}
-            className={textareaCls}
-            placeholder="Tell us about your requirements..."
-          />
-          {errors.message && <p className={errorCls}>{errors.message.message}</p>}
-        </div>
-
-        {toast && (
-          <motion.div
-            initial={{ opacity: 0, y: 4 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.3 }}
-            className="rounded-none bg-primary px-4 py-3 text-center text-sm font-medium text-white"
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="w-full rounded-none bg-primary px-5 py-3 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-dark disabled:opacity-60 disabled:cursor-not-allowed"
           >
-            {toast}
-          </motion.div>
-        )}
-
-        <button
-          type="submit"
-          disabled={isSubmitting}
-          className="w-full rounded-none bg-primary px-5 py-3 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-dark disabled:opacity-60 disabled:cursor-not-allowed"
-        >
-          {isSubmitting ? "Submitting..." : "Submit Enquiry"}
-        </button>
+            {isSubmitting ? "Submitting..." : "Submit Enquiry"}
+          </button>
+        </div>
       </form>
     </div>
   );

@@ -40,7 +40,7 @@ export function Hero({
   return (
     <section className="relative flex h-[100dvh] flex-col overflow-hidden bg-background">
       {/* FULL WIDTH TOP IMAGE with branded overlay - compact for viewport fit */}
-      <div className="relative h-[55vh] shrink-0 w-full overflow-hidden md:h-[47vh]">
+      <div className="relative h-[55vh] shrink-0 w-full overflow-hidden">
         <motion.div
           className="flex h-full w-full"
           animate={{ x: `-${activeIndex * 100}%` }}
@@ -77,7 +77,7 @@ export function Hero({
           className="absolute left-4 top-4 flex items-center gap-1.5 rounded-full border border-white/30 bg-white/10 px-3 py-1.5 backdrop-blur-md sm:left-6 sm:top-6 sm:gap-2 sm:px-4 sm:py-2"
         >
           <Leaf className="h-3.5 w-3.5 text-primary-light sm:h-4 sm:w-4" strokeWidth={1.5} />
-          <span className="text-[0.65rem] font-medium uppercase tracking-[0.18em] text-white sm:text-xs">
+          <span className="font-display text-xs font-medium uppercase tracking-[0.18em] text-white sm:text-sm">
             Natural • Responsible • Daily Use
           </span>
         </motion.div>
@@ -101,17 +101,17 @@ export function Hero({
 
       {/* BOTTOM CONTENT SECTION - compact to fit viewport */}
       <div className="relative flex min-h-0 flex-1 flex-col items-center justify-center overflow-visible border-t border-border/60 bg-background py-6 md:py-8 lg:py-10">
-        <DecoGraphic src="/graphics/img1.png" alt="" placement="bottom-right" size="md" className="opacity-25" />
+        {/* <DecoGraphic src="/graphics/img1.png" alt="" placement="bottom-right" size="md" className="opacity-25" /> */}
         <DecoGraphic src="/graphics/img3.png" alt="" placement="bottom-left" size="sm" className="opacity-25" />
-        <div className="mx-auto w-full max-w-6xl px-8 sm:px-10 md:px-12 lg:px-16 xl:px-20">
-          <div className="grid grid-cols-1 gap-5 lg:grid-cols-[1fr_auto] lg:items-end lg:gap-8">
-            {/* Text column with accent line */}
+        <div className="mx-auto w-full max-w-6xl 2xl:max-w-7xl px-8 sm:px-10 md:px-12 lg:px-16 xl:px-20">
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:items-end lg:gap-10">
+            {/* Left: tag + heading */}
             <div className="accent-line-left max-w-2xl">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="mb-2 inline-flex mt-2 items-center gap-2 text-[0.65rem] font-medium uppercase tracking-[0.28em] text-foreground-muted sm:mb-3"
+                className="mb-2 mt-2 inline-flex items-center gap-2 font-display text-xs font-medium uppercase tracking-[0.28em] text-foreground-muted sm:mb-3 sm:text-sm"
               >
                 MunjEco Global
               </motion.div>
@@ -123,40 +123,43 @@ export function Hero({
               >
                 {title}
               </motion.h1>
+            </div>
+
+            {/* Right: subtitle + buttons */}
+            <div className="flex flex-col items-start gap-4 lg:items-end lg:text-right">
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.25 }}
-                className="mt-3 line-clamp-2 max-w-xl text-sm leading-relaxed text-foreground-muted sm:line-clamp-none sm:mt-4 md:text-base"
+                className="max-w-xl text-sm leading-relaxed text-foreground-muted sm:mt-1 md:text-base"
               >
                 {subtitle}
               </motion.p>
-            </div>
 
-            {/* CTA buttons */}
-            <motion.div
-              initial={{ opacity: 0, y: 16 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.35 }}
-              className="flex flex-wrap items-center gap-2 sm:gap-3"
-            >
-              <Link
-                href={primaryHref}
-                className="group inline-flex items-center justify-center gap-1.5 bg-primary px-5 py-2.5 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-white shadow-lg shadow-primary/25 transition-all duration-200 hover:bg-primary-dark hover:shadow-xl hover:shadow-primary/30 sm:px-6 sm:py-3 sm:text-xs"
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: 0.35 }}
+                className="flex flex-wrap items-center gap-2 sm:gap-3 lg:justify-end"
               >
-                {primaryCta}
-                <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" strokeWidth={2} />
-              </Link>
-
-              {showSecondary && (
                 <Link
-                  href="/contact"
-                  className="inline-flex items-center justify-center border-2 border-border px-5 py-2.5 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-foreground transition-colors duration-200 hover:border-accent hover:text-accent sm:px-6 sm:py-3 sm:text-xs"
+                  href={primaryHref}
+                  className="group inline-flex items-center justify-center gap-1.5 bg-primary px-5 py-2.5 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-white shadow-lg shadow-primary/25 transition-all duration-200 hover:bg-primary-dark hover:shadow-xl hover:shadow-primary/30 sm:px-6 sm:py-3 sm:text-xs"
                 >
-                  Request a Bulk Quote
+                  {primaryCta}
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" strokeWidth={2} />
                 </Link>
-              )}
-            </motion.div>
+
+                {showSecondary && (
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center justify-center border-2 border-border px-5 py-2.5 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-foreground transition-colors duration-200 hover:border-accent hover:text-accent sm:px-6 sm:py-3 sm:text-xs"
+                  >
+                    Request a Bulk Quote
+                  </Link>
+                )}
+              </motion.div>
+            </div>
           </div>
         </div>
       </div>

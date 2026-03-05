@@ -63,7 +63,7 @@ export function FeaturedProductsSection({ products }: FeaturedProductsSectionPro
         className="pointer-events-none absolute inset-x-8 bottom-0 h-40 bg-gradient-to-t from-chai/18 to-transparent"
       />
 
-      <div className="relative mx-auto max-w-6xl">
+      <div className="relative mx-auto max-w-6xl 2xl:max-w-7xl">
         {/* Section header with parallax - left aligned */}
         <motion.header
           style={{ y: headerY }}
@@ -73,7 +73,7 @@ export function FeaturedProductsSection({ products }: FeaturedProductsSectionPro
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="mb-12 max-w-xl"
         >
-          <p className="font-display text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-turmeric/90">
+          <p className="font-display text-xs font-semibold uppercase tracking-[0.3em] text-turmeric/90 sm:text-sm">
             Featured products
           </p>
           <h2 className="mt-4 font-heading text-3xl font-semibold tracking-tight md:text-4xl lg:text-5xl">

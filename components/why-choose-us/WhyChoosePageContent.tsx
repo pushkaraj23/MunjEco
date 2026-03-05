@@ -83,7 +83,7 @@ export function WhyChoosePageContent() {
     >
       <DecoGraphic src="/graphics/img1.png" alt="" placement="top-left" size="lg" />
       <DecoGraphic src="/graphics/img5.png" alt="" placement="top-right" size="md" />
-      <div className="mx-auto max-w-6xl px-8 sm:px-10 md:px-12 lg:px-16 xl:px-20">
+      <div className="mx-auto max-w-6xl 2xl:max-w-7xl px-8 sm:px-10 md:px-12 lg:px-16 xl:px-20">
         {/* Header row */}
         <motion.section
           style={{ y: headerY }}
@@ -94,7 +94,7 @@ export function WhyChoosePageContent() {
           className="mb-14 grid gap-10 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] md:items-end"
         >
           <div className="accent-line-left">
-            <p className="mb-3 font-display text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-foreground-muted">
+            <p className="mb-3 font-display text-xs font-semibold uppercase tracking-[0.3em] text-foreground-muted sm:text-sm">
               Why choose MunjEco Global
             </p>
             <h1 className="font-heading text-3xl font-semibold tracking-tight text-foreground md:text-4xl lg:text-5xl">
@@ -176,7 +176,7 @@ export function WhyChoosePageContent() {
               className="opacity-25"
             />
             <div className="relative max-w-3xl">
-              <p className="mb-3 font-display text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-white/80">
+              <p className="mb-3 font-display text-xs font-semibold uppercase tracking-[0.3em] text-white/80 sm:text-sm">
                 Our Promise
               </p>
               <h2 className="font-heading text-2xl font-semibold tracking-tight md:text-3xl">
@@ -202,7 +202,7 @@ export function WhyChoosePageContent() {
         >
           <div className="mb-6 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="font-display text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-foreground-muted">
+              <p className="font-display text-xs font-semibold uppercase tracking-[0.3em] text-foreground-muted sm:text-sm">
                 Global Certifications & Export Compliance
               </p>
               <h2 className="mt-3 font-heading text-2xl font-semibold tracking-tight text-foreground md:text-3xl">

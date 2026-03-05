@@ -68,7 +68,7 @@ export function TestimonialsSection() {
         className="pointer-events-none absolute inset-x-16 bottom-0 h-24 bg-gradient-to-t from-turmeric/18 to-transparent"
       />
 
-      <div className="relative mx-auto max-w-6xl">
+      <div className="relative mx-auto max-w-6xl 2xl:max-w-7xl">
         {/* Section header with parallax */}
         <motion.header
           style={{ y: headerY }}
@@ -79,7 +79,7 @@ export function TestimonialsSection() {
           className="mb-12 flex flex-col gap-3 md:flex-row md:items-end md:justify-between"
         >
           <div>
-            <p className="font-display text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-white/80">
+            <p className="font-display text-xs font-semibold uppercase tracking-[0.3em] text-white/80 sm:text-sm">
               Client reviews
             </p>
             <h2 className="mt-3 font-heading text-3xl font-semibold tracking-tight md:text-4xl">

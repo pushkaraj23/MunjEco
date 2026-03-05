@@ -25,7 +25,7 @@ export function ProductsPageContent({ products }: ProductsPageContentProps) {
     <main ref={ref} className="relative overflow-visible pt-28 pb-12 md:pb-16">
       <DecoGraphic src="/graphics/img2.png" alt="" placement="bottom-left" size="md" />
       <DecoGraphic src="/graphics/img4.png" alt="" placement="bottom-right" size="md" />
-      <div className="relative mx-auto max-w-6xl px-8 sm:px-10 md:px-12 lg:px-16 xl:px-20">
+      <div className="relative mx-auto max-w-6xl 2xl:max-w-7xl px-8 sm:px-10 md:px-12 lg:px-16 xl:px-20">
         {/* Header + search */}
         <motion.div
           style={{ y: headerY }}
@@ -36,7 +36,7 @@ export function ProductsPageContent({ products }: ProductsPageContentProps) {
           className="mb-10 flex flex-col gap-6 md:flex-row md:items-end md:justify-between"
         >
           <div>
-            <p className="font-display text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-foreground-muted">
+            <p className="font-display text-xs font-semibold uppercase tracking-[0.3em] text-foreground-muted sm:text-sm">
               Product catalogue
             </p>
             <h1 className="mt-3 font-heading text-3xl font-semibold tracking-tight text-foreground md:text-4xl">

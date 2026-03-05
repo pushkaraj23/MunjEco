@@ -20,13 +20,13 @@ export function AboutSection() {
   return (
     <section
       ref={ref}
-      className="relative overflow-visible border-t border-border/60 bg-background px-8 py-24 sm:px-10 md:px-12 md:py-28 lg:px-16 xl:px-20"
+      className="relative overflow-visible border-t border-border/60 bg-primary/10 px-8 py-24 sm:px-10 md:px-12 md:py-28 lg:px-16 xl:px-20"
     >
       <DecoGraphic src="/graphics/img1.png" alt="" placement="bottom-left" size="md" />
       <DecoGraphic src="/graphics/img5.png" alt="" placement="top-right" size="md" />
       <motion.div
         style={{ opacity: glowOpacity, y: containerY }}
-        className="relative mx-auto flex max-w-6xl flex-col gap-12 lg:grid lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]"
+        className="relative mx-auto flex max-w-6xl 2xl:max-w-7xl flex-col gap-12 lg:grid lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]"
       >
         {/* Text column */}
         <div className="max-w-xl">
@@ -35,7 +35,7 @@ export function AboutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="mb-6 inline-flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.3em] text-foreground-muted"
+            className="mb-6 inline-flex items-center gap-2 font-display text-xs uppercase tracking-[0.3em] text-foreground-muted sm:text-sm"
           >
             <Sprout className="h-4 w-4 text-foreground-muted" strokeWidth={1.5} />
             <span>About MunjEco Global</span>

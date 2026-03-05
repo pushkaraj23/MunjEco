@@ -22,7 +22,7 @@ export function ContactPageContent() {
     <main ref={ref} className="relative overflow-visible bg-background pt-28 pb-16 md:pt-32 md:pb-20">
       <DecoGraphic src="/graphics/img3.png" alt="" placement="bottom-left" size="md" />
       <DecoGraphic src="/graphics/img5.png" alt="" placement="top-right" size="md" />
-      <div className="relative mx-auto max-w-6xl px-8 sm:px-10 md:px-12 lg:px-16 xl:px-20">
+      <div className="relative mx-auto max-w-6xl 2xl:max-w-7xl px-8 sm:px-10 md:px-12 lg:px-16 xl:px-20">
         {/* Top: small label + headline + copy */}
         <motion.header
           style={{ y: headerY }}
@@ -32,7 +32,7 @@ export function ContactPageContent() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="mb-12 max-w-3xl"
         >
-          <div className="mb-4 inline-flex items-center gap-2 text-[0.7rem] uppercase tracking-[0.3em] text-foreground-muted">
+          <div className="mb-4 inline-flex items-center gap-2 font-display text-xs uppercase tracking-[0.3em] text-foreground-muted sm:text-sm">
             <Mail className="h-4 w-4 text-foreground-muted" strokeWidth={1.5} />
             <span>Reach us</span>
           </div>

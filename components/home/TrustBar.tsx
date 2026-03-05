@@ -30,7 +30,7 @@ const items = [
 export function TrustBar() {
   return (
     <section className="relative overflow-visible border-y border-border/70 bg-primary-dark">
-      <div className="relative z-10 mx-auto flex max-w-6xl flex-col gap-8 px-8 py-8 sm:px-10 md:flex-row md:items-center md:justify-between md:px-12 lg:px-16 xl:px-20">
+      <div className="relative z-10 mx-auto flex max-w-6xl 2xl:max-w-7xl flex-col gap-8 px-8 py-8 sm:px-10 md:flex-row md:items-center md:justify-between md:px-12 lg:px-16 xl:px-20">
         {/* Left: narrow editorial text block */}
         <div className="max-w-sm">
           <p className="text-[0.68rem] font-medium uppercase tracking-[0.32em] text-white/70">
@@ -55,7 +55,7 @@ export function TrustBar() {
                 <item.icon className="h-4 w-4" strokeWidth={1.4} />
               </div>
               <div>
-                <div className="text-[0.7rem] font-medium uppercase tracking-[0.22em] text-white">
+                <div className="text-xs font-medium uppercase tracking-[0.22em] text-white sm:text-sm">
                   {item.label}
                 </div>
                 <div className="mt-1 text-xs text-white/60">
