@@ -105,7 +105,7 @@ export function ProductsList({ products }: Props) {
               key={product.id}
               className="flex flex-col gap-4 px-6 py-4 transition-colors hover:bg-primary/5 sm:flex-row sm:items-start"
             >
-              <div className="relative h-16 w-20 shrink-0 overflow-hidden rounded-xl bg-background-alt">
+              <div className="relative aspect-square w-20 shrink-0 overflow-hidden rounded-xl bg-background-alt">
                 <Image
                   src={imageUrl}
                   alt={product.name}

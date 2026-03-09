@@ -31,8 +31,8 @@ export function AboutPageContent() {
 
   return (
     <main ref={ref} className="relative overflow-visible bg-background pt-28 pb-20 md:pt-32 md:pb-24">
-      <DecoGraphic src="/graphics/img1-v1.png" alt="" placement="top-left" size="md" />
-      <DecoGraphic src="/graphics/img4-v1.png" alt="" placement="bottom-right" size="md" />
+      <DecoGraphic src="/graphics/img1-v0.png" alt="" placement="top-left" size="md" />
+      <DecoGraphic src="/graphics/img4-v0.png" alt="" placement="bottom-right" size="md" />
       <div className="mx-auto max-w-6xl 2xl:max-w-7xl px-8 sm:px-10 md:px-12 lg:px-16 xl:px-20">
         {/* Header + hero image split */}
         <motion.section
@@ -44,7 +44,7 @@ export function AboutPageContent() {
           className="mb-16 grid gap-10 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] md:items-end"
         >
           <div>
-            <div className="mb-4 inline-flex items-center gap-2 font-display text-xs uppercase tracking-[0.3em] text-foreground-muted sm:text-sm">
+            <div className="mb-4 inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-foreground-muted sm:text-sm">
               <Sprout className="h-4 w-4 text-foreground-muted" strokeWidth={1.5} />
               <span>Our purpose</span>
             </div>
@@ -55,7 +55,7 @@ export function AboutPageContent() {
               Natural • Responsible • Daily Use Products. Eco-friendly gifting.
             </p>
           </div>
-          <div className="relative aspect-[5/3] overflow-hidden">
+          <div className="relative aspect-square overflow-hidden rounded-sm">
             <Image
               src="https://images.unsplash.com/photo-1758487424832-a53ae6cdefdb?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="Studio view of eco-friendly materials and tools"
@@ -73,7 +73,7 @@ export function AboutPageContent() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-16 grid gap-10 rounded-none bg-primary-dark px-6 py-12 text-white md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] md:items-start md:px-8 md:py-16"
+          className="mb-16 grid gap-10 rounded-xl bg-primary-dark px-6 py-12 text-white md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] md:items-start md:px-8 md:py-16"
         >
           <div>
             <h2 className="font-heading text-2xl font-semibold tracking-tight text-white md:text-3xl">
@@ -88,7 +88,7 @@ export function AboutPageContent() {
               sourcing.
             </p>
           </div>
-          <div className="relative aspect-[4/5] overflow-hidden">
+          <div className="relative aspect-square overflow-hidden rounded-sm">
             <Image
               src="https://images.unsplash.com/photo-1659644569209-1c397e64f7c6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="Close-up of crafted natural products"
@@ -125,7 +125,7 @@ export function AboutPageContent() {
               sustainable and soulful, rooted in craftsmanship and mindful consumption.
             </p>
           </div>
-          <div className="relative aspect-[4/5] overflow-hidden border border-border bg-background-alt">
+          <div className="relative aspect-square overflow-hidden rounded-sm border border-border bg-background-alt">
             <Image
               src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="MunjEco products and handicrafts arranged for export"
@@ -137,9 +137,9 @@ export function AboutPageContent() {
         </section>
 
         {/* Founder’s Note */}
-        <section className="mb-16 grid gap-8 rounded-none border border-border/70 bg-background-alt px-6 py-8 md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] md:px-10 md:py-10">
+        <section className="mb-16 grid gap-8 rounded-xl border border-border/70 bg-background-alt px-6 py-8 md:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] md:px-10 md:py-10">
           <div>
-            <p className="font-display text-xs font-semibold uppercase tracking-[0.3em] text-foreground-muted sm:text-sm">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-foreground-muted sm:text-sm">
               Founder&apos;s Note
             </p>
             <h2 className="mt-3 font-heading text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
@@ -163,7 +163,7 @@ export function AboutPageContent() {
               </p>
             </div>
           </div>
-          <div className="relative hidden aspect-[4/5] overflow-hidden border border-border bg-background sm:block">
+          <div className="relative hidden aspect-square overflow-hidden rounded-sm border border-border bg-background sm:block">
             <Image
               src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="Thoughtful founder looking over natural landscapes"
@@ -184,7 +184,7 @@ export function AboutPageContent() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="mb-16 grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)] md:items-start"
         >
-          <div className="relative aspect-[4/5] overflow-hidden">
+          <div className="relative aspect-square overflow-hidden rounded-sm">
             <Image
               src="https://images.unsplash.com/photo-1584473457406-6240486418e9?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="Manufacturing workspace with tools and sketches"
@@ -234,7 +234,7 @@ export function AboutPageContent() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="mb-16 grid gap-10 rounded-none bg-primary px-6 py-12 text-white md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] md:items-center md:px-8 md:py-16"
+          className="mb-16 grid gap-10 rounded-xl bg-primary px-6 py-12 text-white md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] md:items-center md:px-8 md:py-16"
         >
           <div>
             <div className="mb-3 flex items-center gap-2">
@@ -249,7 +249,7 @@ export function AboutPageContent() {
               durability and environmental impact.
             </p>
           </div>
-          <div className="relative aspect-[5/3] overflow-hidden">
+          <div className="relative aspect-square overflow-hidden rounded-sm">
             <Image
               src="https://images.unsplash.com/photo-1593617761943-9099951a0769?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="Neatly arranged certificates and documents"

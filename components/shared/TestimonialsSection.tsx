@@ -30,7 +30,7 @@ export function TestimonialsSection() {
     <section
       className="relative overflow-visible border-t border-border/70 bg-primary px-8 py-20 text-white sm:px-10 md:px-12 md:py-24 lg:px-16 xl:px-20"
     >
-      <DecoGraphic src="/graphics/img5-v1.png" alt="" placement="top-right" size="md" className="opacity-25" />
+      <DecoGraphic src="/graphics/img5-v0.png" alt="" placement="top-right" size="md" className="opacity-25" />
       {/* Soft photographic background under the testimonial grid */}
       <div className="absolute inset-0 -z-10">
         <Image
@@ -49,7 +49,7 @@ export function TestimonialsSection() {
         {/* Section header */}
         <header className="mb-12 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="font-display text-xs font-semibold uppercase tracking-[0.3em] text-white/80 sm:text-sm">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/80 sm:text-sm">
               Client reviews
             </p>
             <h2 className="mt-3 font-heading text-3xl font-semibold tracking-tight md:text-4xl">
@@ -66,7 +66,7 @@ export function TestimonialsSection() {
         <div className="grid gap-8 md:grid-cols-3">
           {testimonials.map((t, i) => (
             <div key={t.author}>
-              <article className="flex h-full flex-col border border-white/20 bg-white/5 backdrop-blur-sm px-5 py-5 shadow-card">
+              <article className="flex h-full flex-col rounded-xl border border-white/20 bg-white/5 backdrop-blur-sm px-5 py-5 shadow-card">
                 <Quote className="mb-3 h-6 w-6 text-accent-light" strokeWidth={1.2} />
                 <p className="text-sm leading-relaxed text-white/90 md:text-base">
                   &ldquo;{t.quote}&rdquo;

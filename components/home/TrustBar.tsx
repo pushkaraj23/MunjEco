@@ -1,6 +1,4 @@
 "use client";
-
-import { motion } from "framer-motion";
 import { Leaf, Package, Globe, ShieldCheck } from "lucide-react";
 import { DecoGraphic } from "@/components/shared/DecoGraphic";
 
@@ -42,13 +40,7 @@ export function TrustBar() {
         </div>
 
         {/* Right: linear list, no cards */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="grid w-full grid-cols-2 gap-x-10 gap-y-4 md:max-w-xl lg:grid-cols-4 lg:max-w-none"
-        >
+        <div className="grid w-full grid-cols-2 gap-x-10 gap-y-4 md:max-w-xl lg:grid-cols-4 lg:max-w-none">
           {items.map((item) => (
             <div key={item.label} className="flex items-start gap-3">
               <div className="mt-0.5 text-accent-light">
@@ -64,7 +56,7 @@ export function TrustBar() {
               </div>
             </div>
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

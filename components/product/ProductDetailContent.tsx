@@ -26,7 +26,7 @@ export function ProductDetailContent({ product }: ProductDetailContentProps) {
 
   return (
     <main ref={ref} className="relative overflow-visible bg-background pt-20 md:pt-24 pb-24 md:pb-32">
-      <DecoGraphic src="/graphics/img1-v1.png" alt="" placement="bottom-left" size="md" />
+      <DecoGraphic src="/graphics/img1-v0.png" alt="" placement="bottom-left" size="md" />
       <div className="mx-auto max-w-6xl 2xl:max-w-7xl px-8 sm:px-10 md:px-12 lg:px-16 xl:px-20">
         <motion.div
           style={{ y: headerY }}
@@ -73,7 +73,7 @@ export function ProductDetailContent({ product }: ProductDetailContentProps) {
             <div className="flex flex-col gap-3">
               <Link
                 href="#enquiry"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-none bg-primary px-5 py-3 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-dark"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-primary px-5 py-3 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-dark"
               >
                 Enquire
               </Link>

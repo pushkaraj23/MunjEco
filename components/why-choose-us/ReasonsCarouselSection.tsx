@@ -1,181 +1,137 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import {
-  ShieldCheck,
-  Leaf,
-  Package,
-  Globe2,
-  Tags,
-  Handshake,
-  Sparkles,
-  ChevronLeft,
-  ChevronRight,
-} from "lucide-react";
+import { useEffect, useRef, useState } from "react";
 import { DecoGraphic } from "@/components/shared/DecoGraphic";
+import { WhyChooseHeader } from "@/components/why-choose-us/WhyChooseHeader";
 
-const reasons = [
+const carouselCards = [
   {
-    icon: ShieldCheck,
-    title: "Ethical & Responsible Sourcing",
-    body: "We source our products directly from verified Indian manufacturers and artisan clusters that follow ethical, sustainable, and responsible practices.",
+    title: "Export‑quality standards",
+    desc: "Consistent finishing, sizing and QC so every shipment is ready for global shelves.",
+    image:
+      "https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=1600&auto=format&fit=crop",
   },
   {
-    icon: Leaf,
-    title: "Sustainable by Design",
-    body: "From wooden combs and bamboo toothbrushes to eco‑friendly travel kits and handicrafts, our range is built to reduce plastic use and promote conscious living.",
+    title: "Competitive, transparent pricing",
+    desc: "Fair bulk and repeat‑order pricing with clear cost breakdowns and no hidden extras.",
+    image:
+      "https://images.unsplash.com/photo-1556740749-887f6717d7e4?q=80&w=1600&auto=format&fit=crop",
   },
   {
-    icon: Package,
-    title: "Export‑Ready Quality",
-    body: "Products are selected and packed to meet international export standards with consistent quality and clear documentation.",
+    title: "Long‑term partnerships",
+    desc: "We prioritise relationship‑driven trade, reliability and repeat collaboration.",
+    image:
+      "https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1600&auto=format&fit=crop",
   },
   {
-    icon: Globe2,
-    title: "Global Trade Expertise",
-    body: "We understand Incoterms, customs documentation and buyer expectations across UK, EU and other markets.",
+    title: "Timely & reliable shipping",
+    desc: "Dependable dispatch schedules with full export documentation and logistics support.",
+    image:
+      "https://images.unsplash.com/photo-1541417904950-b855846fe074?q=80&w=1600&auto=format&fit=crop",
   },
   {
-    icon: Tags,
-    title: "Flexible Bulk & Private Label",
-    body: "Bulk quantities, customised packaging or private labelling — we adapt to your brand and business needs.",
+    title: "Custom branding options",
+    desc: "Private‑label, logo placement and eco‑friendly packaging tailored to your brand.",
+    image:
+      "https://images.unsplash.com/photo-1593747176945-ef77e62547eb?q=80&w=1600&auto=format&fit=crop",
   },
   {
-    icon: Handshake,
-    title: "Transparent Partnerships",
-    body: "Long‑term relationships built on clear communication, transparent pricing and reliable delivery.",
-  },
-  {
-    icon: Sparkles,
-    title: "Rooted in Indian Craftsmanship",
-    body: "Our handicrafts and natural products celebrate Indian artisan heritage while supporting local communities.",
+    title: "Eco‑friendly packaging",
+    desc: "Low‑plastic, recyclable or biodegradable packing aligned with sustainability goals.",
+    image:
+      "https://images.unsplash.com/photo-1654078054613-a56cfcabdb84?q=80&w=1600&auto=format&fit=crop",
   },
 ];
 
 export function ReasonsCarouselSection() {
-  const [slidesPerView, setSlidesPerView] = useState(3);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const trackRef = useRef<HTMLDivElement | null>(null);
+  const isInteractingRef = useRef(false);
+  const [isInteracting, setIsInteracting] = useState(false);
 
   useEffect(() => {
-    const updateSlides = () => {
-      if (window.innerWidth < 768) {
-        setSlidesPerView(1);
-      } else if (window.innerWidth < 1024) {
-        setSlidesPerView(2);
-      } else {
-        setSlidesPerView(3);
+    isInteractingRef.current = isInteracting;
+  }, [isInteracting]);
+
+  useEffect(() => {
+    let rafId: number;
+
+    const step = () => {
+      const el = trackRef.current;
+      if (el && !isInteractingRef.current) {
+        const halfScroll = el.scrollWidth / 2;
+        if (halfScroll > 0) {
+          el.scrollLeft += 0.5;
+          if (el.scrollLeft >= halfScroll) {
+            el.scrollLeft -= halfScroll;
+          }
+        }
       }
-      setCurrentIndex(0);
+      rafId = requestAnimationFrame(step);
     };
-    updateSlides();
-    window.addEventListener("resize", updateSlides);
-    return () => window.removeEventListener("resize", updateSlides);
+
+    rafId = requestAnimationFrame(step);
+    return () => cancelAnimationFrame(rafId);
   }, []);
 
-  const maxIndex = Math.max(0, reasons.length - slidesPerView);
-  const canPrev = currentIndex > 0;
-  const canNext = currentIndex < maxIndex;
-
-  useEffect(() => {
-    if (maxIndex === 0) return;
-    const id = setInterval(() => {
-      setCurrentIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
-    }, 6000);
-    return () => clearInterval(id);
-  }, [maxIndex]);
-
-  const handlePrev = () => {
-    if (canPrev) setCurrentIndex((prev) => Math.max(0, prev - 1));
-  };
-
-  const handleNext = () => {
-    if (canNext) setCurrentIndex((prev) => Math.min(maxIndex, prev + 1));
-  };
-
   return (
-    <section className="relative overflow-visible bg-background pb-12">
+    <section className="relative overflow-visible bg-gradient-to-b from-background via-background to-background-alt pb-20">
       <DecoGraphic
-        src="/graphics/img2-v1.png"
+        src="/graphics/img2-v0.png"
         alt=""
         placement="bottom-left"
+        className="opacity-30"
         size="md"
-        className="opacity-25"
       />
-      <div className="mx-auto max-w-6xl 2xl:max-w-7xl px-8 sm:px-10 md:px-12 lg:px-16 xl:px-20">
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <div className="relative">
-            <button
-              type="button"
-              onClick={handlePrev}
-              disabled={!canPrev}
-              aria-label="Previous reason"
-              className="absolute left-[-2.25rem] top-1/2 z-10 hidden -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background p-2 text-foreground shadow-sm transition-colors hover:bg-background-alt disabled:cursor-default disabled:opacity-40 md:inline-flex"
-            >
-              <ChevronLeft className="h-4 w-4" strokeWidth={1.7} />
-            </button>
-            <button
-              type="button"
-              onClick={handleNext}
-              disabled={!canNext}
-              aria-label="Next reason"
-              className="absolute right-[-2.25rem] top-1/2 z-10 hidden -translate-y-1/2 items-center justify-center rounded-full border border-border bg-background p-2 text-foreground shadow-sm transition-colors hover:bg-background-alt disabled:cursor-default disabled:opacity-40 md:inline-flex"
-            >
-              <ChevronRight className="h-4 w-4" strokeWidth={1.7} />
-            </button>
+      <DecoGraphic
+        src="/graphics/img5-v0.png"
+        alt=""
+        placement="top-right"
+        size="sm"
+        className="opacity-30"
+      />
 
-            <div className="overflow-hidden">
-              <div
-                className="flex transition-transform duration-500 ease-[0.22,1,0.36,1]"
-                style={{
-                  transform: `translateX(-${
-                    (currentIndex * 100) / slidesPerView
-                  }%)`,
-                }}
+      <div className="relative px-20">
+        <div className="pointer-events-none absolute inset-x-1/4 top-24 -z-10 hidden h-80 rounded-full bg-primary/6 blur-3xl md:block" />
+
+        <div
+          ref={trackRef}
+          className="mt-10 flex overflow-x-auto overflow-y-visible [&::-webkit-scrollbar]:hidden"
+          style={{ scrollbarWidth: "none" }}
+          onMouseEnter={() => setIsInteracting(true)}
+          onMouseLeave={() => setIsInteracting(false)}
+          onPointerDown={() => setIsInteracting(true)}
+          onPointerUp={() => setIsInteracting(false)}
+          onTouchStart={() => setIsInteracting(true)}
+          onTouchEnd={() => setIsInteracting(false)}
+        >
+          <div className="flex pb-5">
+            {[...carouselCards, ...carouselCards].map((card, index) => (
+              <article
+                key={`${card.title}-${index}`}
+                className="min-w-[68vw] max-w-[68vw] px-2 md:min-w-[15%] md:max-w-[15%]"
               >
-                {reasons.map((item, idx) => {
-                  const Icon = item.icon;
-                  return (
-                    <div
-                      key={item.title}
-                      className="flex-shrink-0 px-2"
-                      style={{ width: `${100 / slidesPerView}%` }}
-                    >
-                      <motion.article
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-40px" }}
-                        transition={{
-                          delay: idx * 0.04,
-                          duration: 0.45,
-                          ease: [0.22, 1, 0.36, 1],
-                        }}
-                        className="flex h-full flex-col border border-border/70 bg-background-alt/70 px-5 py-5 shadow-card transition-colors hover:border-primary/70"
-                      >
-                        <div className="mb-3 flex items-center gap-3">
-                          <div className="flex h-9 w-9 items-center justify-center border border-primary/20 bg-primary/5 text-primary">
-                            <Icon className="h-4 w-4" strokeWidth={1.6} />
-                          </div>
-                          <h2 className="font-heading text-sm font-semibold text-foreground">
-                            {item.title}
-                          </h2>
-                        </div>
-                        <p className="text-sm leading-relaxed text-foreground-muted">
-                          {item.body}
-                        </p>
-                      </motion.article>
-                    </div>
-                  );
-                })}
-              </div>
-            </div>
+                <div className="flex h-full border border-primary/20 flex-col overflow-hidden rounded-xl border border-border/70 bg-background-alt/60 backdrop-blur-sm shadow-lg">
+                  <div className="relative aspect-square w-full overflow-hidden">
+                    <img
+                      src={card.image}
+                      alt={card.title}
+                      className="h-full w-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                  <div className="flex flex-1 flex-col px-5 py-5">
+                    <h3 className="font-heading text-base font-semibold text-foreground md:text-lg">
+                      {card.title}
+                    </h3>
+                    <p className="mt-3 text-sm leading-relaxed text-foreground-muted">
+                      {card.desc}
+                    </p>
+                  </div>
+                </div>
+              </article>
+            ))}
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

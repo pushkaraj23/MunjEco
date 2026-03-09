@@ -39,7 +39,7 @@ const footerLinks = {
 export function Footer() {
   return (
     <footer className="relative overflow-visible border-t border-border/80 bg-primary-dark text-white">
-      <DecoGraphic src="/graphics/img1-v1.png" alt="" placement="bottom-left" size="md" className="opacity-20" />
+      <DecoGraphic src="/graphics/img1-v0.png" alt="" placement="bottom-left" size="md" className="opacity-20" />
       <div className="relative z-10 mx-auto max-w-6xl 2xl:max-w-7xl px-8 pb-6 pt-16 sm:px-10 md:px-12 md:pb-8 md:pt-20 lg:px-16 xl:px-20">
         {/* Main footer content */}
         <div className="grid gap-16 lg:grid-cols-12 lg:gap-12">
@@ -78,7 +78,7 @@ export function Footer() {
           </motion.div>
 
           {/* Link columns */}
-          <div className="grid gap-12 sm:grid-cols-3 lg:col-span-8 lg:gap-10">
+          <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 lg:col-span-8 lg:gap-8">
             {Object.entries(footerLinks).map(([title, links], groupIndex) => (
               <motion.div
                 key={title}
@@ -91,10 +91,10 @@ export function Footer() {
                   ease: [0.22, 1, 0.36, 1],
                 }}
               >
-                <h4 className="mb-4 font-display text-xs font-semibold uppercase tracking-[0.3em] text-white/80 sm:text-sm">
+                <h4 className="mb-4 text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-white/80 sm:text-xs">
                   {title}
                 </h4>
-                <ul className="space-y-4">
+                <ul className="space-y-2">
                   {links.map((link) => {
                     const Icon = "icon" in link ? link.icon : null;
                     return (
@@ -109,7 +109,7 @@ export function Footer() {
                               strokeWidth={1.5}
                             />
                           )}
-                          <span className="border-b border-transparent transition-colors group-hover:border-accent/60">
+                          <span className="text-xs sm:text-[0.8rem] border-b border-transparent transition-colors group-hover:border-accent/60">
                             {link.label}
                           </span>
                         </Link>

@@ -129,8 +129,8 @@ export function WhyChoosePageContent() {
       ref={ref}
       className="relative overflow-visible pt-28 pb-20 md:pt-32 md:pb-24"
     >
-      <DecoGraphic src="/graphics/img1-v1.png" alt="" placement="top-left" size="lg" />
-      <DecoGraphic src="/graphics/img5-v1.png" alt="" placement="top-right" size="md" />
+      <DecoGraphic src="/graphics/img1-v0.png" alt="" placement="top-left" size="lg" />
+      <DecoGraphic src="/graphics/img5-v0.png" alt="" placement="top-right" size="md" />
       <div className="mx-auto max-w-6xl 2xl:max-w-7xl px-8 sm:px-10 md:px-12 lg:px-16 xl:px-20">
         {/* Header row */}
         <motion.section
@@ -142,7 +142,7 @@ export function WhyChoosePageContent() {
           className="mb-14 grid gap-10 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] md:items-end"
         >
           <div className="accent-line-left">
-            <p className="mb-3 font-display text-xs font-semibold uppercase tracking-[0.3em] text-foreground-muted sm:text-sm">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-foreground-muted sm:text-sm">
               Why choose MunjEco Global
             </p>
             <h1 className="font-heading text-3xl font-semibold tracking-tight text-foreground md:text-4xl lg:text-5xl">
@@ -153,7 +153,7 @@ export function WhyChoosePageContent() {
               craftsmanship and sustainable products with buyers across the world.
             </p>
           </div>
-          <div className="relative aspect-[5/3] overflow-hidden">
+          <div className="relative aspect-[5/3] overflow-hidden rounded-sm">
             <Image
               src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="Curated eco-friendly products styled for buyers"
@@ -254,14 +254,14 @@ export function WhyChoosePageContent() {
         >
           <div className="relative px-6 py-10 sm:px-8 md:px-10 md:py-12">
             <DecoGraphic
-              src="/graphics/img1-v1.png"
+              src="/graphics/img1-v0.png"
               alt=""
               placement="bottom-right"
               size="md"
               className="opacity-25"
             />
             <div className="relative max-w-3xl">
-              <p className="mb-3 font-display text-xs font-semibold uppercase tracking-[0.3em] text-white/80 sm:text-sm">
+              <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-white/80 sm:text-sm">
                 Our Promise
               </p>
               <h2 className="font-heading text-2xl font-semibold tracking-tight md:text-3xl">
@@ -287,7 +287,7 @@ export function WhyChoosePageContent() {
         >
           <div className="mb-6 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
-              <p className="font-display text-xs font-semibold uppercase tracking-[0.3em] text-foreground-muted sm:text-sm">
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-foreground-muted sm:text-sm">
                 Global Certifications & Export Compliance
               </p>
               <h2 className="mt-3 font-heading text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
@@ -308,7 +308,7 @@ export function WhyChoosePageContent() {
               ))}
             </ul>
             <div className="mt-4 md:mt-0">
-              <div className="relative aspect-[4/3] overflow-hidden border border-border/70 bg-background shadow-card">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-sm border border-border/70 bg-background shadow-card">
                 <Image
                   src="https://images.unsplash.com/photo-1709804945989-c8be542e04db?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   alt="Export documents and certifications neatly arranged"

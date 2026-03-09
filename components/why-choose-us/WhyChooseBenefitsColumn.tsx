@@ -39,7 +39,7 @@ export function WhyChooseBenefitsColumn({
 function WhyItem({ benefit, index }: { benefit: Benefit; index: number }) {
   const Icon = benefit.icon;
   return (
-    <motion.article
+      <motion.article
       initial={{ opacity: 0, y: 18 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
@@ -48,7 +48,7 @@ function WhyItem({ benefit, index }: { benefit: Benefit; index: number }) {
         duration: 0.5,
         ease: [0.22, 1, 0.36, 1],
       }}
-      className="flex gap-4 rounded-none border border-border/70 bg-primary/8 backdrop-blur-sm px-5 py-4 shadow-sm transition-colors duration-200 hover:border-primary/40"
+        className="flex gap-4 rounded-xl border border-border/70 bg-primary/8 backdrop-blur-sm px-5 py-4 shadow-sm transition-colors duration-200 hover:border-primary/40"
     >
       <div className="mt-1 flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-full border border-primary/25 bg-primary/5 text-primary">
         <Icon className="h-5 w-5" strokeWidth={1.6} />

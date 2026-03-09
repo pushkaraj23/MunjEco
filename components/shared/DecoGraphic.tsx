@@ -54,7 +54,7 @@ export function DecoGraphic({
   const objPos = OBJECT_POSITION[placement];
   return (
     <div
-      className={`pointer-events-none absolute z-0 select-none opacity-30 ${pos} ${dims} ${className}`}
+      className={`pointer-events-none absolute z-0 select-none ${pos} ${dims} ${className}`}
       aria-hidden
     >
       <Image

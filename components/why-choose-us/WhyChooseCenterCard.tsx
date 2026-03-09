@@ -2,7 +2,6 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { DecoGraphic } from "@/components/shared/DecoGraphic";
 
 type WhyChooseCenterCardProps = {
   imageUrl: string;
@@ -19,17 +18,9 @@ export function WhyChooseCenterCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className="relative mx-auto w-full max-w-md overflow-hidden border border-border bg-background-alt/90 shadow-card"
+      className="relative mx-auto w-full rounded-lg max-w-md overflow-hidden border border-border bg-background shadow-card"
     >
-      <DecoGraphic
-        src="/graphics/img4-v1.png"
-        alt=""
-        placement="bottom-right"
-        size="sm"
-        className="pointer-events-none opacity-40"
-      />
-
-      <div className="relative h-72 sm:h-80 md:h-96">
+      <div className="relative aspect-square">
         <Image
           src={imageUrl}
           alt="Eco‑friendly Indian lifestyle products arranged together"

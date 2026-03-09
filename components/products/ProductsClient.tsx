@@ -69,7 +69,7 @@ export function ProductsClient({
           defaultValue={q}
           onChange={(e) => onSearchChange(e.target.value)}
           placeholder="Search products..."
-          className="w-full min-w-[220px] rounded-none border border-border bg-background-alt px-9 py-2.5 text-sm text-foreground shadow-sm outline-none ring-0 placeholder:text-foreground-muted focus:border-primary focus:outline-none focus:ring-0 md:min-w-[260px]"
+          className="w-full min-w-[220px] rounded-md border border-border bg-background-alt px-9 py-2.5 text-sm text-foreground shadow-sm outline-none ring-0 placeholder:text-foreground-muted focus:border-primary focus:outline-none focus:ring-0 md:min-w-[260px]"
           aria-label="Search products"
         />
         {isPending && (
@@ -91,7 +91,7 @@ export function ProductsClient({
             id="category-select"
             value={currentCategory}
             onChange={(e) => onCategoryChange(e.target.value)}
-            className="w-full appearance-none rounded-none border border-border bg-background-alt px-3 py-2.5 pr-9 text-xs font-medium uppercase tracking-[0.18em] text-foreground shadow-sm outline-none ring-0 transition-colors hover:border-primary/70 focus:border-primary focus:outline-none focus:ring-0 sm:w-auto"
+            className="w-full appearance-none rounded-md border border-border bg-background-alt px-3 py-2.5 pr-9 text-xs font-medium uppercase tracking-[0.18em] text-foreground shadow-sm outline-none ring-0 transition-colors hover:border-primary/70 focus:border-primary focus:outline-none focus:ring-0 sm:w-auto"
           >
             <option value="">All categories</option>
             {sortedCategories.map((cat) => (

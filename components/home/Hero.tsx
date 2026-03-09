@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight, Leaf } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, Leaf } from "lucide-react";
 import { DecoGraphic } from "@/components/shared/DecoGraphic";
 
 type HeroProps = {
@@ -29,6 +29,7 @@ export function Hero({
   showSecondary = true,
 }: HeroProps) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
 
   useEffect(() => {
     const id = setInterval(() => {
@@ -40,7 +41,23 @@ export function Hero({
   return (
     <section className="relative flex h-[100dvh] flex-col overflow-hidden bg-background">
       {/* FULL WIDTH TOP IMAGE with branded overlay - compact for viewport fit */}
-      <div className="relative h-[55vh] shrink-0 w-full overflow-hidden">
+      <div
+        className="relative h-[55vh] shrink-0 w-full overflow-hidden"
+        onTouchStart={(e) => setTouchStartX(e.touches[0]?.clientX ?? null)}
+        onTouchEnd={(e) => {
+          if (touchStartX == null) return;
+          const deltaX = e.changedTouches[0]?.clientX - touchStartX;
+          if (Math.abs(deltaX) < 40) return;
+          if (deltaX > 0) {
+            setActiveIndex((prev) =>
+              prev === 0 ? HERO_IMAGES.length - 1 : prev - 1,
+            );
+          } else {
+            setActiveIndex((prev) => (prev + 1) % HERO_IMAGES.length);
+          }
+          setTouchStartX(null);
+        }}
+      >
         <motion.div
           className="flex h-full w-full"
           animate={{ x: `-${activeIndex * 100}%` }}
@@ -77,32 +94,58 @@ export function Hero({
           className="absolute left-4 top-4 flex items-center gap-1.5 rounded-full border border-white/30 bg-white/10 px-3 py-1.5 backdrop-blur-md sm:left-6 sm:top-6 sm:gap-2 sm:px-4 sm:py-2"
         >
           <Leaf className="h-3.5 w-3.5 text-primary-light sm:h-4 sm:w-4" strokeWidth={1.5} />
-          <span className="font-display text-xs font-medium uppercase tracking-[0.18em] text-white sm:text-sm">
+          <span className="text-xs font-medium uppercase tracking-[0.18em] text-white sm:text-sm">
             Natural • Responsible • Daily Use
           </span>
         </motion.div>
 
         {/* Slide indicator - theme colors */}
-        <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 gap-2 sm:bottom-4">
+        <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">
           {HERO_IMAGES.map((_, i) => (
             <button
               key={i}
               onClick={() => setActiveIndex(i)}
               className={`rounded-full transition-all duration-300 ${
                 activeIndex === i
-                  ? "h-2 w-10 bg-primary-light"
+                  ? "h-2 w-10 bg-background"
                   : "h-2 w-8 bg-white/40 hover:bg-white/60"
               }`}
               aria-label={`Slide ${i + 1}`}
             />
           ))}
         </div>
+
+        {/* Arrow controls */}
+        {/* <div className="pointer-events-none absolute bottom-10 left-1/2 flex -translate-x-1/2 gap-3">
+          <button
+            type="button"
+            onClick={() =>
+              setActiveIndex((prev) =>
+                prev === 0 ? HERO_IMAGES.length - 1 : prev - 1,
+              )
+            }
+            aria-label="Previous banner"
+            className="pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full border border-white/60 bg-black/35 text-white backdrop-blur-md transition-colors hover:bg-black/55"
+          >
+            <ChevronLeft className="h-4 w-4" strokeWidth={2} />
+          </button>
+          <button
+            type="button"
+            onClick={() =>
+              setActiveIndex((prev) => (prev + 1) % HERO_IMAGES.length)
+            }
+            aria-label="Next banner"
+            className="pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full border border-white/60 bg-black/35 text-white backdrop-blur-md transition-colors hover:bg-black/55"
+          >
+            <ChevronRight className="h-4 w-4" strokeWidth={2} />
+          </button>
+        </div> */}
       </div>
 
       {/* BOTTOM CONTENT SECTION - compact to fit viewport */}
       <div className="relative flex min-h-0 flex-1 flex-col items-center justify-center overflow-visible border-t border-border/60 bg-background py-6 md:py-8 lg:py-10">
-        {/* <DecoGraphic src="/graphics/img1-v1.png" alt="" placement="bottom-right" size="md" className="opacity-25" /> */}
-        <DecoGraphic src="/graphics/img3-v1.png" alt="" placement="bottom-left" size="sm" className="opacity-25" />
+        <DecoGraphic src="/graphics/img1-v0.png" alt="" placement="bottom-right" size="md" className="opacity-25" />
+        {/* <DecoGraphic src="/graphics/img3-v0.png" alt="" placement="bottom-left" size="sm" className="opacity-25" /> */}
         <div className="mx-auto w-full max-w-6xl 2xl:max-w-7xl px-8 sm:px-10 md:px-12 lg:px-16 xl:px-20">
           <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:items-end lg:gap-10">
             {/* Left: tag + heading */}
@@ -111,7 +154,7 @@ export function Hero({
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1 }}
-                className="mb-2 mt-2 inline-flex items-center gap-2 font-display text-xs font-medium uppercase tracking-[0.28em] text-foreground-muted sm:mb-3 sm:text-sm"
+                className="mb-2 mt-2 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.28em] text-foreground-muted sm:mb-3 sm:text-sm"
               >
                 MunjEco Global
               </motion.div>
@@ -144,7 +187,7 @@ export function Hero({
               >
                 <Link
                   href={primaryHref}
-                  className="group inline-flex items-center justify-center gap-1.5 bg-primary px-5 py-2.5 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-white shadow-lg shadow-primary/25 transition-all duration-200 hover:bg-primary-dark hover:shadow-xl hover:shadow-primary/30 sm:px-6 sm:py-3 sm:text-xs"
+                  className="group inline-flex items-center justify-center gap-1.5 rounded-sm bg-primary px-5 py-2.5 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-white shadow-lg shadow-primary/25 transition-all duration-200 hover:bg-primary-dark hover:shadow-xl hover:shadow-primary/30 sm:px-6 sm:py-3 sm:text-xs"
                 >
                   {primaryCta}
                   <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" strokeWidth={2} />
@@ -153,7 +196,7 @@ export function Hero({
                 {showSecondary && (
                   <Link
                     href="/contact"
-                    className="inline-flex items-center justify-center border-2 border-border px-5 py-2.5 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-foreground transition-colors duration-200 hover:border-accent hover:text-accent sm:px-6 sm:py-3 sm:text-xs"
+                    className="inline-flex items-center bg-primary/10 justify-center rounded-sm px-5 py-2.5 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-foreground transition-colors duration-200 hover:border-accent hover:text-accent sm:px-6 sm:py-3 sm:text-xs"
                   >
                     Request a Bulk Quote
                   </Link>

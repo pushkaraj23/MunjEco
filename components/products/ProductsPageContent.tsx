@@ -40,8 +40,8 @@ export function ProductsPageContent({
 
   return (
     <main ref={ref} className="relative overflow-visible pt-28 pb-12 md:pb-16">
-      <DecoGraphic src="/graphics/img2-v1.png" alt="" placement="bottom-left" size="md" />
-      <DecoGraphic src="/graphics/img4-v1.png" alt="" placement="bottom-right" size="md" />
+      <DecoGraphic src="/graphics/img2-v0.png" alt="" placement="bottom-left" size="md" />
+      <DecoGraphic src="/graphics/img4-v0.png" alt="" placement="bottom-right" size="md" />
       <div className="relative mx-auto max-w-6xl 2xl:max-w-7xl px-8 sm:px-10 md:px-12 lg:px-16 xl:px-20">
         {/* Header + search */}
         <motion.div
@@ -53,7 +53,7 @@ export function ProductsPageContent({
           className="mb-10 flex flex-col gap-6 md:flex-row md:items-center md:justify-between md:gap-10"
         >
           <div>
-            <p className="font-display text-xs font-semibold uppercase tracking-[0.3em] text-foreground-muted sm:text-sm">
+            <p className="text-xs font-semibold uppercase tracking-[0.3em] text-foreground-muted sm:text-sm">
               Product catalogue
             </p>
             <h1 className="mt-3 font-heading text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
@@ -77,7 +77,7 @@ export function ProductsPageContent({
           className="relative space-y-10 md:space-y-12"
         >
           {totalProducts === 0 ? (
-            <div className="border border-border bg-background-alt px-8 py-16 text-center">
+            <div className="rounded-xl border border-border bg-background-alt px-8 py-16 text-center">
               <p className="text-sm text-foreground-muted md:text-base">
                 No products found. Try adjusting your search.
               </p>

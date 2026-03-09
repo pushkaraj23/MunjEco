@@ -83,7 +83,7 @@ export function ProductGallery({ name, images }: Props) {
   return (
     <div className="space-y-3">
       {/* Main carousel image */}
-      <div className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden rounded-none border border-border bg-background-alt/60 shadow-card">
+      <div className="relative w-full max-w-xl aspect-square overflow-hidden rounded-xl border border-border bg-background-alt/60 shadow-card">
         <button
           type="button"
           onClick={() => openFullscreen(index)}
@@ -190,14 +190,15 @@ export function ProductGallery({ name, images }: Props) {
               className="relative max-h-[90vh] max-w-[90vw]"
               onClick={(e) => e.stopPropagation()}
             >
-              <Image
-                src={current}
-                alt={name}
-                width={1200}
-                height={900}
-                className="max-h-[90vh] w-auto max-w-[90vw] object-contain"
-                unoptimized={current.startsWith("http")}
-              />
+              <div className="relative h-[70vh] w-[70vh] max-h-[90vh] max-w-[90vw]">
+                <Image
+                  src={current}
+                  alt={name}
+                  fill
+                  className="object-contain"
+                  unoptimized={current.startsWith("http")}
+                />
+              </div>
               {safeImages.length > 1 && (
                 <div className="absolute inset-x-0 -bottom-8 flex justify-center gap-2">
                   {safeImages.map((img, i) => (

@@ -58,7 +58,7 @@ export function CategorySection({ categories }: Props) {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="w-full max-w-sm lg:pt-4"
         >
-          <p className="font-display text-xs font-semibold uppercase tracking-[0.3em] text-terracotta/90 sm:text-sm">
+          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-terracotta/90 sm:text-sm">
             Browse our range
           </p>
           <h2 className="mt-4 font-heading text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
@@ -105,8 +105,8 @@ export function CategorySection({ categories }: Props) {
                   href={`/products?category=${cat.slug}`}
                   className="group block h-full"
                 >
-                  <div className="relative flex h-full flex-col border border-border/60 bg-background-alt/60 transition-colors duration-300 hover:border-terracotta/70">
-                    <div className="relative aspect-[4/3] overflow-hidden">
+                  <div className="relative flex h-full flex-col overflow-hidden rounded-sm border border-border/60 bg-background-alt/60 transition-colors duration-300 hover:border-terracotta/70">
+                    <div className="relative aspect-square overflow-hidden">
                       <Image
                         src={
                           cat.imageUrl ||

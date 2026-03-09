@@ -67,7 +67,7 @@ export function CategoriesList({ categories }: Props) {
               key={cat.id}
               className="flex flex-col gap-4 px-6 py-4 transition-colors hover:bg-primary/5 sm:flex-row sm:items-center"
             >
-              <div className="relative h-16 w-24 shrink-0 overflow-hidden rounded-xl bg-background-alt">
+              <div className="relative aspect-square w-24 shrink-0 overflow-hidden rounded-xl bg-background-alt">
                 <Image
                   src={cat.imageUrl}
                   alt={cat.name}

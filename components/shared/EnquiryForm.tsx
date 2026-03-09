@@ -66,7 +66,7 @@ export function EnquiryForm({
   }, [toast]);
 
   const inputBase =
-    "w-full rounded-none border bg-transparent px-3 py-2.5 text-sm outline-none transition-all duration-200 focus:ring-2";
+    "w-full rounded-md border bg-transparent px-3 py-2.5 text-sm outline-none transition-all duration-200 focus:ring-2";
   const inputLight = `${inputBase} border-border bg-background text-foreground placeholder:text-foreground-muted/50 focus:border-primary focus:ring-primary/20`;
   const inputDark = `${inputBase} border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:border-primary focus:ring-primary/30`;
 
@@ -76,7 +76,7 @@ export function EnquiryForm({
 
   const errorCls = isDark ? "mt-1 text-[0.65rem] text-primary-light" : "mt-1 text-[0.65rem] text-accent";
 
-  const textareaBase = "w-full resize-none rounded-none border px-3 py-2.5 text-sm outline-none transition-all duration-200 focus:ring-2";
+  const textareaBase = "w-full resize-none rounded-md border px-3 py-2.5 text-sm outline-none transition-all duration-200 focus:ring-2";
   const textareaLight = `${textareaBase} border-border bg-background text-foreground placeholder:text-foreground-muted/50 focus:border-primary focus:ring-primary/20`;
   const textareaDark = `${textareaBase} border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:border-primary focus:ring-primary/30`;
 
@@ -199,7 +199,7 @@ export function EnquiryForm({
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="rounded-none bg-primary px-4 py-3 text-center text-sm font-medium text-white"
+              className="rounded-md bg-primary px-4 py-3 text-center text-sm font-medium text-white"
             >
               {toast}
             </motion.div>
@@ -208,7 +208,7 @@ export function EnquiryForm({
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full rounded-none bg-primary px-5 py-3 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-dark disabled:opacity-60 disabled:cursor-not-allowed"
+            className="w-full rounded-md bg-primary px-5 py-3 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-dark disabled:opacity-60 disabled:cursor-not-allowed"
           >
             {isSubmitting ? "Submitting..." : "Submit Enquiry"}
           </button>

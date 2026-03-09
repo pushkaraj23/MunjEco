@@ -24,7 +24,7 @@ export function WhyChooseHeader({
         transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         className="text-center"
       >
-        <p className="font-display text-xs font-semibold uppercase tracking-[0.3em] text-foreground-muted sm:text-sm">
+        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-foreground-muted sm:text-sm">
           {eyebrow}
         </p>
         <h2 className="mt-4 font-heading text-3xl font-semibold tracking-tight text-foreground md:text-4xl lg:text-5xl">
