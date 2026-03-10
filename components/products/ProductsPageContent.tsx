@@ -33,6 +33,13 @@ export function ProductsPageContent({
   const headerY = useTransform(scrollYProgress, [0.05, 0.28], [40, -20]);
   const gridY = useTransform(scrollYProgress, [0.15, 0.45], [45, -20]);
 
+  const activeCategory =
+    selectedCategory && selectedCategory !== "all"
+      ? categories.find((c) => c.slug === selectedCategory)
+      : null;
+
+  const headingLabel = activeCategory ? activeCategory.name : "All products";
+
   const totalProducts = groups.reduce(
     (sum, group) => sum + group.products.length,
     0
@@ -57,7 +64,7 @@ export function ProductsPageContent({
               Product catalogue
             </p>
             <h1 className="mt-3 font-heading text-3xl font-semibold tracking-tight text-foreground md:text-4xl">
-              All products
+              {headingLabel}
             </h1>
           </div>
           <div>
