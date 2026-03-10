@@ -8,7 +8,7 @@ export function SustainabilityBandSection() {
   return (
     <section
       id="sustainability"
-      className="relative overflow-visible bg-primary-dark text-white pb-20"
+      className="relative overflow-visible bg-primary-dark text-white"
     >
       <DecoGraphic
         src="/graphics/img5-v0.png"
@@ -24,9 +24,8 @@ export function SustainabilityBandSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, margin: "-100px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="rounded-2xl bg-primary-dark/80 px-6 py-10 shadow-card md:px-10 md:py-14"
+          className="rounded-2xl bg-primary-dark/80 py-10 shadow-card md:py-14"
         >
-          <div className="max-w-xl">
             <div className="mb-3 flex items-center gap-2 text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-white/80 sm:text-xs">
               <Leaf className="h-4 w-4 text-white" strokeWidth={1.5} />
               <span>Sustainability commitment</span>
@@ -43,7 +42,6 @@ export function SustainabilityBandSection() {
               India, so your sourcing decisions create real, positive impact for people
               and planet.
             </p>
-          </div>
         </motion.div>
       </div>
     </section>
