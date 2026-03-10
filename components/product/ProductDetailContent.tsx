@@ -26,8 +26,8 @@ export function ProductDetailContent({ product }: ProductDetailContentProps) {
 
   return (
     <main ref={ref} className="relative overflow-visible bg-background pt-20 md:pt-24 pb-24 md:pb-32">
-      <DecoGraphic src="/graphics/img1-v0.png" alt="" placement="bottom-left" size="md" />
-      <div className="mx-auto max-w-6xl 2xl:max-w-7xl px-8 sm:px-10 md:px-12 lg:px-16 xl:px-20">
+      <DecoGraphic src="/graphics/img1-v0.png" alt="" placement="bottom-left" size="md" className="opacity-25" />
+      <div className="mx-auto max-w-6xl 2xl:max-w-7xl px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14">
         <motion.div
           style={{ y: headerY }}
           initial={{ opacity: 0, y: 16 }}

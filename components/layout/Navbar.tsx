@@ -37,7 +37,7 @@ export function Navbar() {
       transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
       className="fixed inset-x-0 top-0 z-40 border-b border-border/70 bg-background/90 backdrop-blur-sm"
     >
-      <nav className="mx-auto flex max-w-6xl 2xl:max-w-7xl items-center justify-between px-8 py-3 sm:px-10 md:px-12 lg:px-16 xl:px-20">
+      <nav className="mx-auto flex max-w-6xl 2xl:max-w-7xl items-center justify-between px-6 py-3 sm:px-8 md:px-10 lg:px-12 xl:px-14">
         <Link href="/" className="relative block">
           <img
             src="/full-logo.png"

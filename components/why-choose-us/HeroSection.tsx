@@ -15,15 +15,15 @@ export function HeroSection() {
         className="opacity-20"
       />
 
-      <div className="mx-auto px-6 sm:px-10 md:px-20 ">
+      <div className="mx-auto max-w-6xl 2xl:max-w-7xl px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14">
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="flex gap-10 items-center"
+          className="flex flex-col gap-10 md:flex-row md:items-center"
         >
-          <div className="accent-line-left w-3/5">
+          <div className="accent-line-left w-full md:w-3/5">
             <p className="mb-3 text-xs font-semibold uppercase tracking-[0.3em] text-foreground-muted sm:text-sm">
               Why choose MunjEco Global
             </p>
@@ -36,13 +36,13 @@ export function HeroSection() {
               the world.
             </p>
           </div>
-          <div className="relative mx-auto aspect-square w-2/5 max-w-xs overflow-hidden rounded-2xl border border-border/70 bg-background-alt shadow-card sm:max-w-sm md:mx-0 md:max-w-full">
+          <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-border/70 bg-background-alt shadow-card sm:mx-auto sm:max-w-[260px] md:w-1/3 md:max-w-[280px] md:min-w-[180px]">
             <Image
               src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="Curated eco-friendly products styled for buyers"
               fill
               className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 40vw"
+              sizes="(max-width: 640px) 100vw, (max-width: 768px) 260px, 280px"
             />
           </div>
         </motion.div>

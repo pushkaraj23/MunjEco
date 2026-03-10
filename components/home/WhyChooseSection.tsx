@@ -74,12 +74,13 @@ export function WhyChooseSection() {
   }, []);
 
   return (
-    <section className="relative overflow-visible border-t border-border/70 bg-gradient-to-b from-background via-background to-background-alt px-8 py-24 sm:px-10 md:px-12 md:py-32 lg:px-16 xl:px-20">
+    <section className="relative overflow-visible border-t border-border/70 bg-gradient-to-b from-background via-background to-background-alt py-24 md:py-32">
       <DecoGraphic
         src="/graphics/img2-v0.png"
         alt=""
         placement="bottom-left"
         size="md"
+        className="opacity-25"
       />
       <DecoGraphic
         src="/graphics/img5-v0.png"
@@ -89,7 +90,7 @@ export function WhyChooseSection() {
         className="opacity-40"
       />
 
-      <div className="relative mx-auto max-w-6xl 2xl:max-w-7xl">
+      <div className="relative mx-auto max-w-6xl 2xl:max-w-7xl px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14">
         {/* Soft backdrop behind central tree */}
         <div className="pointer-events-none absolute inset-x-1/4 top-24 -z-10 hidden h-80 rounded-full bg-primary/6 blur-3xl md:block" />
 

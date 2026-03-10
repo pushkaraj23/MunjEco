@@ -90,7 +90,7 @@ export function ReasonsCarouselSection() {
         className="opacity-30"
       />
 
-      <div className="relative px-20">
+      <div className="relative mx-auto max-w-6xl 2xl:max-w-7xl px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14">
         <div className="pointer-events-none absolute inset-x-1/4 top-24 -z-10 hidden h-80 rounded-full bg-primary/6 blur-3xl md:block" />
 
         <div

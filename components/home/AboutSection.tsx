@@ -7,10 +7,10 @@ import { DecoGraphic } from "@/components/shared/DecoGraphic";
 
 export function AboutSection() {
   return (
-    <section className="relative overflow-visible border-t border-border/60 bg-primary/10 px-8 py-24 sm:px-10 md:px-12 md:py-28 lg:px-16 xl:px-20">
-      <DecoGraphic src="/graphics/img1-v0.png" alt="" placement="bottom-left" size="md" />
-      <DecoGraphic src="/graphics/img5-v0.png" alt="" placement="top-right" size="md" />
-      <div className="relative mx-auto flex max-w-6xl 2xl:max-w-7xl flex-col gap-12 lg:grid lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
+    <section className="relative overflow-visible border-t border-border/60 bg-primary/10 py-24 md:py-28">
+      <DecoGraphic src="/graphics/img1-v0.png" alt="" placement="bottom-left" size="md" className="opacity-25" />
+      <DecoGraphic src="/graphics/img5-v0.png" alt="" placement="top-right" size="md" className="opacity-25" />
+      <div className="relative mx-auto flex max-w-6xl 2xl:max-w-7xl flex-col gap-12 px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14 lg:grid lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]">
         {/* Text column */}
         <div className="max-w-xl">
           <div className="mb-6 inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-foreground-muted sm:text-sm">

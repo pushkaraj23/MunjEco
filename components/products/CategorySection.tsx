@@ -36,7 +36,7 @@ export function CategorySection({ categories }: Props) {
   return (
     <section
       ref={ref}
-      className="relative border-t border-border/60 bg-background px-8 py-20 sm:px-10 md:px-12 md:py-28 lg:px-16 xl:px-20"
+      className="relative border-t border-border/60 bg-background py-20 md:py-28"
     >
       {/* Subtle ambient fields, not decorative blobs */}
       <motion.div
@@ -48,7 +48,7 @@ export function CategorySection({ categories }: Props) {
         className="pointer-events-none absolute inset-y-10 right-0 w-40 bg-gradient-to-l from-chai/12 to-transparent"
       />
 
-      <div className="relative mx-auto flex max-w-6xl flex-col gap-14 lg:flex-row">
+      <div className="relative mx-auto flex max-w-6xl 2xl:max-w-7xl flex-col gap-14 px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14 lg:flex-row">
         {/* Section header with parallax - left, narrow column */}
         <motion.header
           style={{ y: headerY }}

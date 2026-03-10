@@ -26,13 +26,13 @@ export function CTASection({
 }: CTASectionProps) {
   return (
     <section
-      className="relative overflow-visible border-t border-border/70 bg-background px-8 py-24 sm:px-10 md:px-12 md:py-28 lg:px-16 xl:px-20"
+      className="relative overflow-visible border-t border-border/70 bg-background py-24 md:py-28"
     >
-      <DecoGraphic src="/graphics/img2-v0.png" alt="" placement="bottom-left" size="lg" />
+      <DecoGraphic src="/graphics/img2-v0.png" alt="" placement="bottom-left" size="lg" className="opacity-25" />
       <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-terracotta/18 to-transparent" />
       <div className="pointer-events-none absolute inset-x-16 bottom-0 h-24 bg-gradient-to-t from-chai/14 to-transparent" />
 
-      <div className="relative mx-auto max-w-6xl 2xl:max-w-7xl">
+      <div className="relative mx-auto max-w-6xl 2xl:max-w-7xl px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14">
         <div className="flex flex-col gap-10 lg:gap-12">
           {/* Top: editorial text block */}
           <div>

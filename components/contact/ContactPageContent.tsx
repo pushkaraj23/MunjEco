@@ -8,9 +8,9 @@ import { EnquiryForm } from "@/components/shared/EnquiryForm";
 export function ContactPageContent() {
   return (
     <main className="relative overflow-visible bg-background pt-28 pb-16 md:pt-32 md:pb-20">
-      <DecoGraphic src="/graphics/img3-v0.png" alt="" placement="bottom-left" size="md" />
-      <DecoGraphic src="/graphics/img5-v0.png" alt="" placement="top-right" size="md" />
-      <div className="relative mx-auto max-w-6xl 2xl:max-w-7xl px-8 sm:px-10 md:px-12 lg:px-16 xl:px-20">
+      <DecoGraphic src="/graphics/img3-v0.png" alt="" placement="bottom-left" size="md" className="opacity-25" />
+      <DecoGraphic src="/graphics/img5-v0.png" alt="" placement="top-right" size="md" className="opacity-25" />
+      <div className="relative mx-auto max-w-6xl 2xl:max-w-7xl px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14">
         {/* Top: small label + headline + copy */}
         <header className="mb-12 max-w-3xl">
           <div className="mb-4 inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-foreground-muted sm:text-sm">

@@ -28,7 +28,7 @@ const testimonials = [
 export function TestimonialsSection() {
   return (
     <section
-      className="relative overflow-visible border-t border-border/70 bg-primary px-8 py-20 text-white sm:px-10 md:px-12 md:py-24 lg:px-16 xl:px-20"
+      className="relative overflow-visible border-t border-border/70 bg-primary py-20 text-white md:py-24"
     >
       <DecoGraphic src="/graphics/img5-v0.png" alt="" placement="top-right" size="md" className="opacity-25" />
       {/* Soft photographic background under the testimonial grid */}
@@ -45,7 +45,7 @@ export function TestimonialsSection() {
       <div className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-chai/22 to-transparent" />
       <div className="pointer-events-none absolute inset-x-16 bottom-0 h-24 bg-gradient-to-t from-turmeric/18 to-transparent" />
 
-      <div className="relative mx-auto max-w-6xl 2xl:max-w-7xl">
+      <div className="relative mx-auto max-w-6xl 2xl:max-w-7xl px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14">
         {/* Section header */}
         <header className="mb-12 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
           <div>
