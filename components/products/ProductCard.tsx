@@ -51,7 +51,7 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
         <div className="mt-4 flex items-center justify-between gap-3">
           <Link
             href={`/products/${product.slug}#enquiry`}
-            className="inline-flex items-center justify-center rounded-full border border-primary/30 bg-primary/8 px-4 py-1.5 text-[0.7rem] font-semibold uppercase tracking-[0.26em] text-primary transition-colors duration-200 hover:bg-primary hover:text-white"
+            className="inline-flex items-center justify-center rounded-full border border-primary bg-primary px-5 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.26em] text-white shadow-sm shadow-primary/40 transition-all duration-200 hover:bg-primary-dark hover:border-primary-dark hover:shadow-md hover:shadow-primary/50"
           >
             Request quote
           </Link>

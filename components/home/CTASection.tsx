@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { ShieldCheck, BadgeDollarSign, Truck, Sparkles } from "lucide-react";
+import { motion } from "framer-motion";
 import { DecoGraphic } from "@/components/shared/DecoGraphic";
 import { EnquiryForm } from "../shared/EnquiryForm";
 
@@ -35,7 +36,12 @@ export function CTASection({
       <div className="relative mx-auto max-w-6xl 2xl:max-w-7xl px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14">
         <div className="flex flex-col gap-10 lg:gap-12">
           {/* Top: editorial text block */}
-          <div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, margin: "-100px" }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+          >
             <div className="mb-6 inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-foreground-muted sm:text-sm">
               <Sparkles className="h-4 w-4 text-foreground-muted" strokeWidth={1.5} />
               <span>Partner with us</span>
@@ -51,8 +57,12 @@ export function CTASection({
             {/* Feature strip */}
             <div className="mt-8 grid gap-4 sm:grid-cols-3">
               {features.map((f, i) => (
-                <div
+                <motion.div
                   key={f.label}
+                  initial={{ opacity: 0, y: 16 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: false, margin: "-100px" }}
+                  transition={{ duration: 0.5, delay: i * 0.06, ease: "easeOut" }}
                   className="flex items-center gap-2 border-t border-border/60 pt-3"
                 >
                   <f.icon
@@ -62,13 +72,19 @@ export function CTASection({
                   <span className="text-xs font-semibold uppercase tracking-[0.2em] text-foreground">
                     {f.label}
                   </span>
-                </div>
+                </motion.div>
               ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Bottom: enquiry form, full-width card */}
-          <div className="relative">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, margin: "-100px" }}
+            transition={{ duration: 0.5, ease: "easeOut" }}
+            className="relative"
+          >
             <div className="relative w-full border mt-4 border-border/70 bg-background-alt/55 backdrop-blur-sm px-6 py-8 sm:px-8 sm:py-9">
               <div className="mb-6">
                 <h3 className="font-heading text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
@@ -82,7 +98,7 @@ export function CTASection({
 
               <EnquiryForm theme="light" compact />
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

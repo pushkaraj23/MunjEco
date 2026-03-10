@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Leaf, ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 import { DecoGraphic } from "@/components/shared/DecoGraphic";
 
 export function SustainabilityPromiseSection() {
@@ -22,7 +23,13 @@ export function SustainabilityPromiseSection() {
       </div>
 
       <div className="relative mx-auto max-w-6xl 2xl:max-w-7xl px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14">
-        <div className="flex flex-col gap-10 md:flex-row md:items-start">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: "-100px" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="flex flex-col gap-10 md:flex-row md:items-start"
+        >
           {/* Left: label + heading */}
           <div className="md:w-1/3">
             <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-pistache/90 sm:text-sm">
@@ -58,7 +65,7 @@ export function SustainabilityPromiseSection() {
               </Link>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

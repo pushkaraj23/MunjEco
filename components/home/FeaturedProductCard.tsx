@@ -20,13 +20,13 @@ export function FeaturedProductCard({
 
   return (
     <motion.article
-      initial={{ opacity: 0, y: 32 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-40px" }}
+      viewport={{ once: false, margin: "-100px" }}
       transition={{
         delay: index * 0.08,
-        duration: 0.6,
-        ease: [0.22, 1, 0.36, 1],
+        duration: 0.5,
+        ease: "easeOut",
       }}
       className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-border/70 bg-background text-left shadow-card"
     >
@@ -59,16 +59,16 @@ export function FeaturedProductCard({
           )}
         </div>
 
-        <div className="mt-4 flex items-center justify-between gap-3">
+        <div className="mt-4 flex flex-col gap-3 text-center">
           <Link
             href={`/products/${product.slug}`}
-            className="text-[0.7rem] font-semibold uppercase tracking-[0.26em] text-primary underline underline-offset-4 decoration-primary/30 hover:decoration-primary"
+            className="inline-flex justify-center items-center rounded-full border border-primary bg-background px-5 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-primary shadow-sm shadow-primary/10 transition-all duration-200 hover:bg-primary/10 hover:border-primary-dark hover:text-primary-dark focus:outline-none focus:ring-2 focus:ring-primary/40 w-full sm:w-auto text-center"
           >
             View details
           </Link>
           <Link
             href={`/products/${product.slug}#enquiry`}
-            className="inline-flex items-center rounded-full border border-primary/20 bg-primary/6 px-4 py-1.5 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-primary transition-colors hover:bg-primary hover:text-white"
+            className="inline-flex justify-center items-center rounded-full border border-primary bg-primary px-5 py-2 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-white shadow-sm shadow-primary/40 transition-all duration-200 hover:bg-primary-dark hover:border-primary-dark hover:shadow-md hover:shadow-primary/50 focus:outline-none focus:ring-2 focus:ring-primary/40 w-full sm:w-auto text-center"
           >
             Request quote
           </Link>

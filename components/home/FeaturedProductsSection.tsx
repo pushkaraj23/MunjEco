@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
@@ -18,9 +17,7 @@ export function FeaturedProductsSection({
   const featured = products.slice(0, 3);
 
   return (
-    <section
-      className="relative overflow-visible border-t border-border/60 bg-primary py-20 text-white md:py-28"
-    >
+    <section className="relative overflow-visible border-t border-border/60 bg-primary py-20 text-white md:py-28">
       <DecoGraphic
         src="/graphics/img5-v0.png"
         alt=""
@@ -34,7 +31,13 @@ export function FeaturedProductsSection({
 
       <div className="relative mx-auto max-w-6xl 2xl:max-w-7xl px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14">
         {/* Section header with parallax - left aligned */}
-        <header className="mb-10 flex flex-col gap-5 md:flex-row md:items-end md:justify-between">
+        <motion.header
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: "-100px" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="mb-10 flex flex-col gap-5 md:flex-row md:items-end md:justify-between"
+        >
           <div className="max-w-xl">
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-turmeric/90 sm:text-sm">
               Featured products
@@ -59,10 +62,16 @@ export function FeaturedProductsSection({
               />
             </Link>
           </div>
-        </header>
+        </motion.header>
 
         {/* Premium featured product cards */}
-        <div className="grid gap-6 md:grid-cols-3">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: "-100px" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="grid gap-6 md:grid-cols-3"
+        >
           {featured.map((product, index) => (
             <FeaturedProductCard
               key={product.slug}
@@ -70,7 +79,7 @@ export function FeaturedProductsSection({
               index={index}
             />
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

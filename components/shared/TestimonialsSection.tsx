@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { Quote, Star } from "lucide-react";
+import { motion } from "framer-motion";
 import { DecoGraphic } from "@/components/shared/DecoGraphic";
 
 const testimonials = [
@@ -44,7 +45,13 @@ export function TestimonialsSection() {
       </div>
       <div className="relative mx-auto max-w-6xl 2xl:max-w-7xl px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14">
         {/* Section header */}
-        <header className="mb-12 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+        <motion.header
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: "-100px" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="mb-12 flex flex-col gap-3 md:flex-row md:items-end md:justify-between"
+        >
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-white/80 sm:text-sm">
               Client reviews
@@ -57,12 +64,24 @@ export function TestimonialsSection() {
             A selection of feedback from buyers who trust MunjEco Global with
             their sustainable sourcing.
           </p>
-        </header>
+        </motion.header>
 
         {/* Testimonial cards - elevated editorial grid */}
-        <div className="grid gap-8 md:grid-cols-3">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: "-100px" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="grid gap-8 md:grid-cols-3"
+        >
           {testimonials.map((t, i) => (
-            <div key={t.author}>
+            <motion.div
+              key={t.author}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, margin: "-100px" }}
+              transition={{ duration: 0.5, delay: i * 0.08, ease: "easeOut" }}
+            >
               <article className="flex h-full flex-col rounded-xl border border-white/20 bg-white/5 backdrop-blur-sm px-5 py-5 shadow-card">
                 <Quote className="mb-3 h-6 w-6 text-accent-light" strokeWidth={1.2} />
                 <p className="text-sm leading-relaxed text-white/90 md:text-base">
@@ -93,9 +112,9 @@ export function TestimonialsSection() {
                   </div>
                 </div>
               </article>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </section>
   );

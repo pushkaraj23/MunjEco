@@ -143,7 +143,13 @@ export function Hero({
       </div>
 
       {/* BOTTOM CONTENT SECTION - compact to fit viewport */}
-      <div className="relative flex min-h-0 flex-1 flex-col items-center justify-center overflow-visible border-t border-border/60 bg-background py-6 md:py-8 lg:py-10">
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: false, margin: "-100px" }}
+        transition={{ duration: 0.5, ease: "easeOut" }}
+        className="relative flex min-h-0 flex-1 flex-col items-center justify-center overflow-visible border-t border-border/60 bg-background py-6 md:py-8 lg:py-10"
+      >
         <DecoGraphic src="/graphics/img1-v0.png" alt="" placement="bottom-right" size="md" className="opacity-25" />
         {/* <DecoGraphic src="/graphics/img3-v0.png" alt="" placement="bottom-left" size="sm" className="opacity-25" /> */}
         <div className="mx-auto w-full max-w-6xl 2xl:max-w-7xl px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14">
@@ -152,16 +158,18 @@ export function Hero({
             <div className="accent-line-left max-w-2xl">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, margin: "-100px" }}
+                transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
                 className="mb-2 mt-2 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.28em] text-foreground-muted sm:mb-3 sm:text-sm"
               >
                 MunjEco Global
               </motion.div>
               <motion.h1
-                initial={{ opacity: 0, y: 24 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.15 }}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, margin: "-100px" }}
+                transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
                 className="font-heading text-2xl font-semibold leading-[1.2] tracking-tight text-foreground sm:text-3xl md:text-4xl lg:text-5xl"
               >
                 {title}
@@ -172,8 +180,9 @@ export function Hero({
             <div className="flex flex-col items-start gap-4 lg:items-end lg:text-right">
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, margin: "-100px" }}
+                transition={{ duration: 0.5, delay: 0.25, ease: "easeOut" }}
                 className="max-w-xl text-sm leading-relaxed text-foreground-muted sm:mt-1 md:text-base"
               >
                 {subtitle}
@@ -181,8 +190,9 @@ export function Hero({
 
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.35 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: false, margin: "-100px" }}
+                transition={{ duration: 0.5, delay: 0.35, ease: "easeOut" }}
                 className="flex flex-wrap items-center gap-2 sm:gap-3 lg:justify-end"
               >
                 <Link
@@ -205,7 +215,7 @@ export function Hero({
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 }
