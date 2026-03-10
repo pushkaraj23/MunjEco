@@ -135,10 +135,10 @@ export function WhyChoosePageContent() {
         {/* Header row */}
         <motion.section
           style={{ y: headerY }}
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          viewport={{ once: false, margin: "-100px" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           className="mb-14 grid gap-10 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] md:items-end"
         >
           <div className="accent-line-left">
@@ -167,10 +167,10 @@ export function WhyChoosePageContent() {
         {/* Reasons horizontal carousel */}
         <motion.section
           style={{ y: gridY }}
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          viewport={{ once: false, margin: "-100px" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           className="mb-16"
         >
           <div className="relative">
@@ -215,11 +215,11 @@ export function WhyChoosePageContent() {
                       <motion.article
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-40px" }}
+                        viewport={{ once: false, margin: "-100px" }}
                         transition={{
                           delay: idx * 0.04,
-                          duration: 0.45,
-                          ease: [0.22, 1, 0.36, 1],
+                          duration: 0.5,
+                          ease: "easeOut",
                         }}
                         className="flex h-full flex-col border border-border/70 bg-background-alt/70 px-5 py-5 transition-colors hover:border-primary/70"
                       >
@@ -246,10 +246,10 @@ export function WhyChoosePageContent() {
         {/* Our Promise band */}
         <motion.section
           style={{ y: promiseY }}
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          viewport={{ once: false, margin: "-100px" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           className="mb-16 overflow-hidden border border-border/70 bg-primary-dark text-white"
         >
           <div className="relative px-6 py-10 sm:px-8 md:px-10 md:py-12">
@@ -279,10 +279,10 @@ export function WhyChoosePageContent() {
         {/* Compliance section */}
         <motion.section
           style={{ y: complianceY }}
-          initial={{ opacity: 0, y: 24 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          viewport={{ once: false, margin: "-100px" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           className="mb-20 border border-border/70 bg-background-alt px-6 py-10 sm:px-8 md:px-10 md:py-12"
         >
           <div className="mb-6 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">

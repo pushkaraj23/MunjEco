@@ -147,7 +147,7 @@ export function Hero({
         <DecoGraphic src="/graphics/img1-v0.png" alt="" placement="bottom-right" size="md" className="opacity-25" />
         {/* <DecoGraphic src="/graphics/img3-v0.png" alt="" placement="bottom-left" size="sm" className="opacity-25" /> */}
         <div className="mx-auto w-full max-w-6xl 2xl:max-w-7xl px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14">
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:items-end lg:gap-10">
+          <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:items-center lg:gap-10">
             {/* Left: tag + heading */}
             <div className="accent-line-left max-w-2xl">
               <motion.div
@@ -196,7 +196,7 @@ export function Hero({
                 {showSecondary && (
                   <Link
                     href="/contact"
-                    className="inline-flex items-center bg-primary/10 justify-center rounded-sm px-5 py-2.5 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-foreground transition-colors duration-200 hover:border-accent hover:text-accent sm:px-6 sm:py-3 sm:text-xs"
+                    className="inline-flex items-center bg-primary/10 justify-center rounded-sm px-5 py-2.5 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-foreground transition-colors duration-200 hover:border-primary hover:text-accent sm:px-6 sm:py-3 backdrop-blur-sm sm:text-xs"
                   >
                     Request a Bulk Quote
                   </Link>

@@ -7,7 +7,7 @@ import { DecoGraphic } from "@/components/shared/DecoGraphic";
 
 export function SustainabilityPromiseSection() {
   return (
-    <section className="relative overflow-visible border-t border-border/70 bg-primary-dark py-24 text-white md:py-28">
+    <section className="relative overflow-visible border-t border-border/70 bg-primary-dark py-16 text-white md:py-20">
       <DecoGraphic src="/graphics/img1-v0.png" alt="" placement="top-right" size="md" className="opacity-25" />
       {/* Cinematic background image with subtle overlay */}
       <div className="absolute inset-0 -z-10">
@@ -20,9 +20,6 @@ export function SustainabilityPromiseSection() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/55 to-black/70" />
       </div>
-
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-pistache/22 to-transparent" />
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-matcha/18 to-transparent" />
 
       <div className="relative mx-auto max-w-6xl 2xl:max-w-7xl px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14">
         <div className="flex flex-col gap-10 md:flex-row md:items-start">

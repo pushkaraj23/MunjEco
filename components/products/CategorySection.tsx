@@ -54,8 +54,8 @@ export function CategorySection({ categories }: Props) {
           style={{ y: headerY }}
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          viewport={{ once: false, margin: "-100px" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           className="w-full max-w-sm lg:pt-4"
         >
           <p className="text-xs font-semibold uppercase tracking-[0.3em] text-terracotta/90 sm:text-sm">
@@ -73,9 +73,9 @@ export function CategorySection({ categories }: Props) {
         <div className="grid flex-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
           {categories.length === 0 ? (
             <motion.div
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false, margin: "-100px" }}
               className="col-span-full border border-border/70 bg-background-alt px-8 py-16 text-left"
             >
               <Grid3X3
@@ -94,11 +94,11 @@ export function CategorySection({ categories }: Props) {
                 style={{ y: cardTransforms[i % 3] ?? 0 }}
                 initial={{ opacity: 0, y: 32 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
+                viewport={{ once: false, margin: "-100px" }}
                 transition={{
                   delay: i * 0.08,
-                  duration: 0.6,
-                  ease: [0.22, 1, 0.36, 1],
+                  duration: 0.5,
+                  ease: "easeOut",
                 }}
               >
                 <Link

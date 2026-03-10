@@ -15,10 +15,10 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
 
   return (
     <motion.article
-      initial={{ opacity: 0, y: 24 }}
+      initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: index * 0.08, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+      viewport={{ once: false, margin: "-100px" }}
+      transition={{ delay: index * 0.08, duration: 0.5, ease: "easeOut" }}
       whileHover={{ y: -6, transition: { duration: 0.25 } }}
       className="group overflow-hidden rounded-xl border border-border bg-background/40 backdrop-blur-sm transition-transform duration-300"
     >

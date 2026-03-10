@@ -15,6 +15,35 @@ export function ProductDetailContent({ product }: ProductDetailContentProps) {
   const ref = useRef<HTMLElement>(null);
   const [descOpen, setDescOpen] = useState(false);
   const [specsOpen, setSpecsOpen] = useState(false);
+  const [copied, setCopied] = useState(false);
+
+  const handleShare = async () => {
+    if (typeof window === "undefined") return;
+    const url = window.location.href;
+    const title = `${product.name} | MunjEco Global`;
+    const text = `Check out ${product.name} - sustainable eco products from MunjEco Global`;
+    try {
+      if (navigator.share) {
+        await navigator.share({ title, text, url });
+      } else if (navigator.clipboard?.writeText) {
+        await navigator.clipboard.writeText(url);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+      } else {
+        window.prompt("Copy this product link:", url);
+      }
+    } catch (err) {
+      if ((err as Error).name !== "AbortError" && navigator.clipboard?.writeText) {
+        try {
+          await navigator.clipboard.writeText(url);
+          setCopied(true);
+          setTimeout(() => setCopied(false), 2000);
+        } catch {
+          window.prompt("Copy this product link:", url);
+        }
+      }
+    }
+  };
   const { scrollYProgress } = useScroll({
     target: ref,
     offset: ["start end", "end start"],
@@ -26,13 +55,14 @@ export function ProductDetailContent({ product }: ProductDetailContentProps) {
 
   return (
     <main ref={ref} className="relative overflow-visible bg-background pt-20 md:pt-24 pb-24 md:pb-32">
-      <DecoGraphic src="/graphics/img1-v0.png" alt="" placement="bottom-left" size="md" className="opacity-25" />
+      <DecoGraphic src="/graphics/img2-v0.png" alt="" placement="bottom-right" size="lg" className="opacity-25" />
+      <DecoGraphic src="/graphics/img3-v0.png" alt="" placement="top-left" size="lg" className="opacity-25" />
       <div className="mx-auto max-w-6xl 2xl:max-w-7xl px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14">
         <motion.div
           style={{ y: headerY }}
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: false, margin: "-100px" }}
           className="max-sm:mt-2"
         >
           <Link
@@ -55,14 +85,15 @@ export function ProductDetailContent({ product }: ProductDetailContentProps) {
             <motion.section
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-              className="accent-line-left"
+              viewport={{ once: false, margin: "-100px" }}
+              transition={{ duration: 0.5, ease: "easeOut" }}
+              className=""
             >
               <h1 className="font-heading text-2xl font-semibold leading-[1.25] tracking-tight text-foreground md:text-3xl lg:text-[1.75rem]">
                 {product.name}
               </h1>
-              <p className="mt-2 text-[0.7rem] uppercase tracking-[0.2em] text-foreground-muted">
+              <div className="accent-line-left mt-2" />
+              <p className="mt-3 text-[0.7rem] uppercase tracking-[0.2em] text-foreground-muted">
                 SKU: {product.id.toUpperCase().slice(0, 8)}
               </p>
               <p className="mt-1 text-xs text-foreground-muted">
@@ -145,31 +176,15 @@ export function ProductDetailContent({ product }: ProductDetailContentProps) {
               </section>
             )}
 
-          <div className="flex items-center gap-4 border-t border-border/70 pt-4 text-xs text-foreground-muted sm:text-sm">
-              <span className="uppercase tracking-wider">Share</span>
+          <div className="border-t border-border/70 pt-4">
               <button
                 type="button"
-                onClick={async () => {
-                  if (typeof window === "undefined") return;
-                  const url = window.location.href;
-                  try {
-                    if (navigator.share) {
-                      await navigator.share({ title: product.name, url });
-                    } else if (navigator.clipboard?.writeText) {
-                      await navigator.clipboard.writeText(url);
-                      alert("Link copied to clipboard.");
-                    } else {
-                      // Fallback prompt for older browsers
-                      window.prompt("Copy this product link:", url);
-                    }
-                  } catch {
-                    // Ignore if user cancels share
-                  }
-                }}
-                className="inline-flex items-center gap-1 hover:text-primary"
-                aria-label="Copy link"
+                onClick={handleShare}
+                className="inline-flex items-center gap-2 rounded-lg border border-primary/40 bg-primary/10 px-4 py-2.5 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-primary transition-colors hover:border-primary hover:bg-primary hover:text-white"
+                aria-label="Share product"
               >
-                <Share2 className="h-3.5 w-3.5" strokeWidth={1.5} />
+                <Share2 className="h-4 w-4" strokeWidth={2} />
+                {copied ? "Copied!" : "Share"}
               </button>
             </div>
 
@@ -189,45 +204,46 @@ export function ProductDetailContent({ product }: ProductDetailContentProps) {
                 </a>
               </div>
             </section>
-
-            {/* Enquiry form - compact */}
-            <motion.section
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{ delay: 0.1, duration: 0.5 }}
-              id="enquiry"
-            >
-              <div className="border border-border/70 bg-background-alt/95 px-6 py-8">
-                <div className="mb-2 flex items-center gap-2 text-[0.65rem] font-medium uppercase tracking-[0.28em] text-foreground-muted">
-                  <FileText className="h-3.5 w-3.5" strokeWidth={1.5} />
-                  Request a quote
-                </div>
-                <h2 className="font-heading text-lg font-semibold tracking-tight text-foreground">
-                  Get pricing for {product.name}
-                </h2>
-                <p className="mt-2 mb-4 text-xs leading-relaxed text-foreground-muted">
-                  Share your requirements. We&apos;ll respond within 24–48 hours.
-                </p>
-                <div className="mb-6 grid grid-cols-3 gap-2 border-t border-border/60 pt-3">
-                  {[
-                    { icon: ShieldCheck, label: "Quality Assured" },
-                    { icon: BadgeDollarSign, label: "Competitive Pricing" },
-                    { icon: Truck, label: "Global Shipping" },
-                  ].map((f) => (
-                    <div key={f.label} className="flex items-center gap-1.5">
-                      <f.icon className="h-3.5 w-3.5 shrink-0 text-primary" strokeWidth={1.5} />
-                      <span className="text-[0.6rem] font-semibold uppercase tracking-wider text-foreground">
-                        {f.label}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-                <EnquiryForm defaultProduct={product.name} compact theme="light" layout="vertical" />
-              </div>
-            </motion.section>
           </div>
         </div>
+
+        {/* Request a Quote - full width below product details */}
+        <motion.section
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false, margin: "-100px" }}
+          transition={{ delay: 0.1, duration: 0.5, ease: "easeOut" }}
+          id="enquiry"
+          className="mt-16"
+        >
+          <div className="rounded-2xl border border-border/70 bg-background-alt/95 px-6 py-8 sm:px-8 sm:py-10">
+            <div className="mb-2 flex items-center gap-2 text-[0.65rem] font-medium uppercase tracking-[0.28em] text-foreground-muted">
+              <FileText className="h-3.5 w-3.5" strokeWidth={1.5} />
+              Request a quote
+            </div>
+            <h2 className="font-heading text-lg font-semibold tracking-tight text-foreground sm:text-xl">
+              Get pricing for {product.name}
+            </h2>
+            <p className="mt-2 mb-4 text-xs leading-relaxed text-foreground-muted sm:text-sm">
+              Share your requirements. We&apos;ll respond within 24–48 hours.
+            </p>
+            <div className="mb-6 grid grid-cols-1 gap-3 border-t border-border/60 pt-4 sm:grid-cols-3 sm:gap-2 sm:pt-3">
+              {[
+                { icon: ShieldCheck, label: "Quality Assured" },
+                { icon: BadgeDollarSign, label: "Competitive Pricing" },
+                { icon: Truck, label: "Global Shipping" },
+              ].map((f) => (
+                <div key={f.label} className="flex items-center gap-1.5">
+                  <f.icon className="h-3.5 w-3.5 shrink-0 text-primary" strokeWidth={1.5} />
+                  <span className="text-[0.6rem] font-semibold uppercase tracking-wider text-foreground">
+                    {f.label}
+                  </span>
+                </div>
+              ))}
+            </div>
+            <EnquiryForm defaultProduct={product.name} compact theme="light" layout="vertical" />
+          </div>
+        </motion.section>
       </div>
     </main>
   );

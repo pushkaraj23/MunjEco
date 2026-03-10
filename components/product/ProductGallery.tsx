@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState, useCallback } from "react";
+import { useEffect, useState, useCallback, useRef } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
@@ -11,7 +11,8 @@ type Props = {
   images: string[];
 };
 
-const AUTO_PLAY_INTERVAL = 5000; // 5 seconds
+const AUTO_PLAY_INTERVAL = 5000;
+const SWIPE_THRESHOLD = 50;
 
 export function ProductGallery({ name, images }: Props) {
   const safeImages =
@@ -22,6 +23,9 @@ export function ProductGallery({ name, images }: Props) {
   const [index, setIndex] = useState(0);
   const [fullscreen, setFullscreen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const touchStartX = useRef<number | null>(null);
+  const touchStartY = useRef<number | null>(null);
+  const autoPlayPausedRef = useRef(false);
 
   useEffect(() => {
     setMounted(true);
@@ -31,10 +35,28 @@ export function ProductGallery({ name, images }: Props) {
     if (safeImages.length <= 1) return;
 
     const id = window.setInterval(() => {
+      if (autoPlayPausedRef.current) return;
       setIndex((prev) => (prev + 1) % safeImages.length);
     }, AUTO_PLAY_INTERVAL);
 
     return () => window.clearInterval(id);
+  }, [safeImages.length]);
+
+  const goTo = useCallback(
+    (idx: number) => {
+      setIndex(Math.max(0, Math.min(idx, safeImages.length - 1)));
+    },
+    [safeImages.length]
+  );
+
+  const next = useCallback(() => {
+    setIndex((prev) => (prev + 1) % safeImages.length);
+  }, [safeImages.length]);
+
+  const prev = useCallback(() => {
+    setIndex((prev) =>
+      prev === 0 ? safeImages.length - 1 : (prev - 1) % safeImages.length
+    );
   }, [safeImages.length]);
 
   const handleKeyDown = useCallback(
@@ -44,7 +66,7 @@ export function ProductGallery({ name, images }: Props) {
       if (e.key === "ArrowLeft") prev();
       if (e.key === "ArrowRight") next();
     },
-    [fullscreen]
+    [fullscreen, prev, next]
   );
 
   useEffect(() => {
@@ -61,43 +83,74 @@ export function ProductGallery({ name, images }: Props) {
 
   const current = safeImages[index];
 
-  function goTo(idx: number) {
-    setIndex(idx);
-  }
-
-  function next() {
-    setIndex((prev) => (prev + 1) % safeImages.length);
-  }
-
-  function prev() {
-    setIndex((prev) =>
-      prev === 0 ? safeImages.length - 1 : (prev - 1) % safeImages.length
-    );
-  }
-
-  function openFullscreen(idx?: number) {
+  const openFullscreen = useCallback((idx?: number) => {
     if (idx != null) setIndex(idx);
     setFullscreen(true);
-  }
+  }, []);
+
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    autoPlayPausedRef.current = true;
+    touchStartX.current = e.touches[0].clientX;
+    touchStartY.current = e.touches[0].clientY;
+  }, []);
+
+  const handleTouchEnd = useCallback(
+    (e: React.TouchEvent) => {
+      if (touchStartX.current == null || safeImages.length <= 1) return;
+      const deltaX = e.changedTouches[0].clientX - touchStartX.current;
+      const deltaY = touchStartY.current
+        ? Math.abs(e.changedTouches[0].clientY - touchStartY.current)
+        : 0;
+      if (Math.abs(deltaX) > SWIPE_THRESHOLD && Math.abs(deltaX) > deltaY) {
+        if (deltaX > 0) prev();
+        else next();
+      }
+      touchStartX.current = null;
+      touchStartY.current = null;
+      autoPlayPausedRef.current = false;
+    },
+    [safeImages.length, next, prev]
+  );
 
   return (
     <div className="space-y-3">
-      {/* Main carousel image */}
-      <div className="relative w-full max-w-xl aspect-square overflow-hidden rounded-xl border border-border bg-background-alt/60 shadow-card">
+      {/* Main carousel - swipeable on mobile, smooth slide animation */}
+      <div
+        className="relative w-full max-w-xl aspect-square overflow-hidden rounded-xl border border-border bg-background-alt/60 shadow-card"
+        onMouseEnter={() => { autoPlayPausedRef.current = true; }}
+        onMouseLeave={() => { autoPlayPausedRef.current = false; }}
+      >
         <button
           type="button"
           onClick={() => openFullscreen(index)}
-          className="group relative block h-full w-full cursor-zoom-in"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+          className="group relative block h-full w-full cursor-zoom-in touch-pan-y"
           aria-label="Open fullscreen image"
         >
-          <Image
-            src={current}
-            alt={name}
-            fill
-            className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
-            sizes="(max-width: 1024px) 100vw, 35vw"
-            unoptimized={current.startsWith("http")}
-          />
+          <motion.div
+            className="flex h-full"
+            style={{ width: `${safeImages.length * 100}%` }}
+            animate={{ x: `${(-index / safeImages.length) * 100}%` }}
+            transition={{ type: "spring", stiffness: 300, damping: 30 }}
+          >
+            {safeImages.map((img, i) => (
+              <div
+                key={img + i}
+                className="relative h-full shrink-0"
+                style={{ width: `${100 / safeImages.length}%` }}
+              >
+                <Image
+                  src={img}
+                  alt={`${name} - image ${i + 1}`}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+                  sizes="(max-width: 1024px) 100vw, 35vw"
+                  unoptimized={img.startsWith("http")}
+                />
+              </div>
+            ))}
+          </motion.div>
         </button>
 
         {safeImages.length > 1 && (
@@ -105,7 +158,7 @@ export function ProductGallery({ name, images }: Props) {
             <button
               type="button"
               onClick={prev}
-              className="absolute left-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center border border-border bg-background/80 text-foreground backdrop-blur-sm transition-colors hover:bg-background"
+              className="absolute left-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-lg border border-border bg-background/80 text-foreground backdrop-blur-sm transition-all duration-200 ease-out hover:bg-background active:scale-95"
               aria-label="Previous image"
             >
               <ChevronLeft className="h-5 w-5" strokeWidth={2} />
@@ -113,7 +166,7 @@ export function ProductGallery({ name, images }: Props) {
             <button
               type="button"
               onClick={next}
-              className="absolute right-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center border border-border bg-background/80 text-foreground backdrop-blur-sm transition-colors hover:bg-background"
+              className="absolute right-3 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-lg border border-border bg-background/80 text-foreground backdrop-blur-sm transition-all duration-200 ease-out hover:bg-background active:scale-95"
               aria-label="Next image"
             >
               <ChevronRight className="h-5 w-5" strokeWidth={2} />
@@ -131,7 +184,7 @@ export function ProductGallery({ name, images }: Props) {
               type="button"
               onClick={() => goTo(i)}
               aria-label={`Go to image ${i + 1}`}
-              className={`h-1.5 w-8 rounded-full transition-all ${
+              className={`h-1.5 w-8 rounded-full transition-all duration-300 ease-out ${
                 i === index ? "bg-primary" : "bg-border hover:bg-primary/60"
               }`}
             />
@@ -167,7 +220,7 @@ export function ProductGallery({ name, images }: Props) {
                     e.stopPropagation();
                     prev();
                   }}
-                  className="absolute left-4 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-primary-dark/90 text-white backdrop-blur-sm transition-all hover:bg-primary"
+                  className="absolute left-4 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-primary-dark/90 text-white backdrop-blur-sm transition-all duration-200 ease-out hover:bg-primary active:scale-95"
                   aria-label="Previous"
                 >
                   <ChevronLeft className="h-6 w-6" strokeWidth={2} />
@@ -178,7 +231,7 @@ export function ProductGallery({ name, images }: Props) {
                     e.stopPropagation();
                     next();
                   }}
-                  className="absolute right-4 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-primary-dark/90 text-white backdrop-blur-sm transition-all hover:bg-primary"
+                  className="absolute right-4 top-1/2 z-10 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-primary-dark/90 text-white backdrop-blur-sm transition-all duration-200 ease-out hover:bg-primary active:scale-95"
                   aria-label="Next"
                 >
                   <ChevronRight className="h-6 w-6" strokeWidth={2} />
@@ -187,18 +240,33 @@ export function ProductGallery({ name, images }: Props) {
             )}
 
             <div
-              className="relative max-h-[90vh] max-w-[90vw]"
+              className="relative h-[70vh] w-[90vw] max-w-[90vw] overflow-hidden touch-pan-y"
               onClick={(e) => e.stopPropagation()}
+              onTouchStart={handleTouchStart}
+              onTouchEnd={handleTouchEnd}
             >
-              <div className="relative h-[70vh] w-[70vh] max-h-[90vh] max-w-[90vw]">
-                <Image
-                  src={current}
-                  alt={name}
-                  fill
-                  className="object-contain"
-                  unoptimized={current.startsWith("http")}
-                />
-              </div>
+              <motion.div
+                className="flex h-full"
+                style={{ width: `${safeImages.length * 100}%` }}
+                animate={{ x: `${(-index / safeImages.length) * 100}%` }}
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+              >
+                {safeImages.map((img, i) => (
+                  <div
+                    key={img + i}
+                    className="relative h-full shrink-0"
+                    style={{ width: `${100 / safeImages.length}%` }}
+                  >
+                    <Image
+                      src={img}
+                      alt={`${name} - image ${i + 1}`}
+                      fill
+                      className="object-contain"
+                      unoptimized={img.startsWith("http")}
+                    />
+                  </div>
+                ))}
+              </motion.div>
               {safeImages.length > 1 && (
                 <div className="absolute inset-x-0 -bottom-8 flex justify-center gap-2">
                   {safeImages.map((img, i) => (
@@ -209,7 +277,7 @@ export function ProductGallery({ name, images }: Props) {
                         e.stopPropagation();
                         goTo(i);
                       }}
-                      className={`h-2 w-8 rounded-full transition-all ${
+                      className={`h-2 w-8 rounded-full transition-all duration-300 ease-out ${
                         i === index ? "bg-primary-light" : "bg-white/50 hover:bg-white/80"
                       }`}
                     />

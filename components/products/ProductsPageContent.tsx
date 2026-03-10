@@ -48,8 +48,8 @@ export function ProductsPageContent({
           style={{ y: headerY }}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+          viewport={{ once: false, margin: "-100px" }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
           className="mb-10 flex flex-col gap-6 md:flex-row md:items-center md:justify-between md:gap-10"
         >
           <div>
@@ -73,7 +73,7 @@ export function ProductsPageContent({
           style={{ y: gridY }}
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          viewport={{ once: true, margin: "-40px" }}
+          viewport={{ once: false, margin: "-100px" }}
           className="relative space-y-10 md:space-y-12"
         >
           {totalProducts === 0 ? (

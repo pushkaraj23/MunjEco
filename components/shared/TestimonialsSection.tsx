@@ -42,9 +42,6 @@ export function TestimonialsSection() {
         />
         <div className="absolute inset-0 bg-gradient-to-b from-primary-dark via-primary-dark/90 to-primary-dark" />
       </div>
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-28 bg-gradient-to-b from-chai/22 to-transparent" />
-      <div className="pointer-events-none absolute inset-x-16 bottom-0 h-24 bg-gradient-to-t from-turmeric/18 to-transparent" />
-
       <div className="relative mx-auto max-w-6xl 2xl:max-w-7xl px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14">
         {/* Section header */}
         <header className="mb-12 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">

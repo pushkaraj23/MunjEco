@@ -29,8 +29,8 @@ export function FeaturedProductsSection({
         className="opacity-20"
       />
       {/* Subtle horizontal glow fields */}
-      <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-turmeric/25 to-transparent" />
-      <div className="pointer-events-none absolute inset-x-8 bottom-0 h-40 bg-gradient-to-t from-chai/18 to-transparent" />
+      {/* <div className="pointer-events-none absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-turmeric/25 to-transparent" />
+      <div className="pointer-events-none absolute inset-x-8 bottom-0 h-40 bg-gradient-to-t from-chai/18 to-transparent" /> */}
 
       <div className="relative mx-auto max-w-6xl 2xl:max-w-7xl px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14">
         {/* Section header with parallax - left aligned */}
