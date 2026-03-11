@@ -88,7 +88,7 @@ export function ReasonsCarouselSection() {
 
         <div
           ref={trackRef}
-          className="mt-10 flex overflow-x-auto overflow-y-visible [&::-webkit-scrollbar]:hidden"
+          className="mt-10 flex overflow-x-auto overflow-y-visible pt-2 [&::-webkit-scrollbar]:hidden"
           style={{ scrollbarWidth: "none" }}
           onMouseEnter={() => setIsInteracting(true)}
           onMouseLeave={() => setIsInteracting(false)}
@@ -97,13 +97,13 @@ export function ReasonsCarouselSection() {
           onTouchStart={() => setIsInteracting(true)}
           onTouchEnd={() => setIsInteracting(false)}
         >
-          <div className="flex pb-5">
+          <div className="flex pb-8">
             {[...carouselCards, ...carouselCards].map((card, index) => (
               <article
                 key={`${card.title}-${index}`}
                 className="min-w-[68vw] max-w-[68vw] px-2 md:min-w-[15%] md:max-w-[15%]"
               >
-                <div className="flex h-full border border-primary/20 flex-col overflow-hidden rounded-xl border border-border/70 bg-background-alt/60 backdrop-blur-sm shadow-lg">
+                <div className="relative flex h-full flex-col overflow-hidden rounded-xl border border-border/70 bg-background-alt/60 backdrop-blur-sm shadow-lg transition-all duration-200 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl hover:z-10">
                   <div className="relative aspect-square w-full overflow-hidden">
                     <img
                       src={card.image}

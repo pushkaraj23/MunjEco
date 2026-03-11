@@ -74,14 +74,14 @@ export function Hero({
                 sizes="100vw"
               />
               {/* Branded gradient overlay: Graphite → Pine Blue → Coral tint */}
-              <div
+              {/* <div
                 className="absolute inset-0"
                 style={{
                   background: "linear-gradient(160deg, rgba(57,57,58,0.4) 0%, rgba(41,115,115,0.25) 35%, rgba(255,133,82,0.08) 70%, transparent 100%)",
                 }}
-              />
+              /> */}
               {/* Bottom fade for content flow */}
-              <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/70 via-primary-dark/20 to-transparent" />
+              {/* <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/70 via-primary-dark/20 to-transparent" /> */}
             </div>
           ))}
         </motion.div>
@@ -115,8 +115,8 @@ export function Hero({
           ))}
         </div>
 
-        {/* Arrow controls */}
-        {/* <div className="pointer-events-none absolute bottom-10 left-1/2 flex -translate-x-1/2 gap-3">
+        {/* Arrow controls (hidden on phones) */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 translate-y-6 right-0 hidden items-center justify-between px-4 md:flex sm:px-6">
           <button
             type="button"
             onClick={() =>
@@ -125,21 +125,19 @@ export function Hero({
               )
             }
             aria-label="Previous banner"
-            className="pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full border border-white/60 bg-black/35 text-white backdrop-blur-md transition-colors hover:bg-black/55"
+            className="pointer-events-auto inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/30 bg-black/20 text-white/90 backdrop-blur-md transition-all duration-200 hover:bg-black/35 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30"
           >
-            <ChevronLeft className="h-4 w-4" strokeWidth={2} />
+            <ChevronLeft className="h-5 w-5" strokeWidth={2} />
           </button>
           <button
             type="button"
-            onClick={() =>
-              setActiveIndex((prev) => (prev + 1) % HERO_IMAGES.length)
-            }
+            onClick={() => setActiveIndex((prev) => (prev + 1) % HERO_IMAGES.length)}
             aria-label="Next banner"
-            className="pointer-events-auto flex h-10 w-10 items-center justify-center rounded-full border border-white/60 bg-black/35 text-white backdrop-blur-md transition-colors hover:bg-black/55"
+            className="pointer-events-auto inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/30 bg-black/20 text-white/90 backdrop-blur-md transition-all duration-200 hover:bg-black/35 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30"
           >
-            <ChevronRight className="h-4 w-4" strokeWidth={2} />
+            <ChevronRight className="h-5 w-5" strokeWidth={2} />
           </button>
-        </div> */}
+        </div>
       </div>
 
       {/* BOTTOM CONTENT SECTION - compact to fit viewport */}

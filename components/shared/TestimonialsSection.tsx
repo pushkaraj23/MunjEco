@@ -82,7 +82,7 @@ export function TestimonialsSection() {
               viewport={{ once: false, margin: "-100px" }}
               transition={{ duration: 0.5, delay: i * 0.08, ease: "easeOut" }}
             >
-              <article className="flex h-full flex-col rounded-xl border border-white/20 bg-white/5 backdrop-blur-sm px-5 py-5 shadow-card">
+              <article className="flex h-full flex-col rounded-xl border border-white/20 bg-white/5 backdrop-blur-sm px-5 py-5 shadow-card transition-all duration-200 hover:-translate-y-1 hover:border-white/30 hover:bg-white/10 hover:shadow-lg">
                 <Quote className="mb-3 h-6 w-6 text-accent-light" strokeWidth={1.2} />
                 <p className="text-sm leading-relaxed text-white/90 md:text-base">
                   &ldquo;{t.quote}&rdquo;

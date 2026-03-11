@@ -18,7 +18,7 @@ export function WhyChooseCenterCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, margin: "-40px" }}
       transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-      className="relative mx-auto w-full rounded-lg max-w-md overflow-hidden border border-border bg-background shadow-card"
+      className="relative mx-auto w-full max-w-md overflow-hidden rounded-lg border border-border bg-background shadow-card transition-all duration-200 hover:-translate-y-1 hover:border-primary/30 hover:shadow-lg"
     >
       <div className="relative aspect-square">
         <Image
