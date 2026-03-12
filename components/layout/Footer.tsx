@@ -1,17 +1,17 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Mail, Phone, ArrowRight } from "lucide-react";
 import { DecoGraphic } from "@/components/shared/DecoGraphic";
+import type { Category } from "@/lib/categories";
+import { getCategories } from "@/lib/categories";
 
 const footerLinks = {
   Products: [
-    { href: "/products?q=neem%20comb", label: "Neem Wood Combs" },
-    { href: "/products?q=toothbrush", label: "Bamboo Toothbrushes" },
-    { href: "/products?q=travel%20kit", label: "Eco Travel Kits" },
-    { href: "/products?q=handicraft", label: "Indian Handicrafts" },
+    // Populated dynamically from Firestore categories below
   ],
   Pages: [
     { href: "/", label: "Home" },
@@ -33,10 +33,24 @@ const footerLinks = {
       icon: Mail,
     },
     { href: "tel:+919270952447", label: "+91 92709 52447", icon: Phone },
+    { href: "tel:+918799829559", label: "+91 87998 29559", icon: Phone },
   ],
 };
 
 export function Footer() {
+  const [categories, setCategories] = useState<Category[]>([]);
+
+  useEffect(() => {
+    void (async () => {
+      try {
+        const data = await getCategories();
+        setCategories(data);
+      } catch {
+        // ignore footer category load errors
+      }
+    })();
+  }, []);
+
   return (
     <footer className="relative overflow-visible border-t border-border/80 bg-primary-dark text-white">
       <DecoGraphic src="/graphics/img1-v0.png" alt="" placement="bottom-left" size="md" className="opacity-20" />
@@ -116,6 +130,21 @@ export function Footer() {
                       </li>
                     );
                   })}
+                  {title === "Products" &&
+                    categories.map((cat) => (
+                      <li key={`footer-cat-${cat.id}`}>
+                        <Link
+                          href={`/products?category=${encodeURIComponent(
+                            cat.slug,
+                          )}`}
+                          className="group inline-flex items-center gap-2.5 text-white/70 transition-colors hover:text-white"
+                        >
+                          <span className="text-xs sm:text-[0.8rem] border-b border-transparent transition-colors group-hover:border-accent/60">
+                            {cat.name || cat.slug}
+                          </span>
+                        </Link>
+                      </li>
+                    ))}
                 </ul>
               </motion.div>
             ))}

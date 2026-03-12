@@ -50,7 +50,7 @@ export function CTASection({
             <h2 className="font-heading text-3xl font-semibold tracking-tight text-foreground md:text-4xl lg:text-5xl">
               {title}
             </h2>
-            <p className="mt-6 max-w-xl text-base leading-relaxed text-foreground-muted md:text-lg">
+            <p className="mt-6 text-base leading-relaxed text-foreground-muted md:text-lg">
               {subtitle}
             </p>
 

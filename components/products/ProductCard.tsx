@@ -23,7 +23,7 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
       className="group overflow-hidden rounded-xl border border-border bg-background/40 backdrop-blur-sm transition-transform duration-300"
     >
       <Link href={`/products/${product.slug}`} className="block">
-        <div className="relative aspect-square overflow-hidden rounded-sm">
+        <div className="relative aspect-square overflow-hidden rounded-xl">
           <Image
             src={imageUrl}
             alt={product.name}

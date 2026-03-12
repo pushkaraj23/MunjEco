@@ -96,8 +96,8 @@ export function WhyChooseSection() {
 
         <WhyChooseHeader
           eyebrow="Why choose MunjEco Global"
-          title="Why partners around the world choose us."
-          subtitle="We don't just ship products — we build long‑term, trust‑based trade relationships with buyers who care about quality and sustainability."
+          title="Why Global Business Partners work with us"
+          subtitle="Through reliable sourcing, transparent practices, and a shared commitment to sustainability, we build long-term partnerships with businesses that care about both quality and impact."
         />
 
         {/* Continuous horizontally scrolling carousel of benefit cards */}

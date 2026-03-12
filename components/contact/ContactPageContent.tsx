@@ -158,7 +158,7 @@ export function ContactPageContent() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, margin: "-100px" }}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="relative aspect-square overflow-hidden rounded-sm"
+              className="relative aspect-square overflow-hidden rounded-xl"
             >
               <Image
                 src="https://images.unsplash.com/photo-1516652695352-6118f7cc1a07?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -173,7 +173,7 @@ export function ContactPageContent() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: false, margin: "-100px" }}
               transition={{ duration: 0.5, ease: "easeOut" }}
-              className="flex aspect-square items-center justify-center rounded-sm border border-border bg-background-alt"
+              className="flex aspect-square items-center justify-center rounded-xl border border-border bg-background-alt"
             >
               <div className="flex flex-col items-center gap-2 text-foreground-muted">
                 <MapPin className="h-7 w-7" strokeWidth={1.1} />

@@ -88,7 +88,7 @@ export function AboutSection() {
           >
             <Link
               href="/about"
-              className="group inline-flex items-center gap-2 rounded-sm border border-foreground px-6 py-3 text-[0.7rem] font-semibold uppercase tracking-[0.26em] text-foreground transition-colors duration-200 bg-background/10 backdrop-blur-sm hover:bg-foreground hover:text-background"
+              className="group inline-flex items-center gap-2 rounded-full border border-foreground px-6 py-3 text-[0.7rem] font-semibold uppercase tracking-[0.26em] text-foreground transition-colors duration-200 bg-background/10 backdrop-blur-sm hover:bg-foreground hover:text-background"
             >
               Learn more about us
               <ArrowRight
@@ -106,7 +106,7 @@ export function AboutSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, margin: "-100px" }}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            className="relative aspect-square w-full overflow-hidden rounded-sm"
+            className="relative aspect-square w-full overflow-hidden rounded-xl"
           >
             <Image
               src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
@@ -127,8 +127,8 @@ export function AboutSection() {
               What we believe
             </p>
             <p className="text-sm leading-relaxed text-foreground-muted">
-              Trade can be a force for restoration — for landscapes, for
-              crafts, and for livelihoods.
+              At MunjEco Global, we believe every product can tell a story
+              of sustainability, dignity, and respect for our planet.
             </p>
           </motion.div>
         </div>

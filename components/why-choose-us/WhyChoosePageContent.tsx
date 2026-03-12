@@ -153,7 +153,7 @@ export function WhyChoosePageContent() {
               craftsmanship and sustainable products with buyers across the world.
             </p>
           </div>
-          <div className="relative aspect-[5/3] overflow-hidden rounded-sm">
+          <div className="relative aspect-[5/3] overflow-hidden rounded-xl">
             <Image
               src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="Curated eco-friendly products styled for buyers"
@@ -308,7 +308,7 @@ export function WhyChoosePageContent() {
               ))}
             </ul>
             <div className="mt-4 md:mt-0">
-              <div className="relative aspect-[4/3] overflow-hidden rounded-sm border border-border/70 bg-background shadow-card">
+              <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-border/70 bg-background shadow-card">
                 <Image
                   src="https://images.unsplash.com/photo-1709804945989-c8be542e04db?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                   alt="Export documents and certifications neatly arranged"

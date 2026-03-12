@@ -28,10 +28,10 @@ export function SustainabilityPromiseSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, margin: "-100px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="flex flex-col gap-10 md:flex-row md:items-start"
+          className="flex flex-col gap-6"
         >
-          {/* Left: label + heading */}
-          <div className="md:w-1/3">
+          {/* Label + heading */}
+          <div className="w-full">
             <div className="inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-pistache/90 sm:text-sm">
               <Leaf className="h-4 w-4 text-pistache" strokeWidth={1.5} />
               <span>Sustainability promise</span>
@@ -42,9 +42,9 @@ export function SustainabilityPromiseSection() {
             </h2>
           </div>
 
-          {/* Right: narrative + link */}
-          <div className="md:w-2/3">
-            <p className="max-w-xl text-base leading-relaxed text-white/85 md:text-lg">
+          {/* Description + button stacked below */}
+          <div className="w-full">
+            <p className="text-base leading-relaxed text-white/85 md:text-lg">
               At MunjEco Global, sustainability is not a trend. It is a
               responsibility. Every product we export supports reduced plastic
               use, mindful consumption, and ethical production practices. We

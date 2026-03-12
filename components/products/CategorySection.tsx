@@ -105,7 +105,7 @@ export function CategorySection({ categories }: Props) {
                   href={`/products?category=${cat.slug}`}
                   className="group block h-full"
                 >
-                  <div className="relative flex h-full flex-col overflow-hidden rounded-sm border border-border/60 bg-background-alt/60 transition-colors duration-300 hover:border-terracotta/70">
+                  <div className="relative flex h-full flex-col overflow-hidden rounded-xl border border-border/60 bg-background-alt/60 transition-colors duration-300 hover:border-terracotta/70">
                     <div className="relative aspect-square overflow-hidden">
                       <Image
                         src={

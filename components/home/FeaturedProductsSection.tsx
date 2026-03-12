@@ -36,21 +36,21 @@ export function FeaturedProductsSection({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, margin: "-100px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="mb-10 flex flex-col gap-5 md:flex-row md:items-end md:justify-between"
+          className="mb-10 flex flex-col gap-5"
         >
-          <div className="max-w-xl">
+          <div className="w-full">
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-turmeric/90 sm:text-sm">
               Featured products
             </p>
             <h2 className="mt-4 font-heading text-3xl font-semibold tracking-tight md:text-4xl lg:text-5xl">
               A curated edit of MunjEco favourites.
             </h2>
-            <p className="mt-4 max-w-md text-sm leading-relaxed text-white/80 md:text-base">
+            <p className="mt-4 text-sm leading-relaxed text-white/80 md:text-base">
               Highlighted pieces that best represent our Indian craftsmanship,
               sustainable materials, and export‑ready quality.
             </p>
           </div>
-          <div className="flex justify-start md:justify-end">
+          <div className="flex justify-start">
             <Link
               href="/products"
               className="group inline-flex items-center gap-2 rounded-sm border border-white/40 px-6 py-3 text-[0.7rem] font-semibold uppercase tracking-[0.26em] text-white transition-colors duration-200 hover:bg-white hover:text-primary-dark"
