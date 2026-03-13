@@ -6,10 +6,10 @@ import { CheckCircle2, Factory } from "lucide-react";
 import { DecoGraphic } from "@/components/shared/DecoGraphic";
 
 const manufacturingItems = [
-  "Responsible bamboo sourcing",
-  "Custom logo and text engraving",
-  "Quality assurance at each stage",
-  "Eco-friendly, reusable, biodegradable",
+  "Responsibly sourced natural materials",
+  "Custom logo and text engraving options for partners",
+  "Quality assurance at every stage of production",
+  "Eco-friendly, reusable, and biodegradable products",
 ];
 
 export function ManufacturingSection() {
@@ -43,7 +43,7 @@ export function ManufacturingSection() {
 
           <div className="flex flex-col gap-4 md:gap-5">
             <p className="text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-foreground-muted sm:text-xs">
-              How we manufacture
+              How we source
             </p>
             <div className="flex items-center gap-2">
               <Factory className="h-5 w-5 text-primary" strokeWidth={1.5} />
@@ -52,12 +52,15 @@ export function ManufacturingSection() {
               </h2>
             </div>
             <p className="text-base leading-relaxed text-foreground-muted md:text-lg">
-              Every product passes through stringent quality checks. From raw bamboo
-              selection to finishing, we use eco-friendly treatments and precision
-              machinery. Our facility is equipped for bulk production while maintaining
-              consistency across batches.
+              At MunjEco Global, responsible sourcing is the foundation of everything we do. We work closely with trusted manufacturing partners who share our commitment to sustainability, quality, and ethical practices.
             </p>
-            <ul className="mt-6 space-y-3">
+            <p className="text-base leading-relaxed text-foreground-muted md:text-lg">
+              From the careful selection of natural materials to the final finishing of each product, every stage is guided by transparency, durability, and environmental responsibility.
+            </p>
+            <p className="text-base leading-relaxed text-foreground-muted md:text-lg">
+              Our sourcing approach focuses on:
+            </p>
+            <ul className="space-y-3">
               {manufacturingItems.map((item, i) => (
                 <motion.li
                   key={item}
@@ -72,6 +75,9 @@ export function ManufacturingSection() {
                 </motion.li>
               ))}
             </ul>
+            <p className="text-base leading-relaxed text-foreground-muted md:text-lg">
+              Through thoughtful sourcing and reliable production partners, we ensure our products meet the expectations of businesses seeking both quality and sustainability.
+            </p>
           </div>
         </motion.div>
       </div>

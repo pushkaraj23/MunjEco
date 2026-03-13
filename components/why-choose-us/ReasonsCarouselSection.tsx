@@ -6,40 +6,45 @@ import { WhyChooseHeader } from "@/components/why-choose-us/WhyChooseHeader";
 
 const carouselCards = [
   {
-    title: "Export‑quality standards",
-    desc: "Consistent finishing, sizing and QC so every shipment is ready for global shelves.",
+    title: "Ethical & Responsible Sourcing",
+    desc: "We source our products directly from verified Indian manufacturers and artisan clusters that follow ethical, sustainable, and responsible practices. Every product reflects respect for people, craftsmanship, and the environment.",
     image:
       "https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=1600&auto=format&fit=crop",
   },
   {
-    title: "Competitive, transparent pricing",
-    desc: "Fair bulk and repeat‑order pricing with clear cost breakdowns and no hidden extras.",
+    title: "Sustainable by Design",
+    desc: "Sustainability is at the core of what we do. From wooden combs and bamboo toothbrushes to eco-friendly travel kits and handicrafts, our product range is designed to reduce plastic use and promote conscious living.",
     image:
-      "https://images.unsplash.com/photo-1556740749-887f6717d7e4?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1654078054613-a56cfcabdb84?q=80&w=1600&auto=format&fit=crop",
   },
   {
-    title: "Long‑term partnerships",
-    desc: "We prioritise relationship‑driven trade, reliability and repeat collaboration.",
-    image:
-      "https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
-    title: "Timely & reliable shipping",
-    desc: "Dependable dispatch schedules with full export documentation and logistics support.",
+    title: "Export-Ready Quality",
+    desc: "All our products are carefully selected and packed to meet international export standards. We focus on consistent quality, safe packaging, and clear documentation to ensure smooth global shipments.",
     image:
       "https://images.unsplash.com/photo-1541417904950-b855846fe074?q=80&w=1600&auto=format&fit=crop",
   },
   {
-    title: "Custom branding options",
-    desc: "Private‑label, logo placement and eco‑friendly packaging tailored to your brand.",
+    title: "Global Trade Expertise",
+    desc: "As an Indian export company, we understand international trade requirements, Incoterms (FOB / CIF), customs documentation, and buyer expectations across UK, EU, and other global markets.",
+    image:
+      "https://images.unsplash.com/photo-1556740749-887f6717d7e4?q=80&w=1600&auto=format&fit=crop",
+  },
+  {
+    title: "Flexible Bulk & Private Label Solutions",
+    desc: "Whether you need bulk quantities, customized packaging, or private labeling, we offer flexible solutions tailored to your business needs. Our goal is to support your brand's growth, not just supply products.",
     image:
       "https://images.unsplash.com/photo-1593747176945-ef77e62547eb?q=80&w=1600&auto=format&fit=crop",
   },
   {
-    title: "Eco‑friendly packaging",
-    desc: "Low‑plastic, recyclable or biodegradable packing aligned with sustainability goals.",
+    title: "Transparent & Reliable Partnerships",
+    desc: "We believe in long-term relationships built on clear communication, transparent pricing, and timely delivery. Our buyers know exactly what they are paying for and when they will receive it.",
     image:
-      "https://images.unsplash.com/photo-1654078054613-a56cfcabdb84?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1600&auto=format&fit=crop",
+  },
+  {
+    title: "Rooted in Indian Craftsmanship",
+    desc: "Our handicrafts and natural products celebrate the rich heritage and skills of Indian artisans, bringing authentic, meaningful products to global markets while supporting local communities.",
+    image: "https://plus.unsplash.com/premium_photo-1679811672273-d516273e675c?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8aW5kaWFuJTIwY3JhZnRzbWFuc2hpcHxlbnwwfHwwfHx8MA%3D%3D"
   },
 ];
 
@@ -88,8 +93,8 @@ export function ReasonsCarouselSection() {
 
         <div
           ref={trackRef}
-          className="mt-10 flex overflow-x-auto overflow-y-visible pt-2 [&::-webkit-scrollbar]:hidden"
-          style={{ scrollbarWidth: "none" }}
+          className="mt-10 flex overflow-x-auto overflow-y-visible pt-2 pb-2 [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-muted/30 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-primary/40 [&::-webkit-scrollbar-thumb:hover]:bg-primary/60"
+          style={{ scrollbarWidth: "thin", scrollbarColor: "hsl(var(--primary) / 0.5) hsl(var(--muted) / 0.3)" }}
           onMouseEnter={() => setIsInteracting(true)}
           onMouseLeave={() => setIsInteracting(false)}
           onPointerDown={() => setIsInteracting(true)}

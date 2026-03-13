@@ -2,12 +2,28 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Award } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { DecoGraphic } from "@/components/shared/DecoGraphic";
+
+const compliancePoints = [
+  "Fully compliant with global trade and export regulations",
+  "Accurate HS code classification and customs documentation tailored to each destination",
+  "ISPM‑15 certified pallets for secure sea freight worldwide",
+  "Crafted from natural, non-toxic, and biodegradable materials, reflecting our commitment to sustainability",
+  "Complete export documentation support, including Commercial Invoice, Packing List, and Certificate of Origin (if required)",
+  "FSC, ISO, and other certifications available upon request, aligned with buyer requirements and manufacturer capabilities",
+];
 
 export function CertificationsSection() {
   return (
-    <section className="relative overflow-visible bg-background pb-20">
+    <section className="relative overflow-visible bg-primary/10 py-10 h-fit">
+      <DecoGraphic
+        src="/graphics/img4-v0.png"
+        alt=""
+        placement="top-right"
+        size="md"
+        className="opacity-30"
+      />
       <DecoGraphic
         src="/graphics/img2-v0.png"
         alt=""
@@ -15,6 +31,7 @@ export function CertificationsSection() {
         size="md"
         className="opacity-20"
       />
+      <div className="pointer-events-none w-full left-0 absolute inset-x-16 top-0 h-24 bg-gradient-to-b from-primary/12 to-transparent" />
 
       <div className="mx-auto max-w-6xl 2xl:max-w-7xl px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14">
         <motion.div
@@ -22,34 +39,67 @@ export function CertificationsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, margin: "-100px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="grid gap-10 rounded-2xl bg-primary px-6 py-12 text-white md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] md:items-center md:px-10 md:py-16"
+          className=""
         >
-          <div>
-            <div className="mb-3 flex items-center gap-2">
-              <Award className="h-5 w-5 text-white" strokeWidth={1.5} />
-              <h2 className="font-heading text-2xl font-semibold tracking-tight text-white md:text-3xl">
-                Certifications
+          <div className="relative grid gap-8 md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.9fr)] md:py-12 md:items-center">
+            <div className="min-w-0">
+              <p className="text-xs font-semibold uppercase tracking-[0.3em] text-foreground-muted sm:text-sm">
+                Certifications & Export Compliance
+              </p>
+              <h2 className="mt-3 font-heading text-2xl font-semibold tracking-tight text-foreground sm:text-3xl md:text-3xl">
+                Certifications & Compliance
               </h2>
-            </div>
-            <p className="text-base leading-relaxed text-white/85 md:text-lg">
-              We hold certifications for sustainable sourcing, manufacturing standards,
-              and export compliance. Our products meet international benchmarks for
-              durability and environmental impact.
-            </p>
-          </div>
+              <p className="mt-4 text-sm leading-relaxed text-foreground-muted md:text-base">
+                We collaborate with trusted manufacturing partners who follow responsible sourcing practices and established production standards. Our products are designed to meet global expectations for quality, durability, and environmental responsibility.
+              </p>
 
-          <div className="relative aspect-square w-full max-w-xs overflow-hidden rounded-xl border border-white/10 bg-white/5 shadow-card md:max-w-[260px] md:justify-self-end">
-            <Image
-              src="https://images.unsplash.com/photo-1593617761943-9099951a0769?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="Neatly arranged certificates and documents"
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 32vw"
-            />
+              <p className="mt-4 text-sm leading-relaxed text-foreground-muted md:text-base">
+                We remain committed to continuous improvement and compliance with relevant international guidelines for sustainable trade.
+              </p>
+
+              <ul className="mt-6 space-y-3">
+                {compliancePoints.map((point) => (
+                  <li
+                    key={point}
+                    className="flex items-start gap-3 text-sm text-foreground-muted"
+                  >
+                    <CheckCircle2
+                      className="mt-0.5 h-4 w-4 shrink-0 text-primary"
+                      strokeWidth={1.7}
+                    />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+              <p className="mt-6 text-sm font-medium leading-relaxed text-foreground md:text-base">
+                Every detail, meticulously handled — so your products reach the world with confidence.
+              </p>
+            </div>
+
+            <div className="relative min-w-0">
+              <div className="relative aspect-square w-full overflow-hidden rounded-xl border border-border/70 bg-background shadow-card">
+                <Image
+                  src="https://images.unsplash.com/photo-1709804945989-c8be542e04db?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt="Export documents, certifications and compliant packaging"
+                  fill
+                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 40vw"
+                />
+                <div className="pointer-events-none absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-background/90 to-transparent" />
+              </div>
+              <div className="absolute left-1/2 -translate-x-1/2 w-[80%] bottom-4 rounded-lg border border-border/70 bg-background-alt/90 px-4 py-3 shadow-card sm:w-[80%]">
+                <p className="text-[0.7rem] font-semibold uppercase tracking-[0.22em] text-foreground-muted">
+                  Documentation checklist
+                </p>
+                <p className="mt-1 text-xs text-foreground">
+                  HS codes, invoices, packing lists and certificates aligned with your
+                  destination market.
+                </p>
+              </div>
+            </div>
           </div>
         </motion.div>
       </div>
     </section>
   );
 }
-

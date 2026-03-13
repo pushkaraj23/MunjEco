@@ -21,8 +21,8 @@ export default function WhyChooseUsPage() {
       <PromiseSection />
       <ComplianceSection />
       <CTASection
-        title="Ready to partner with an ethical Indian export house?"
-        subtitle="Tell us what you&apos;re looking for — bulk products, private label, or custom gifting — and we&apos;ll help you build a reliable, sustainable supply line from India."
+        title="Ready to partner with a trusted Indian export partner?"
+        subtitle="Tell us what you're looking for — bulk products, private label manufacturing, or custom eco gifting — and we’ll help you build a reliable and sustainable supply chain from India."
       />
       <TestimonialsSection />
     </main>

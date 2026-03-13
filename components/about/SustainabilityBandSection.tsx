@@ -26,8 +26,8 @@ export function SustainabilityBandSection() {
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="rounded-2xl bg-primary-dark/80 py-10 shadow-card md:py-14"
         >
-            <div className="mb-3 flex items-center gap-2 text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-white/80 sm:text-xs">
-              <Leaf className="h-4 w-4 text-white" strokeWidth={1.5} />
+            <div className="mb-3 flex items-center gap-2 text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-accent sm:text-xs">
+              <Leaf className="h-4 w-4 text-accent" strokeWidth={1.5} />
               <span>Sustainability commitment</span>
             </div>
             <h2 className="font-heading text-2xl font-semibold tracking-tight text-white md:text-3xl">

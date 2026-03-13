@@ -21,25 +21,16 @@ export function AboutOverviewSection() {
               Who we are
             </p>
             <h2 className="font-heading text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
-              An Indian export house for eco‑friendly, everyday products.
+              An Indian export partner for eco-friendly everyday products.
             </h2>
             <p className="text-sm leading-relaxed text-foreground-muted md:text-base">
-              MunjEco Global is an Indian export company focused on eco-friendly lifestyle
-              essentials and conscious handicrafts. We work closely with trusted
-              manufacturers, artisans, and craft communities to bring high-quality,
-              sustainable products to global markets.
+              MunjEco Global is an Indian export company focused on eco-friendly lifestyle essentials and conscious handicrafts. We work closely with trusted manufacturers, artisans, and craft communities to deliver high-quality, sustainable products to global markets.
             </p>
             <p className="text-sm leading-relaxed text-foreground-muted md:text-base">
-              Our offerings include plastic-free daily-use essentials such as neem wood
-              combs, bamboo toothbrushes, eco-friendly gift solutions, and thoughtfully
-              crafted Indian handicrafts. Each product reflects careful material
-              selection, traditional skills, and responsible production practices.
+              Our product range includes plastic-free daily-use essentials such as neem wood combs, bamboo toothbrushes, eco-friendly gift solutions, and thoughtfully crafted Indian handicrafts. Each product reflects careful material selection, traditional skills, and responsible production practices
             </p>
             <p className="text-sm leading-relaxed text-foreground-muted md:text-base">
-              Our approach is simple — conscious materials, ethical sourcing, consistent
-              quality, and reliable delivery. Every product we export supports
-              responsible livelihoods, reduced plastic use, and purposeful trade that
-              respects both people and the planet.
+              Our approach is simple — conscious materials, ethical sourcing, consistent quality, and reliable delivery. Every product we export supports responsible livelihoods, reduced plastic use, and purposeful trade that respects both people and the planet.
             </p>
           </div>
 

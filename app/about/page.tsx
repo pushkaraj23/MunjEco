@@ -19,18 +19,16 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen bg-background">
       <AboutHeroSection />
-      <AboutStorySection />
+      {/* <AboutStorySection /> */}
       <AboutOverviewSection />
       <FounderNoteSection />
       <ManufacturingSection />
       <CertificationsSection />
-      <SustainabilityBandSection />
+      {/* <SustainabilityBandSection /> */}
       <TestimonialsSection />
       <CTASection
-        title="Partner With Us"
-        subtitle="For bulk orders, corporate gifting, or custom engraving."
-        primaryLabel="Get in Touch"
-        primaryHref="/contact"
+        title="Ready to partner with a trusted Indian export partner?"
+        subtitle="Tell us what you're looking for — bulk products, private label manufacturing, or custom eco gifting — and we’ll help you build a reliable and sustainable supply chain from India."
       />
     </main>
   );

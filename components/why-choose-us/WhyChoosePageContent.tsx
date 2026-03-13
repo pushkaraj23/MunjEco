@@ -58,12 +58,12 @@ const reasons = [
 ];
 
 const compliancePoints = [
-  "Fully compliant with global trade and export regulations.",
-  "Accurate HS code classification and customs documentation tailored to each destination.",
-  "ISPM‑15 certified pallets for secure sea freight worldwide.",
-  "Crafted from natural, non‑toxic, and biodegradable materials.",
-  "Complete export documentation support: Commercial Invoice, Packing List, and Certificate of Origin (where required).",
-  "FSC, ISO, and other certifications available upon request, aligned with buyer requirements and manufacturer capabilities.",
+  "Fully compliant with global trade and export regulations",
+  "Accurate HS code classification and customs documentation tailored to each destination",
+  "ISPM‑15 certified pallets for secure sea freight worldwide",
+  "Crafted from natural, non-toxic, and biodegradable materials, reflecting our commitment to sustainability",
+  "Complete export documentation support, including Commercial Invoice, Packing List, and Certificate of Origin (if required)",
+  "FSC, ISO, and other certifications available upon request, aligned with buyer requirements and manufacturer capabilities",
 ];
 
 export function WhyChoosePageContent() {
@@ -288,14 +288,18 @@ export function WhyChoosePageContent() {
           <div className="mb-6 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.3em] text-foreground-muted sm:text-sm">
-                Global Certifications & Export Compliance
+                Certifications & Export Compliance
               </p>
               <h2 className="mt-3 font-heading text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
-                Every shipment, export‑ready and compliant.
+                Global Certifications & Export Compliance
               </h2>
+              <p className="mt-4 text-sm leading-relaxed text-foreground-muted md:text-base">
+                At MunjEco Global, we ensure every shipment meets the highest international standards:
+              </p>
             </div>
           </div>
           <div className="grid gap-6 md:grid-cols-[minmax(0,1.2fr)_minmax(0,0.9fr)] md:items-start">
+            <div>
             <ul className="space-y-3">
               {compliancePoints.map((point) => (
                 <li key={point} className="flex items-start gap-3 text-sm text-foreground-muted">
@@ -305,8 +309,12 @@ export function WhyChoosePageContent() {
                   />
                   <span>{point}</span>
                 </li>
-              ))}
+                ))}
             </ul>
+            <p className="mt-6 text-sm font-medium leading-relaxed text-foreground md:text-base">
+              Every detail, meticulously handled — so your products reach the world with confidence.
+            </p>
+            </div>
             <div className="mt-4 md:mt-0">
               <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-border/70 bg-background shadow-card">
                 <Image
@@ -325,8 +333,8 @@ export function WhyChoosePageContent() {
       </div>
 
       <CTASection
-        title="Ready to partner with an ethical Indian export house?"
-        subtitle="Tell us what you&apos;re looking for — bulk products, private label, or custom gifting — and we&apos;ll help you build a reliable, sustainable supply line from India."
+        title="Ready to partner with a trusted Indian export partner?"
+        subtitle="Tell us what you're looking for — bulk products, private label manufacturing, or custom eco gifting — and we’ll help you build a reliable and sustainable supply chain from India."
       />
 
       {/* Testimonials strip */}

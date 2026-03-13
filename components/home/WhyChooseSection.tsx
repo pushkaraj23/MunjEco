@@ -6,40 +6,34 @@ import { WhyChooseHeader } from "@/components/why-choose-us/WhyChooseHeader";
 
 const carouselCards = [
   {
-    title: "Export‑quality standards",
-    desc: "Consistent finishing, sizing and QC so every shipment is ready for global shelves.",
+    title: "Ethical & Responsible Sourcing",
+    desc: "We source directly from verified manufacturers and artisan groups following ethical and sustainable practices.",
     image:
       "https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=1600&auto=format&fit=crop",
   },
   {
-    title: "Competitive, transparent pricing",
-    desc: "Fair bulk and repeat‑order pricing with clear cost breakdowns and no hidden extras.",
-    image:
-      "https://images.unsplash.com/photo-1556740749-887f6717d7e4?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
-    title: "Long‑term partnerships",
-    desc: "We prioritise relationship‑driven trade, reliability and repeat collaboration.",
-    image:
-      "https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1600&auto=format&fit=crop",
-  },
-  {
-    title: "Timely & reliable shipping",
-    desc: "Dependable dispatch schedules with full export documentation and logistics support.",
+    title: "Export-Ready Quality",
+    desc: "Products are selected, packed, and documented to meet international export standards.",
     image:
       "https://images.unsplash.com/photo-1541417904950-b855846fe074?q=80&w=1600&auto=format&fit=crop",
   },
   {
-    title: "Custom branding options",
-    desc: "Private‑label, logo placement and eco‑friendly packaging tailored to your brand.",
+    title: "Sustainability First",
+    desc: "Plastic-free, biodegradable materials aligned with EU & UK sustainability goals.",
+    image:
+      "https://images.unsplash.com/photo-1654078054613-a56cfcabdb84?q=80&w=1600&auto=format&fit=crop",
+  },
+  {
+    title: "Flexible Bulk & Private Label",
+    desc: "Bulk supply, customization, and private labeling are available based on buyer needs.",
     image:
       "https://images.unsplash.com/photo-1593747176945-ef77e62547eb?q=80&w=1600&auto=format&fit=crop",
   },
   {
-    title: "Eco‑friendly packaging",
-    desc: "Low‑plastic, recyclable or biodegradable packing aligned with sustainability goals.",
+    title: "Transparent & Reliable",
+    desc: "Clear pricing, timely delivery, and honest communication — no surprises.",
     image:
-      "https://images.unsplash.com/photo-1654078054613-a56cfcabdb84?q=80&w=1600&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1600&auto=format&fit=crop",
   },
 ];
 
@@ -116,7 +110,7 @@ export function WhyChooseSection() {
             {[...carouselCards, ...carouselCards].map((card, index) => (
               <article
                 key={`${card.title}-${index}`}
-                className="min-w-[68vw] max-w-[68vw] px-2 md:min-w-[15%] md:max-w-[15%]"
+                className="min-w-[68vw] max-w-[68vw] px-2 md:min-w-[18%] md:max-w-[18%]"
               >
                 <div className="relative flex h-full flex-col overflow-hidden rounded-xl border border-border/70 bg-background-alt/60 backdrop-blur-sm shadow-lg transition-all duration-200 hover:-translate-y-1 hover:border-primary/40 hover:shadow-xl hover:z-10">
                   <div className="relative aspect-square w-full overflow-hidden">
