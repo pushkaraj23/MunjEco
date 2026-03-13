@@ -199,7 +199,7 @@ export function EnquiryForm({
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="rounded-md bg-primary px-4 py-3 text-center text-sm font-medium text-white"
+              className="rounded-full bg-primary px-4 py-3 text-center text-sm font-medium text-white"
             >
               {toast}
             </motion.div>
@@ -208,7 +208,7 @@ export function EnquiryForm({
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-fit rounded-md bg-primary px-5 py-3 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-dark disabled:opacity-60 disabled:cursor-not-allowed"
+            className="w-fit rounded-full bg-primary px-5 py-3 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-dark disabled:opacity-60 disabled:cursor-not-allowed"
           >
             {isSubmitting ? "Submitting..." : "Submit Enquiry"}
           </button>

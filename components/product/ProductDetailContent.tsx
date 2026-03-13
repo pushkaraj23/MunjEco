@@ -104,7 +104,7 @@ export function ProductDetailContent({ product }: ProductDetailContentProps) {
             <div className="flex flex-col gap-3">
               <Link
                 href="#enquiry"
-                className="inline-flex w-full items-center justify-center gap-2 rounded-md bg-primary px-5 py-3 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-dark"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-white transition-colors hover:bg-primary-dark"
               >
                 Enquire
               </Link>
@@ -180,7 +180,7 @@ export function ProductDetailContent({ product }: ProductDetailContentProps) {
               <button
                 type="button"
                 onClick={handleShare}
-                className="inline-flex items-center gap-2 rounded-lg border border-primary/40 bg-primary/10 px-4 py-2.5 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-primary transition-colors hover:border-primary hover:bg-primary hover:text-white"
+                className="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-primary/10 px-4 py-2.5 text-[0.7rem] font-semibold uppercase tracking-[0.2em] text-primary transition-colors hover:border-primary hover:bg-primary hover:text-white"
                 aria-label="Share product"
               >
                 <Share2 className="h-4 w-4" strokeWidth={2} />

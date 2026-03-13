@@ -53,7 +53,7 @@ export function FeaturedProductsSection({
           <div className="flex justify-start">
             <Link
               href="/products"
-              className="group inline-flex items-center gap-2 rounded-sm border border-white/40 px-6 py-3 text-[0.7rem] font-semibold uppercase tracking-[0.26em] text-white transition-colors duration-200 hover:bg-white hover:text-primary-dark"
+              className="group inline-flex items-center gap-2 rounded-full border border-white/40 px-6 py-3 text-[0.7rem] font-semibold uppercase tracking-[0.26em] text-white transition-colors duration-200 hover:bg-white hover:text-primary-dark"
             >
               View full catalogue
               <ArrowRight

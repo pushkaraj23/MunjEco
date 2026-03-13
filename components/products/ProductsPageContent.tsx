@@ -46,7 +46,7 @@ export function ProductsPageContent({
   );
 
   return (
-    <main ref={ref} className="relative overflow-visible pt-28 pb-12 md:pb-16">
+    <main ref={ref} className="relative overflow-visible pt-16 md:pt-28 pb-12 md:pb-16">
       <DecoGraphic src="/graphics/img2-v0.png" alt="" placement="bottom-left" size="md" className="opacity-25" />
       <DecoGraphic src="/graphics/img4-v0.png" alt="" placement="bottom-right" size="md" className="opacity-25" />
       <div className="relative mx-auto max-w-6xl 2xl:max-w-7xl px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14">

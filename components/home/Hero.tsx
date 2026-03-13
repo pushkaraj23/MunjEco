@@ -195,7 +195,7 @@ export function Hero({
               >
                 <Link
                   href={primaryHref}
-                  className="group inline-flex items-center justify-center gap-1.5 rounded-sm bg-primary px-5 py-2.5 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-white shadow-lg shadow-primary/25 transition-all duration-200 hover:bg-primary-dark hover:shadow-xl hover:shadow-primary/30 sm:px-6 sm:py-3 sm:text-xs"
+                  className="group inline-flex items-center justify-center gap-1.5 rounded-full bg-primary px-5 py-2.5 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-white shadow-lg shadow-primary/25 transition-all duration-200 hover:bg-primary-dark hover:shadow-xl hover:shadow-primary/30 sm:px-6 sm:py-3 sm:text-xs"
                 >
                   {primaryCta}
                   <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" strokeWidth={2} />
@@ -204,7 +204,7 @@ export function Hero({
                 {showSecondary && (
                   <Link
                     href="/contact"
-                    className="inline-flex items-center bg-primary/10 justify-center rounded-sm px-5 py-2.5 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-foreground transition-colors duration-200 hover:border-primary hover:text-accent sm:px-6 sm:py-3 backdrop-blur-sm sm:text-xs"
+                    className="inline-flex items-center bg-primary/10 justify-center rounded-full px-5 py-2.5 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-foreground transition-colors duration-200 hover:border-primary hover:text-accent sm:px-6 sm:py-3 backdrop-blur-sm sm:text-xs"
                   >
                     Request a Bulk Quote
                   </Link>
