@@ -39,7 +39,7 @@ export function CTASection({
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, margin: "-100px" }}
+            viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, ease: "easeOut" }}
           >
             <div className="mb-6 inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-foreground-muted sm:text-sm">
@@ -61,7 +61,7 @@ export function CTASection({
                   key={f.label}
                   initial={{ opacity: 0, y: 16 }}
                   whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: false, margin: "-100px" }}
+                  viewport={{ once: true, margin: "-100px" }}
                   transition={{ duration: 0.5, delay: i * 0.06, ease: "easeOut" }}
                   className="flex items-center gap-2 border-t border-border/60 pt-3"
                 >
@@ -81,7 +81,7 @@ export function CTASection({
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, margin: "-100px" }}
+            viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="relative"
           >

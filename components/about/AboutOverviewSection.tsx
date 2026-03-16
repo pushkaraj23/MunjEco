@@ -12,7 +12,7 @@ export function AboutOverviewSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, margin: "-100px" }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="grid gap-10 border-t border-border/70 pt-10 md:grid-cols-2 md:items-center"
         >

@@ -37,7 +37,7 @@ export function CertificationsSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, margin: "-100px" }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
           className=""
         >
@@ -61,7 +61,7 @@ export function CertificationsSection() {
                 {compliancePoints.map((point) => (
                   <li
                     key={point}
-                    className="flex items-start gap-3 text-sm text-foreground-muted"
+                    className="flex items-start gap-3 text-sm text-foreground-muted md:text-base"
                   >
                     <CheckCircle2
                       className="mt-0.5 h-4 w-4 shrink-0 text-primary"

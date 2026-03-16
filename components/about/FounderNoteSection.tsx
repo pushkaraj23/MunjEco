@@ -19,7 +19,7 @@ export function FounderNoteSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, margin: "-100px" }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="grid gap-8 backdrop-blur-sm rounded-2xl border border-border/70 bg-background-alt px-6 py-8 md:grid-cols-2 md:items-center md:px-10 md:py-10"
         >

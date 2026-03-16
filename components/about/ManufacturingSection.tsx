@@ -27,7 +27,7 @@ export function ManufacturingSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, margin: "-100px" }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="grid gap-10 md:grid-cols-2 md:items-center"
         >
@@ -51,13 +51,13 @@ export function ManufacturingSection() {
                 Manufacturing process
               </h2>
             </div>
-            <p className="text-base leading-relaxed text-foreground-muted md:text-lg">
+            <p className="text-sm leading-relaxed text-foreground-muted md:text-base">
               At MunjEco Global, responsible sourcing is the foundation of everything we do. We work closely with trusted manufacturing partners who share our commitment to sustainability, quality, and ethical practices.
             </p>
-            <p className="text-base leading-relaxed text-foreground-muted md:text-lg">
+            <p className="text-sm leading-relaxed text-foreground-muted md:text-base">
               From the careful selection of natural materials to the final finishing of each product, every stage is guided by transparency, durability, and environmental responsibility.
             </p>
-            <p className="text-base leading-relaxed text-foreground-muted md:text-lg">
+            <p className="text-sm leading-relaxed text-foreground-muted md:text-base">
               Our sourcing approach focuses on:
             </p>
             <ul className="space-y-3">
@@ -66,16 +66,16 @@ export function ManufacturingSection() {
                   key={item}
                   initial={{ opacity: 0, x: -12 }}
                   whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: false, margin: "-100px" }}
+                  viewport={{ once: true, margin: "-100px" }}
                   transition={{ delay: i * 0.08 }}
                   className="flex items-center gap-3 text-foreground"
                 >
                   <CheckCircle2 className="h-5 w-5 shrink-0 text-primary" strokeWidth={1.5} />
-                  <span className="text-sm text-foreground-muted">{item}</span>
+                  <span className="text-sm text-foreground-muted md:text-base">{item}</span>
                 </motion.li>
               ))}
             </ul>
-            <p className="text-base leading-relaxed text-foreground-muted md:text-lg">
+            <p className="text-sm leading-relaxed text-foreground-muted md:text-base">
               Through thoughtful sourcing and reliable production partners, we ensure our products meet the expectations of businesses seeking both quality and sustainability.
             </p>
           </div>

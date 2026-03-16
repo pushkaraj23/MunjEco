@@ -137,7 +137,7 @@ export function WhyChoosePageContent() {
           style={{ y: headerY }}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, margin: "-100px" }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="mb-14 grid gap-10 md:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)] md:items-end"
         >
@@ -169,7 +169,7 @@ export function WhyChoosePageContent() {
           style={{ y: gridY }}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, margin: "-100px" }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="mb-16"
         >
@@ -215,7 +215,7 @@ export function WhyChoosePageContent() {
                       <motion.article
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: false, margin: "-100px" }}
+                        viewport={{ once: true, margin: "-100px" }}
                         transition={{
                           delay: idx * 0.04,
                           duration: 0.5,
@@ -248,7 +248,7 @@ export function WhyChoosePageContent() {
           style={{ y: promiseY }}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, margin: "-100px" }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="mb-16 overflow-hidden border border-border/70 bg-primary-dark text-white"
         >
@@ -281,7 +281,7 @@ export function WhyChoosePageContent() {
           style={{ y: complianceY }}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, margin: "-100px" }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="mb-20 border border-border/70 bg-background-alt px-6 py-10 sm:px-8 md:px-10 md:py-12"
         >

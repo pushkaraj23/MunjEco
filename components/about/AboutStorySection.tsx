@@ -19,7 +19,7 @@ export function AboutStorySection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, margin: "-100px" }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="grid gap-10 rounded-2xl bg-primary-dark px-6 py-12 text-white md:grid-cols-2 md:items-center md:px-10 md:py-16"
         >
@@ -30,7 +30,7 @@ export function AboutStorySection() {
             <h2 className="font-heading text-2xl font-semibold tracking-tight text-white md:text-3xl">
               From a simple idea to a global eco brand.
             </h2>
-            <p className="text-base leading-relaxed text-white/80 md:text-lg">
+            <p className="text-sm leading-relaxed text-white/80 md:text-base">
               MunjEco Global was founded on the belief that premium manufacturing and
               sustainability can go hand in hand. We specialize in bamboo daily-use
               products—pens, stationery, bottles, and cups—crafted for durability and

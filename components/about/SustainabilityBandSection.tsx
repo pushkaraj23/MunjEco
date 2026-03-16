@@ -22,7 +22,7 @@ export function SustainabilityBandSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, margin: "-100px" }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="rounded-2xl bg-primary-dark/80 py-10 shadow-card md:py-14"
         >
@@ -33,7 +33,7 @@ export function SustainabilityBandSection() {
             <h2 className="font-heading text-2xl font-semibold tracking-tight text-white md:text-3xl">
               Sustainability commitment
             </h2>
-            <p className="mt-4 text-base leading-relaxed text-white/85 md:text-lg">
+            <p className="mt-4 text-sm leading-relaxed text-white/85 md:text-base">
               Bamboo regenerates rapidly. We partner with certified growers, minimize
               waste in production, and ensure our supply chain is transparent.
             </p>

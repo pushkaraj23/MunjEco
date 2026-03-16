@@ -16,14 +16,14 @@ export function ContactPageContent() {
         <motion.header
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, margin: "-100px" }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="mb-12 max-w-3xl"
         >
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, margin: "-100px" }}
+            viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="mb-4 inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-foreground-muted sm:text-sm"
           >
@@ -33,7 +33,7 @@ export function ContactPageContent() {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, margin: "-100px" }}
+            viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="font-heading text-3xl font-semibold tracking-tight text-foreground md:text-4xl lg:text-5xl"
           >
@@ -42,7 +42,7 @@ export function ContactPageContent() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, margin: "-100px" }}
+            viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="mt-4 max-w-xl text-base leading-relaxed text-foreground-muted md:text-lg"
           >
@@ -57,7 +57,7 @@ export function ContactPageContent() {
           <motion.section
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, margin: "-100px" }}
+            viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="space-y-10"
           >
@@ -66,7 +66,7 @@ export function ContactPageContent() {
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, margin: "-100px" }}
+                viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.5, ease: "easeOut" }}
                 className="space-y-2 border-t border-border pt-4"
               >
@@ -87,7 +87,7 @@ export function ContactPageContent() {
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, margin: "-100px" }}
+                viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.5, delay: 0.06, ease: "easeOut" }}
                 className="space-y-2 border-t border-border pt-4"
               >
@@ -108,7 +108,7 @@ export function ContactPageContent() {
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, margin: "-100px" }}
+                viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.5, delay: 0.12, ease: "easeOut" }}
                 className="space-y-2 border-t border-border pt-4"
               >
@@ -129,7 +129,7 @@ export function ContactPageContent() {
           <motion.section
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, margin: "-100px" }}
+            viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="border border-border bg-background-alt px-6 py-7 md:px-8 md:py-9"
           >
@@ -149,14 +149,14 @@ export function ContactPageContent() {
           <motion.section
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, margin: "-100px" }}
+            viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="grid gap-6 md:grid-cols-2"
           >
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, margin: "-100px" }}
+              viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5, ease: "easeOut" }}
               className="relative aspect-square overflow-hidden rounded-xl"
             >
@@ -171,7 +171,7 @@ export function ContactPageContent() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, margin: "-100px" }}
+              viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5, ease: "easeOut" }}
               className="flex aspect-square items-center justify-center rounded-xl border border-border bg-background-alt"
             >

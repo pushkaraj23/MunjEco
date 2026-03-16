@@ -62,7 +62,7 @@ export function ProductDetailContent({ product }: ProductDetailContentProps) {
           style={{ y: headerY }}
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, margin: "-100px" }}
+          viewport={{ once: true, margin: "-100px" }}
           className="max-sm:mt-2"
         >
           <Link
@@ -85,7 +85,7 @@ export function ProductDetailContent({ product }: ProductDetailContentProps) {
             <motion.section
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, margin: "-100px" }}
+              viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5, ease: "easeOut" }}
               className=""
             >
@@ -211,7 +211,7 @@ export function ProductDetailContent({ product }: ProductDetailContentProps) {
         <motion.section
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, margin: "-100px" }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ delay: 0.1, duration: 0.5, ease: "easeOut" }}
           id="enquiry"
           className="mt-16"

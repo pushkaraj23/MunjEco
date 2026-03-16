@@ -23,7 +23,7 @@ const HERO_IMAGES = [
 
 export function Hero({
   title = "Sustainable Indian Products for Global Markets",
-  subtitle = "Eco-friendly, plastic-free lifestyle products from India — crafted responsibly to support livelihoods and restore balance with nature.",
+  subtitle = "Eco-friendly, plastic-free lifestyle products from India, crafted responsibly to support livelihoods and restore balance with nature.",
   primaryCta = "Explore Products",
   primaryHref = "/products",
   showSecondary = true,
@@ -144,20 +144,20 @@ export function Hero({
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, margin: "-100px" }}
+        viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.5, ease: "easeOut" }}
         className="relative flex min-h-0 flex-1 flex-col items-center justify-center overflow-visible border-t border-border/60 bg-background py-6 md:py-8 lg:py-10"
       >
         <DecoGraphic src="/graphics/img1-v0.png" alt="" placement="bottom-right" size="md" className="opacity-25" />
         {/* <DecoGraphic src="/graphics/img3-v0.png" alt="" placement="bottom-left" size="sm" className="opacity-25" /> */}
         <div className="mx-auto w-full max-w-6xl 2xl:max-w-7xl px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14">
-          <div className="grid grid-cols-1 gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:items-center lg:gap-10">
+          <div className="grid grid-cols-1 max-sm:gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:items-center">
             {/* Left: tag + heading */}
             <div className="accent-line-left max-w-2xl">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, margin: "-100px" }}
+                viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
                 className="mb-2 mt-2 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.28em] text-foreground-muted sm:mb-3 sm:text-sm"
               >
@@ -166,7 +166,7 @@ export function Hero({
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, margin: "-100px" }}
+                viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
                 className="font-heading text-2xl font-semibold leading-[1.2] tracking-tight text-foreground sm:text-3xl md:text-4xl lg:text-5xl"
               >
@@ -175,11 +175,11 @@ export function Hero({
             </div>
 
             {/* Right: subtitle + buttons */}
-            <div className="flex flex-col items-start gap-4 lg:items-end lg:text-right">
+            <div className="flex flex-col items-start gap-3 lg:items-end lg:text-right">
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, margin: "-100px" }}
+                viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.5, delay: 0.25, ease: "easeOut" }}
                 className="max-w-xl text-sm leading-relaxed text-foreground-muted sm:mt-1 md:text-base"
               >
@@ -189,7 +189,7 @@ export function Hero({
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false, margin: "-100px" }}
+                viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.5, delay: 0.35, ease: "easeOut" }}
                 className="flex flex-wrap items-center gap-2 sm:gap-3 lg:justify-end"
               >

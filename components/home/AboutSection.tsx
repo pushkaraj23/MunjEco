@@ -14,7 +14,7 @@ export function AboutSection() {
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, margin: "-100px" }}
+        viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.5, ease: "easeOut" }}
         className="relative mx-auto flex max-w-6xl 2xl:max-w-7xl flex-col gap-12 px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14 lg:grid lg:grid-cols-[minmax(0,1.3fr)_minmax(0,1fr)]"
       >
@@ -23,7 +23,7 @@ export function AboutSection() {
           <motion.div
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, margin: "-100px" }}
+            viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="mb-6 inline-flex items-center gap-2 text-xs uppercase tracking-[0.3em] text-foreground-muted sm:text-sm"
           >
@@ -34,7 +34,7 @@ export function AboutSection() {
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, margin: "-100px" }}
+            viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="font-heading text-3xl font-semibold tracking-tight text-foreground md:text-4xl"
           >
@@ -44,7 +44,7 @@ export function AboutSection() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, margin: "-100px" }}
+            viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="mt-6 max-w-xl text-base leading-relaxed text-foreground-muted md:text-lg"
           >
@@ -56,7 +56,7 @@ export function AboutSection() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, margin: "-100px" }}
+            viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="mt-4 max-w-xl text-base leading-relaxed text-foreground-muted md:text-lg"
           >
@@ -71,7 +71,7 @@ export function AboutSection() {
           <motion.p
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, margin: "-100px" }}
+            viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="mt-6 inline-flex items-center gap-2 text-sm text-foreground-muted"
           >
@@ -82,7 +82,7 @@ export function AboutSection() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, margin: "-100px" }}
+            viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="mt-10"
           >
@@ -104,7 +104,7 @@ export function AboutSection() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, margin: "-100px" }}
+            viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="relative aspect-square w-full overflow-hidden rounded-xl"
           >
@@ -119,7 +119,7 @@ export function AboutSection() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: false, margin: "-100px" }}
+            viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="space-y-2"
           >

@@ -48,7 +48,7 @@ export function TestimonialsSection() {
         <motion.header
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, margin: "-100px" }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="mb-12 flex flex-col gap-3 md:flex-row md:items-end md:justify-between"
         >
@@ -70,7 +70,7 @@ export function TestimonialsSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, margin: "-100px" }}
+          viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="grid gap-8 md:grid-cols-3"
         >
@@ -79,7 +79,7 @@ export function TestimonialsSection() {
               key={t.author}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false, margin: "-100px" }}
+              viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5, delay: i * 0.08, ease: "easeOut" }}
             >
               <article className="flex h-full flex-col rounded-xl border border-white/20 bg-white/5 backdrop-blur-sm px-5 py-5 shadow-card transition-all duration-200 hover:-translate-y-1 hover:border-white/30 hover:bg-white/10 hover:shadow-lg">
