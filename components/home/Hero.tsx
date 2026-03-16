@@ -85,18 +85,6 @@ export function Hero({
             </div>
           ))}
         </motion.div>
-        {/* Floating badge over image */}
-        <motion.div
-          initial={{ opacity: 0, y: 12 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-          className="absolute left-4 top-4 flex items-center gap-1.5 rounded-full border border-white/30 bg-white/10 px-3 py-1.5 backdrop-blur-md sm:left-6 sm:top-6 sm:gap-2 sm:px-4 sm:py-2"
-        >
-          <Leaf className="h-3.5 w-3.5 text-primary-light sm:h-4 sm:w-4" strokeWidth={1.5} />
-          <span className="text-xs font-medium uppercase tracking-[0.18em] text-white sm:text-sm">
-            Natural • Responsible • Daily Use
-          </span>
-        </motion.div>
 
         {/* Slide indicator - theme colors */}
         <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">
