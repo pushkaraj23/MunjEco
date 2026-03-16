@@ -26,10 +26,10 @@ export function ProductCard({ product, index = 0 }: ProductCardProps) {
       viewport={{ once: true, margin: "-100px" }}
       transition={{ delay: index * 0.08, duration: 0.5, ease: "easeOut" }}
       whileHover={{ y: -6, transition: { duration: 0.25 } }}
-      className="group cursor-pointer overflow-hidden rounded-xl border border-border bg-background/40 backdrop-blur-sm transition-transform duration-300"
+      className="group cursor-pointer overflow-hidden rounded-xl border border-border bg-background/40 backdrop-blur-sm transition-transform duration-300 shadow-xl"
       onClick={handleCardClick}
     >
-      <div className="relative aspect-square overflow-hidden rounded-xl">
+      <div className="relative aspect-square overflow-hidden rounded-t-xl">
         <Image
           src={imageUrl}
           alt={product.name}

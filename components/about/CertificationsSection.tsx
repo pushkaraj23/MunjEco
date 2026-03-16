@@ -22,7 +22,7 @@ export function CertificationsSection() {
         alt=""
         placement="top-right"
         size="md"
-        className="opacity-30"
+        className="opacity-30 max-sm:hidden"
       />
       <DecoGraphic
         src="/graphics/img2-v0.png"
@@ -71,9 +71,6 @@ export function CertificationsSection() {
                   </li>
                 ))}
               </ul>
-              <p className="mt-6 text-sm font-medium leading-relaxed text-foreground md:text-base">
-                Every detail, meticulously handled — so your products reach the world with confidence.
-              </p>
             </div>
 
             <div className="relative min-w-0">

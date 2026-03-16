@@ -28,10 +28,10 @@ export function FeaturedProductCard({
         duration: 0.5,
         ease: "easeOut",
       }}
-      className="group relative flex h-full flex-col overflow-hidden rounded-xl bg-background text-left shadow-card"
+      className="group relative flex h-full flex-col overflow-hidden rounded-xl bg-background text-left shadow-xl"
     >
       {/* Image with soft gradient overlay */}
-      <div className="relative border-7 border-white/70 rounded-2xl aspect-square w-full overflow-hidden">
+      <div className="relative aspect-square w-full overflow-hidden">
         <img
           src={imageUrl}
           alt={product.name}

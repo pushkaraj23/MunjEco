@@ -46,7 +46,7 @@ export function ProductsPageContent({
   );
 
   return (
-    <main ref={ref} className="relative overflow-visible pt-16 md:pt-28 pb-12 md:pb-16">
+    <main ref={ref} className="relative overflow-visible pt-14 md:pt-16 pb-12 md:pb-16">
       <DecoGraphic src="/graphics/img2-v0.png" alt="" placement="bottom-left" size="md" className="opacity-25" />
       <DecoGraphic src="/graphics/img4-v0.png" alt="" placement="bottom-right" size="md" className="opacity-25" />
       <div className="relative mx-auto max-w-6xl 2xl:max-w-7xl px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14">
@@ -57,7 +57,7 @@ export function ProductsPageContent({
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="mb-10 flex flex-col gap-6 md:flex-row md:items-center md:justify-between md:gap-10"
+          className="mb-5 flex flex-col gap-6 md:flex-row md:items-center md:justify-between md:gap-10"
         >
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.3em] text-foreground-muted sm:text-sm">
@@ -91,15 +91,14 @@ export function ProductsPageContent({
             </div>
           ) : (
             groups.map((group) => (
-              <section key={group.key} className="space-y-4">
+              <section
+                key={group.key}
+                className="space-y-4 border-t border-border/60 pt-6 first:border-t-0 first:pt-0"
+              >
                 <div className="flex items-baseline justify-between gap-2">
-                  <h2 className="font-heading text-lg font-semibold tracking-tight text-foreground md:text-xl">
+                  <h2 className="inline-flex items-center rounded-full bg-primary px-4 py-2 text-[0.7rem] font-semibold uppercase tracking-[0.26em] text-white shadow-sm shadow-primary/30 sm:text-xs">
                     {group.label}
                   </h2>
-                  <span className="text-xs text-foreground-muted">
-                    {group.products.length} item
-                    {group.products.length === 1 ? "" : "s"}
-                  </span>
                 </div>
                 <ProductGrid products={group.products} />
               </section>

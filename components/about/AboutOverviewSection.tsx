@@ -16,6 +16,16 @@ export function AboutOverviewSection() {
           transition={{ duration: 0.5, ease: "easeOut" }}
           className="grid gap-10 border-t border-border/70 pt-10 md:grid-cols-2 md:items-center"
         >
+          <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-border/70 bg-background-alt shadow-card md:justify-self-start">
+            <Image
+              src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              alt="MunjEco products and handicrafts arranged for export"
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 32vw"
+            />
+          </div>
+
           <div className="flex flex-col gap-3 md:gap-4">
             <p className="text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-foreground-muted sm:text-xs">
               Who we are
@@ -32,16 +42,6 @@ export function AboutOverviewSection() {
             <p className="text-sm leading-relaxed text-foreground-muted md:text-base">
               Our approach is simple — conscious materials, ethical sourcing, consistent quality, and reliable delivery. Every product we export supports responsible livelihoods, reduced plastic use, and purposeful trade that respects both people and the planet.
             </p>
-          </div>
-
-          <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-border/70 bg-background-alt shadow-card md:justify-self-end">
-            <Image
-              src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-              alt="MunjEco products and handicrafts arranged for export"
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 32vw"
-            />
           </div>
         </motion.div>
       </div>

@@ -20,7 +20,7 @@ export function ManufacturingSection() {
         alt=""
         placement="bottom-right"
         size="md"
-        className="opacity-20"
+        className="opacity-20 max-sm:hidden"
       />
 
       <div className="mx-auto max-w-6xl 2xl:max-w-7xl px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14">
@@ -29,9 +29,9 @@ export function ManufacturingSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="grid gap-10 md:grid-cols-2 md:items-center"
+          className="flex flex-col-reverse gap-10 md:flex-row md:items-center"
         >
-          <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-border/70 bg-background-alt shadow-card">
+          <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-border/70 bg-background-alt shadow-card md:w-1/2">
             <Image
               src="https://images.unsplash.com/photo-1584473457406-6240486418e9?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
               alt="Manufacturing workspace with tools and sketches"
@@ -41,7 +41,7 @@ export function ManufacturingSection() {
             />
           </div>
 
-          <div className="flex flex-col gap-4 md:gap-5">
+          <div className="flex flex-col gap-4 md:gap-5 md:w-1/2">
             <p className="text-[0.7rem] font-semibold uppercase tracking-[0.3em] text-foreground-muted sm:text-xs">
               How we source
             </p>
@@ -75,11 +75,11 @@ export function ManufacturingSection() {
                 </motion.li>
               ))}
             </ul>
-            <p className="text-sm leading-relaxed text-foreground-muted md:text-base">
-              Through thoughtful sourcing and reliable production partners, we ensure our products meet the expectations of businesses seeking both quality and sustainability.
-            </p>
           </div>
         </motion.div>
+        <p className="text-sm leading-relaxed text-foreground-muted md:text-base mt-5">
+          Through thoughtful sourcing and reliable production partners, we ensure our products meet the expectations of businesses seeking both quality and sustainability.
+        </p>
       </div>
     </section>
   );

@@ -2,16 +2,20 @@
 
 import { useRef, useState } from "react";
 import Link from "next/link";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay } from "swiper/modules";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { ArrowLeft, ClipboardList, FileText, ShieldCheck, BadgeDollarSign, Truck, ChevronDown, Mail, Phone, Share2 } from "lucide-react";
 import { DecoGraphic } from "@/components/shared/DecoGraphic";
 import { ProductGallery } from "@/components/product/ProductGallery";
 import { EnquiryForm } from "@/components/shared/EnquiryForm";
+import { ProductCard } from "@/components/products/ProductCard";
 import type { Product } from "@/lib/types";
+import "swiper/css";
 
-type ProductDetailContentProps = { product: Product };
+type ProductDetailContentProps = { product: Product; recommended?: Product[] };
 
-export function ProductDetailContent({ product }: ProductDetailContentProps) {
+export function ProductDetailContent({ product, recommended = [] }: ProductDetailContentProps) {
   const ref = useRef<HTMLElement>(null);
   const [descOpen, setDescOpen] = useState(false);
   const [specsOpen, setSpecsOpen] = useState(false);
@@ -244,6 +248,46 @@ export function ProductDetailContent({ product }: ProductDetailContentProps) {
             <EnquiryForm defaultProduct={product.name} compact theme="light" layout="vertical" />
           </div>
         </motion.section>
+
+        {recommended.length > 0 && (
+          <motion.section
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ delay: 0.05, duration: 0.5, ease: "easeOut" }}
+            className="mt-14"
+          >
+            <div className="mb-6">
+              <p className="text-[0.65rem] font-medium uppercase tracking-[0.28em] text-foreground-muted">
+                Recommended products
+              </p>
+              <h2 className="mt-2 font-heading text-xl font-semibold tracking-tight text-foreground sm:text-2xl">
+                You may also like
+              </h2>
+            </div>
+            <div className="relative">
+              <Swiper
+                modules={[Autoplay]}
+                autoplay={{ delay: 4500, disableOnInteraction: false }}
+                spaceBetween={16}
+                slidesPerView={1.2}
+                breakpoints={{
+                  768: { slidesPerView: 2, spaceBetween: 20 },
+                  1024: { slidesPerView: 3, spaceBetween: 24 },
+                }}
+              >
+                {recommended.map((p, index) => (
+                  <SwiperSlide key={p.id}>
+                    <div className="h-full">
+                      <ProductCard product={p} index={index} />
+                    </div>
+                  </SwiperSlide>
+                ))}
+              </Swiper>
+              <div className="pointer-events-none absolute inset-y-3 right-0 w-16 bg-gradient-to-l from-background to-transparent hidden md:block" />
+            </div>
+          </motion.section>
+        )}
       </div>
     </main>
   );

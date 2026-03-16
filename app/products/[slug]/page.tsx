@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getProductBySlug } from "@/lib/getProducts";
+import { getProductBySlug, getProducts, getProductsByCategory } from "@/lib/getProducts";
 import { ProductDetailContent } from "@/components/product/ProductDetailContent";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -44,9 +44,18 @@ export default async function ProductPage({ params }: Props) {
   const product = await getProductBySlug(slug);
   if (!product) notFound();
 
+  const pool =
+    product.category && product.category.trim().length > 0
+      ? await getProductsByCategory(product.category)
+      : await getProducts();
+
+  const recommended = pool
+    .filter((p) => p.slug !== product.slug)
+    .slice(0, 3);
+
   return (
     <div className="min-h-screen bg-background">
-      <ProductDetailContent product={product} />
+      <ProductDetailContent product={product} recommended={recommended} />
     </div>
   );
 }

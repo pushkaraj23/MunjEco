@@ -27,7 +27,7 @@ export function CTASection({
 }: CTASectionProps) {
   return (
     <section
-      className="relative overflow-visible border-t border-border/70 bg-background pt-16 pb-20 md:py-28"
+      className="relative overflow-visible border-t border-border/70 bg-background pt-16 pb-16 md:py-18"
     >
       <DecoGraphic src="/graphics/img2-v0.png" alt="" placement="bottom-left" size="lg" className="opacity-25" />
       {/* <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-terracotta/18 to-transparent" />
@@ -85,7 +85,7 @@ export function CTASection({
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="relative"
           >
-            <div className="relative w-full border mt-4 border-border/70 bg-background-alt/55 backdrop-blur-sm px-6 py-8 sm:px-8 sm:py-9">
+            <div className="relative w-full border border-border/70 bg-background-alt/55 backdrop-blur-sm px-6 py-8 sm:px-8 sm:py-9">
               <div className="mb-6">
                 <h3 className="font-heading text-2xl font-semibold tracking-tight text-foreground md:text-3xl">
                   Request a quote

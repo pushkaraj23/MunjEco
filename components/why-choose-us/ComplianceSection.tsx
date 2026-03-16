@@ -22,7 +22,7 @@ export function ComplianceSection() {
         alt=""
         placement="top-right"
         size="md"
-        className="opacity-30"
+        className="opacity-30 max-sm:hidden"
       />
       <DecoGraphic
         src="/graphics/img2-v0.png"
@@ -47,17 +47,21 @@ export function ComplianceSection() {
                 Certifications & Export Compliance
               </p>
               <h2 className="mt-3 font-heading text-2xl font-semibold tracking-tight text-foreground sm:text-3xl md:text-3xl">
-                Global Certifications & Export Compliance
+                Certifications & Compliance
               </h2>
               <p className="mt-4 text-sm leading-relaxed text-foreground-muted md:text-base">
-              We partner with manufacturers who follow international standards while we manage the documentation and compliance checks, ensuring every consignment leaves India fully prepared for customs clearance, audits, and long-term global partnerships.
+                We collaborate with trusted manufacturing partners who follow responsible sourcing practices and established production standards. Our products are designed to meet global expectations for quality, durability, and environmental responsibility.
+              </p>
+
+              <p className="mt-4 text-sm leading-relaxed text-foreground-muted md:text-base">
+                We remain committed to continuous improvement and compliance with relevant international guidelines for sustainable trade.
               </p>
 
               <ul className="mt-6 space-y-3">
                 {compliancePoints.map((point) => (
                   <li
                     key={point}
-                    className="flex items-start gap-3 text-sm text-foreground-muted"
+                    className="flex items-start gap-3 text-sm text-foreground-muted md:text-base"
                   >
                     <CheckCircle2
                       className="mt-0.5 h-4 w-4 shrink-0 text-primary"
@@ -67,9 +71,6 @@ export function ComplianceSection() {
                   </li>
                 ))}
               </ul>
-              <p className="mt-6 text-sm font-medium leading-relaxed text-foreground md:text-base">
-                Every detail, meticulously handled — so your products reach the world with confidence.
-              </p>
             </div>
 
             <div className="relative min-w-0">

@@ -6,7 +6,7 @@ import { Sprout } from "lucide-react";
 
 export function AboutHeroSection() {
   return (
-    <section className="relative flex min-h-[60vh] items-center justify-center overflow-hidden pt-28 pb-16 md:min-h-[70vh] md:pt-32 md:pb-20">
+    <section className="relative flex min-h-[44vh] items-center justify-center overflow-hidden pt-20 pb-10 md:min-h-[70vh] md:pt-32 md:pb-20">
       {/* Background image - full cover */}
       <div className="absolute inset-0">
         <Image
@@ -17,7 +17,6 @@ export function AboutHeroSection() {
           sizes="100vw"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/0 to-background" />
       </div>
 
       {/* Overlaid content - horizontally centered */}
@@ -25,7 +24,7 @@ export function AboutHeroSection() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
-        className="relative z-10 mx-auto max-w-4xl px-6 rounded-xl border border-primary/30 bg-background/60 py-10 text-center shadow-lg backdrop-blur-md sm:px-8 md:px-10"
+        className="relative z-10 mx-6 max-w-4xl rounded-xl border border-primary/30 bg-background/80 px-6 py-9 text-center shadow-lg backdrop-blur-md sm:mx-8 sm:px-8 md:mx-auto md:px-10 md:py-10"
       >
         <div className="mb-4 inline-flex items-center justify-center gap-2 text-xs uppercase tracking-[0.3em] text-foreground-muted drop-shadow-sm sm:text-sm">
           <Sprout className="h-4 w-4 text-foreground-muted" strokeWidth={1.5} />

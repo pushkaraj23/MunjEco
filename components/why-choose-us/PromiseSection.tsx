@@ -5,13 +5,13 @@ import { DecoGraphic } from "@/components/shared/DecoGraphic";
 
 export function PromiseSection() {
   return (
-    <section className="relative overflow-visible bg-primary-dark text-white py-20">
+    <section className="relative overflow-visible bg-primary-dark text-white py-12 md:py-16">
       <DecoGraphic
         src="/graphics/img2-v0.png"
         alt=""
         placement="bottom-right"
         size="md"
-        className="opacity-25"
+        className="opacity-25 max-md:hidden"
       />
 
       <div className="mx-auto max-w-6xl 2xl:max-w-7xl px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14">

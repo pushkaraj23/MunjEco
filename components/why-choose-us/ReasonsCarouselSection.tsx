@@ -79,7 +79,7 @@ export function ReasonsCarouselSection() {
   }, []);
 
   return (
-    <section className="relative overflow-visible bg-gradient-to-b from-background via-background to-background-alt pb-20">
+    <section className="relative overflow-visible bg-gradient-to-b from-background via-background to-background-alt pb-7">
       <DecoGraphic
         src="/graphics/img2-v0.png"
         alt=""
@@ -93,8 +93,11 @@ export function ReasonsCarouselSection() {
 
         <div
           ref={trackRef}
-          className="mt-10 flex overflow-x-auto overflow-y-visible pt-2 pb-2 [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-muted/30 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-primary/40 [&::-webkit-scrollbar-thumb:hover]:bg-primary/60"
-          style={{ scrollbarWidth: "thin", scrollbarColor: "hsl(var(--primary) / 0.5) hsl(var(--muted) / 0.3)" }}
+          className="mt-10 flex overflow-x-auto overflow-y-visible pt-2 pb-2 max-md:[&::-webkit-scrollbar]:hidden md:[&::-webkit-scrollbar]:h-2 md:[&::-webkit-scrollbar-track]:rounded-full md:[&::-webkit-scrollbar-track]:bg-muted/30 md:[&::-webkit-scrollbar-thumb]:rounded-full md:[&::-webkit-scrollbar-thumb]:bg-primary/40 md:[&::-webkit-scrollbar-thumb:hover]:bg-primary/60"
+          style={{
+            scrollbarWidth: "none",
+            scrollbarColor: undefined,
+          }}
           onMouseEnter={() => setIsInteracting(true)}
           onMouseLeave={() => setIsInteracting(false)}
           onPointerDown={() => setIsInteracting(true)}

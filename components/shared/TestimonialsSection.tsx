@@ -29,7 +29,7 @@ const testimonials = [
 export function TestimonialsSection() {
   return (
     <section
-      className="relative overflow-visible border-t border-border/70 bg-primary py-20 text-white md:py-24"
+      className="relative overflow-visible border-t border-border/70 bg-primary py-16 text-white md:py-20"
     >
       <DecoGraphic src="/graphics/img5-v0.png" alt="" placement="top-right" size="md" className="opacity-25" />
       {/* Soft photographic background under the testimonial grid */}

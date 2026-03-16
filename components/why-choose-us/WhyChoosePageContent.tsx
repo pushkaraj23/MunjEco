@@ -311,9 +311,6 @@ export function WhyChoosePageContent() {
                 </li>
                 ))}
             </ul>
-            <p className="mt-6 text-sm font-medium leading-relaxed text-foreground md:text-base">
-              Every detail, meticulously handled — so your products reach the world with confidence.
-            </p>
             </div>
             <div className="mt-4 md:mt-0">
               <div className="relative aspect-[4/3] overflow-hidden rounded-xl border border-border/70 bg-background shadow-card">
