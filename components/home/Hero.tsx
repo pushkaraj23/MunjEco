@@ -42,7 +42,7 @@ export function Hero({
     <section className="relative flex flex-col overflow-hidden bg-background md:h-[100dvh]">
       {/* FULL WIDTH TOP IMAGE with branded overlay - compact for viewport fit */}
       <div
-        className="relative h-[55vh] shrink-0 w-full overflow-hidden"
+        className="relative h-[50vh] sm:h-[55vh] shrink-0 w-full overflow-hidden"
         onTouchStart={(e) => setTouchStartX(e.touches[0]?.clientX ?? null)}
         onTouchEnd={(e) => {
           if (touchStartX == null) return;
@@ -85,7 +85,6 @@ export function Hero({
             </div>
           ))}
         </motion.div>
-
         {/* Floating badge over image */}
         <motion.div
           initial={{ opacity: 0, y: 12 }}
@@ -143,21 +142,19 @@ export function Hero({
       {/* BOTTOM CONTENT SECTION - compact to fit viewport */}
       <motion.div
         initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
+        animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5, ease: "easeOut" }}
         className="relative flex min-h-0 flex-1 flex-col items-center justify-center overflow-visible border-t border-border/60 bg-background py-16 md:py-8 lg:py-10"
       >
         <DecoGraphic src="/graphics/img1-v0.png" alt="" placement="bottom-right" size="md" className="opacity-25 max-sm:hidden" />
         {/* <DecoGraphic src="/graphics/img3-v0.png" alt="" placement="bottom-left" size="sm" className="opacity-25" /> */}
         <div className="mx-auto w-full max-w-6xl 2xl:max-w-7xl px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14">
-          <div className="grid grid-cols-1 max-sm:gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:items-center">
+          <div className="grid grid-cols-1 max-sm:gap-2 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:items-center">
             {/* Left: tag + heading */}
             <div className="accent-line-left max-w-2xl">
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
                 className="mb-2 mt-2 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.28em] text-foreground-muted sm:mb-3 sm:text-sm"
               >
@@ -165,8 +162,7 @@ export function Hero({
               </motion.div>
               <motion.h1
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
                 className="font-heading text-2xl font-semibold leading-[1.2] tracking-tight text-foreground sm:text-3xl md:text-4xl lg:text-5xl"
               >
@@ -178,8 +174,7 @@ export function Hero({
             <div className="flex flex-col items-start gap-3 lg:items-end lg:text-right">
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.25, ease: "easeOut" }}
                 className="max-w-xl text-sm leading-relaxed text-foreground-muted sm:mt-1 md:text-base"
               >
@@ -188,14 +183,13 @@ export function Hero({
 
               <motion.div
                 initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: 0.35, ease: "easeOut" }}
-                className="flex flex-wrap items-center gap-2 sm:gap-3 lg:justify-end"
+                className="flex flex-wrap items-center gap-3 sm:gap-3 lg:justify-end"
               >
                 <Link
                   href={primaryHref}
-                  className="group inline-flex items-center justify-center gap-1.5 rounded-full bg-primary px-5 py-2.5 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-white shadow-lg shadow-primary/25 transition-all duration-200 hover:bg-primary-dark hover:shadow-xl hover:shadow-primary/30 sm:px-6 sm:py-3 sm:text-xs"
+                  className="group inline-flex items-center justify-center gap-1.5 rounded-full bg-primary px-5 py-3 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-white shadow-lg shadow-primary/25 transition-all duration-200 hover:bg-primary-dark hover:shadow-xl hover:shadow-primary/30 sm:px-6 sm:py-3 sm:text-xs"
                 >
                   {primaryCta}
                   <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" strokeWidth={2} />
@@ -204,7 +198,7 @@ export function Hero({
                 {showSecondary && (
                   <Link
                     href="/contact"
-                    className="inline-flex items-center bg-primary/10 justify-center rounded-full px-5 py-2.5 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-foreground transition-colors duration-200 hover:border-primary hover:text-accent sm:px-6 sm:py-3 backdrop-blur-sm sm:text-xs"
+                    className="inline-flex items-center bg-primary/10 justify-center rounded-full px-5 py-3 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-foreground transition-colors duration-200 hover:border-primary hover:text-accent sm:px-6 sm:py-3 backdrop-blur-sm sm:text-xs"
                   >
                     Request a Bulk Quote
                   </Link>
