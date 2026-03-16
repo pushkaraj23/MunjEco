@@ -8,8 +8,8 @@ import { DecoGraphic } from "@/components/shared/DecoGraphic";
 
 export function AboutSection() {
   return (
-    <section className="relative overflow-visible border-t border-border/60 bg-primary/10 py-24 md:py-28">
-      <DecoGraphic src="/graphics/img1-v0.png" alt="" placement="bottom-left" size="md" className="opacity-25" />
+    <section className="relative overflow-visible border-t border-border/60 bg-primary/10 py-16 md:py-28">
+      <DecoGraphic src="/graphics/img1-v0.png" alt="" placement="bottom-left" size="md" className="opacity-25 max-sm:hidden" />
       <DecoGraphic src="/graphics/img5-v0.png" alt="" placement="top-right" size="md" className="opacity-25" />
       <motion.div
         initial={{ opacity: 0, y: 20 }}

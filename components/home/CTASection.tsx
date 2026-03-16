@@ -27,7 +27,7 @@ export function CTASection({
 }: CTASectionProps) {
   return (
     <section
-      className="relative overflow-visible border-t border-border/70 bg-background py-24 md:py-28"
+      className="relative overflow-visible border-t border-border/70 bg-background pt-16 pb-20 md:py-28"
     >
       <DecoGraphic src="/graphics/img2-v0.png" alt="" placement="bottom-left" size="lg" className="opacity-25" />
       {/* <div className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-terracotta/18 to-transparent" />

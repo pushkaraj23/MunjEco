@@ -31,13 +31,13 @@ export function FeaturedProductCard({
       className="group relative flex h-full flex-col overflow-hidden rounded-xl border border-border/70 bg-background text-left shadow-card"
     >
       {/* Image with soft gradient overlay */}
-      <div className="relative h-52 overflow-hidden sm:h-56 md:h-60">
+      <div className="relative aspect-square w-full overflow-hidden">
         <img
           src={imageUrl}
           alt={product.name}
-          className="object-cover transition-transform duration-900 w-full h-[97%] ease-out group-hover:scale-[1.04]"
+          className="h-full w-full object-cover transition-transform duration-900 ease-out group-hover:scale-[1.04]"
         />
-        <div className="absolute h-full inset-0 bg-gradient-to-t from-background/95 via-background/40 to-transparent" />
+        {/* <div className="absolute h-full inset-0 bg-gradient-to-t from-background/0 to-transparent" /> */}
 
         <div className="absolute inset-x-4 bottom-4 flex items-center justify-between gap-3">
           <span className="inline-flex items-center rounded-full bg-primary/90 px-3 py-1 text-[0.68rem] font-semibold uppercase tracking-[0.22em] text-white/95">
