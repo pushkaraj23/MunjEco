@@ -14,7 +14,7 @@ const manufacturingItems = [
 
 export function ManufacturingSection() {
   return (
-    <section id="manufacturing" className="relative overflow-visible bg-background pb-20">
+    <section id="manufacturing" className="relative overflow-visible bg-background pb-10 md:pb-20">
       <DecoGraphic
         src="/graphics/img1-v0.png"
         alt=""

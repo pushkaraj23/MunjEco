@@ -16,7 +16,7 @@ const compliancePoints = [
 
 export function CertificationsSection() {
   return (
-    <section className="relative overflow-visible bg-primary/10 py-10 h-fit">
+    <section className="relative overflow-visible bg-primary/10 py-12 h-fit">
       <DecoGraphic
         src="/graphics/img4-v0.png"
         alt=""

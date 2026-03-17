@@ -16,6 +16,7 @@ type HeroProps = {
 };
 
 const HERO_IMAGES = [
+  "/banners/test.png",
   "https://images.unsplash.com/photo-1759523131742-af817477bcd9",
   "https://images.unsplash.com/photo-1545239351-1141bd82e8a6",
   "https://images.unsplash.com/photo-1519710164239-da123dc03ef4",
