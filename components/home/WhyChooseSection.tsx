@@ -68,7 +68,7 @@ export function WhyChooseSection() {
   }, []);
 
   return (
-    <section className="relative overflow-visible border-t border-border/70 bg-gradient-to-b from-background via-background to-background-alt py-16 md:py-32">
+    <section className="relative overflow-visible border-t border-border/70 bg-gradient-to-b from-background via-background to-background-alt pt-16 pb-10 md:py-24">
       <DecoGraphic
         src="/graphics/img2-v0.png"
         alt=""
