@@ -2,6 +2,8 @@ import { getCategories } from "@/lib/categories";
 import { AddCategoryForm } from "./AddCategoryForm";
 import { CategoriesList } from "./CategoriesList";
 
+export const dynamic = "force-dynamic";
+
 export default async function CategoriesPage() {
   const categories = await getCategories();
 

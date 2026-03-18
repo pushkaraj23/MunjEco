@@ -1,6 +1,8 @@
 import { getEnquiries } from "@/lib/getEnquiries";
 import { EnquiriesTable } from "./EnquiriesTable";
 
+export const dynamic = "force-dynamic";
+
 export default async function EnquiriesPage() {
   const enquiries = await getEnquiries();
 

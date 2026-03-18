@@ -3,6 +3,8 @@ import { getEnquiries } from "@/lib/getEnquiries";
 import { getCategories } from "@/lib/categories";
 import { getProducts } from "@/lib/getProducts";
 
+export const dynamic = "force-dynamic";
+
 export default async function AdminDashboardPage() {
   const [enquiries, categories, products] = await Promise.all([
     getEnquiries(100),

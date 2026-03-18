@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation";
 import { adminLogin } from "@/app/actions/adminAuth";
 import { Lock } from "lucide-react";
 
+export const dynamic = "force-dynamic";
+
 export default function AdminLoginPage() {
   const [error, setError] = useState<string | null>(null);
   const [isSubmitting, setIsSubmitting] = useState(false);

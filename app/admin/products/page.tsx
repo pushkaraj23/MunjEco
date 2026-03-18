@@ -3,6 +3,8 @@ import { getCategories } from "@/lib/categories";
 import { AddProductForm } from "./AddProductForm";
 import { ProductsList } from "./ProductsList";
 
+export const dynamic = "force-dynamic";
+
 export default async function ProductsPage() {
   const [products, categories] = await Promise.all([
     getProducts(),
