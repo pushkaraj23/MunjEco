@@ -95,7 +95,7 @@ export function Navbar() {
                   {categories.length > 0 && productsOpen && (
                     <div className="absolute left-0 top-full z-40 w-72 rounded-xl border border-border bg-background-alt/95 p-2 pt-3 text-left shadow-card backdrop-blur-sm">
                       <div className="flex flex-col gap-1">
-                        <Link href={"/products"} className="truncate px-3 py-2 text-center tracking-wider rounded-md text-sm font-semibold text-foreground hover:bg-background hover:text-foreground">All Categories</Link>
+                        <Link href={"/products"} className="truncate px-3 py-2 text-center rounded-md text-sm font-bold text-foreground hover:bg-background hover:text-foreground">All Categories</Link>
                         {categories.map((cat) => (
                           <Link
                             key={cat.id}

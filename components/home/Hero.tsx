@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight, ChevronLeft, ChevronRight, Leaf } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { DecoGraphic } from "@/components/shared/DecoGraphic";
 
 type HeroProps = {
@@ -40,22 +40,25 @@ export function Hero({
   }, []);
 
   return (
-    <section className="relative flex flex-col overflow-hidden bg-background md:h-[100dvh]">
-      {/* FULL WIDTH TOP IMAGE with branded overlay - compact for viewport fit */}
+    <section className="relative flex flex-col overflow-hidden bg-background h-[100dvh]">
+
+      {/* TOP IMAGE */}
       <div
-        className="relative h-[50vh] sm:h-[55vh] shrink-0 w-full overflow-hidden"
+        className="relative h-[55vh] w-full shrink-0 overflow-hidden"
         onTouchStart={(e) => setTouchStartX(e.touches[0]?.clientX ?? null)}
         onTouchEnd={(e) => {
           if (touchStartX == null) return;
           const deltaX = e.changedTouches[0]?.clientX - touchStartX;
           if (Math.abs(deltaX) < 40) return;
+
           if (deltaX > 0) {
             setActiveIndex((prev) =>
-              prev === 0 ? HERO_IMAGES.length - 1 : prev - 1,
+              prev === 0 ? HERO_IMAGES.length - 1 : prev - 1
             );
           } else {
             setActiveIndex((prev) => (prev + 1) % HERO_IMAGES.length);
           }
+
           setTouchStartX(null);
         }}
       >
@@ -74,120 +77,125 @@ export function Hero({
                 className="object-cover"
                 sizes="100vw"
               />
-              {/* Branded gradient overlay: Graphite → Pine Blue → Coral tint */}
-              {/* <div
-                className="absolute inset-0"
-                style={{
-                  background: "linear-gradient(160deg, rgba(57,57,58,0.4) 0%, rgba(41,115,115,0.25) 35%, rgba(255,133,82,0.08) 70%, transparent 100%)",
-                }}
-              /> */}
-              {/* Bottom fade for content flow */}
-              {/* <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/70 via-primary-dark/20 to-transparent" /> */}
             </div>
           ))}
         </motion.div>
 
-        {/* Slide indicator - theme colors */}
-        <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">
+        {/* Indicator */}
+        <div className="absolute bottom-[2vh] left-1/2 flex -translate-x-1/2 gap-2">
           {HERO_IMAGES.map((_, i) => (
             <button
               key={i}
               onClick={() => setActiveIndex(i)}
-              className={`rounded-full transition-all duration-300 ${
-                activeIndex === i
-                  ? "h-2 w-10 bg-background"
-                  : "h-2 w-8 bg-white/40 hover:bg-white/60"
-              }`}
-              aria-label={`Slide ${i + 1}`}
+              className={`rounded-full transition-all duration-300 ${activeIndex === i
+                ? "h-[0.7vh] w-[4.5vh] bg-background"
+                : "h-[0.7vh] w-[3.5vh] bg-white/40 hover:bg-white/60"
+                }`}
             />
           ))}
         </div>
 
-        {/* Arrow controls (hidden on phones) */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 translate-y-6 right-0 hidden items-center justify-between px-4 md:flex sm:px-6">
+        {/* Arrows */}
+        <div className="pointer-events-none absolute inset-y-0 left-0 right-0 hidden items-center justify-between px-[2vw] md:flex">
           <button
-            type="button"
             onClick={() =>
               setActiveIndex((prev) =>
-                prev === 0 ? HERO_IMAGES.length - 1 : prev - 1,
+                prev === 0 ? HERO_IMAGES.length - 1 : prev - 1
               )
             }
-            aria-label="Previous banner"
-            className="pointer-events-auto inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/30 bg-black/20 text-white/90 backdrop-blur-md transition-all duration-200 hover:bg-black/35 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30"
+            className="pointer-events-auto flex items-center justify-center h-[5.5vh] w-[5.5vh] rounded-full bg-black/30 text-white backdrop-blur-md transition-all hover:bg-black/40"
           >
-            <ChevronLeft className="h-5 w-5" strokeWidth={2} />
+            <ChevronLeft className="h-[2.4vh] w-[2.4vh]" />
           </button>
+
           <button
-            type="button"
-            onClick={() => setActiveIndex((prev) => (prev + 1) % HERO_IMAGES.length)}
-            aria-label="Next banner"
-            className="pointer-events-auto inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/30 bg-black/20 text-white/90 backdrop-blur-md transition-all duration-200 hover:bg-black/35 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30"
+            onClick={() =>
+              setActiveIndex((prev) => (prev + 1) % HERO_IMAGES.length)
+            }
+            className="pointer-events-auto flex items-center justify-center h-[5.5vh] w-[5.5vh] rounded-full bg-black/30 text-white backdrop-blur-md transition-all hover:bg-black/40"
           >
-            <ChevronRight className="h-5 w-5" strokeWidth={2} />
+            <ChevronRight className="h-[2.4vh] w-[2.4vh]" />
           </button>
         </div>
       </div>
 
-      {/* BOTTOM CONTENT SECTION - compact to fit viewport */}
+      {/* BOTTOM CONTENT */}
       <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
-        className="relative flex min-h-0 flex-1 flex-col items-center justify-center overflow-visible border-t border-border/60 bg-background py-16 md:py-8 lg:py-10"
+        initial={{ opacity: 0, y: "2vh" }}
+        animate={{ opacity: 1, y: "0vh" }}
+        transition={{ duration: 0.5 }}
+        className="relative flex h-[45vh] flex-col justify-center border-t border-border/60 bg-background"
       >
-        <DecoGraphic src="/graphics/img1-v0.png" alt="" placement="bottom-right" size="md" className="opacity-25 max-sm:hidden" />
-        {/* <DecoGraphic src="/graphics/img3-v0.png" alt="" placement="bottom-left" size="sm" className="opacity-25" /> */}
-        <div className="mx-auto w-full max-w-6xl 2xl:max-w-7xl px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14">
-          <div className="grid grid-cols-1 max-sm:gap-2 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:items-center">
-            {/* Left: tag + heading */}
-            <div className="accent-line-left max-w-2xl">
+        <DecoGraphic
+          src="/graphics/img1-v0.png"
+          alt=""
+          placement="bottom-right"
+          size="md"
+          className="opacity-25 max-sm:hidden"
+        />
+
+        <div className="mx-auto w-full max-w-6xl px-[4vw]">
+          <div className="grid grid-cols-1 gap-[0.5vh] md:gap-[2.5vh] lg:grid-cols-2 lg:items-center">
+
+            {/* LEFT */}
+            <div className="accent-line-left max-w-2xl space-y-[1vh] pt-1">
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.1, ease: "easeOut" }}
-                className="mb-2 mt-2 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-[0.28em] text-foreground-muted sm:mb-3 sm:text-sm"
+                initial={{ opacity: 0, y: "1vh" }}
+                animate={{ opacity: 1, y: "0vh" }}
+                className="text-[1.4vh] md:text-[1.8vh] uppercase tracking-[0.3em] text-foreground-muted"
               >
                 MunjEco Global
               </motion.div>
+
               <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
-                className="font-heading text-2xl font-semibold leading-[1.2] tracking-tight text-foreground sm:text-3xl md:text-4xl lg:text-5xl"
+                initial={{ opacity: 0, y: "1vh" }}
+                animate={{ opacity: 1, y: "0vh" }}
+                className="font-heading text-[3vh] leading-[1.2] font-semibold text-foreground md:text-[4.8vh] lg:text-[5.5vh]"
               >
                 {title}
               </motion.h1>
             </div>
 
-            {/* Right: subtitle + buttons */}
-            <div className="flex flex-col items-start gap-3 lg:items-end lg:text-right">
+            {/* RIGHT */}
+            <div className="flex flex-col gap-[2.2vh] lg:items-end lg:text-right">
               <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.25, ease: "easeOut" }}
-                className="max-w-xl text-sm leading-relaxed text-foreground-muted sm:mt-1 md:text-base"
+                initial={{ opacity: 0, y: "1vh" }}
+                animate={{ opacity: 1, y: "0vh" }}
+                className="max-w-xl text-[1.7vh] leading-relaxed text-foreground-muted md:text-[2.2vh]"
               >
                 {subtitle}
               </motion.p>
 
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: 0.35, ease: "easeOut" }}
-                className="flex flex-wrap items-center gap-3 sm:gap-3 lg:justify-end"
-              >
+              <motion.div className="flex flex-wrap max-sm:gap-[1.2vh] gap-[1.8vh] lg:justify-end">
+
+                {/* Primary Button */}
                 <Link
                   href={primaryHref}
-                  className="group inline-flex items-center justify-center gap-1.5 rounded-full bg-primary px-5 py-3 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-white shadow-lg shadow-primary/25 transition-all duration-200 hover:bg-primary-dark hover:shadow-xl hover:shadow-primary/30 sm:px-6 sm:py-3 sm:text-xs"
+                  className="group flex items-center gap-[1vh] rounded-full bg-primary px-[3.5vh] py-[1.7vh] text-[1.6vh] uppercase text-white 
+    shadow-[0_6px_20px_rgba(41,115,115,0.25)] 
+    transition-all duration-300 ease-out
+    hover:-translate-y-[0.3vh] hover:scale-[1.02] 
+    hover:bg-primary-dark 
+    hover:shadow-[0_12px_30px_rgba(41,115,115,0.35)]"
                 >
                   {primaryCta}
-                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" strokeWidth={2} />
+
+                  <ArrowRight
+                    className="h-[2vh] w-[2vh] transition-transform duration-300 group-hover:translate-x-[0.6vh]"
+                  />
                 </Link>
 
+                {/* Secondary Button */}
                 {showSecondary && (
                   <Link
                     href="/contact"
-                    className="inline-flex items-center bg-primary/10 justify-center rounded-full px-5 py-3 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-foreground transition-colors duration-200 hover:border-primary hover:text-accent sm:px-6 sm:py-3 backdrop-blur-sm sm:text-xs"
+                    className="group flex items-center justify-center rounded-full 
+      bg-primary/10 px-[3.5vh] py-[1.7vh] text-[1.6vh] uppercase text-foreground 
+      border border-primary/20 backdrop-blur-sm
+      transition-all duration-300 ease-out
+      hover:-translate-y-[0.2vh] hover:scale-[1.015]
+      hover:bg-primary/20 hover:border-primary/40
+      hover:shadow-[0_8px_25px_rgba(41,115,115,0.15)]"
                   >
                     Request a Bulk Quote
                   </Link>
