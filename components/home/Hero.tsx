@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight, ChevronLeft, ChevronRight, Leaf } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { DecoGraphic } from "@/components/shared/DecoGraphic";
 
 type HeroProps = {
@@ -15,11 +15,12 @@ type HeroProps = {
   showSecondary?: boolean;
 };
 
+/** Shown on viewports below `md` */
+const HERO_IMAGE_MOBILE = "https://firebasestorage.googleapis.com/v0/b/alpha-cbb3d.appspot.com/o/MunjEco-Temp%2FProduct%20Images%2FBanner%2F001.jpg?alt=media&token=99c65e0b-c4dd-4ec6-bf91-ce9ba3bc4887";
+
+/** Desktop carousel — first slide is the primary hero art */
 const HERO_IMAGES = [
-  "/banners/test.png",
-  "https://images.unsplash.com/photo-1759523131742-af817477bcd9",
-  "https://images.unsplash.com/photo-1545239351-1141bd82e8a6",
-  "https://images.unsplash.com/photo-1519710164239-da123dc03ef4",
+  "https://firebasestorage.googleapis.com/v0/b/alpha-cbb3d.appspot.com/o/MunjEco-Temp%2FProduct%20Images%2FBanner%2F01.jpg?alt=media&token=1ef1864b-1773-4161-a455-4e5eab912086",
 ];
 
 export function Hero({
@@ -33,98 +34,128 @@ export function Hero({
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
 
   useEffect(() => {
-    const id = setInterval(() => {
+    const mq = window.matchMedia("(min-width: 768px)");
+    let id: ReturnType<typeof setInterval> | undefined;
+
+    const tick = () => {
       setActiveIndex((prev) => (prev + 1) % HERO_IMAGES.length);
-    }, 7000);
-    return () => clearInterval(id);
+    };
+
+    const sync = () => {
+      if (id) clearInterval(id);
+      id = undefined;
+      if (!mq.matches || HERO_IMAGES.length <= 1) return;
+      id = setInterval(tick, 7000);
+    };
+
+    sync();
+    mq.addEventListener("change", sync);
+    return () => {
+      mq.removeEventListener("change", sync);
+      if (id) clearInterval(id);
+    };
   }, []);
 
   return (
     <section className="relative flex flex-col overflow-hidden bg-background md:h-[100dvh]">
       {/* FULL WIDTH TOP IMAGE with branded overlay - compact for viewport fit */}
-      <div
-        className="relative h-[50vh] sm:h-[55vh] shrink-0 w-full overflow-hidden"
-        onTouchStart={(e) => setTouchStartX(e.touches[0]?.clientX ?? null)}
-        onTouchEnd={(e) => {
-          if (touchStartX == null) return;
-          const deltaX = e.changedTouches[0]?.clientX - touchStartX;
-          if (Math.abs(deltaX) < 40) return;
-          if (deltaX > 0) {
-            setActiveIndex((prev) =>
-              prev === 0 ? HERO_IMAGES.length - 1 : prev - 1,
-            );
-          } else {
-            setActiveIndex((prev) => (prev + 1) % HERO_IMAGES.length);
-          }
-          setTouchStartX(null);
-        }}
-      >
-        <motion.div
-          className="flex h-full w-full"
-          animate={{ x: `-${activeIndex * 100}%` }}
-          transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        >
-          {HERO_IMAGES.map((src, index) => (
-            <div key={src} className="relative h-full w-full flex-shrink-0">
-              <Image
-                src={src}
-                alt="Sustainable Indian lifestyle products"
-                fill
-                priority={index === 0}
-                className="object-cover"
-                sizes="100vw"
-              />
-              {/* Branded gradient overlay: Graphite → Pine Blue → Coral tint */}
-              {/* <div
-                className="absolute inset-0"
-                style={{
-                  background: "linear-gradient(160deg, rgba(57,57,58,0.4) 0%, rgba(41,115,115,0.25) 35%, rgba(255,133,82,0.08) 70%, transparent 100%)",
-                }}
-              /> */}
-              {/* Bottom fade for content flow */}
-              {/* <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/70 via-primary-dark/20 to-transparent" /> */}
-            </div>
-          ))}
-        </motion.div>
-
-        {/* Slide indicator - theme colors */}
-        <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">
-          {HERO_IMAGES.map((_, i) => (
-            <button
-              key={i}
-              onClick={() => setActiveIndex(i)}
-              className={`rounded-full transition-all duration-300 ${
-                activeIndex === i
-                  ? "h-2 w-10 bg-background"
-                  : "h-2 w-8 bg-white/40 hover:bg-white/60"
-              }`}
-              aria-label={`Slide ${i + 1}`}
-            />
-          ))}
+      <div className="relative h-[50vh] sm:h-[55vh] shrink-0 w-full overflow-hidden">
+        {/* Phone: single hero image */}
+        <div className="relative h-full w-full md:hidden">
+          <Image
+            src={HERO_IMAGE_MOBILE}
+            alt="Sustainable Indian lifestyle products"
+            fill
+            priority
+            className="object-cover"
+            sizes="100vw"
+          />
         </div>
 
-        {/* Arrow controls (hidden on phones) */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 translate-y-6 right-0 hidden items-center justify-between px-4 md:flex sm:px-6">
-          <button
-            type="button"
-            onClick={() =>
+        {/* Tablet/desktop: carousel (first slide = /hero1.png) */}
+        <div
+          className="relative hidden h-full md:block"
+          onTouchStart={(e) => setTouchStartX(e.touches[0]?.clientX ?? null)}
+          onTouchEnd={(e) => {
+            if (HERO_IMAGES.length <= 1) return;
+            if (touchStartX == null) return;
+            const deltaX = e.changedTouches[0]?.clientX - touchStartX;
+            if (Math.abs(deltaX) < 40) return;
+            if (deltaX > 0) {
               setActiveIndex((prev) =>
                 prev === 0 ? HERO_IMAGES.length - 1 : prev - 1,
-              )
+              );
+            } else {
+              setActiveIndex((prev) => (prev + 1) % HERO_IMAGES.length);
             }
-            aria-label="Previous banner"
-            className="pointer-events-auto inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/30 bg-black/20 text-white/90 backdrop-blur-md transition-all duration-200 hover:bg-black/35 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30"
+            setTouchStartX(null);
+          }}
+        >
+          <motion.div
+            className="flex h-full w-full"
+            animate={{ x: `-${activeIndex * 100}%` }}
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
           >
-            <ChevronLeft className="h-5 w-5" strokeWidth={2} />
-          </button>
-          <button
-            type="button"
-            onClick={() => setActiveIndex((prev) => (prev + 1) % HERO_IMAGES.length)}
-            aria-label="Next banner"
-            className="pointer-events-auto inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/30 bg-black/20 text-white/90 backdrop-blur-md transition-all duration-200 hover:bg-black/35 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30"
-          >
-            <ChevronRight className="h-5 w-5" strokeWidth={2} />
-          </button>
+            {HERO_IMAGES.map((src, index) => (
+              <div key={src} className="relative h-full w-full flex-shrink-0">
+                <Image
+                  src={src}
+                  alt="Sustainable Indian lifestyle products"
+                  fill
+                  priority={index === 0}
+                  className="object-cover"
+                  sizes="100vw"
+                />
+              </div>
+            ))}
+          </motion.div>
+
+          {/* Slide indicator - theme colors */}
+          {HERO_IMAGES.length > 1 && (
+            <div className="absolute bottom-4 left-1/2 flex -translate-x-1/2 gap-2">
+              {HERO_IMAGES.map((_, i) => (
+                <button
+                  key={i}
+                  type="button"
+                  onClick={() => setActiveIndex(i)}
+                  className={`rounded-full transition-all duration-300 ${
+                    activeIndex === i
+                      ? "h-2 w-10 bg-background"
+                      : "h-2 w-8 bg-white/40 hover:bg-white/60"
+                  }`}
+                  aria-label={`Slide ${i + 1}`}
+                />
+              ))}
+            </div>
+          )}
+
+          {/* Arrow controls — only when multiple slides */}
+          {HERO_IMAGES.length > 1 && (
+            <div className="pointer-events-none absolute inset-y-0 left-0 right-0 flex translate-y-6 items-center justify-between px-4 sm:px-6">
+              <button
+                type="button"
+                onClick={() =>
+                  setActiveIndex((prev) =>
+                    prev === 0 ? HERO_IMAGES.length - 1 : prev - 1,
+                  )
+                }
+                aria-label="Previous banner"
+                className="pointer-events-auto inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/30 bg-black/20 text-white/90 backdrop-blur-md transition-all duration-200 hover:bg-black/35 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30"
+              >
+                <ChevronLeft className="h-5 w-5" strokeWidth={2} />
+              </button>
+              <button
+                type="button"
+                onClick={() =>
+                  setActiveIndex((prev) => (prev + 1) % HERO_IMAGES.length)
+                }
+                aria-label="Next banner"
+                className="pointer-events-auto inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/30 bg-black/20 text-white/90 backdrop-blur-md transition-all duration-200 hover:bg-black/35 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30"
+              >
+                <ChevronRight className="h-5 w-5" strokeWidth={2} />
+              </button>
+            </div>
+          )}
         </div>
       </div>
 
