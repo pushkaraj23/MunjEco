@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
+import { ArrowRight, ChevronLeft, ChevronRight, Leaf } from "lucide-react";
 import { DecoGraphic } from "@/components/shared/DecoGraphic";
 
 type HeroProps = {
@@ -40,7 +40,7 @@ export function Hero({
   }, []);
 
   return (
-    <section className="relative flex flex-col overflow-hidden bg-background">
+    <section className="relative flex flex-col overflow-hidden bg-background md:h-[100dvh]">
       {/* FULL WIDTH TOP IMAGE with branded overlay - compact for viewport fit */}
       <div
         className="relative h-[50vh] sm:h-[55vh] shrink-0 w-full overflow-hidden"
@@ -74,6 +74,15 @@ export function Hero({
                 className="object-cover"
                 sizes="100vw"
               />
+              {/* Branded gradient overlay: Graphite → Pine Blue → Coral tint */}
+              {/* <div
+                className="absolute inset-0"
+                style={{
+                  background: "linear-gradient(160deg, rgba(57,57,58,0.4) 0%, rgba(41,115,115,0.25) 35%, rgba(255,133,82,0.08) 70%, transparent 100%)",
+                }}
+              /> */}
+              {/* Bottom fade for content flow */}
+              {/* <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/70 via-primary-dark/20 to-transparent" /> */}
             </div>
           ))}
         </motion.div>
@@ -84,17 +93,18 @@ export function Hero({
             <button
               key={i}
               onClick={() => setActiveIndex(i)}
-              className={`rounded-full transition-all duration-300 ${activeIndex === i
+              className={`rounded-full transition-all duration-300 ${
+                activeIndex === i
                   ? "h-2 w-10 bg-background"
                   : "h-2 w-8 bg-white/40 hover:bg-white/60"
-                }`}
+              }`}
               aria-label={`Slide ${i + 1}`}
             />
           ))}
         </div>
 
         {/* Arrow controls (hidden on phones) */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 right-0 translate-y-6 hidden items-center justify-between px-4 md:flex sm:px-6">
+        <div className="pointer-events-none absolute inset-y-0 left-0 translate-y-6 right-0 hidden items-center justify-between px-4 md:flex sm:px-6">
           <button
             type="button"
             onClick={() =>
@@ -109,9 +119,7 @@ export function Hero({
           </button>
           <button
             type="button"
-            onClick={() =>
-              setActiveIndex((prev) => (prev + 1) % HERO_IMAGES.length)
-            }
+            onClick={() => setActiveIndex((prev) => (prev + 1) % HERO_IMAGES.length)}
             aria-label="Next banner"
             className="pointer-events-auto inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/30 bg-black/20 text-white/90 backdrop-blur-md transition-all duration-200 hover:bg-black/35 hover:text-white focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30"
           >
@@ -127,13 +135,7 @@ export function Hero({
         transition={{ duration: 0.5, ease: "easeOut" }}
         className="relative flex min-h-0 flex-1 flex-col items-center justify-center overflow-visible border-t border-border/60 bg-background py-16 md:py-8 lg:py-10"
       >
-        <DecoGraphic
-          src="/graphics/img1-v0.png"
-          alt=""
-          placement="bottom-right"
-          size="md"
-          className="opacity-25 max-sm:hidden"
-        />
+        <DecoGraphic src="/graphics/img1-v0.png" alt="" placement="bottom-right" size="md" className="opacity-25 max-sm:hidden" />
         {/* <DecoGraphic src="/graphics/img3-v0.png" alt="" placement="bottom-left" size="sm" className="opacity-25" /> */}
         <div className="mx-auto w-full max-w-6xl 2xl:max-w-7xl px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14">
           <div className="grid grid-cols-1 max-sm:gap-2 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:items-center">
@@ -179,16 +181,13 @@ export function Hero({
                   className="group inline-flex items-center justify-center gap-1.5 rounded-full bg-primary px-5 py-3 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-white shadow-lg shadow-primary/25 transition-all duration-200 hover:bg-primary-dark hover:shadow-xl hover:shadow-primary/30 sm:px-6 sm:py-3 sm:text-xs"
                 >
                   {primaryCta}
-                  <ArrowRight
-                    className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5"
-                    strokeWidth={2}
-                  />
+                  <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-0.5" strokeWidth={2} />
                 </Link>
 
                 {showSecondary && (
                   <Link
                     href="/contact"
-                    className="inline-flex items-center justify-center rounded-full bg-primary/10 px-5 py-3 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-foreground backdrop-blur-sm transition-colors duration-200 hover:border-primary hover:text-accent sm:px-6 sm:py-3 sm:text-xs"
+                    className="inline-flex items-center bg-primary/10 justify-center rounded-full px-5 py-3 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-foreground transition-colors duration-200 hover:border-primary hover:text-accent sm:px-6 sm:py-3 backdrop-blur-sm sm:text-xs"
                   >
                     Request a Bulk Quote
                   </Link>

@@ -6,7 +6,7 @@ import { DecoGraphic } from "@/components/shared/DecoGraphic";
 
 export function FounderNoteSection() {
   return (
-    <section className="relative overflow-visible bg-background pb-10 md:pb-20">
+    <section className="relative overflow-visible bg-background pb-20">
       <DecoGraphic
         src="/graphics/img5-v0.png"
         alt=""

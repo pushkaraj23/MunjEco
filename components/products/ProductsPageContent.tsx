@@ -3,15 +3,12 @@
 import { useRef } from "react";
 import {
   motion,
-  useScroll,
-  useTransform,
-  useSpring,
   type Variants,
+  AnimatePresence,
 } from "framer-motion";
 import { DecoGraphic } from "@/components/shared/DecoGraphic";
 import { ProductGrid } from "@/components/products/ProductGrid";
 import { ProductsClient } from "./ProductsClient";
-import { AnimatePresence } from "framer-motion";
 import type { Product } from "@/lib/types";
 
 type Category = {
@@ -37,29 +34,6 @@ export function ProductsPageContent({
   selectedCategory,
 }: ProductsPageContentProps) {
   const ref = useRef<HTMLElement | null>(null);
-
-  /**
-   * 🔥 Scroll tracking
-   */
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
-
-  /**
-   * ✅ Smooth scroll (removes jitter)
-   */
-  const smoothScroll = useSpring(scrollYProgress, {
-    stiffness: 80,
-    damping: 20,
-    mass: 0.3,
-  });
-
-  /**
-   * ✅ Subtle parallax (premium feel)
-   */
-  const headerY = useTransform(smoothScroll, [0, 1], [20, -30]);
-  const gridY = useTransform(smoothScroll, [0, 1], [30, -40]);
 
   /**
    * ✅ Safe category handling
@@ -127,7 +101,6 @@ export function ProductsPageContent({
 
         {/* 🔹 HEADER */}
         <motion.div
-          style={{ y: headerY }}
           variants={fadeUp}
           initial="hidden"
           animate="visible"
@@ -153,8 +126,7 @@ export function ProductsPageContent({
         {/* 🔹 PRODUCT GROUPS */}
         <AnimatePresence mode="wait">
           <motion.div
-            key={selectedCategory} // 🔥 IMPORTANT FIX
-            style={{ y: gridY }}
+            key={selectedCategory}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -10 }}
@@ -180,10 +152,10 @@ export function ProductsPageContent({
                   <div className="relative w-full pb-8">
 
                     <div className="relative flex items-center gap-4">
-                      <span className="h-6 w-[3px] rounded-full bg-gradient-to-b from-primary/80 to-primary/30" />
-                      <h2 className="relative inline-flex items-center rounded-full bg-background/80 px-5 py-2 text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-primary backdrop-blur-md border border-primary/20 shadow-[0_4px_20px_rgba(0,0,0,0.25)] sm:text-xs">
+                      <span className="h-10 w-0.75 rounded-full bg-linear-to-b from-primary/80 to-primary/30" />
+                      <h2 className="relative inline-flex items-center w-full rounded-full bg-primary/80 px-5 py-3 text-[0.65rem] font-semibold uppercase tracking-[0.28em] text-primary backdrop-blur-md border border-primary/20 shadow-[0_4px_20px_rgba(0,0,0,0.25)] sm:text-xs">
                         <span className="absolute inset-0 rounded-full bg-primary/10 blur-md opacity-40"></span>
-                        <span className="relative z-10">
+                        <span className="relative text-background z-10">
                           {group.label}
                         </span>
                       </h2>
@@ -197,7 +169,8 @@ export function ProductsPageContent({
                   </motion.div>
                 </motion.section>
               ))
-            )}  </motion.div>
+            )}
+          </motion.div>
         </AnimatePresence>
       </div>
     </main>

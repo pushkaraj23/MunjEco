@@ -3,9 +3,11 @@
 import Link from "next/link";
 import { Facebook, Linkedin } from "lucide-react";
 
-const LINKEDIN_LINK = "https://www.linkedin.com/company/munjecoglobal";
-const INSTAGRAM_LINK = "https://instagram.com/munjecoglobal";
-const FACEBOOK_LINK = "https://www.facebook.com/munjecoglobal";
+const LINKEDIN_LINK =
+  "https://www.linkedin.com/in/munjeco-global-3347a73a2/";
+const INSTAGRAM_LINK = "https://www.instagram.com/munjeco_global/";
+const FACEBOOK_LINK =
+  "https://www.facebook.com/profile.php?id=61586897496395";
 
 function InstagramIcon({ className }: { className?: string }) {
   return (

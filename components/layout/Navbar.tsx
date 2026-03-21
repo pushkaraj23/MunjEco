@@ -84,10 +84,11 @@ export function Navbar() {
                 >
                   <Link
                     href={link.href}
-                    className={`relative inline-flex items-center rounded-full px-3 py-1.5 text-xs font-medium uppercase tracking-[0.22em] transition-colors duration-200 ${active
-                      ? "bg-primary/12 text-primary"
-                      : "text-foreground-muted hover:text-foreground hover:bg-primary/5"
-                      }`}
+                    className={`relative inline-flex items-center rounded-full px-3 py-1.5 text-xs font-medium uppercase tracking-[0.22em] transition-colors duration-200 ${
+                      active
+                        ? "bg-primary/12 text-primary"
+                        : "text-foreground-muted hover:text-foreground hover:bg-primary/5"
+                    }`}
                   >
                     <span>{link.label}</span>
                   </Link>
@@ -95,7 +96,6 @@ export function Navbar() {
                   {categories.length > 0 && productsOpen && (
                     <div className="absolute left-0 top-full z-40 w-72 rounded-xl border border-border bg-background-alt/95 p-2 pt-3 text-left shadow-card backdrop-blur-sm">
                       <div className="flex flex-col gap-1">
-                        <Link href={"/products"} className="truncate px-3 py-2 text-center rounded-md text-sm font-bold text-foreground hover:bg-background hover:text-foreground">All Categories</Link>
                         {categories.map((cat) => (
                           <Link
                             key={cat.id}
@@ -129,10 +129,11 @@ export function Navbar() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`relative inline-flex items-center rounded-full px-3 py-1.5 text-xs font-medium uppercase tracking-[0.22em] transition-colors duration-200 ${active
-                  ? "bg-primary/12 text-primary"
-                  : "text-foreground-muted hover:text-foreground hover:bg-primary/5"
-                  }`}
+                className={`relative inline-flex items-center rounded-full px-3 py-1.5 text-xs font-medium uppercase tracking-[0.22em] transition-colors duration-200 ${
+                  active
+                    ? "bg-primary/12 text-primary"
+                    : "text-foreground-muted hover:text-foreground hover:bg-primary/5"
+                }`}
               >
                 <span>{link.label}</span>
               </Link>
@@ -140,10 +141,11 @@ export function Navbar() {
           })}
           <Link
             href="/contact"
-            className={`inline-flex items-center justify-center rounded-full border px-5 py-2 text-xs font-medium uppercase tracking-[0.22em] transition-colors duration-200 ${isActive("/contact")
-              ? "border-primary bg-primary text-white hover:bg-primary-dark hover:border-primary-dark"
-              : "border-foreground text-foreground hover:bg-foreground hover:text-background"
-              }`}
+            className={`inline-flex items-center justify-center rounded-full border px-5 py-2 text-xs font-medium uppercase tracking-[0.22em] transition-colors duration-200 ${
+              isActive("/contact")
+                ? "border-primary bg-primary text-white hover:bg-primary-dark hover:border-primary-dark"
+                : "border-foreground text-foreground hover:bg-foreground hover:text-background"
+            }`}
           >
             Contact Us
           </Link>
@@ -183,10 +185,11 @@ export function Navbar() {
                       key={link.href}
                       href={link.href}
                       onClick={() => setMobileOpen(false)}
-                      className={`flex items-center justify-between border-b border-border/60 py-2 text-xs font-medium uppercase tracking-[0.18em] last:border-b-0 sm:text-sm transition-colors duration-200 ${isActive(link.href)
-                        ? "bg-primary/10 text-primary"
-                        : "text-foreground-muted hover:text-foreground"
-                        }`}
+                      className={`flex items-center justify-between border-b border-border/60 py-2 text-xs font-medium uppercase tracking-[0.18em] last:border-b-0 sm:text-sm transition-colors duration-200 ${
+                        isActive(link.href)
+                          ? "bg-primary/10 text-primary"
+                          : "text-foreground-muted hover:text-foreground"
+                      }`}
                     >
                       <span>{link.label}</span>
                     </Link>
@@ -194,10 +197,11 @@ export function Navbar() {
                   <Link
                     href="/contact"
                     onClick={() => setMobileOpen(false)}
-                    className={`mt-3 inline-flex items-center justify-center rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] sm:text-sm transition-colors duration-200 ${isActive("/contact")
-                      ? "border-primary bg-primary text-white hover:bg-primary-dark hover:border-primary-dark"
-                      : "border-foreground text-foreground hover:bg-foreground hover:text-background"
-                      }`}
+                    className={`mt-3 inline-flex items-center justify-center rounded-full border px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] sm:text-sm transition-colors duration-200 ${
+                      isActive("/contact")
+                        ? "border-primary bg-primary text-white hover:bg-primary-dark hover:border-primary-dark"
+                        : "border-foreground text-foreground hover:bg-foreground hover:text-background"
+                    }`}
                   >
                     Contact Us
                   </Link>

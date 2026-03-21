@@ -6,7 +6,7 @@ import { DecoGraphic } from "@/components/shared/DecoGraphic";
 
 export function AboutOverviewSection() {
   return (
-    <section className="relative overflow-visible bg-background py-10 md:py-16">
+    <section className="relative overflow-visible bg-background pb-20">
 
       <div className="mx-auto max-w-6xl 2xl:max-w-7xl px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14">
         <motion.div
@@ -14,7 +14,7 @@ export function AboutOverviewSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.5, ease: "easeOut" }}
-          className="grid gap-10 md:grid-cols-2 md:items-center"
+          className="grid gap-10 border-t border-border/70 pt-10 md:grid-cols-2 md:items-center"
         >
           <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-border/70 bg-background-alt shadow-card md:justify-self-start">
             <Image
