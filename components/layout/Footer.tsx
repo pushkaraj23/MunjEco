@@ -6,6 +6,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { Mail, Phone, ArrowRight } from "lucide-react";
 import { DecoGraphic } from "@/components/shared/DecoGraphic";
+import { SOCIAL_LINKS } from "@/components/shared/socialLinks";
 import type { Category } from "@/lib/categories";
 import { getCategories } from "@/lib/categories";
 
@@ -89,6 +90,20 @@ export function Footer() {
               Request a Quote
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" strokeWidth={2} />
             </Link>
+            <div className="mt-8 flex flex-wrap items-center gap-3">
+              {SOCIAL_LINKS.map(({ href, label, icon: Icon }) => (
+                <Link
+                  key={label}
+                  href={href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/25 bg-white/5 text-white/90 transition-all duration-200 hover:border-primary-light/50 hover:bg-white/10 hover:text-white"
+                  aria-label={label}
+                >
+                  <Icon className="h-5 w-5" />
+                </Link>
+              ))}
+            </div>
           </motion.div>
 
           {/* Link columns */}
