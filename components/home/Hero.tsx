@@ -92,7 +92,7 @@ type HeroProps = {
 /** Desktop carousel — viewports `md` and up */
 const HERO_IMAGES = [
   "https://firebasestorage.googleapis.com/v0/b/alpha-cbb3d.appspot.com/o/MunjEco-Temp%2FProduct%20Images%2FBanner%2F03.jpeg?alt=media&token=61ae007d-0373-4fe3-9fed-97f9d1e9d9fa",
-  "https://firebasestorage.googleapis.com/v0/b/alpha-cbb3d.appspot.com/o/MunjEco-Temp%2FProduct%20Images%2FBanner%2F04.jpg?alt=media&token=a01ddb10-d12d-4680-b912-621305126ad6",
+  "https://firebasestorage.googleapis.com/v0/b/alpha-cbb3d.appspot.com/o/MunjEco-Temp%2FProduct%20Images%2FBanner%2F04.jpg.jpeg?alt=media&token=781b1710-421c-44ea-ab93-fdb10af6ce1c",
   "https://firebasestorage.googleapis.com/v0/b/alpha-cbb3d.appspot.com/o/MunjEco-Temp%2FProduct%20Images%2FBanner%2F05.jpg.jpeg?alt=media&token=74d1abc7-5c27-494d-8b18-031ad797fd11",
   "https://firebasestorage.googleapis.com/v0/b/alpha-cbb3d.appspot.com/o/MunjEco-Temp%2FProduct%20Images%2FBanner%2F01.jpg?alt=media&token=1ef1864b-1773-4161-a455-4e5eab912086",
   "https://firebasestorage.googleapis.com/v0/b/alpha-cbb3d.appspot.com/o/MunjEco-Temp%2FProduct%20Images%2FBanner%2F02.jpg?alt=media&token=01741d85-3bcf-4a94-a604-5aa41e8ccfcc",
