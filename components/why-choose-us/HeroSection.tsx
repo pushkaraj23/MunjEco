@@ -9,7 +9,7 @@ export function HeroSection() {
       {/* Background image - full cover */}
       <div className="absolute inset-0">
         <Image
-          src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+          src="https://firebasestorage.googleapis.com/v0/b/alpha-cbb3d.appspot.com/o/MunjEco-Temp%2FWhy%20Choose%20Us%20Page%2Fbanner.jpg?alt=media&token=ab07c0f7-ff7e-4801-ab7a-e03b65d22799"
           alt=""
           fill
           className="object-cover"
@@ -32,7 +32,7 @@ export function HeroSection() {
           Why Global Business Partners<br className="max-sm:hidden" />Work With Us
         </h1>
         <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-foreground-muted drop-shadow-sm md:text-base">
-          Natural, responsible and export‑ready — MunjEco Global connects
+          Natural, responsible and export‑ready, MunjEco Global connects
           Indian craftsmanship and sustainable products with buyers across
           the world.
         </p>

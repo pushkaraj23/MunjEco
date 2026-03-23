@@ -30,7 +30,7 @@ export function PromiseSection() {
               Quality products. Ethical sourcing. Sustainable choices.
             </h2>
             <p className="mt-4 text-sm leading-relaxed text-white/85 md:text-base">
-              A reliable Indian export partner you can trust — committed to manufacturing‑grade quality, responsible supply chains, and long‑term relationships with our Business Partner.
+              A reliable Indian export partner you can trust, committed to manufacturing‑grade quality, responsible supply chains, and long‑term relationships with our Business Partner.
             </p>
           </div>
         </motion.div>

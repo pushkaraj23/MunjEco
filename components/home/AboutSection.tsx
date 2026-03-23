@@ -48,7 +48,7 @@ export function AboutSection() {
             transition={{ duration: 0.5, ease: "easeOut" }}
             className="mt-6 max-w-xl text-base leading-relaxed text-foreground-muted md:text-lg"
           >
-            MunjEco Global was born from a simple belief — that business can grow
+            MunjEco Global was born from a simple belief, that business can grow
             without harming the earth, and trade can uplift lives rather than
             exploit them.
           </motion.p>
@@ -109,7 +109,7 @@ export function AboutSection() {
             className="relative aspect-square w-full overflow-hidden rounded-xl"
           >
             <Image
-              src="https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src="https://firebasestorage.googleapis.com/v0/b/alpha-cbb3d.appspot.com/o/MunjEco-Temp%2FWhy-Choose-Us%2F001.jpg?alt=media&token=c029238b-6940-4917-b553-b97301ca08fd"
               alt="Artful arrangement of natural materials"
               fill
               className="object-cover"

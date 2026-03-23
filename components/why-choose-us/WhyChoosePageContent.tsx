@@ -38,12 +38,12 @@ const reasons = [
   {
     icon: Globe2,
     title: "Global Trade Expertise",
-    body: "We understand Incoterms (FOB / CIF), customs documentation, and buyer expectations across UK, EU, and other global markets — helping you navigate trade with confidence.",
+    body: "We understand Incoterms (FOB / CIF), customs documentation, and buyer expectations across UK, EU, and other global markets, helping you navigate trade with confidence.",
   },
   {
     icon: Tags,
     title: "Flexible Bulk & Private Label",
-    body: "Bulk quantities, customized packaging, or private labelling — we offer flexible solutions tailored to your brand and business needs.",
+    body: "Bulk quantities, customized packaging, or private labelling, we offer flexible solutions tailored to your brand and business needs.",
   },
   {
     icon: Handshake,

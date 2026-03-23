@@ -55,15 +55,13 @@ function HeroBannerImage({
 }) {
   return (
     <div
-      className={`relative isolate w-full overflow-hidden ${
-        !loaded ? "min-h-[min(42vh,520px)] sm:min-h-[min(44vh,560px)] md:min-h-[min(46vh,600px)]" : ""
-      }`}
+      className={`relative isolate w-full overflow-hidden ${!loaded ? "min-h-[min(42vh,520px)] sm:min-h-[min(44vh,560px)] md:min-h-[min(46vh,600px)]" : ""
+        }`}
     >
       <div
         aria-hidden
-        className={`absolute inset-0 z-10 transition-opacity duration-700 ease-out ${
-          loaded ? "pointer-events-none opacity-0" : "opacity-100"
-        }`}
+        className={`absolute inset-0 z-10 transition-opacity duration-700 ease-out ${loaded ? "pointer-events-none opacity-0" : "opacity-100"
+          }`}
       >
         <HeroImageSkeleton />
       </div>
@@ -71,9 +69,8 @@ function HeroBannerImage({
       <img
         src={src}
         alt={alt}
-        className={`relative z-0 block h-auto w-full max-w-none align-middle transition-opacity duration-700 ease-out ${
-          loaded ? "opacity-100" : "opacity-0"
-        }`}
+        className={`relative z-0 block h-auto w-full max-w-none align-middle transition-opacity duration-700 ease-out ${loaded ? "opacity-100" : "opacity-0"
+          }`}
         loading={priority ? "eager" : "lazy"}
         fetchPriority={priority ? "high" : "low"}
         decoding="async"
@@ -94,20 +91,20 @@ type HeroProps = {
 
 /** Desktop carousel — viewports `md` and up */
 const HERO_IMAGES = [
-  "https://firebasestorage.googleapis.com/v0/b/alpha-cbb3d.appspot.com/o/MunjEco-Temp%2FProduct%20Images%2FBanner%2F01.jpg?alt=media&token=1ef1864b-1773-4161-a455-4e5eab912086",
-  "https://firebasestorage.googleapis.com/v0/b/alpha-cbb3d.appspot.com/o/MunjEco-Temp%2FProduct%20Images%2FBanner%2F02.jpg?alt=media&token=01741d85-3bcf-4a94-a604-5aa41e8ccfcc",
   "https://firebasestorage.googleapis.com/v0/b/alpha-cbb3d.appspot.com/o/MunjEco-Temp%2FProduct%20Images%2FBanner%2F03.jpeg?alt=media&token=61ae007d-0373-4fe3-9fed-97f9d1e9d9fa",
   "https://firebasestorage.googleapis.com/v0/b/alpha-cbb3d.appspot.com/o/MunjEco-Temp%2FProduct%20Images%2FBanner%2F04.jpg?alt=media&token=a01ddb10-d12d-4680-b912-621305126ad6",
   "https://firebasestorage.googleapis.com/v0/b/alpha-cbb3d.appspot.com/o/MunjEco-Temp%2FProduct%20Images%2FBanner%2F05.jpg?alt=media&token=8db97c52-31b5-4765-ad00-f18b83b0cea5",
+  "https://firebasestorage.googleapis.com/v0/b/alpha-cbb3d.appspot.com/o/MunjEco-Temp%2FProduct%20Images%2FBanner%2F01.jpg?alt=media&token=1ef1864b-1773-4161-a455-4e5eab912086",
+  "https://firebasestorage.googleapis.com/v0/b/alpha-cbb3d.appspot.com/o/MunjEco-Temp%2FProduct%20Images%2FBanner%2F02.jpg?alt=media&token=01741d85-3bcf-4a94-a604-5aa41e8ccfcc",
 ];
 
 /** Mobile carousel — viewports below `md` (edit URLs independently of desktop) */
 const HERO_IMAGES_MOBILE = [
-  "https://firebasestorage.googleapis.com/v0/b/alpha-cbb3d.appspot.com/o/MunjEco-Temp%2FProduct%20Images%2FBanner%2F001.jpg?alt=media&token=99c65e0b-c4dd-4ec6-bf91-ce9ba3bc4887",
-  "https://firebasestorage.googleapis.com/v0/b/alpha-cbb3d.appspot.com/o/MunjEco-Temp%2FProduct%20Images%2FBanner%2F002.jpg?alt=media&token=12b0c173-b1c9-4eb9-b747-4a837586e0f3",
   "https://firebasestorage.googleapis.com/v0/b/alpha-cbb3d.appspot.com/o/MunjEco-Temp%2FProduct%20Images%2FBanner%2F003.jpg?alt=media&token=a857981b-6073-46ea-a501-5060c8306e7e",
   "https://firebasestorage.googleapis.com/v0/b/alpha-cbb3d.appspot.com/o/MunjEco-Temp%2FProduct%20Images%2FBanner%2F004.jpg?alt=media&token=6897edcd-59f7-4a8f-a713-6a7d5353e248",
-  "https://firebasestorage.googleapis.com/v0/b/alpha-cbb3d.appspot.com/o/MunjEco-Temp%2FProduct%20Images%2FBanner%2F005.jpg?alt=media&token=a8096707-cf31-4719-9016-7f4bd0618e7c"
+  "https://firebasestorage.googleapis.com/v0/b/alpha-cbb3d.appspot.com/o/MunjEco-Temp%2FProduct%20Images%2FBanner%2F005.jpg?alt=media&token=a8096707-cf31-4719-9016-7f4bd0618e7c",
+  "https://firebasestorage.googleapis.com/v0/b/alpha-cbb3d.appspot.com/o/MunjEco-Temp%2FProduct%20Images%2FBanner%2F001.jpg?alt=media&token=99c65e0b-c4dd-4ec6-bf91-ce9ba3bc4887",
+  "https://firebasestorage.googleapis.com/v0/b/alpha-cbb3d.appspot.com/o/MunjEco-Temp%2FProduct%20Images%2FBanner%2F002.jpg?alt=media&token=12b0c173-b1c9-4eb9-b747-4a837586e0f3",
 ];
 
 export function Hero({
@@ -237,8 +234,8 @@ export function Hero({
                   type="button"
                   onClick={() => setMobileActiveIndex(i)}
                   className={`rounded-full transition-all duration-300 ${mobileActiveIndex === i
-                      ? "h-2 w-10 bg-background"
-                      : "h-2 w-8 bg-white/40 hover:bg-white/60"
+                    ? "h-2 w-10 bg-background"
+                    : "h-2 w-8 bg-white/40 hover:bg-white/60"
                     }`}
                   aria-label={`Slide ${i + 1}`}
                 />

@@ -38,7 +38,7 @@ export function SustainabilityPromiseSection() {
             </div>
 
             <h2 className="mt-5 font-heading text-3xl font-semibold tracking-tight md:text-4xl">
-              More than products — a promise to the planet.
+              More than products, a promise to the planet.
             </h2>
           </div>
 

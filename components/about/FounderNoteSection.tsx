@@ -31,14 +31,14 @@ export function FounderNoteSection() {
               A business rooted in people and planet.
             </h2>
             <p className="text-sm leading-relaxed text-foreground-muted md:text-base">
-              MunjEco Global was born from a simple belief — that business can grow
+              MunjEco Global was born from a simple belief,  that business can grow
               without harming the earth, and trade can uplift lives rather than exploit
               them. As a mother and a trekker, I have seen the impact of plastic on our
               mountains, forests, and everyday life. I started this journey to create a
               more conscious future for my child and for the planet we share.
             </p>
             <p className="text-sm leading-relaxed text-foreground-muted md:text-base">
-              This is not just a business — it is a commitment to people, planet, and
+              This is not just a business,  it is a commitment to people, planet, and
               mindful global trade.
             </p>
             <div className="mt-4 border-l-2 border-primary pl-4">
@@ -52,7 +52,7 @@ export function FounderNoteSection() {
           <div className="relative mt-4 aspect-square w-full overflow-hidden rounded-2xl border border-border/70 bg-background shadow-card md:mt-0 md:justify-self-end">
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-black/15 to-transparent" />
             <Image
-              src="https://images.unsplash.com/photo-1545239351-1141bd82e8a6?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src="https://firebasestorage.googleapis.com/v0/b/alpha-cbb3d.appspot.com/o/MunjEco-Temp%2FAbout%20Us%20Page%2FFounders%20Note.jpeg?alt=media&token=bffe0eed-7483-44f1-9e48-0adc4dd676e7"
               alt="Thoughtful founder looking over natural landscapes"
               fill
               className="object-cover"

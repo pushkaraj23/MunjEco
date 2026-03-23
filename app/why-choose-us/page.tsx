@@ -22,7 +22,7 @@ export default function WhyChooseUsPage() {
       <ComplianceSection />
       <CTASection
         title="Ready to partner with a trusted Indian export partner?"
-        subtitle="Tell us what you're looking for — bulk products, private label manufacturing, or custom eco gifting — and we’ll help you build a reliable and sustainable supply chain from India."
+        subtitle="Tell us what you're looking for, bulk products, private label manufacturing, or custom eco gifting, and we’ll help you build a reliable and sustainable supply chain from India."
       />
       <TestimonialsSection />
     </main>

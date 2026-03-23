@@ -1,10 +1,12 @@
 "use client";
 
 import Image from "next/image";
-import { Mail, Phone, QrCode, FileText, MapPin } from "lucide-react";
+import Link from "next/link";
+import { Mail, Phone, QrCode, FileText } from "lucide-react";
 import { motion } from "framer-motion";
 import { DecoGraphic } from "@/components/shared/DecoGraphic";
 import { EnquiryForm } from "@/components/shared/EnquiryForm";
+import { SOCIAL_LINKS } from "@/components/shared/socialLinks";
 
 export function ContactPageContent() {
   return (
@@ -51,7 +53,7 @@ export function ContactPageContent() {
           </motion.p>
         </motion.header>
 
-        {/* Stacked: left info, then enquiry form, then image + map */}
+        {/* Stacked: contact info, enquiry form, then image */}
         <div className="flex flex-col gap-12 lg:gap-16">
           {/* Left - contact info */}
           <motion.section
@@ -97,12 +99,20 @@ export function ContactPageContent() {
                     Phone / WhatsApp
                   </h2>
                 </div>
-                <a
-                  href="tel:+919270952447"
-                  className="block text-sm text-foreground-muted hover:text-primary"
-                >
-                  +91 92709 52447
-                </a>
+                <div className="flex flex-col gap-1.5">
+                  <a
+                    href="tel:+919270952447"
+                    className="block text-sm text-foreground-muted hover:text-primary"
+                  >
+                    +91 92709 52447
+                  </a>
+                  <a
+                    href="tel:+918799829559"
+                    className="block text-sm text-foreground-muted hover:text-primary"
+                  >
+                    +91 87998 29559
+                  </a>
+                </div>
               </motion.div>
 
               <motion.div
@@ -121,6 +131,32 @@ export function ContactPageContent() {
                 <p className="text-sm text-foreground-muted">
                   Scan our WhatsApp QR code for quick enquiries.
                 </p>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-100px" }}
+                transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
+                className="space-y-3 border-t border-border pt-4 md:col-span-2"
+              >
+                <h2 className="font-heading text-sm font-semibold uppercase tracking-[0.22em] text-foreground">
+                  Follow us
+                </h2>
+                <div className="flex flex-wrap items-center gap-3">
+                  {SOCIAL_LINKS.map(({ href, label, icon: Icon }) => (
+                    <Link
+                      key={label}
+                      href={href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-border/80 bg-background text-foreground transition-all duration-200 hover:border-primary/40 hover:bg-primary/5 hover:text-primary"
+                      aria-label={label}
+                    >
+                      <Icon className="h-5 w-5" />
+                    </Link>
+                  ))}
+                </div>
               </motion.div>
             </div>
           </motion.section>
@@ -145,43 +181,23 @@ export function ContactPageContent() {
             <EnquiryForm theme="light" />
           </motion.section>
 
-          {/* Image + map placeholder strip */}
+          {/* Contact visual */}
           <motion.section
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-100px" }}
             transition={{ duration: 0.5, ease: "easeOut" }}
-            className="grid gap-6 md:grid-cols-2"
+            aria-label="Contact"
           >
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-              className="relative aspect-square overflow-hidden rounded-xl"
-            >
+            <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl md:aspect-[21/9]">
               <Image
-                src="https://images.unsplash.com/photo-1516652695352-6118f7cc1a07?q=80&w=1472&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                alt="Calm studio desk with natural materials"
+                src="https://images.unsplash.com/photo-1534536281715-e28d76689b4d?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Get in touch, we respond to export and partnership enquiries"
                 fill
                 className="object-cover"
-                sizes="(max-width: 1024px) 100vw, 50vw"
+                sizes="(max-width: 1280px) 100vw, 1152px"
               />
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-100px" }}
-              transition={{ duration: 0.5, ease: "easeOut" }}
-              className="flex aspect-square items-center justify-center rounded-xl border border-border bg-background-alt"
-            >
-              <div className="flex flex-col items-center gap-2 text-foreground-muted">
-                <MapPin className="h-7 w-7" strokeWidth={1.1} />
-                <p className="text-xs uppercase tracking-[0.22em]">
-                  Map placeholder
-                </p>
-              </div>
-            </motion.div>
+            </div>
           </motion.section>
         </div>
       </div>

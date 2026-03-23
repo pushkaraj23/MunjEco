@@ -10,8 +10,8 @@ export function AboutHeroSection() {
       {/* Background image - full cover */}
       <div className="absolute inset-0">
         <Image
-          src="https://images.unsplash.com/photo-1758487424832-a53ae6cdefdb?q=80&w=1469&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-          alt=""
+          src="https://firebasestorage.googleapis.com/v0/b/alpha-cbb3d.appspot.com/o/MunjEco-Temp%2FAbout%20Us%20Page%2FBanners%2F01.jpg?alt=media&token=3784f9c2-81ad-4f1d-9ef5-873dac7a6a05"
+          alt="Who-we-are-banner"
           fill
           className="object-cover"
           sizes="100vw"

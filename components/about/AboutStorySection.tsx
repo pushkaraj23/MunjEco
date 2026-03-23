@@ -33,7 +33,7 @@ export function AboutStorySection() {
             <p className="text-sm leading-relaxed text-white/80 md:text-base">
               MunjEco Global was founded on the belief that premium manufacturing and
               sustainability can go hand in hand. We specialize in bamboo daily-use
-              products—pens, stationery, bottles, and cups—crafted for durability and
+              products, pens, stationery, bottles, and cups, crafted for durability and
               elegance. Better habits for better nature.
             </p>
             <p className="text-sm leading-relaxed text-white/75 md:text-base">

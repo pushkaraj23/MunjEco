@@ -18,7 +18,7 @@ export function AboutOverviewSection() {
         >
           <div className="relative aspect-square w-full overflow-hidden rounded-2xl border border-border/70 bg-background-alt shadow-card md:justify-self-start">
             <Image
-              src="https://images.unsplash.com/photo-1519710164239-da123dc03ef4?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+              src="https://firebasestorage.googleapis.com/v0/b/alpha-cbb3d.appspot.com/o/MunjEco-Temp%2FAbout%20Us%20Page%2FWho%20We%20Are.jpg?alt=media&token=23fc96fc-cce9-4bc0-906b-0b7415fb8e1e"
               alt="MunjEco products and handicrafts arranged for export"
               fill
               className="object-cover"
@@ -40,7 +40,7 @@ export function AboutOverviewSection() {
               Our product range includes plastic-free daily-use essentials such as neem wood combs, bamboo toothbrushes, eco-friendly gift solutions, and thoughtfully crafted Indian handicrafts. Each product reflects careful material selection, traditional skills, and responsible production practices
             </p>
             <p className="text-sm leading-relaxed text-foreground-muted md:text-base">
-              Our approach is simple — conscious materials, ethical sourcing, consistent quality, and reliable delivery. Every product we export supports responsible livelihoods, reduced plastic use, and purposeful trade that respects both people and the planet.
+              Our approach is simple, conscious materials, ethical sourcing, consistent quality, and reliable delivery. Every product we export supports responsible livelihoods, reduced plastic use, and purposeful trade that respects both people and the planet.
             </p>
           </div>
         </motion.div>

@@ -31,7 +31,7 @@ const carouselCards = [
   },
   {
     title: "Transparent & Reliable",
-    desc: "Clear pricing, timely delivery, and honest communication — no surprises.",
+    desc: "Clear pricing, timely delivery, and honest communication, no surprises.",
     image:
       "https://firebasestorage.googleapis.com/v0/b/alpha-cbb3d.appspot.com/o/MunjEco-Temp%2FWhy-Choose-Us%2FHome%2FTransparent%20%26%20Reliablejpg.jpg?alt=media&token=d3e572f7-4b5b-4cde-a57c-0a44fe8b3508",
   },
