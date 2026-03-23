@@ -95,7 +95,7 @@ export function ReasonsCarouselSection() {
           ref={trackRef}
           className="mt-10 flex overflow-x-auto overflow-y-visible pt-2 pb-2 max-md:[&::-webkit-scrollbar]:hidden md:[&::-webkit-scrollbar]:h-2 md:[&::-webkit-scrollbar-track]:rounded-full md:[&::-webkit-scrollbar-track]:bg-muted/30 md:[&::-webkit-scrollbar-thumb]:rounded-full md:[&::-webkit-scrollbar-thumb]:bg-primary/40 md:[&::-webkit-scrollbar-thumb:hover]:bg-primary/60"
           style={{
-            scrollbarWidth: "none",
+            scrollbarWidth: undefined,
             scrollbarColor: undefined,
           }}
           onMouseEnter={() => setIsInteracting(true)}

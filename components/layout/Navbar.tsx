@@ -5,14 +5,17 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import { LayoutGrid } from "lucide-react";
 import type { Category } from "@/lib/categories";
 import { getCategories } from "@/lib/categories";
 
+/* Padding below this bar is defined in `lib/navbarOffset.ts` (py-3 + h-9 + border). */
+
 const navLinks = [
   { href: "/", label: "Home" },
+  { href: "/about", label: "About Us" },
   { href: "/products", label: "Products" },
   { href: "/why-choose-us", label: "Why Choose Us" },
-  { href: "/about", label: "About Us" },
 ];
 
 export function Navbar() {
@@ -93,9 +96,22 @@ export function Navbar() {
                     <span>{link.label}</span>
                   </Link>
 
-                  {categories.length > 0 && productsOpen && (
+                  {productsOpen && (
                     <div className="absolute left-0 top-full z-40 w-72 rounded-xl border border-border bg-background-alt/95 p-2 pt-3 text-left shadow-card backdrop-blur-sm">
                       <div className="flex flex-col gap-1">
+                        <Link
+                          href="/products"
+                          className={`flex items-center gap-3 rounded-md px-3 py-2 text-[0.8rem] font-semibold text-foreground hover:bg-background hover:text-foreground ${
+                            categories.length > 0
+                              ? "mb-1 border-b border-border/60"
+                              : ""
+                          }`}
+                        >
+                          <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-border/60 bg-primary/10 text-primary">
+                            <LayoutGrid className="h-4 w-4" strokeWidth={2} />
+                          </span>
+                          <span>All Products</span>
+                        </Link>
                         {categories.map((cat) => (
                           <Link
                             key={cat.id}

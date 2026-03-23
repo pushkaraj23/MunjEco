@@ -9,31 +9,31 @@ const carouselCards = [
     title: "Ethical & Responsible Sourcing",
     desc: "We source directly from verified manufacturers and artisan groups following ethical and sustainable practices.",
     image:
-      "https://images.unsplash.com/photo-1578575437130-527eed3abbec?q=80&w=1600&auto=format&fit=crop",
+      "https://firebasestorage.googleapis.com/v0/b/alpha-cbb3d.appspot.com/o/MunjEco-Temp%2FWhy-Choose-Us%2FHome%2FEthical%20%26%20Responsible%20Sourcing.jpg?alt=media&token=bb46e303-91e2-493e-8dd1-6ba5204124f5"
   },
   {
     title: "Export-Ready Quality",
     desc: "Products are selected, packed, and documented to meet international export standards.",
     image:
-      "https://images.unsplash.com/photo-1541417904950-b855846fe074?q=80&w=1600&auto=format&fit=crop",
+      "https://firebasestorage.googleapis.com/v0/b/alpha-cbb3d.appspot.com/o/MunjEco-Temp%2FWhy-Choose-Us%2FHome%2FExport-Ready%20Quality.jpg?alt=media&token=aa97285a-9786-4779-8b11-c4e75b419dc5",
   },
   {
     title: "Sustainability First",
     desc: "Plastic-free, biodegradable materials aligned with EU & UK sustainability goals.",
     image:
-      "https://images.unsplash.com/photo-1654078054613-a56cfcabdb84?q=80&w=1600&auto=format&fit=crop",
+      "https://firebasestorage.googleapis.com/v0/b/alpha-cbb3d.appspot.com/o/MunjEco-Temp%2FWhy-Choose-Us%2FHome%2FSustainability%20First.jpg?alt=media&token=73121ea5-6ccf-49a7-8d79-c90cd9263cd3",
   },
   {
     title: "Flexible Bulk & Private Label",
     desc: "Bulk supply, customization, and private labeling are available based on buyer needs.",
     image:
-      "https://images.unsplash.com/photo-1593747176945-ef77e62547eb?q=80&w=1600&auto=format&fit=crop",
+      "https://firebasestorage.googleapis.com/v0/b/alpha-cbb3d.appspot.com/o/MunjEco-Temp%2FWhy-Choose-Us%2FHome%2FFlexible%20Bulk%20%26%20Private%20Label.jpg?alt=media&token=54b16195-f516-4c47-9587-8b35efb03441",
   },
   {
     title: "Transparent & Reliable",
     desc: "Clear pricing, timely delivery, and honest communication — no surprises.",
     image:
-      "https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1600&auto=format&fit=crop",
+      "https://firebasestorage.googleapis.com/v0/b/alpha-cbb3d.appspot.com/o/MunjEco-Temp%2FWhy-Choose-Us%2FHome%2FTransparent%20%26%20Reliablejpg.jpg?alt=media&token=d3e572f7-4b5b-4cde-a57c-0a44fe8b3508",
   },
 ];
 
