@@ -1,0 +1,97 @@
+"use client";
+
+import { Suspense, useState } from "react";
+import { useSearchParams } from "next/navigation";
+import { enquiriesGateLogin } from "@/app/actions/enquiriesGateAuth";
+import { Lock } from "lucide-react";
+
+function EnquiriesLoginForm() {
+  const searchParams = useSearchParams();
+  const redirectTo = searchParams.get("redirect") ?? "";
+
+  const [error, setError] = useState<string | null>(null);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  async function handleSubmit(formData: FormData) {
+    setError(null);
+    setIsSubmitting(true);
+    try {
+      if (redirectTo) {
+        formData.set("redirect", redirectTo);
+      }
+      const result = await enquiriesGateLogin(formData);
+      if (result?.error) {
+        setError(result.error);
+      }
+    } finally {
+      setIsSubmitting(false);
+    }
+  }
+
+  return (
+    <div className="flex min-h-screen flex-col items-center justify-center bg-background px-6">
+      <div className="w-full max-w-md border border-border bg-background-alt p-8 shadow-elevated">
+        <div className="mb-6 flex justify-center">
+          <div className="flex h-12 w-12 items-center justify-center border border-primary/40 bg-primary/5">
+            <Lock className="h-6 w-6 text-primary" strokeWidth={1.5} />
+          </div>
+        </div>
+        <h1 className="text-center font-heading text-2xl font-semibold tracking-tight text-foreground">
+          Enquiries
+        </h1>
+        <p className="mt-2 text-center text-sm text-foreground-muted">
+          Enter the password to view website enquiries
+        </p>
+
+        <form action={handleSubmit} className="mt-8 space-y-6">
+          <div>
+            <label
+              htmlFor="enquiries-password"
+              className="mb-1 block text-[0.7rem] font-semibold uppercase tracking-[0.26em] text-foreground-muted"
+            >
+              Password
+            </label>
+            <input
+              id="enquiries-password"
+              name="password"
+              type="password"
+              required
+              autoFocus
+              placeholder="Enter password"
+              autoComplete="current-password"
+              className="w-full border border-border bg-background px-4 py-3 text-sm text-foreground placeholder:text-foreground-muted/60 outline-none transition-all focus:border-primary focus:ring-2 focus:ring-primary/20"
+            />
+          </div>
+
+          {error && (
+            <p className="border border-accent/40 bg-accent/5 px-4 py-2 text-sm text-foreground">
+              {error}
+            </p>
+          )}
+
+          <button
+            type="submit"
+            disabled={isSubmitting}
+            className="w-full bg-primary px-4 py-3 text-[0.75rem] font-semibold uppercase tracking-[0.26em] text-white transition-all hover:bg-primary-dark disabled:opacity-60"
+          >
+            {isSubmitting ? "Signing in..." : "Continue"}
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+}
+
+export default function EnquiriesLoginPage() {
+  return (
+    <Suspense
+      fallback={
+        <div className="flex min-h-screen items-center justify-center bg-background px-6">
+          <p className="text-sm text-foreground-muted">Loading…</p>
+        </div>
+      }
+    >
+      <EnquiriesLoginForm />
+    </Suspense>
+  );
+}

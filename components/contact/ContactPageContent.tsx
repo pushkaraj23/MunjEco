@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Mail, Phone, QrCode, FileText } from "lucide-react";
+import { Mail, Phone, FileText } from "lucide-react";
 import { motion } from "framer-motion";
 import { DecoGraphic } from "@/components/shared/DecoGraphic";
 import { EnquiryForm } from "@/components/shared/EnquiryForm";
@@ -120,24 +120,6 @@ export function ContactPageContent() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: "-100px" }}
                 transition={{ duration: 0.5, delay: 0.12, ease: "easeOut" }}
-                className="space-y-2 border-t border-border pt-4"
-              >
-                <div className="flex items-center gap-2">
-                  <QrCode className="h-5 w-5 text-primary" strokeWidth={1.5} />
-                  <h2 className="font-heading text-sm font-semibold uppercase tracking-[0.22em] text-foreground">
-                    Scan to contact
-                  </h2>
-                </div>
-                <p className="text-sm text-foreground-muted">
-                  Scan our WhatsApp QR code for quick enquiries.
-                </p>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-100px" }}
-                transition={{ duration: 0.5, delay: 0.15, ease: "easeOut" }}
                 className="space-y-3 border-t border-border pt-4 md:col-span-2"
               >
                 <h2 className="font-heading text-sm font-semibold uppercase tracking-[0.22em] text-foreground">

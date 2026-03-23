@@ -9,14 +9,15 @@ type LayoutShellProps = { children: React.ReactNode };
 
 export function LayoutShell({ children }: LayoutShellProps) {
   const pathname = usePathname();
-  const isAdmin = pathname?.startsWith("/admin");
+  const hidePublicChrome =
+    pathname?.startsWith("/admin") || pathname?.startsWith("/enquiries");
 
   return (
     <>
-      {!isAdmin && <Navbar />}
+      {!hidePublicChrome && <Navbar />}
       {children}
-      {!isAdmin && <Footer />}
-      {!isAdmin && <FloatingSocialButtons />}
+      {!hidePublicChrome && <Footer />}
+      {!hidePublicChrome && <FloatingSocialButtons />}
     </>
   );
 }

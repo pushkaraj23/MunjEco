@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { DM_Sans, Playfair_Display } from "next/font/google";
 import { LayoutShell } from "@/components/layout/LayoutShell";
 import "./globals.css";
+
+/** Google Analytics 4 measurement ID */
+const GA_MEASUREMENT_ID = "G-L9V8KX7CQM";
 
 // Heading / display font (serif, premium)
 const playfairDisplay = Playfair_Display({
@@ -58,6 +62,18 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${playfairDisplay.variable} ${dmSans.variable} antialiased`}>
+        <Script
+          src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', '${GA_MEASUREMENT_ID}');
+          `}
+        </Script>
         <LayoutShell>{children}</LayoutShell>
       </body>
     </html>

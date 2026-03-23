@@ -76,7 +76,7 @@ export function CertificationsSection() {
             <div className="relative min-w-0">
               <div className="relative aspect-square w-full overflow-hidden rounded-xl border border-border/70 bg-background shadow-card">
                 <Image
-                  src="https://images.unsplash.com/photo-1709804945989-c8be542e04db?q=80&w=1931&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  src="https://firebasestorage.googleapis.com/v0/b/alpha-cbb3d.appspot.com/o/MunjEco-Temp%2FWhy%20Choose%20Us%20Page%2FCertifications%20%26%20Compliance.jpg?alt=media&token=6a4ca437-4ca0-4472-a7c7-337afa36988a"
                   alt="Export documents, certifications and compliant packaging"
                   fill
                   className="object-cover"
