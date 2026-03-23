@@ -75,6 +75,14 @@ body {
   font-family: var(--font-nunito), system-ui, sans-serif;
 }
 
+/* Discourage casual image download (drag / selection); paired with ImageDownloadProtection */
+img {
+  -webkit-user-drag: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+
 /* ---------------------------------- */
 /* Clean Modern Background Utilities */
 /* ---------------------------------- */

@@ -4,6 +4,7 @@ import { usePathname } from "next/navigation";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
 import { FloatingSocialButtons } from "@/components/shared/FloatingSocialButtons";
+import { ImageDownloadProtection } from "@/components/shared/ImageDownloadProtection";
 
 type LayoutShellProps = { children: React.ReactNode };
 
@@ -14,6 +15,7 @@ export function LayoutShell({ children }: LayoutShellProps) {
 
   return (
     <>
+      <ImageDownloadProtection />
       {!hidePublicChrome && <Navbar />}
       {children}
       {!hidePublicChrome && <Footer />}

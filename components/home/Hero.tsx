@@ -173,7 +173,7 @@ export function Hero({
 
   return (
     <section
-      className={`relative flex flex-col bg-background ${NAVBAR_HEIGHT_OFFSET_CLASS}`}
+      className={`relative flex min-h-[100dvh] flex-col bg-background ${NAVBAR_HEIGHT_OFFSET_CLASS}`}
     >
       {/*
         Edge-to-edge viewport width; height from intrinsic image (no width/height on <img>).
@@ -370,7 +370,7 @@ export function Hero({
         transition={{ duration: 0.5, ease: "easeOut" }}
         className="relative flex min-h-0 flex-1 flex-col items-center justify-center overflow-visible border-t border-border/60 bg-background py-16 md:py-8 lg:py-10"
       >
-        <DecoGraphic src="/graphics/img1-v0.png" alt="" placement="bottom-right" size="md" className="opacity-25 max-sm:hidden" />
+        <DecoGraphic src="/graphics/img1-v0.png" alt="" placement="bottom-right" size="sm" className="opacity-25 max-sm:hidden" />
         {/* <DecoGraphic src="/graphics/img3-v0.png" alt="" placement="bottom-left" size="sm" className="opacity-25" /> */}
         <div className="mx-auto w-full max-w-6xl 2xl:max-w-7xl px-6 sm:px-8 md:px-10 lg:px-12 xl:px-14">
           <div className="grid grid-cols-1 max-sm:gap-2 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:items-center">
