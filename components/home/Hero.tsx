@@ -5,26 +5,15 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { DecoGraphic } from "@/components/shared/DecoGraphic";
+import { useIsMinWidthMd } from "@/hooks/useIsMinWidthMd";
 import { NAVBAR_HEIGHT_OFFSET_CLASS } from "@/lib/navbarOffset";
 
-/** Placeholder while hero banner image loads — gradient mesh + shimmer + soft accents */
+/** Placeholder while hero banner image loads — static gradient + pulse (no infinite JS animation). */
 function HeroImageSkeleton() {
   return (
     <div className="relative h-full min-h-[inherit] w-full overflow-hidden bg-background-alt">
       <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-background to-background-alt" />
-      <div className="absolute inset-0 bg-gradient-to-t from-primary/10 via-transparent to-accent/5" />
-      <div className="absolute -left-1/3 top-0 h-full w-2/3 skew-x-[-18deg] bg-gradient-to-r from-transparent via-white/30 to-transparent opacity-40 blur-sm" />
-      <motion.div
-        className="absolute inset-y-0 -left-1/2 w-[45%] skew-x-[-12deg] bg-gradient-to-r from-transparent via-white/35 to-transparent"
-        initial={{ x: "-30%" }}
-        animate={{ x: ["0%", "280%"] }}
-        transition={{
-          duration: 2.4,
-          repeat: Infinity,
-          ease: "easeInOut",
-          repeatDelay: 0.35,
-        }}
-      />
+      <div className="absolute inset-0 animate-pulse bg-gradient-to-t from-primary/10 via-transparent to-accent/5" />
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_50%_at_50%_100%,rgba(41,115,115,0.12),transparent_70%)]" />
       <div className="absolute bottom-10 left-1/2 flex -translate-x-1/2 flex-col items-center gap-2.5">
         <div className="flex items-center gap-1.5">
@@ -138,35 +127,22 @@ export function Hero({
     );
   };
 
+  const isMd = useIsMinWidthMd();
+
   useEffect(() => {
-    const mq = window.matchMedia("(min-width: 768px)");
-    let id: ReturnType<typeof setInterval> | undefined;
-
-    const sync = () => {
-      if (id) clearInterval(id);
-      id = undefined;
-      if (mq.matches) {
-        if (HERO_IMAGES.length <= 1) return;
-        id = setInterval(() => {
-          setActiveIndex((prev) => (prev + 1) % HERO_IMAGES.length);
-        }, 7000);
+    const len = isMd ? HERO_IMAGES.length : HERO_IMAGES_MOBILE.length;
+    if (len <= 1) return;
+    const id = setInterval(() => {
+      if (isMd) {
+        setActiveIndex((prev) => (prev + 1) % HERO_IMAGES.length);
       } else {
-        if (HERO_IMAGES_MOBILE.length <= 1) return;
-        id = setInterval(() => {
-          setMobileActiveIndex(
-            (prev) => (prev + 1) % HERO_IMAGES_MOBILE.length,
-          );
-        }, 7000);
+        setMobileActiveIndex(
+          (prev) => (prev + 1) % HERO_IMAGES_MOBILE.length,
+        );
       }
-    };
-
-    sync();
-    mq.addEventListener("change", sync);
-    return () => {
-      mq.removeEventListener("change", sync);
-      if (id) clearInterval(id);
-    };
-  }, []);
+    }, 7000);
+    return () => clearInterval(id);
+  }, [isMd]);
 
   const slidePercent = 100 / HERO_IMAGES.length;
   const mobileSlidePercent = 100 / HERO_IMAGES_MOBILE.length;
@@ -180,9 +156,10 @@ export function Hero({
         Native <img> avoids Next/Image requiring explicit dimensions.
       */}
       <div className="relative w-screen max-w-[100vw] shrink-0 overflow-hidden ml-[calc(50%-50vw)] mr-[calc(50%-50vw)]">
-        {/* Phone: mobile carousel */}
+        {/* Only one carousel mounted: avoids loading 10+ full-width banner images at once */}
+        {!isMd && (
         <div
-          className="relative w-full overflow-hidden md:hidden"
+          className="relative w-full overflow-hidden"
           onTouchStart={(e) =>
             setMobileTouchStartX(e.touches[0]?.clientX ?? null)
           }
@@ -272,10 +249,11 @@ export function Hero({
             </div>
           )}
         </div>
+        )}
 
-        {/* Tablet/desktop: carousel (first slide = /hero1.png) */}
+        {isMd && (
         <div
-          className="relative hidden w-full overflow-hidden md:block"
+          className="relative w-full overflow-hidden"
           onTouchStart={(e) => setTouchStartX(e.touches[0]?.clientX ?? null)}
           onTouchEnd={(e) => {
             if (HERO_IMAGES.length <= 1) return;
@@ -361,6 +339,7 @@ export function Hero({
             </div>
           )}
         </div>
+        )}
       </div>
 
       {/* BOTTOM CONTENT SECTION - compact to fit viewport */}

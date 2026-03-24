@@ -87,6 +87,7 @@ export function Navbar() {
                 >
                   <Link
                     href={link.href}
+                    prefetch
                     className={`relative inline-flex items-center rounded-full px-3 py-1.5 text-xs font-medium uppercase tracking-[0.22em] transition-colors duration-200 ${
                       active
                         ? "bg-primary/12 text-primary"
@@ -101,6 +102,7 @@ export function Navbar() {
                       <div className="flex flex-col gap-1">
                         <Link
                           href="/products"
+                          prefetch
                           className={`flex items-center gap-3 rounded-md px-3 py-2 text-[0.8rem] font-semibold text-foreground hover:bg-background hover:text-foreground ${
                             categories.length > 0
                               ? "mb-1 border-b border-border/60"

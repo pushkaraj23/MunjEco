@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
-import { getProducts } from "@/lib/getProducts";
-import { getCategories } from "@/lib/categories";
+import {
+  getCachedProductsCatalog,
+  getCachedCategoriesCatalog,
+} from "@/lib/siteCatalogCache";
 import { ProductsPageContent } from "@/components/products/ProductsPageContent";
 
 export const metadata: Metadata = {
@@ -18,8 +20,8 @@ export default async function ProductsPage({ searchParams }: Props) {
   const selectedCategory = params.category ?? "";
 
   const [products, categories] = await Promise.all([
-    getProducts(),
-    getCategories(),
+    getCachedProductsCatalog(),
+    getCachedCategoriesCatalog(),
   ]);
 
   const slugsWithProducts = new Set(
