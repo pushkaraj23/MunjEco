@@ -5,6 +5,12 @@ html {
   color-scheme: light;
 }
 
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
 :root {
   /* Core Brand Colors (Aquamarine / Pine Blue / Coral / Graphite) */
   --color-brand-blue: #297373; /* Pine Blue */

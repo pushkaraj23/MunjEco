@@ -173,7 +173,7 @@ export function ContactPageContent() {
           >
             <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl md:aspect-[21/9]">
               <Image
-                src="https://images.unsplash.com/photo-1534536281715-e28d76689b4d?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                src="https://firebasestorage.googleapis.com/v0/b/alpha-cbb3d.appspot.com/o/MunjEco-Temp%2FContact%20Page%2Fcontact.jpeg?alt=media&token=65a7aa6b-192f-494a-943a-143a04cfbef0"
                 alt="Get in touch, we respond to export and partnership enquiries"
                 fill
                 className="object-cover"

@@ -97,10 +97,7 @@ export function ProductDetailContent({ product, recommended = [] }: ProductDetai
                 {product.name}
               </h1>
               <div className="accent-line-left mt-2" />
-              <p className="mt-3 text-[0.7rem] uppercase tracking-[0.2em] text-foreground-muted">
-                SKU: {product.id.toUpperCase().slice(0, 8)}
-              </p>
-              <p className="mt-1 text-xs text-foreground-muted">
+              <p className="mt-3 text-xs text-foreground-muted">
                 Inclusive of all taxes. Export-ready packaging.
               </p>
             </motion.section>

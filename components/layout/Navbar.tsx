@@ -32,6 +32,12 @@ export function Navbar() {
     return pathname === href || pathname.startsWith(`${href}/`);
   };
 
+  /** Must not use `Link` on `/` — Next.js still scrolls the route instantly on same-URL clicks. */
+  function scrollToTopSmooth() {
+    const root = document.scrollingElement ?? document.documentElement;
+    root.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+  }
+
   useEffect(() => {
     void (async () => {
       try {
@@ -65,13 +71,28 @@ export function Navbar() {
       className="fixed inset-x-0 top-0 z-40 border-b border-border/70 bg-background/90 backdrop-blur-sm"
     >
       <nav className="mx-auto flex max-w-6xl 2xl:max-w-7xl items-center justify-between px-6 py-3 sm:px-8 md:px-10 lg:px-12 xl:px-14">
-        <Link href="/" className="relative block">
-          <img
-            src="/full-logo.png"
-            alt="MunjEco Global"
-            className="h-9 w-auto object-contain"
-          />
-        </Link>
+        {pathname === "/" ? (
+          <button
+            type="button"
+            onClick={scrollToTopSmooth}
+            className="relative block cursor-pointer border-0 bg-transparent p-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:ring-offset-2 focus-visible:ring-offset-background rounded-sm"
+            aria-label="Scroll to top"
+          >
+            <img
+              src="/full-logo.png"
+              alt=""
+              className="h-9 w-auto object-contain"
+            />
+          </button>
+        ) : (
+          <Link href="/" className="relative block" aria-label="MunjEco Global home">
+            <img
+              src="/full-logo.png"
+              alt=""
+              className="h-9 w-auto object-contain"
+            />
+          </Link>
+        )}
 
         <div className="hidden items-center gap-10 md:flex">
           {navLinks.map((link) => {
